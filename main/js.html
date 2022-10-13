@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Js - Es6</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	white-space:nowrap;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						JS 						 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+
+<p style="text-align:center"><img src="../img/jsp.png" width="150" height="150"></p>
+
+
+
+<i class="ti or"> &lt;script&gt; &nbsp;&nbsp; &nbsp;    JavaScript  &nbsp;&nbsp; &nbsp;  &lt;/script&gt; </i>
+
+<p dir="rtl">زبان کلاینت سایت سطح بالا &nbsp;با اسم اولیه <span style="color:#9b59b6">موکا</span></p>
+
+<p dir="rtl"><span style="color:#d35400">ES</span> &nbsp;==&gt; &nbsp;یک سازمان داریم به اسم &nbsp;<span style="color:#e74c3c">اکما اینترنشنال که &nbsp;استانداردهای تکنولوژی</span> را تعیین می کند</p>
+
+<p dir="rtl"><span style="color:#ff0099">جاوااسکریپت نام تجاری برای &nbsp;اکما اسکریپت است</span></p>
+
+
+<br>
+<span class="b">ES6 == ES 2015</span>
+<br>
+
+<p dir="rtl"><br />
+مرورگرها با موتورهای جاوااسکریپتی کدها را می خوانند و ترجمه می کند</p>
+
+<p><span style="color:#f39c12">Chrome&nbsp; &nbsp; &nbsp; &nbsp; </span>==&gt;&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#d35400">v8</span><br />
+<span style="color:#f39c12">FireFox&nbsp; &nbsp; &nbsp; &nbsp; </span>===&gt;&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#d35400">spider Monkey</span><br />
+<span style="color:#f39c12">Edge&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>==&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#d35400"> chakra</span></p>
+
+<br />
+
+<span class="g">babel ==>  تبدیل اکما اسکریپت 6 به اکما اسکریپت 5 </span>
+<br /><br />
+<h2 class="y">-------   Console    -------</h2>
+<div class="code">
+<p>console.<span style="color:#d35400">log</span>()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ===&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;log<br />
+console.<span style="color:#ff0099">table</span>()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===&gt; &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <span style="color:#d35400">&nbsp;ایندکس و ولیو ها را به صورت یک جدول نمایش می دهد</span><br />
+console.<span style="color:#e74c3c">error</span>()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===&gt; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;log with <span style="color:#e74c3c">bg red</span><br />
+console.<span style="color:#1abc9c">clear</span>()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#1abc9c">Clean console</span><br />
+console.<span style="color:#f1c40f">warn</span>()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;log with<span style="color:#e74c3c"> bg yellow</span><br />
+console.<span style="color:#3498db">info</span>()&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;===&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;similar &nbsp; console.log&nbsp;</p>
+<br />
+		=========
+<p>console.<span style="color:#16a085">time</span>(&#39;<span style="color:#f1c40f">hello</span>&#39;);</p>
+
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;console.log(&#39;cons-log&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  &nbsp;console.log(&#39;cons-log&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  &nbsp;console.log(&#39;cons-log&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  &nbsp;console.log(&#39;cons-log&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  &nbsp;console.log(&#39;cons-log&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;console.log(&#39;cons-log&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  &nbsp;console.log(&#39;cons-log&#39;);</span></p>
+
+<p>console.<span style="color:#16a085">timeEnd</span>(&#39;<span style="color:#f1c40f">hello</span>&#39;);</p>
+</div>
+
+<br />
+<span class="or"> با این روش میتوانیم زمان اجرا یک تکه کد را متوجه شویم </span>
+</span><br /><br />
+
+<h2 class="y">----------------------    Variable      ---------------------</h2>
+<div class="b"><p dir="rtl">اگر متغییری تعریف کنیم و به آن <span style="color:#e74c3c">مقدار ندهیم</span> به صورت دیفالت &nbsp;&nbsp;<span style="color:#d35400">undefined&nbsp;&nbsp;&nbsp;</span>است&nbsp;</p>
+
+</div>
+
+<div class="code">var x;</div>
+
+در نام متغییرها
+
+<p>FisrtName&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;===&gt; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#d35400">Pascal Case</span><br />
+fisrtName&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;===&gt; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#d35400">&nbsp;Camel Case</span></p>
+
+<p>_&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;===&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">private var</span><br />
+$&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;===&gt; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#9b59b6">JQuery</span><br />
+&nbsp;</p>
+
+<p><span style="color:#3498db">var</span><br />
+<span style="color:#3498db">const &nbsp; &nbsp; </span>===&gt;&nbsp; <span style="color:#27ae60">غیرقابل تغیی</span>ر&nbsp;<br />
+<span style="color:#3498db">let</span></p>
+
+
+
+
+<span class="red">برای تغییر مقادیر داخل  کانست  باید یک ارایه یا  ابجکت به آن اختصاص دهیم &nbsp; !!!</span>
+
+<div class="code">
+	<p><span style="color:#3498db">const </span>per ={<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;name:&quot;<span style="color:#f1c40f">ali</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;age:<span style="color:#9b59b6">21</span><br />
+&nbsp;}<br />
+&nbsp;per.name=&quot;<span style="color:#f1c40f">laravel</span>&quot;;<br />
+<span style="color:#3498db">&nbsp;console.log</span>(per);&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;// {name: &quot;laravel&quot;, age: 21}</span><br />
+&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;<br />
+<span style="color:#3498db">const </span>num = [2,3,4,5];<br />
+num.<span style="color:#d35400">push</span>(6);<br />
+<span style="color:#2980b9">console.log</span>(num)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">// [2, 3, 4, 5, 6]</span></p>
+
+
+</div>
+
+<h2 class="y">-------   Data Type    ------</h2>
+<br />
+<p dir="rtl"><br />
+<span style="color:#f39c12">دو نوع دیتا تایپ ما داریم&nbsp;</span><br />
+جاوااسکریپت یک زبان داینامیک تایپ است و نیازی نیست ما به آن نوع دیتاها را بگوییم</p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;<span style="color:#d35400">Primitive&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>==&gt; &nbsp;داده ساده یا داده اولیه<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#d35400">Reference &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span>==&gt; &nbsp;بهش اشاره می شود و مستقیم به خودش دسترسی نداریم</p>
+
+
+
+<div class="or">Primitive   --> (string / Integer / Boolean / Float / Symbol / Null / Undefined)</div>
+<div class="or">Reference   --> (Object / Array)</div>
+<div class="red">typeof   -->  نوع متغییر را به ما می دهد </div>
+
+<p dir="rtl"><br />
+<span style="color:#e67e22">&nbsp;توجه:</span> اگر مقدار داده ای&nbsp;&nbsp;<span style="color:#16a085">Null&nbsp;</span>باشد &nbsp;جاوااسکریپت &nbsp;دیتا تایپ آن را<span style="color:#d35400"> ابجکت</span> برمیگرداند&nbsp;</p>
+
+<p dir="rtl">اگر می خواهیم تنها متغییر را تعریف کنیم و به آن مقدار ندهیم <span style="color:#e74c3c">&nbsp;نمی توانیم از&nbsp; const&nbsp;</span>استفاده کنیم &nbsp;چراکه که این مورد یکبار تعریف می شود و باید مقدار داشته باشد&nbsp;به مثال توجه کنید &nbsp;</p>
+
+
+
+
+
+<div class="code"><p><span style="color:#3498db">const </span>name = &quot;<span style="color:#f1c40f">ALi</span>&quot;;<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof</span> name); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#95a5a6">&nbsp;// string</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>age = 24;<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>age); &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#7f8c8d"> // number</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>has = <span style="color:#9b59b6">true</span>;<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>has); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#7f8c8d">// boolean</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>car = <span style="color:#9b59b6">null</span>;<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof</span> car); &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <span style="color:#7f8c8d">// object</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>test;<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>test); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;//undefined</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>sym = <span style="color:#d35400">Symbol</span>();<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>sym);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// symbol&nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#3498db">const</span> hob = [&#39;<span style="color:#f1c40f">music</span>&#39;,&#39;<span style="color:#f1c40f">movie</span>&#39;];<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#27ae60">typeof </span>hob);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// object</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>trob = {<br />
+&nbsp;&nbsp; &nbsp;name:&quot;<span style="color:#f1c40f">Go</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;age : 21<br />
+};<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>trob);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// object</span></p>
+
+
+</div>
+<p><span style="color:#d35400">Symbol</span> &nbsp; --&gt;&nbsp; &nbsp; نوع جدیدی از دیتا تایپ ها هستند که در اکما 6 معرفی شده اند و مانند استرینگ می مانند با این تفاوت که یک&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">ایدی &nbsp;</span>یونیک به آن ها اختصاص داده میشود تا در تمام برنامه به راحتی به آن دسترسی داشته باشیم&nbsp;</p>
+<br /><br />
+
+<h2 class="y">--------------    Convert Data Type to other     ---------------</h2>
+
+
+<p><em><span style="color:#d35400">.length </span></em>&nbsp; &nbsp; &nbsp; &nbsp; ==&gt;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;فقط روی <span style="color:#27ae60">رشته ها</span> کار می کند &nbsp;(string)</p>
+
+
+
+
+
+<div class="code"><p><span style="color:#3498db">let&nbsp;&nbsp; &nbsp; </span>val;</p>
+
+<p>val = <span style="color:#d35400">String</span>(<span style="color:#9b59b6">555</span>);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//555</span><br />
+<span style="color:#3498db">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// string</span><br />
+<span style="color:#2980b9">console.log</span>(val.<span style="color:#d35400">length</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//3</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#d35400">String</span>(<span style="color:#8e44ad">true</span>);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// true</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof</span> val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// string</span><br />
+console.log(val.<span style="color:#d35400">length</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//4</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p><em>val = <span style="color:#d35400">String</span>(<span style="color:#e74c3c">new </span><span style="color:#2ecc71">Date</span>());</em><br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <em><span style="color:#7f8c8d">&nbsp;// Sat Jun 26 2021 00:26:57 GMT+0430 (Iran Daylight Time)</span></em><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// string</span><br />
+<span style="color:#2980b9">console.log</span>(val.<span style="color:#d35400">length</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//54</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p><em>val = <span style="color:#d35400">String</span>([<span style="color:#f1c40f">1,2,3,4</span>]);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// 1,2,3,4</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// string</span><br />
+<span style="color:#2980b9">console.log</span>(val.<span style="color:#d35400">length</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //&nbsp; 7</span></em></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p><em>val = ([<span style="color:#f1c40f">1,2,3,4</span>]).<span style="color:#16a085">toString</span>();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </em><span style="color:#7f8c8d">&nbsp; // مانند تابع قبلی هست &nbsp;دقیق</span><br />
+<em><span style="color:#2980b9">console.log</span>(val);<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);<br />
+<span style="color:#2980b9">console.log</span>(val.<span style="color:#d35400">length</span>);</em></p>
+
+<p>&nbsp;</p><br />
+
+<p><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#d35400"><strong><em>&nbsp;//&nbsp; &nbsp; ***/ &nbsp;String &nbsp;to Number &nbsp; /***</em></strong></span></p>
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#e74c3c">Number</span>(&#39;<span style="color:#f1c40f">5</span>&#39;);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// 5</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//number</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#27ae60">Number</span>(<span style="color:#8e44ad">true</span>);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//1</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //number</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#16a085">Number</span>(<span style="color:#9b59b6">null</span>);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //0</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//number</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#27ae60">Number</span>(&#39;<span style="color:#f1c40f">hello</span>&#39;);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// NaN</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //number</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#16a085">Number</span>([<span style="color:#f1c40f">1,2,3,4</span>]);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// NaN</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //number</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#d35400">parseInt</span>(&#39;<span style="color:#f1c40f">100</span>&#39;);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// 100</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//number</span></p>
+
+<p>&nbsp;</p><br />
+
+<p>&nbsp;</p><br />
+
+<p>val = <span style="color:#d35400">parseFloat</span>(&#39;<span style="color:#f1c40f">100.20</span>&#39;);&nbsp;&nbsp; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// 100.2</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#e74c3c">typeof </span>val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//number</span><br />
+<span style="color:#2980b9">console.log</span>(val.<span style="color:#d35400">toFixed</span>(<span style="color:#8e44ad">2</span>));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// 100.20</span></p>
+
+
+</div>
+<h2 class="y">-------    Math     ------</h2>
+<div class="code"><p><span style="color:#3498db">const </span>num1 = <span style="color:#8e44ad">80</span>;<br />
+<span style="color:#3498db">const </span>num2 = <span style="color:#8e44ad">20</span>;<br />
+<span style="color:#3498db">let </span>val;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">PI</span>;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// pi number</span><br />
+<span style="color:#7f8c8d">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">E</span>;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // E number</span><br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// 2.97777</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">round</span>(<span style="color:#8e44ad">3.5</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// &nbsp;rounded</span><br />
+<span style="color:#7f8c8d">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#27ae60">ceil</span>(<span style="color:#8e44ad">3.5</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &nbsp;rounded up</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#27ae60">floor</span>(<span style="color:#8e44ad">3.5</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // &nbsp;rounded down</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">sqrt</span>(<span style="color:#8e44ad">16</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// &nbsp;jazr</span><br />
+<span style="color:#7f8c8d">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#27ae60">abs</span>(-16);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// &nbsp;absolute value</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#27ae60">pow</span>(<span style="color:#ff0066">5&nbsp; ,&nbsp; 2</span>); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#7f8c8d"> // &nbsp;tavan</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">min</span>(<span style="color:#8e44ad">5,2,55,2,1,4,8,5,-6</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// &nbsp;min</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">max</span>(<span style="color:#8e44ad">5,2,55,2,1,4,8,5,-6</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// &nbsp;max</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#27ae60">random</span>(); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <span style="color:#7f8c8d">// &nbsp;random 0-1</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">random</span>()*<span style="color:#8e44ad">5</span> <span style="color:#e74c3c">+</span><span style="color:#8e44ad">1</span>; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#7f8c8d"> // &nbsp;random&nbsp;</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#ff0066">floor</span>(<span style="color:#d35400">Math</span>.<span style="color:#27ae60">random</span>() <span style="color:#e74c3c">*</span>&nbsp;<span style="color:#8e44ad">5</span> <span style="color:#e74c3c">+</span><span style="color:#8e44ad">1</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// &nbsp;random&nbsp;</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Math</span>.<span style="color:#27ae60">floor</span>(<span style="color:#d35400">Math</span>.<span style="color:#ff0066">random</span>() <span style="color:#e74c3c">*</span> (<span style="color:#8e44ad">82</span> <span style="color:#e74c3c">-</span> <span style="color:#9b59b6">45 </span><span style="color:#e74c3c">+</span> <span style="color:#9b59b6">1</span>) ) <span style="color:#e74c3c">+</span> <span style="color:#9b59b6">45</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);</p>
+
+<p><br />
+val = <span style="color:#e74c3c">Math.floor(Math.random() * (max - min + 1) ) + min;</span>&nbsp; &nbsp; <span style="color:#d35400"><em>&nbsp; // formoul</em></span></p>
+
+<p>&nbsp;</p>
+
+</div>
+<h2 class="y">--------------    String     ---------------</h2>
+<div class="code"><p><span style="color:#3498db">const </span>first = &quot;<span style="color:#f1c40f">ali</span>&quot;;<br />
+<span style="color:#3498db">const </span>last = &quot;<span style="color:#f1c40f">mohseni</span>&quot;;<br />
+<span style="color:#3498db">const </span>age = <span style="color:#9b59b6">27</span>;<br />
+<span style="color:#3498db">let </span>val;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = &#39;<span style="color:#f1c40f">web </span>&#39;;<br />
+val <span style="color:#e74c3c">+=&nbsp; &nbsp;</span>&#39;<span style="color:#f1c40f">prog</span>&#39; ;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // append</span><br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = `<span style="color:#27ae60">my name is </span>${<span style="color:#9b59b6">first</span>}`;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//ES6</span><br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;//my name is ali</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">length</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d"> &nbsp;//3</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">concat</span>(&#39;&nbsp;&#39;, <span style="color:#f39c12">last</span>); &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#7f8c8d">//ali mohseni</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first<span style="color:#16a085">.toUpperCase</span>();&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#16a085">toLowerCase</span>();&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#f39c12">first</span>[<span style="color:#9b59b6">2</span>]; &nbsp;&nbsp; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<span style="color:#7f8c8d">&nbsp; &nbsp;//i</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#e74c3c">indexOf</span>(&#39;<span style="color:#f1c40f">l</span>&#39;);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;//1 &nbsp;return index</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">charAt</span>(&#39;<span style="color:#f1c40f">1</span>&#39;);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val); &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d">&nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;l &nbsp; // برعکس &nbsp;قبلی&nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">charAt</span>(<span style="color:#9b59b6">first.length-1</span>);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; // get last char &nbsp;==&gt;i</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#e74c3c">substring</span>(<span style="color:#d35400">0 , 2</span>);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;// return &nbsp;char &nbsp;0 to 2 &nbsp;--&gt; al</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">slice</span>(<span style="color:#8e44ad">0 , 2</span>);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp; &nbsp; &nbsp;// return &nbsp;char &nbsp;0 to 2 &nbsp;--&gt; al</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>srt = &quot;<span style="color:#f1c40f">ali is laravel man</span>&quot;;<br />
+val = srt.<span style="color:#27ae60">split</span>(&#39; &#39;);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //[&quot;ali&quot;, &quot;is&quot;, &quot;laravel&quot;, &quot;man&quot;]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">replace</span>(&#39;<span style="color:#f1c40f">ali</span>&#39;,&#39;<span style="color:#f39c12">mm</span>&#39;);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//mm</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = first.<span style="color:#d35400">includes</span>(&#39;<span style="color:#f1c40f">ali</span>&#39;);&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp; //true &nbsp;// ایا &nbsp;شامل می شود &nbsp;یا نه&nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+</div>
+<h2 class="y">--------------    Array     ---------------</h2>
+<span class="or"><p style="text-align:center"><span style="color:#ff0099">sort&nbsp;</span></p>
+
+<p style="text-align:center">
+<span style="color:#ff0099">برای اعداد فقط رقم اول را نگاه می کند و برای مثال 5 را بعد 44 قرار می دهد&nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+</span>
+
+<div class="code"><p><span style="color:#3498db">const </span>num = [<span style="color:#9b59b6">1,2,3,5</span>];<br />
+<span style="color:#3498db">const </span>num2 =<span style="color:#e74c3c">new </span><span style="color:#27ae60">Array</span>(<span style="color:#d35400">1,2,3,5</span>);<br />
+<span style="color:#3498db">const </span>mixed = [ 22 ,&#39;<span style="color:#f1c40f">ali </span>&#39;,<span style="color:#9b59b6">true </span>,<span style="color:#f39c12">undefined </span>,<span style="color:#9b59b6">null </span>,<span style="color:#ff0099">{a:1,b:2}</span>];<br />
+<span style="color:#3498db">let </span>val;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>console.log(mixed);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; &nbsp;//(6)&nbsp;[22, &quot;ali&quot;, true, undefined, null, {&hellip;}]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = mixed.<span style="color:#d35400">length</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:#7f8c8d">&nbsp; //6</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">Array</span>.<span style="color:#d35400">isArray</span>(mixed);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// true</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#16a085">mixed[6]</span> = 100;<br />
+<span style="color:#2980b9">console.log</span>(mixed); &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;//&nbsp;[22, &quot;ali&quot;, true, undefined, null, {&hellip;}, 100]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = mixed.<span style="color:#e74c3c">indexOf</span>(<span style="color:#9b59b6">100</span>);<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // 6</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>mixed.<span style="color:#27ae60">push</span>(&#39;<span style="color:#f1c40f">laravel</span>&#39;); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;// add to end array</span><br />
+<span style="color:#2980b9">console.log</span>(mixed);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // [22, &quot;ali&quot;, true, undefined, null, {&hellip;}, &quot;laravel&quot;]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>mixed.<span style="color:#e74c3c">unshift</span>(&#39;<span style="color:#f1c40f">laravel</span>&#39;);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; // add to front (start) array</span><br />
+<span style="color:#2980b9">console.log</span>(mixed);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // (7) [&quot;laravel&quot;, 22, &quot;ali&quot;, true, undefined, null, {&hellip;}]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;<br />
+mixed.<span style="color:#d35400">pop</span>();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// delete one from end</span><br />
+<span style="color:#2980b9">console.log</span>(mixed); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d"> &nbsp; //(5)&nbsp;[22, &quot;ali&quot;, true, undefined, null]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>mixed.<span style="color:#d35400">shift</span>();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// delete one from start</span><br />
+<span style="color:#2980b9">console.log</span>(mixed); &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;// (5)&nbsp;[&quot;ali&quot;, true, undefined, null, {&hellip;}]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>mixed.<span style="color:#d35400">splice</span>(<span style="color:#f39c12">1&nbsp; ,&nbsp; 3</span>); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;// &nbsp; &nbsp;boresh index 0 - 2 and delete</span><br />
+<span style="color:#2980b9">console.log</span>(mixed); &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d"> &nbsp;// (3)&nbsp;[22, null, {&hellip;}]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>mixed.<span style="color:#e74c3c">reverse</span>(); &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(mixed); &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d"> &nbsp;// (3)&nbsp;[{&hellip;}, null, 22]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;val = mixed.<span style="color:#d35400">concat</span>(other array); &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp;// concat to array &nbsp;</span><br />
+<span style="color:#2980b9">&nbsp;console.log</span>(mixed); &nbsp;&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>nums = [<span style="color:#f1c40f">5,44,21,24,23</span>];</p>
+
+<p>val = nums.<span style="color:#27ae60">sort</span>(); &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; &nbsp;// &nbsp;[21, 23, 24, 44, 5]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = nums.<span style="color:#27ae60">sort</span>(<span style="color:#3498db">function</span>(x,y) {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>x-y;<br />
+}); &nbsp;<br />
+<span style="color:#3498db">console.log</span>(val); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d"> &nbsp; // [5, 21, 23, 24, 44]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><em><span style="color:#d35400">// ==== reverse</span></em><br />
+<br />
+val = nums.<span style="color:#27ae60">sort</span>(<span style="color:#3498db">function</span>(<span style="color:#d35400">x,y</span>) {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>y-x;<br />
+}); &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// [44, 24, 23, 21, 5]</span></p>
+
+</div>
+<h2 class="y">--------    Object     -------</h2>
+<p dir="rtl">برای استفاده از <span style="color:#27ae60">یک پرورتی یک ابجکت</span> در قسمت دیگری از <strong><span style="color:#d35400">همان ابجت</span></strong> از &nbsp;کلمه کلیدی&nbsp;<em><span style="color:#e74c3c">this </span></em>استفاده می کنیم &nbsp;</p>
+
+
+
+
+<div class="code"><p><span style="color:#3498db">const </span><span style="color:#9b59b6">person</span> = {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">first</span>:&quot;ali&quot;,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">last</span>:&quot;mm&quot;,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">age</span>:23,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">email</span>:&quot;ali@gmail.com&quot;,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">hoby</span>:[&#39;mus&#39;,&#39;prog&#39;],<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">addres</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;city:&#39;foo&#39;,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state:&#39;bar&#39;<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#16a085">getBirthYear </span>:function(){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return 1398 -<span style="color:#ecf0f1"> <span style="background-color:#e74c3c">this.age</span></span>;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// use other<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">getEdu</span>(){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return &quot;radio&quot;;<br />
+&nbsp;&nbsp; &nbsp;}<br />
+}</p>
+
+<br /><br /><br /><br /><br />
+
+<p><span style="color:#3498db">let </span>val;<br />
+<span style="color:#3498db">val </span>= person;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">&nbsp;///{first: &quot;ali&quot;, last: &quot;mm&quot;, age: 23, email: &quot;ali@gmail.com&quot;, hoby: Array(2),&nbsp;&hellip;}</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = person.<span style="color:#f39c12">first</span>;<br />
+<span style="color:#2980b9">console.lo</span>g(val); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#7f8c8d">&nbsp; //ali</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#2ecc71">person</span>[&#39;<span style="color:#f1c40f">last</span>&#39;];<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;//mm</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = person.<span style="color:#f1c40f">hoby</span>;<br />
+<span style="color:#2980b9">console.log</span>(val); &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d"> &nbsp;//(2)&nbsp;[&quot;mus&quot;, &quot;prog&quot;]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = person.<span style="color:#2ecc71">hoby</span>[<span style="color:#f39c12">1</span>];<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:#7f8c8d"> //prog</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = person.<span style="color:#ff0066">addres.city</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //foo</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = person.<span style="color:#27ae60">getBirthYear</span>();<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//1371</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#8e44ad">person.getBirthYear</span>;<br />
+<span style="color:#2980b9">console.log</span>(val); &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; /<span style="color:#7f8c8d">/ &nbsp; &fnof; (){return 1371;}</span></p>
+
+</div>
+
+<h2 class="y">--------------    if  Condition   ---------------</h2>
+
+<p><span style="color:#e74c3c">=</span>&nbsp; &nbsp; &nbsp; &nbsp; --&gt; &nbsp;&nbsp; &nbsp;assign<br />
+<span style="color:#e74c3c">==</span>&nbsp; &nbsp; &nbsp; --&gt; &nbsp;&nbsp; &nbsp;compare (check Value)<br />
+<span style="color:#e74c3c">!=</span>&nbsp; &nbsp; &nbsp; &nbsp;--&gt; &nbsp;&nbsp; &nbsp;Not<br />
+<span style="color:#e74c3c">===</span>&nbsp; &nbsp; --&gt; &nbsp;&nbsp; &nbsp;check Value and Type<br />
+<span style="color:#e74c3c">!==</span>&nbsp; &nbsp; &nbsp;--&gt; &nbsp;&nbsp; &nbsp;check Value and Type (negative)<br />
+<span style="color:#e74c3c">&gt;</span>&nbsp; &nbsp; &nbsp; &nbsp; --&gt; &nbsp;&nbsp; &nbsp;Greater<br />
+<span style="color:#e74c3c">&gt;=</span> &nbsp;&nbsp;&nbsp; &nbsp;--&gt; &nbsp;&nbsp; &nbsp;Greater or equal<br />
+<span style="color:#e74c3c">&lt;</span>&nbsp; &nbsp; &nbsp; &nbsp; --&gt; &nbsp;&nbsp; &nbsp;Less&nbsp;<br />
+<span style="color:#e74c3c">&lt;=</span> &nbsp;&nbsp;&nbsp; &nbsp;--&gt; &nbsp;&nbsp; &nbsp;Less or equal<br />
+<span style="color:#e74c3c">&amp;&amp;</span>&nbsp; &nbsp; &nbsp; --&gt; &nbsp;&nbsp; &nbsp;Logic Operator (And)<br />
+<span style="color:#e74c3c">||</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--&gt; &nbsp;&nbsp; &nbsp;Logic Operator (OR)<br />
+<span style="color:#e74c3c">? :</span>&nbsp; &nbsp; &nbsp; &nbsp;--&gt; &nbsp;&nbsp; &nbsp;Ternary Operator&nbsp;</p>
+
+<div class="code">
+<p><span style="color:#e74c3c">if</span>(<span style="color:#f1c40f">condition</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#95a5a6">#code</span><br />
+}<span style="color:#e74c3c">else if</span>(<span style="color:#f1c40f">condition</span>){<br />
+&nbsp;&nbsp; <span style="color:#dddddd">&nbsp;</span><span style="color:#95a5a6">#code</span><br />
+}<span style="color:#e74c3c">else if</span>(<span style="color:#f1c40f">condition</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#95a5a6">#code</span><br />
+}<span style="color:#e74c3c">else</span>{<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#95a5a6">#code</span><br />
+}</p>
+
+<br>
+<br>
+<br>
+
+
+<p><span style="color:#3498db">const </span>id= <span style="color:#9b59b6">60</span>;</p>
+
+<p><span style="color:#e74c3c">if</span>(i<span style="color:#d35400">d</span> == <span style="color:#9b59b6">60</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f1c40f">yes</span>&#39;);<br />
+}<span style="color:#e74c3c">else</span>{<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&#39;<span style="color:#f1c40f">no</span>&#39;);<br />
+}</p>
+<br>
+<br>
+<br>
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#e74c3c">if</span>(id){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#d35400">&nbsp;// is has value --&gt; true</span><br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f1c40f">eval</span>&#39;);<br />
+}<span style="color:#e74c3c">else</span>{<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&quot;<span style="color:#f1c40f">no eval</span>&quot;);&nbsp;<br />
+}</p>
+
+<p>&nbsp;</p>
+<br>
+<br>
+<br>
+<p><span style="color:#e74c3c">if</span>(<span style="color:#27ae60">typeof </span>id !== &#39;<span style="color:#f1c40f">undefined</span>&#39;){&nbsp; &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f39c12">bi</span>&#39;);<br />
+}<span style="color:#e74c3c">else</span>{<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&quot;<span style="color:#f39c12">no bn</span>&quot;);<br />
+}</p>
+
+<p>&nbsp;</p>
+<br>
+<br>
+<br>
+<p><span style="color:#2980b9">console.log</span>(id === 60 <span style="color:#e74c3c">?</span> &quot;<span style="color:#f1c40f">yes T</span>&quot; <span style="color:#e74c3c">:</span> &quot;<span style="color:#f1c40f">no T</span>&quot;);</p>
+
+<p>&nbsp;</p>
+<br>
+<br>
+<br>
+<p><span style="color:#e74c3c">if</span>(id === 60)<br />
+&nbsp;&nbsp;<span style="color:#2980b9"> &nbsp;console.log</span>(&#39;<span style="color:#f1c40f">bi</span>&#39;);<br />
+<span style="color:#e74c3c">else</span><br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(&quot;<span style="color:#f1c40f">no bn</span>&quot;);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#c0392b">&nbsp; //!!! Bad</span></p>
+
+</div>
+
+<h2 class="y">--------------    Switch  Condition   ---------------</h2>
+
+<div class="code">
+<p><span style="color:#e74c3c">switch</span>(<span style="color:#27ae60">condition</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">case </span>&#39;<span style="color:#f1c40f">state</span>&#39;:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#95a5a6">&nbsp;#code</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c"> &nbsp; break</span>;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">case</span> &#39;<span style="color:#f1c40f">state</span>&#39;:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#95a5a6"> #code</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">break</span>;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">default </span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#95a5a6">#code</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#c0392b"> break</span>;<br />
+}</p>
+</div>
+
+<h2 class="y">--------------    Function   ---------------</h2>
+<div class="code">
+<span class="or">1  ==> Declaration function</span><br><br><br><br>
+
+<p><span style="color:#3498db">function </span><span style="color:#27ae60">add</span>(){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(&quot;<span style="color:#f39c12">Declaration function</span>&quot;);<br />
+}<br />
+<span style="color:#9b59b6">add</span>();</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">function </span><span style="color:#27ae60">ox</span>(<span style="color:#d35400">x</span>,<span style="color:#d35400">y</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>x+y;<br />
+}</p>
+
+<p><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#2ecc71">ox</span>());&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// NaN</span><br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#2ecc71">ox</span>(<span style="color:#f1c40f">2</span>,5));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//7</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">function </span><span style="color:#27ae60">ox</span>(<span style="color:#d35400">x</span>=1,<span style="color:#d35400">y</span>=2){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#c0392b">//Es6</span><br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>x+y;<br />
+}<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#f1c40f">ox</span>());&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//3</span></p>
+
+
+<br><br><br><br><span class="or">2  ==> Expresions function</span><br><br><br><br>
+
+<p><span style="color:#3498db">const </span><span style="color:#2ecc71">fu </span>= <span style="color:#f1c40f">function</span>(<span style="color:#e67e22">x</span>=<span style="color:#3498db">5</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>x;<br />
+};<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#9b59b6">fu</span>(2));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //2</span></p>
+</div>
+<p dir="rtl">مفسر جاوااسکریپت در ابتدا می آید کل توابع &nbsp;<span style="color:#e74c3c">declaration </span>رو می گیرد و آن ها را <span style="color:#d35400">ready </span>و آماده استفاده می کند. ب<span style="color:#d35400">ه همین دلیل شما در هر جایی از برنامه حتی قبل از تعریف خود فانکشن در کد ها می توانید از ان استفاده کنید و مشکلی ایجاد نمی شود &nbsp;</span><br />
+<span style="color:#e74c3c">در توابع Expresions &nbsp;چون داریم مقادیر تابع را به یک متغییر نسبت می دهیم. نمی توانیم از تابع قبل از تعریف ان استفاده کنیم. چون ابتدا باید متغییر ایجاد شود تا بعد آن را فراخوانی کنیم.</span></p>
+
+
+<div class="code">
+<span class="or">3  ==> Arrow function (type of Expresions)  //Es6 </span><br><br><br><br>
+
+<p><span style="color:#3498db">const </span><span style="color:#2ecc71">adds </span>= (<span style="color:#f1c40f">x</span>)<span style="color:#d35400"> =&gt;</span>{<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>x;<br />
+}<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#8e44ad">adds</span>(5))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//5</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span><span style="color:#2ecc71">adds2 </span>= <span style="color:#ff3366">x</span> <span style="color:#d35400">=&gt;</span> {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>x;<br />
+}<br />
+<span style="color:#2980b9">console.log</span>(<span style="color:#27ae60">adds2</span>(5))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//5</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span><span style="color:#2ecc71">adds23 </span>= (<span style="color:#d35400">x</span>,<span style="color:#d35400">y</span>) <span style="color:#ff3399">=&gt;</span> &nbsp;x+y;</p>
+
+<p><span style="color:#2980b9">console.log</span>(<span style="color:#9b59b6">adds23</span>(5,2));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;//7</span><br />
+&nbsp;</p>
+
+<br><br><br><br><span class="or">4  ==> Immidiatley Invokable Function Expressions  (IIFEs)</span><br><br><br><br>
+
+<p>(<span style="color:#2ecc71">function</span>(<span style="color:#d35400">i</span>){<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&#39;<span style="color:#f1c40f">IIFEs </span>&#39; +<span style="color:#8e44ad"> i</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //IIFEs func</span><br />
+})<span style="color:#ecf0f1"><span style="background-color:#ff3366">(&#39;func&#39;);</span></span></p>
+
+</div>
+
+<p dir="rtl">در مورد <span style="color:#d35400">Arrow function </span>&nbsp;اگر<span style="color:#ff3399"> یک آرگومان</span> ورودی داشته باشیم می توانیم پرانتز ها را هم حذف کنیم&nbsp;</p>
+
+<p dir="rtl"><span style="color:#c0392b">IIFEs &nbsp; یعنی تابع را تعریف و همان موقع بلافاصله آن را اجرا می کند</span></p>
+
+<h2 class="y">--------------    Loop   ---------------</h2>
+
+<p style="direction:rtl">در حلقه ها برای شمارنده <span style="color:#d35400">نمی توانید از const استفاده کنید</span>. زیرا این شمارنده متغییر است. از <span style="color:#e74c3c">var </span>یا <span style="color:#e74c3c">let</span> استفاده کنید.</p>
+
+<div class="code"><p><span style="color:#e74c3c">for</span>(<span style="color:#27ae60">let </span>i=0; i&lt; 5; i++){<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> #code</span><br />
+}</p>
+</div>
+<br>
+<p style="direction:rtl">روش بهتر برای پیمایش آرایه ها استفاده از&nbsp;<span style="color:#ff3366">forEach </span>است.</p>
+<br>
+
+<div class="code"><p><span style="color:#2980b9">const </span><span style="color:#9b59b6">cars </span>= [&#39;<span style="color:#f1c40f">tesla</span>&#39;,&#39;<span style="color:#f1c40f">honda</span>&#39;,&#39;<span style="color:#f1c40f">ford</span>&#39;,&#39;<span style="color:#f1c40f">volvo</span>&#39;];</p><br>
+
+<p>cars.<span style="color:#c0392b">forEach</span>(<span style="color:#8e44ad">function</span>(<span style="color:#d35400">car</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(<span style="color:#27ae60">car</span>);<br />
+});</p></div>
+<br />
+<p dir="rtl">به جای forEach می توانیم از <span style="color:#d35400">map </span>هم استفاده کنیم که عملکردی دقیقا مشابه forEach دارد. <span style="color:#e67e22">تفاوت اصلی map این است که آنچه می خواهیم را به صورت یک آرایه برایمان برمی گرداند.</span></p><br />
+
+<div class="code"><p><span style="color:#2980b9">const </span><span style="color:#27ae60">users </span>= [<br />
+&nbsp;&nbsp; &nbsp;{id:1,name:&quot;<span style="color:#f1c40f">ali</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{id:2,name:&quot;<span style="color:#f1c40f">sadegh</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{id:3,name:&quot;<span style="color:#f1c40f">sina</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{id:4,name:&quot;<span style="color:#f1c40f">corosh</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{id:5,name:&quot;<span style="color:#f1c40f">sers</span>&quot;},<br />
+];</p><br /><br />
+
+<p><span style="color:#2980b9">const </span>ids = users.<span style="color:#27ae60">map</span>(function(<span style="color:#d35400">user</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#c0392b">return </span><span style="color:#f39c12">user.id</span>;<br />
+});</p>
+
+<p><span style="color:#2980b9">console.log</span>(ids);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//&nbsp;(5) [1, 2, 3, 4, 5]</span></p>
+</div>
+
+
+<p dir="rtl">دستور بعد <span style="color:#ff3366">for&nbsp; &nbsp;in</span>&nbsp; است که بیشتر برای <span style="color:#f39c12">object </span>ها به کار می رود.</p>
+
+<br />
+
+<div class="code">
+<p><span style="color:#3498db">const </span>user = {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e67e22">first&nbsp;&nbsp;</span>:&nbsp; &quot;<span style="color:#f1c40f">ali</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e67e22">last&nbsp;&nbsp;</span>:&nbsp; &quot;<span style="color:#f1c40f">mohseni</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e67e22">age&nbsp;&nbsp;</span>:&nbsp; 23<br />
+}</p><br /><br />
+
+<p><span style="color:#c0392b">for</span>(<span style="color:#9b59b6">let </span>x <span style="color:#c0392b">in </span><span style="color:#d35400">user</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(`<span style="color:#ff3366">${</span><span style="color:#27ae60">x</span><span style="color:#ff3366">}</span> : <span style="color:#ff3366">${user[</span><span style="color:#27ae60">x</span><span style="color:#ff3366">]}</span>`);<br />
+}</p><br /><br />
+<p><span style="color:#27ae60">x</span>&nbsp; &nbsp; &nbsp;==&gt;<span style="color:#e67e22"> key object</span></p>
+
+<p><span style="color:#27ae60">user[x</span>]&nbsp; ====&gt; <span style="color:#e67e22">value</span></p></div>
+
+<h2 class="y">--------------    Scope   ---------------</h2>
+
+<p><span style="color:#d35400">scope&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>==&gt;&nbsp; <span style="color:#27ae60">&nbsp;تعریف محدوده یک متغییر</span></p>
+
+<p dir="rtl">اگر هریک از متغییر های <span style="color:#c0392b">var - const - let&nbsp;</span> را داخل تابع تعریف کنیم در بیرون تابع به آن ها <span style="color:#d35400">دسترسی نداریم.</span></p>
+
+<p dir="rtl">اما اگر مقادیر این ها را داخل<span style="color:#c0392b"> if&nbsp; یا&nbsp; loop</span> تغییر دهیم. <span style="color:#d35400">تنها مقدار var تغییر می کند</span> و دوباره سازی می شود<span style="color:#f39c12"> اما let و const در هر محدوده که تعریف شوند کاری به محدوده قبلی ندارند و اگر داخل بلاک if مثلا let را تغییر دهیم تنها داخل همان بلاک مقدار جدید دارد و در خارج از آن تغییری نمی کند</span></p>
+
+<div class="code">
+<p><span style="color:#3498db">var </span>a =1;<br />
+<span style="color:#3498db">let </span>b =3;<br />
+<span style="color:#3498db">const </span>c =5;</p>
+<br /><br />
+<p><span style="color:#c0392b">if</span>(<span style="color:#8e44ad">true</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#3498db">var </span>a =10;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#3498db">let </span>b =30;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#3498db">const </span>c =50;</p>
+
+<p>&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&#39;<span style="color:#f1c40f">if</span>&#39;,a,b,c)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">/// if </span><span style="color:#d35400">10 30 50</span><br />
+}</p>
+<br /><br />
+<p><span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f1c40f">global</span>&#39;,a,b,c)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // global <span style="color:#d35400">10 3 5</span></span></p>
+</div>
+<p dir="rtl"><span style="color:#e74c3c">این تغییر این چنینی var در پروژه های بزرگ بسیار مشکل ساز می شود.</span></p>
+
+<h2 class="y">--------------    Maps   ---------------</h2>
+
+introducted  in  <span style="color:#d35400">&nbsp; &nbsp; &nbsp; Es6 </span>
+<p dir="rtl">در جاوااسکریپت&nbsp;<span style="color:#d35400">Maps </span>یک جفت&nbsp;<span style="color:#c0392b"> key و value</span> هستند که <span style="color:#f39c12">می توانند هر مقداری</span> داشته باشند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#2980b9">let</span> <span style="color:#9b59b6">person </span>= <span style="color:#e74c3c">new </span><span style="color:#16a085">Map</span>();</p>
+
+<p><span style="color:#7f8c8d">// person.set(&#39;key&#39;,value);</span></p>
+
+<p>person.<span style="color:#27ae60">set</span>(&#39;<span style="color:#f1c40f">person1</span>&#39;,{<br />
+&nbsp;&nbsp; &nbsp;first:&#39;<span style="color:#f1c40f">fiest</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;last:&#39;<span style="color:#f1c40f">list</span>&#39;,<br />
+});</p>
+<br /><br />
+<p><span style="color:#2980b9">console.log</span>(person);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //Map(1)&nbsp;{&quot;person1&quot; =&gt; {&hellip;}}</span></p><br /><br />
+
+<p><br />
+person.<span style="color:#27ae60">set</span>(&#39;<span style="color:#f1c40f">person2</span>&#39;,{<br />
+&nbsp;&nbsp; &nbsp;first:&#39;<span style="color:#f1c40f">fiest</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;last:&#39;<span style="color:#f1c40f">list</span>&#39;,<br />
+});</p>
+
+<p>console.log(person);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //Map(2)&nbsp;{&quot;person1&quot; =&gt; {&hellip;}, &quot;person2&quot; =&gt; {&hellip;}}</span></p>
+
+<p>&nbsp;</p><br /><br />
+
+<p><span style="color:#2980b9">console.log</span>(person.<span style="color:#27ae60">get</span>(&#39;person1&#39;))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //{first: &quot;fiest&quot;, last: &quot;list&quot;}</span><br /><br /><br />
+
+
+<span style="color:#2980b9">console.log</span>(person.<span style="color:#27ae60">get</span>(&#39;person1&#39;).<span style="color:#d35400">first</span>)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;//fiest</span></p>
+<br /><br />
+<p>&nbsp;</p>
+
+<p>person.<span style="color:#27ae60">set</span>(&#39;<span style="color:#f1c40f">String</span>&#39;,&#39;<span style="color:#f1c40f">value s</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(person)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //Map(3)&nbsp;{&quot;person1&quot; =&gt; {&hellip;}, &quot;person2&quot; =&gt; {&hellip;}, &quot;String&quot; =&gt; &quot;value s&quot;}</span><br /><br /><br /><br />
+
+<span style="color:#2980b9">console.log</span>(person.<span style="color:#27ae60">get</span>(&#39;<span style="color:#f1c40f">String</span>&#39;))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#999999">//value s</span></p>
+
+<p>person.<span style="color:#27ae60">set</span>(&#39;<span style="color:#f1c40f">func</span>&#39;, <span style="color:#9b59b6">function </span>(){ <span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f1c40f">aliss</span>&#39;)});</p><br /><br />
+
+<p><span style="color:#2980b9">console.log</span>(person)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //Map(4)&nbsp;{&quot;person1&quot; =&gt; {&hellip;}, &quot;person2&quot; =&gt; {&hellip;}, &quot;String&quot; =&gt; &quot;value s&quot;, &quot;func&quot; =&gt; &fnof;} &nbsp;</span><br /><br /><br />
+
+person.<span style="color:#d35400">get</span>(&#39;func&#39;)();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//aliss</span></p>
+<br /><br /><br />
+<p><span style="color:#2980b9">console.log</span>(person.<span style="color:#d35400">size</span>)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//4</span></p>
+<br /><br />
+<p><span style="color:#2980b9">console.log</span>(person.<span style="color:#27ae60">has</span>(&#39;func&#39;))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//true</span><br /><br /><br />
+<span style="color:#2980b9">console.log</span>(person.<span style="color:#27ae60">has</span>(&#39;func2&#39;))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//false</span></p><br /><br /><br />
+
+<p><br />
+<span style="color:#2980b9">console.log</span>(person.<span style="color:#c0392b">delete</span>(&#39;<span style="color:#f1c40f">func</span>&#39;))&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // true</span><br />
+<span style="color:#2980b9">console.log</span>(person)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//Map(3)&nbsp;{&quot;person1&quot; =&gt; {&hellip;}, &quot;person2&quot; =&gt; {&hellip;}, &quot;String&quot; =&gt; &quot;value s&quot;}</span></p>
+
+<p><br /><br /><br /><br />
+person.<span style="color:#d35400">clear</span>()<br />
+<span style="color:#2980b9">console.log</span>(person)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //Map(0)&nbsp;{}</span></p>
+
+</div>
+
+<h2 class="y">-------    Set   ------</h2>
+<p dir="rtl">این مورد Value از <span style="color:#e74c3c">هر نوعی </span>را در خود ذخیره می کند اما باید <span style="color:#d35400">یونیک </span>باشد.&nbsp; (<span style="color:#f1c40f">ES6</span>)</p>
+
+<p dir="rtl">اگر مقادیر <span style="color:#e74c3c">تکراری</span> بخواهیم به <span style="color:#16a085">Set </span>اضافه کنیم&nbsp; ---&gt; اضافه <span style="color:#d35400">نخواهد </span>شد.</p>
+
+
+<div class="code"><p><span style="color:#3498db">const </span>set = <span style="color:#e74c3c">new </span><span style="color:#27ae60">Set</span>();</p>
+
+<p>set.<span style="color:#8e44ad">add</span>(100);<br />
+set.<span style="color:#8e44ad">add</span>(&#39;<span style="color:#f1c40f">string</span>&#39;);<br />
+set.<span style="color:#8e44ad">add</span>({name:&#39;<span style="color:#f1c40f">ali</span>&#39;});<br />
+set.<span style="color:#8e44ad">add</span>(<span style="color:#f1c40f">true</span>);<br />
+set.<span style="color:#8e44ad">add</span>([1,2,5]);</p>
+
+<p><span style="color:#2980b9">console.log</span>(set)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&nbsp; &nbsp;Set(5)&nbsp;{100, &quot;string&quot;, {&hellip;}, true, Array(3)}</span></p>
+
+<p><br />
+<span style="color:#3498db">const </span>set2 = <span style="color:#e74c3c">new</span> <span style="color:#27ae60">Set</span>([1,<span style="color:#9b59b6">true</span>,&#39;<span style="color:#f1c40f">string</span>&#39;]);</p>
+
+<p><span style="color:#2980b9">console.log</span>(set2)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//Set(3)&nbsp;{1, true, &quot;string&quot;}</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">//get Count</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(set.<span style="color:#d35400">size</span>)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // 5</span></p>
+
+<p><br />
+<span style="color:#2980b9">console.log</span>(set.<span style="color:#27ae60">has</span>(100))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//true</span><br /><br />
+<span style="color:#2980b9">console.log</span>(set.<span style="color:#27ae60">has</span>(200))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//false</span><br /><br />
+<span style="color:#2980b9">console.log</span>(set.<span style="color:#27ae60">has</span>({name:&#39;<span style="color:#f1c40f">ali</span>&#39;}))&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; //false</span></p>
+<br />
+<p><br />
+set.<span style="color:#e74c3c">delete</span>(100)&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(set)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //Set(4)&nbsp;{&quot;string&quot;, {&hellip;}, true, Array(3)}</span></p><br /><br />
+
+<p>set.<span style="color:#d35400">clear</span>()&nbsp;<br />
+<span style="color:#2980b9">console.log</span>(set)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//Set(0)&nbsp;{}</span></p>
+
+</div>
+<h2 class="y">-------    Destructuring   ------</h2>
+ES6
+<br />
+<p dir="rtl">در واقع این ویژگی <span style="color:#d35400">نحوه assign کردن را تغییر داده است</span> و هر چیزی را که می خواهیم می توانیم به هم وصل کنیم.</p>
+
+<br /><br />
+<p><em><span style="color:#d35400">Rest</span></em></p>
+
+<p dir="rtl">مقادیر ابتدایی به متغییرهایی که داریم نسبت داده می شود و از زمانی که متغییر نداشتیم <span style="color:#e74c3c">بقیه مقادیر</span> به&nbsp; متغییر که به عنوان rest تعریف کرده ایم نسبت داده میشود.</p>
+<p dir="rtl">توجه داشته باشید که <span style="color:#d35400">rest </span>باید حتما <span style="color:#e74c3c">آخرین المان</span> باشد وگرنه Error می دهد.</p>
+
+
+<div class="code"><p><span style="color:#3498db">let </span>a , b;</p>
+
+<p>[a,b] = [100,200];</p>
+
+<p><span style="color:#2980b9">console.log</span>(a,b);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //100 200</span></p>
+<br /><br /><br />
+<p><span style="color:#d35400">// Rest Pattern</span></p>
+<br />
+<p>// &nbsp; <span style="color:#e74c3c">&nbsp;... &nbsp;==&gt; &nbsp;seperator</span></p><br /><br />
+
+<p>[a, b, c, <span style="color:#d35400">...rest</span>] = [100,200,300,400,500];</p>
+
+<p><span style="color:#2980b9">console.log</span>(a,b);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &nbsp;100 200</span><br />
+<span style="color:#2980b9">console.log</span>(rest);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// &nbsp; (2)&nbsp;[400, 500]</span></p>
+
+<p>&nbsp;</p><br /><br />
+
+<p><span style="color:#d35400">(&nbsp;&nbsp;</span>{a,b} = {a:100,b:200,c:300,d:400}&nbsp;<span style="color:#d35400">)</span><br />
+<span style="color:#2980b9">console.log</span>(a);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;//100</span></p>
+
+<p><br />
+({a,b, <span style="color:#d35400">...ali</span>} = {a:100,b:200,c:300,d:400})<br />
+<span style="color:#2980b9">console.log</span>(ali);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &nbsp;{c: 300, d: 400}</span></p>
+<br /><br />
+<p><span style="color:#3498db">const </span>people = [&#39;<span style="color:#f1c40f">Ali</span>&#39; , &#39;<span style="color:#f1c40f">sadegh</span>&#39; , &#39;<span style="color:#f1c40f">nav</span>&#39;];</p>
+<br /><br />
+<p><span style="color:#3498db">const </span>[<span style="color:#d35400">p1</span>,<span style="color:#d35400">p2</span>,<span style="color:#d35400">p3</span>] = people;</p>
+<br /><br />
+<p><span style="color:#2980b9">console.log</span>(p1,p2,p3);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//Ali&nbsp; &nbsp; sadegh&nbsp; &nbsp; &nbsp; &nbsp;nav</span></p>
+
+<p><br /><br /><br />
+<span style="color:#3498db">const </span><span style="color:#2ecc71">xrt</span> = {<br />
+&nbsp;&nbsp; &nbsp;name : &quot;<span style="color:#f1c40f">mm</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;age : 27,<br />
+&nbsp;&nbsp; &nbsp;city : &quot;<span style="color:#f1c40f">foo</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;geneder : &quot;<span style="color:#f1c40f">M</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">sayHello </span>: <span style="color:#9b59b6">function</span>(){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&#39;<span style="color:#f1c40f">hello</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;}<br />
+}</p>
+<br /><br />
+<p><span style="color:#e74c3c">// ES5&nbsp;</span></p>
+
+<p><span style="color:#3498db">const </span>name = xrt.name,<br />
+&nbsp;&nbsp; &nbsp; &nbsp;age = xrt.age,<br />
+&nbsp;&nbsp; &nbsp; &nbsp;city = xrt.city;</p>
+
+<p><span style="color:#2980b9">console.log</span>(name,age,city);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; //mm&nbsp; &nbsp; &nbsp;27&nbsp; &nbsp; foo</span></p>
+
+<p><br /><br /><br />
+<span style="color:#e74c3c">// ES6</span></p>
+
+<p><span style="color:#3498db">const </span>{<span style="color:#d35400">name,age,city, sayHello</span>} = xrt;</p>
+
+<p><span style="color:#3498db">console.log</span>(name,age,city);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; //Ali&nbsp; &nbsp; &nbsp; &nbsp;sadegh&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nav</span></p>
+
+<p><span style="color:#27ae60">sayHello</span>();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //hello</span></p>
+</div>
+
+<h2 class="y">-------    find  -  filter  (ES6)   ------</h2>
+
+<p dir="rtl">دستور <span style="color:#d35400">find </span>بررسی می کند و زمانی که به <span style="color:#e74c3c">اولین مورد رسید که شرط درست بود</span> آن را برمی گرداند و <span style="color:#e74c3c">حلقه پیمایش خودش را متوقف می کند</span>. (<span style="color:#9b59b6">فقط یک مورد</span> را برمی گرداند)</p>
+
+<br />
+
+ <div class="code"><p><br />
+<span style="color:#3498db">const </span><span style="color:#9b59b6">products </span>= [<br />
+&nbsp;&nbsp; &nbsp;{name:&quot;<span style="color:#f1c40f">ipad</span>&quot; , category:&quot;<span style="color:#f1c40f">mobile</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{name:&quot;<span style="color:#f1c40f">LG</span>&quot; , category:&quot;<span style="color:#f1c40f">TV</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{name:&quot;<span style="color:#f1c40f">iphone</span>&quot; , category:&quot;<span style="color:#f1c40f">Phone</span>&quot;},<br />
+&nbsp;&nbsp; &nbsp;{name:&quot;<span style="color:#f1c40f">Super Vision</span>&quot; , category:&quot;<span style="color:#f1c40f">TV</span>&quot;},<br />
+];</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#3498db">const </span>result = products.<span style="color:#d35400">filter</span>(<span style="color:#3498db">function</span>(<span style="color:#2ecc71">product</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>product.category <span style="color:#c0392b">==</span> &quot;<span style="color:#f1c40f">TV</span>&quot;;<br />
+});</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(result);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//0: {name: &quot;LG&quot;, category: &quot;TV&quot;}</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//1: {name: &quot;Super Vision&quot;, category: &quot;TV&quot;}</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#3498db">const </span>resultx = products.<span style="color:#3498db">filter</span>(<span style="color:#d35400">product </span>=&gt; <span style="color:#1abc9c">product.category</span> == &quot;<span style="color:#f1c40f">TV</span>&quot;);</p>
+
+<p><br />
+<span style="color:#2980b9">console.log</span>(resultx);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//0: {name: &quot;LG&quot;, category: &quot;TV&quot;}</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//1: {name: &quot;Super Vision&quot;, category: &quot;TV&quot;}</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#d35400">// map &nbsp;==&gt; return true or false &nbsp;&nbsp;</span><br />
+<span style="color:#d35400">// &nbsp;filter &nbsp;===&gt; &nbsp;return value&nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>result2 = products.<span style="color:#d35400">map</span>(<span style="color:#3498db">function</span>(<span style="color:#2ecc71">product</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>product.category<span style="color:#c0392b"> ==</span> &quot;<span style="color:#f1c40f">TV</span>&quot;;<br />
+});</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(result2);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp; &nbsp; //(4)&nbsp;[false, true, false, true]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#3498db">const </span>resultf = products.<span style="color:#d35400">find</span>(<span style="color:#3498db">function</span>(<span style="color:#2ecc71">product</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>product.category <span style="color:#c0392b">==</span> &quot;<span style="color:#f1c40f">TV</span>&quot;;<br />
+});</p>
+
+<p><span style="color:#2980b9">console.log</span>(resultf);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //{name: &quot;LG&quot;, category: &quot;TV&quot;}</span></p>
+</div>   
+
+
+<h2 class="y">-------    Modules   ------</h2>
+
+<p dir="rtl">تقسیم یک پروژه به<span style="color:#3498db"> قسمت های کوچکتر</span> که به هریک از این قسمت های کوچک <span style="color:#d35400">ماژول </span>می گویند.</p>
+
+
+<div class="code"><p>in Module File</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">export </span><span style="color:#3498db">const </span>sum = <span style="color:#9b59b6">20</span>;</p>
+
+<p>&nbsp;</p><br><br>
+
+<p>in Main file</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">import&nbsp;&nbsp;</span>{sum}&nbsp; <span style="color:#e74c3c">from </span>&quot;<em><span style="color:#f1c40f">./module.js</span></em>&quot;</p>
+
+<p><span style="color:#2980b9">console.log</span>(sum);</p>
+
+<p>&nbsp;</p><br>
+
+<p>&nbsp;</p><br><br>
+
+<p>in index.html</p>
+
+<p>&nbsp;</p>
+
+<p>&lt;<span style="color:#e74c3c">script</span> <span style="color:#2ecc71">src</span>=&quot;<span style="color:#f1c40f">./module.js</span>&quot; <span style="color:#2ecc71">type</span>=&quot;<span style="color:#f1c40f">module</span>&quot;&gt;&lt;/<span style="color:#e74c3c">script</span>&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">script</span> <span style="color:#2ecc71">src</span>=&quot;<span style="color:#f1c40f">./app.js</span>&quot; <span style="color:#2ecc71">type</span>=&quot;<span style="color:#f1c40f">module</span>&quot;&gt;&lt;/<span style="color:#e74c3c">script</span>&gt;</p>
+</div> 
+
+<p dir="rtl">اگر اکنون برنامه را اجرا کنیم با ارور مواجه می شویم که می گوید برنامه باید روی یک سرور مجازی اجرا شود. به همین دلیل ما در <span style="color:#3498db">VScode </span>از افزونه<span style="color:#ff3399"> Live Server</span> صورتی رنگ استفاده می کنیم که یک لوکال هاست را برای ما شبیه سازی می کند.</p>
+
+<p dir="rtl">چندین <span style="color:#d35400">export </span>از یک فایل با تایپ های مختلف می توانیم داشته باشیم.</p>
+
+
+<div class="code"><p>in module file</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>sum = <span style="color:#9b59b6">20</span>;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#6666ff">function </span><span style="color:#27ae60">rand</span>(){</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#c0392b">return </span><span style="color:#d35400">Math</span>.<span style="color:#27ae60">random</span>();</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>array = [1,2,3,4];</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>obj = {a:1, b:2, c:3}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">export </span>{sum , rand, array , obj};</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>in main file</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">import </span>{sum , rand, array , obj} <span style="color:#e74c3c">from </span>&quot;<span style="color:#f1c40f">./module.js</span>&quot;;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(sum);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// 20</span></p>
+
+</div>
+
+
+
+<h2 class="y">-------    alias - default   ------</h2>
+<p dir="rtl">گاهی اسم هایی که اکسپورت یا اینپورت کرده این در ف<span style="color:#f39c12">ایلی که داریم اینپورت می کنیم وجود دارد و یا به هر دلیلی ممکن است با ارور مواجه شویم</span> که در این صورت از <span style="color:#d35400">alias </span>برای تعیین یک <span style="color:#8e44ad">نام مستعار</span> استفاده می کنیم تا مشکل برطرف شود.</p>
+
+
+
+  <div class="code"><p><span style="color:#3498db">const </span>sum = 20;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">export </span>{sum as sum1}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>in main file</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">import </span>{sum1} <span style="color:#e74c3c">from </span>&quot;<span style="color:#f1c40f">./module.js</span>&quot;</p>
+</div> 
+
+دقیقا برای اینپورت هم می توانیم همین کار را انجام دهیم 
+
+
+<div class="code"><p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">import </span>{sum <span style="color:#d35400">as </span>sum1} <span style="color:#e74c3c">from </span>&quot;<span style="color:#f1c40f">./module.js</span>&quot;</p>
+
+</div>
+
+<p dir="rtl">گاهی<span style="color:#ff0099"> تعداد متغییرهایی که اکسپورت شده است زیاد</span> است و ما می خواهیم همه آن ها را دریافت کنیم که در این صورت از روش زیر استفاده می کنیم.</p>
+
+
+<div class="code"><p><span style="color:#e74c3c">import </span><span style="color:#d35400">*</span>&nbsp;&nbsp;<span style="color:#ff0099">as&nbsp;&nbsp;</span><span style="color:#27ae60">app&nbsp; &nbsp;</span><span style="color:#e74c3c">from&nbsp; &nbsp;&nbsp;</span>&quot;<span style="color:#f1c40f">./module.js</span>&quot;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(<span style="color:#d35400">app.array</span>);</p>
+</div>
+<p style="text-align:center"><span style="font-size:23px"><span style="color:#d35400"><strong><em>{{-- &nbsp;&nbsp; default &nbsp;&nbsp; --}}</em></strong></span></span></p>
+
+<p dir="rtl">اگر <span style="color:#27ae60">export </span>ما از نوع <span style="color:#d35400">default </span>باشد، دیگر هنگام دریافت یا&nbsp; اینپورت آن نیازی به استفاده از&nbsp;<span style="color:#ff0099; font-size:23px"> { }&nbsp;</span> &nbsp;<span style="color:#e74c3c">نخواهیم </span>داشت.</p>
+
+<div class="code"><p><span style="color:#2980b9">const </span>sum = 20;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">export </span><span style="color:#d35400">default </span><span style="color:#95a5a6">sum</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>im main file</p>
+
+<p><span style="color:#e74c3c">import&nbsp; </span><span style="color:#d35400">sum </span><span style="color:#e74c3c">from </span>&quot;<span style="color:#f1c40f">./module.js</span>&quot;;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(sum);</p>
+</div> 
+<p dir="rtl">توجه داشته باشید که هر فایل جاوااسکریپتی<span style="color:#2ecc71"> تنها</span> می تواند <strong><span style="color:#e74c3c">یک </span></strong><span style="color:#d35400">export default</span> داشته باشد و تعداد بیشتر را ارور می دهد اما<span style="color:#f39c12"> export تنها را شما می توانید بی نهایت بار در یک فایل استفاده کنید.</span></p>
+
+
+<h2 class="y">-------   BOM  ------</h2>
+
+<p><span style="color:#ff0099"><strong>BOM&nbsp; ==&gt; Browser Object Model</strong></span></p>
+
+<p dir="rtl"><span style="color:#f39c12">BOM </span>یک زیر مجموعه دارد <span style="color:#d35400">Window </span>دارد که خود window از <span style="color:#ff0099">6 زیر</span> مجموعه زیر تشکیل شده است.</p>
+
+<p dir="rtl"><span style="color:#ff6666">1.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Screen</span></p>
+
+<p dir="rtl"><span style="color:#ff6666">2.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Navigator</span></p>
+
+<p dir="rtl"><span style="color:#ff6666">3.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lacation</span></p>
+
+<p dir="rtl"><span style="color:#ff6666">4.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;History</span></p>
+
+<p dir="rtl"><span style="color:#ff6666">5.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Frames</span></p>
+
+<p dir="rtl"><span style="color:#ff6666">6.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DOM</span></p>
+
+
+<div class="code"><p><span style="color:#e74c3c">window</span>.<span style="color:#2980b9">console.log</span>()&nbsp; &nbsp; <span style="color:#f39c12">==</span>&nbsp; &nbsp;&nbsp;<span style="color:#2980b9">console.log</span>()</p>
+
+<p><span style="color:#e74c3c">window</span>.<span style="color:#27ae60">alert</span>()&nbsp; &nbsp;<span style="color:#f39c12">==</span>&nbsp; &nbsp; <span style="color:#27ae60">alert</span>()</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#d35400">prompt</span>()&nbsp; &nbsp; ==&gt;&nbsp; &nbsp; &nbsp;<span style="color:#ff6666">alert with input</span></p>
+
+<p><span style="color:#3498db">const </span>alert = <span style="color:#d35400">prompt</span>();</p>
+
+<p><span style="color:#2980b9">alert</span>(alert);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">// return input val</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">confirm</span>()&nbsp; &nbsp; ===&nbsp; <span style="color:#7f8c8d">برای گرفتن تایید یا رد کردن</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">if</span>(<span style="color:#8e44ad">confirm</span>(&quot;<span style="color:#f1c40f">Delete this?</span>&quot;)){</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#2980b9"> &nbsp;console.log</span>(&#39;<span style="color:#f1c40f">yes</span>&#39;);</p>
+
+<p>}<span style="color:#e74c3c">else</span>{</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f1c40f">no</span>&#39;);</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>val = <span style="color:#c0392b">window</span>.<span style="color:#d35400">outerHeight</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //ارتفاع بیرونی مروگر شما تبهای بالا و ... را به ما می دهد</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>val = <span style="color:#c0392b">window</span>.<span style="color:#d35400">outerWidth</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//طول بیرونی مروگر شما تبهای بالا و ... را به ما می دهد</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>val = <span style="color:#c0392b">window</span>.<span style="color:#d35400">innerHeight</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//ارتفاع درونی مروگر شما تبهای بالا و ... را به ما می دهد</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>val = <span style="color:#c0392b">window</span>.<span style="color:#d35400">innerWidth</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//طول درونی مروگر شما تبهای بالا و ... را به ما می دهد</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>val = <span style="color:#e74c3c">window</span>.<span style="color:#d35400">scrollY</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //مقدار&nbsp; اسکرول در محور&nbsp; وای را به ما می دهد</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>val = <span style="color:#e74c3c">window</span>.<span style="color:#d35400">scrollX</span>;</p>
+
+<p><span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //مقدار&nbsp; اسکرول در محور&nbsp; ایکس را به ما می دهد</span></p>
+
+</div> 
+
+
+
+<h2 class="y">-------  BOM Parts  ------</h2>
+
+<div class="code">
+<p style="text-align:center"><span style="color:#ff0099"><strong><em>Location</em></strong></span></p>
+
+<p><span style="color:#3498db">let </span>val;</p>
+
+<p>val <span style="color:#e74c3c">= </span><span style="color:#d35400">window</span>.<span style="color:#2ecc71">location</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p><span style="color:#7f8c8d">/*<br />
+ancestorOrigins: DOMStringList {length: 0}</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">assign: &fnof; assign()</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">hash: &quot;&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">host: &quot;&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">hostname: &quot;&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">href: &quot;file:///C:/Users/HomaRayaneh/Desktop/js/index.html&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">origin: &quot;file://&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">pathname: &quot;/C:/Users/HomaRayaneh/Desktop/js/index.html&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">port: &quot;&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">protocol: &quot;file:&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">reload: &fnof; reload()</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">replace: &fnof; ()</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">search: &quot;&quot;</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">toString: &fnof; toString()</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">valueOf :&fnof;&nbsp;valueOf()</span></p>
+
+<p><br />
+<span style="color:#7f8c8d">*/</span></p>
+
+<p>val <span style="color:#e74c3c">= </span><span style="color:#d35400">window</span>.<span style="color:#2ecc71">location</span>.<span style="color:#9b59b6">hostname</span>;<br />
+<span style="color:#2980b9">console.log</span>(val); &nbsp;</p>
+
+<p><br /><br><br>
+val <span style="color:#e74c3c">=</span> <span style="color:#d35400">window</span>.<span style="color:#2ecc71">location</span>.<span style="color:#9b59b6">href</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; <span style="color:#7f8c8d">//&nbsp; &nbsp; &nbsp; file:///C:/Users/HomaRayaneh/Desktop/js/index.html</span></p>
+
+<p><br /><br><br>
+<span style="color:#7f8c8d">path ==&gt; file:///C:/Users/HomaRayaneh/Desktop/js/index.html?id=1&amp;post=ali</span><br />
+val = <span style="color:#d35400">window</span>.<span style="color:#2ecc71">location</span>.<span style="color:#9b59b6">search</span>;<br />
+<span style="color:#7f8c8d">console.log</span>(val);&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //&nbsp; &nbsp; &nbsp;?id=1&amp;post=ali</span></p>
+
+<p><br /><br><br>
+<span style="color:#7f8c8d">//redirect</span><br />
+<span style="color:#d35400">window</span>.<span style="color:#27ae60">location</span>.<span style="color:#8e44ad">href</span> = &quot;<span style="color:#f1c40f">https://www.google.com</span>&quot;;</p>
+
+<p>&nbsp;</p><br><br>
+
+<p><span style="color:#7f8c8d">path ==&gt;&nbsp;&nbsp;file:///C:/Users/HomaRayaneh/Desktop/js/index.html#hash</span><br />
+val <span style="color:#e74c3c">=</span> <span style="color:#d35400">window</span>.<span style="color:#27ae60">location</span>.<span style="color:#8e44ad">hash</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// #hash</span></p>
+
+<p><br /><br><br>
+<span style="color:#7f8c8d">//reload</span><br />
+<span style="color:#d35400">window</span>.<span style="color:#27ae60">location</span>.<span style="color:#f39c12">reload</span>();</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><span style="color:#ff0099"><em><strong>History</strong></em></span></p>
+
+<p><br /><br><br>
+val <span style="color:#e74c3c">=</span> <span style="color:#d35400">window</span>.<span style="color:#27ae60">history</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp;<br />
+<span style="color:#7f8c8d">/**<br />
+length: 2<br />
+scrollRestoration: &quot;auto&quot;<br />
+state: null<br />
+*/</span></p>
+
+<p><br /><br><br>
+val <span style="color:#e74c3c">= </span><span style="color:#d35400">window</span>.<span style="color:#27ae60">history</span>.<span style="color:#8e44ad">length</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//2</span></p>
+
+<p>&nbsp;</p><br>
+
+<p style="text-align:center"><span style="color:#ff0099"><em><strong>Navigator</strong></em></span></p>
+
+<p><br /><br><br>
+val <span style="color:#e74c3c">=</span> <span style="color:#d35400">window</span>.<span style="color:#27ae60">navigator</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);<br />
+<span style="color:#7f8c8d">/**<br />
+appCodeName: &quot;Mozilla&quot;<br />
+appName: &quot;Netscape&quot;<br />
+appVersion: &quot;5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.21 Safari/537.36 Edg/78.0.276.8&quot;<br />
+clipboard: Clipboard {}<br />
+connection: NetworkInformation {onchange: null, effectiveType: &quot;4g&quot;, rtt: 0, downlink: 10, saveData: false}<br />
+cookieEnabled: true<br />
+credentials: CredentialsContainer {}<br />
+deviceMemory: 2<br />
+doNotTrack: null<br />
+geolocation: Geolocation {}<br />
+hardwareConcurrency: 2<br />
+keyboard: Keyboard {}<br />
+language: &quot;en-US&quot;<br />
+languages: (2) [&quot;en-US&quot;, &quot;en&quot;]<br />
+locks: LockManager {}<br />
+maxTouchPoints: 0<br />
+mediaCapabilities: MediaCapabilities {}<br />
+mediaDevices: MediaDevices {ondevicechange: null}<br />
+mediaSession: MediaSession {metadata: null, playbackState: &quot;none&quot;}<br />
+mimeTypes: MimeTypeArray {0: MimeType, 1: MimeType, 2: MimeType, 3: MimeType, application/pdf: MimeType, application/x-google-chrome-pdf: MimeType, application/x-nacl: MimeType, application/x-pnacl: MimeType, length: 4}<br />
+onLine: false<br />
+permissions: Permissions {}<br />
+platform: &quot;Win32&quot;<br />
+plugins: PluginArray {0: Plugin, 1: Plugin, 2: Plugin, Microsoft Edge PDF Plugin: Plugin, Microsoft Edge PDF Viewer: Plugin, Native Client: Plugin, length: 3}<br />
+presentation: Presentation {receiver: null, defaultRequest: null}<br />
+product: &quot;Gecko&quot;<br />
+productSub: &quot;20030107&quot;<br />
+serviceWorker: ServiceWorkerContainer {ready: Promise, controller: null, oncontrollerchange: null, onmessage: null}<br />
+storage: StorageManager {}<br />
+usb: USB {onconnect: null, ondisconnect: null}<br />
+userActivation: UserActivation {hasBeenActive: false, isActive: false}<br />
+userAgent: &quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.21 Safari/537.36 Edg/78.0.276.8&quot;<br />
+vendor: &quot;Google Inc.&quot;<br />
+vendorSub: &quot;&quot;<br />
+webkitPersistentStorage: DeprecatedStorageQuota {}<br />
+*/</span></p>
+
+<p>
+&nbsp;</p>
+
+
+</div>
+
+
+<h2 class="y">-------  DOM  ------</h2>
+
+ <div class="code"><p><span style="color:#3498db">let </span>val;</p>
+
+<p>val <span style="color:#e74c3c">= </span><span style="color:#16a085">document</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//return all Dom</span></p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">all</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//return all Dom</span></p>
+
+<p><span style="color:#7f8c8d">/**<br />
+HTMLAllCollection(7) [html, head, meta, meta, title, body, script, viewport: meta]<br />
+0: html<br />
+1: head<br />
+2: meta<br />
+3: meta<br />
+4: title<br />
+5: body<br />
+6: script<br />
+length: 7<br />
+viewport: meta<br />
+**/</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val <span style="color:#e74c3c">=</span> <span style="color:#d35400">document</span>.<span style="color:#8e44ad">all</span>.<span style="color:#f39c12">length</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//7</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">head</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp; &nbsp; &nbsp;//return head</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">body</span>;<br />
+<span style="color:#7f8c8d">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //return body</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">doctype</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &lt;!DOCTYPE html&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val = <span style="color:#e67e22">document</span>.<span style="color:#ff0099">URL</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //&nbsp; &nbsp;file:///C:/Users/HomaRayaneh/Desktop/js/index.html</span></p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">characterSet</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//UTF-8</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">contentType</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//text/html</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><br />
+<span style="font-size:22px"><strong>&nbsp; <span style="color:#ff0099">&nbsp; دسترسی &nbsp; به المان ها&nbsp;</span></strong></span></p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#f39c12">forms</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // all forms</span></p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">forms</span>[0];<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">forms</span>[0].<span style="color:#ff0099">id</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">forms</span>[0].<span style="color:#ff0099">method</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">links</span>;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//all links</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">links</span>[0].<span style="color:#27ae60">className</span>; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);</p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">links</span>[0].<span style="color:#ff0099">classList</span>; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // return class in array</span></p>
+
+<p><br />
+val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">links</span>[0].<span style="color:#ff0099">classList</span>[0]; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; // get first class</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#16a085">scripts</span>; &nbsp; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// all script</span></p>
+
+<p>&nbsp;</p>
+
+<p>val = <span style="color:#d35400">document</span>.<span style="color:#8e44ad">scripts</span>[0].<span style="color:#e74c3c">getAttribute</span>(&#39;<span style="color:#f1c40f">src</span>&#39;); &nbsp; &nbsp;<br />
+<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;// ./app.js</span></p>
+
+</div> 
+
+<h2 class="y">-------  Select Element in Dom (Single)  ------</h2>
+
+<p style="direction:rtl">دو نوع&nbsp; <em><span style="color:#9b59b6">Select</span></em> ما داریم:</p>
+
+<p style="direction:rtl">1. <span style="color:#d35400">single&nbsp; </span>که یک المنت را با آن دریافت می کنیم.</p>
+
+<p style="direction:rtl">2. <span style="color:#d35400">Multi </span>که چند المنت با آن دریافت می شود.</p>
+
+
+<p dir="rtl"><span style="color:#d35400">document.querySelector</span> بسیار قوی تر از&nbsp;<span style="color:#9b59b6">getElementById</span>&nbsp; است. زیرا مانند سلکتور در <span style="color:#27ae60">css </span>المنت ها را می توانیم انتخاب کنیم.</p>
+
+<p dir="rtl">querySelector سینگل سلکتور است و<span style="color:#e74c3c"> تنها اولین را انتخاب می کند.</span></p>
+
+<div class="code">
+<p style="text-align:center"><span style="color:#ff0099"><em><strong>Single Selector</strong></em></span></p>
+
+<p><span style="color:#3498db">let </span>dom;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>dom <span style="color:#e74c3c">=</span> <span style="color:#27ae60">document</span>.<span style="color:#d35400">getElementById</span>(&#39;<span style="color:#f1c40f">app</span>&#39;);&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(dom);&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; //return html tag&nbsp; &nbsp; &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#2980b9">console.log</span>(dom<span style="color:#8e44ad">.id</span>);&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//app</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+dom.<span style="color:#16a085">style.background</span> = &quot;<span style="color:#f1c40f">#f3d42</span>&quot;;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //Style</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>dom.<span style="color:#d35400">textContent</span> = &quot;<span style="color:#f1c40f">Js === Laravrl === Vue</span>&quot;;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">// Cahnge Text (.text() in Jquery)</span></p>
+
+<p>dom.<span style="color:#d35400">innerText </span>= &quot;<span style="color:#f1c40f">Js === Laravrl === Vue</span>&quot;;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// Cahnge Text (.text() in Jquery)</span></p>
+
+<p>dom.<span style="color:#d35400">innerHtml </span>= &quot;<span style="color:#f1c40f">Js === Laravrl === Vue</span>&quot;;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// Cahnge Html (.html() in Jquery)</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let </span>dom2;</p>
+
+<p>dom2 = <span style="color:#16a085">document</span>.<span style="color:#e74c3c">querySelector</span>(&#39;<span style="color:#f1c40f">#app</span>&#39;);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp; &nbsp; // id(#) &nbsp;class(.) tag(h5)</span></p>
+
+<p><span style="color:#7f8c8d">//document.querySelector(&#39;.app&#39;)<br />
+//document.querySelector(&#39;h5&#39;)<br />
+//document.querySelector(&#39;ul li&#39;)<br />
+//document.querySelector(&#39;li:last-child&#39;)</span></p>
+
+
+</div>
+
+
+<h2 class="y">-------  Select Element in Dom (Multi)  ------</h2>
+<div class="code">
+  
+  <p style="text-align:center"><span style="color:#ff0099"><strong><em>Multi</em></strong></span></p>
+
+<p><span style="color:#3498db">let </span>dom;<br />
+<span style="color:#3498db">let </span>dom2;</p>
+
+<p><span style="color:#7f8c8d">// ====&gt;&gt; &nbsp; getElementsByClassName</span><br />
+dom = <span style="color:#1abc9c">document</span>.<span style="color:#d35400">getElementsByClassName</span>(&#39;<span style="color:#f1c40f">app</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(dom);&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; &nbsp; &nbsp;//HTMLCollection&nbsp;[div#app.app, app: div#app.app]</span></p>
+
+<p>&nbsp;</p>
+
+<p>dom[<span style="color:#8e44ad">0</span>].<span style="color:#f39c12">style.color </span>= &quot;<span style="color:#f1c40f">red</span>&quot;;</p>
+
+<p>dom[<span style="color:#8e44ad">2</span>].<span style="color:#f39c12">style.color</span> = &quot;<span style="color:#f1c40f">green</span>&quot;;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// find in special tag</span><br />
+dom2 = <span style="color:#1abc9c">document</span>.<span style="color:#f39c12">querySelector</span>(&#39;<span style="color:#f1c40f">ul</span>&#39;).<span style="color:#d35400">getElementsByClassName</span>(&#39;<span style="color:#f1c40f">li.app</span>&#39;);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#7f8c8d">// ====&gt;&gt; &nbsp; getElementsByTagName</span><br />
+dom = <span style="color:#16a085">document</span>.<span style="color:#d35400">getElementsByTagName</span>(&#39;<span style="color:#f1c40f">div</span>&#39;);<br />
+<span style="color:#2980b9">console.log</span>(dom);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//HTMLCollection&nbsp;[div#app.app, app: div#app.app]</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#7f8c8d">// ====&gt;&gt; &nbsp; querySelectorAll</span><br />
+dom = <span style="color:#27ae60">document</span>.<span style="color:#d35400">querySelectorAll</span>(&#39;<span style="color:#f1c40f">div</span>&#39;);<br />
+<span style="color:#7f8c8d">console.log</span>(dom);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; &nbsp;// NodeList(2)&nbsp;[div#app.app, div#app2.app]</span></p>
+
+<p><br />
+dom.<span style="color:#e74c3c">forEach</span>(<span style="color:#3498db">function</span>(<span style="color:#d35400">item , index</span>){<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(item);<br />
+});<br />
+&nbsp;</p>
+
+</div> 
+  
+<h2 class="y">-------  Node in Dom  ------</h2>
+  
+  <p dir="rtl">به هر یک از Element ها <span style="color:#d35400">Node </span>هم می گوییم. <span style="color:#27ae60">نود های بالاتر parent نودهایی زیر </span>مجموعه هستند.</p>
+
+
+<div class="code">
+<p><span style="color:#3498db">let </span>node;</p>
+
+<p>node = <span style="color:#27ae60">document</span>.querySelectorAll(&#39;<span style="color:#f1c40f">.app</span>&#39;);</p>
+
+<p><br />
+<span style="color:#2980b9">console.log</span>(list<span style="color:#e74c3c">.childNodes</span>);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;//reteun childs&nbsp;tag&nbsp; (with فاصله&nbsp; or&nbsp; line break)</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list<span style="color:#e74c3c">.children</span>);&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //reteun child tag (best)&nbsp; (without line break)</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">children</span>[<span style="color:#9b59b6">1</span>]);&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#d35400">children</span>[2].<span style="color:#d35400">children</span>[0]);&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">firstElementChild</span>);&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //return first child</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">lastElementChild</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//return last child</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">childElementCount</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//count child</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">parentNode</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//return parent</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">parentElement</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//return parent</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#f39c12">parentElement</span>.<span style="color:#d35400">parentElement</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//return parent chain</span></p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><br />
+<span style="color:#ff0099"><strong>Sibling</strong></span></p>
+
+<p style="text-align:center">&nbsp;</p>
+
+<p><span style="color:#ff0099">// next</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">nextSibling</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // return next element (با در نظر گرفتن فاصله ها )</span></p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">nextElementSibling</span>);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // return next element (بدون در نظر گرفتن فاصله ها )</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#ff0099">// previous</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">previousSibling</span>);</p>
+
+<p><span style="color:#2980b9">console.log</span>(list.<span style="color:#e74c3c">previousElementSibling</span>);&nbsp;</p>
+
+
+</div> 
+  
+<h2 class="y">-------  Create Element ------</h2>
+  
+  <div class="code"><p><span style="color:#3498db">const </span>li = <span style="color:#8e44ad">document</span>.<span style="color:#d35400">createElement</span>(&#39;<span style="color:#f1c40f">li</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(li);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &lt;li&gt;&lt;/li&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+li.<span style="color:#d35400">className </span>= &quot;<span style="color:#f1c40f">d-flex</span>&quot;;</p>
+
+<p><span style="color:#2980b9">console.log</span>(li);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //&lt;li class=&quot;d-flex&quot;&gt;&lt;/li&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>li.<span style="color:#d35400">id </span>= &quot;<span style="color:#f1c40f">new</span>&quot;;</p>
+
+<p><span style="color:#2980b9">console.log</span>(li);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//&lt;li class=&quot;d-flex&quot; id=&quot;new&quot;&gt;&lt;/li&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>li.<span style="color:#d35400">setAttribute</span>(&#39;<span style="color:#f1c40f">title</span>&#39;,&#39;<span style="color:#f1c40f">new attr</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(li);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&lt;li class=&quot;d-flex&quot; id=&quot;new&quot; title=&quot;new attr&quot;&gt;&lt;/li&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>li.<span style="color:#d35400">appendChild</span>(<span style="color:#8e44ad">document</span>.<span style="color:#d35400">createTextNode</span>(<span style="color:#f1c40f">&#39;hello world</span>&#39;));</p>
+
+<p><span style="color:#2980b9">console.log</span>(li);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //&lt;li class=&quot;d-flex&quot; id=&quot;new&quot; title=&quot;new attr&quot;&gt;hello world&lt;/li&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>i = <span style="color:#8e44ad">document</span>.<span style="color:#d35400">createElement</span>(&#39;<span style="color:#f1c40f">i</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(i);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">&nbsp;// &lt;i&gt;&lt;/i&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+i.<span style="color:#d35400">className </span>= &#39;<span style="color:#f1c40f">i-tag</span>&#39;;</p>
+
+<p><span style="color:#2980b9">console.log</span>(i);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp; &nbsp;// &lt;i class=&quot;i-tag&quot;&gt;&lt;/i&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>li.<span style="color:#d35400">appendChild</span>(i);</p>
+
+<p><span style="color:#2980b9">console.log</span>(li);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// &lt;li class=&quot;d-flex&quot; id=&quot;new&quot; title=&quot;new attr&quot;&gt;hello world&lt;i class=&quot;i-tag&quot;&gt;&lt;/i&gt;&lt;/li&gt;</span></p>
+
+</div>  
+  
+ <h2 class="y">-------  Create & Replace  ------</h2>
+  
+    <div class="code"><p><span style="color:#3498db">const </span>h2 = <span style="color:#9b59b6">document</span>.<span style="color:#d35400">createElement</span>(&#39;<span style="color:#f1c40f">h2</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(h2);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &lt;h2&gt;&lt;/h2&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>h2.<span style="color:#d35400">id </span>= &#39;<span style="color:#f1c40f">title</span>&#39;;</p>
+
+<p><span style="color:#2980b9">console.log</span>(h2);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // &lt;h2 id=&quot;title&quot;&gt;&lt;/h2&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>h2.<span style="color:#d35400">appendChild</span>(<span style="color:#9b59b6">document</span>.<span style="color:#d35400">createTextNode</span>(&#39;<span style="color:#f1c40f">my text&#39;</span>));</p>
+
+<p><span style="color:#2980b9">console.log</span>(h2);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// &lt;h2 id=&quot;title&quot;&gt;my text&lt;/h2&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>app = <span style="color:#9b59b6">document</span>.<span style="color:#f39c12">getElementById</span>(&#39;<span style="color:#f1c40f">app2</span>&#39;);<br />
+<span style="color:#3498db">const</span> i = <span style="color:#9b59b6">document</span>.<span style="color:#f39c12">getElementById</span>(&#39;<span style="color:#f1c40f">i</span>&#39;);</p>
+
+<p>&nbsp;</p>
+
+<p>app.<span style="color:#d35400">replaceChild</span>(h2 , i);<br />
+<span style="color:#7f8c8d">// app.replaceChild(new , old);</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">console.log</span>(h2); &nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#7f8c8d">//delete</span><br />
+i.<span style="color:#e74c3c">remove</span>();</p>
+
+<p><span style="color:#7f8c8d">// ===&gt; OR</span></p>
+
+<p><span style="color:#7f8c8d">// parent.removeChild(element for delete)</span></p>
+
+</div> 
+  
+  
+  
+
+  
+<h2 class="y">-------  Events  ------</h2>
+  
+<p dir="rtl">بعضی از تگ ها داخل Html رفتار خاصی دارند مانند a که به صفحه ای دیگر می رود. <span style="color:#e67e22">هر تگی که رفتار خاصی دارد</span> را ما می توانیم با روش زیر <span style="color:#d35400">جلوی رفتار دیفالت</span> آن را بگیریم.</p>
+  
+ <div class="code"><p>document.<span style="color:#27ae60">querySelector</span>(&#39;.event&#39;).<span style="color:#d35400">addEventListener</span>(&#39;click&#39;, function(<span style="color:#f39c12">event</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">event</span>.<span style="color:#e74c3c">preventDefault</span>();<br />
+});</p>
+</div>  
+  
+  <br>
+  <br>
+  
+  <div class="code"><p><br />
+<span style="color:#9b59b6">document</span>.<span style="color:#27ae60">querySelector</span>(&#39;.<span style="color:#f1c40f">event</span>&#39;).<span style="color:#d35400">addEventListener</span>(&#39;<span style="color:#f1c40f">click</span>&#39;, <span style="color:#3498db">function</span>(<span style="color:#e67e22">event</span>){<br />
+&nbsp;&nbsp; &nbsp;event.<span style="color:#c0392b">preventDefault</span>();<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(event);<br />
+});</p>
+
+<p><br />
+<span style="color:#7f8c8d">/**<br />
+MouseEvent {isTrusted: true, screenX: 504, screenY: 194, clientX: 23, clientY: 55, &hellip;}<br />
+altKey: false<br />
+bubbles: true<br />
+button: 0<br />
+buttons: 0<br />
+cancelBubble: false<br />
+cancelable: true<br />
+clientX: 23<br />
+clientY: 55<br />
+composed: true<br />
+ctrlKey: false<br />
+currentTarget: null<br />
+defaultPrevented: false<br />
+detail: 1<br />
+eventPhase: 0<br />
+fromElement: null<br />
+isTrusted: true<br />
+layerX: 23<br />
+layerY: 55<br />
+metaKey: false<br />
+movementX: 0<br />
+movementY: 0<br />
+offsetX: 13<br />
+offsetY: 9<br />
+pageX: 23<br />
+pageY: 55<br />
+path: Array(5)<br />
+0: button.event<br />
+1: body<br />
+2: html<br />
+3: document<br />
+4: Window {parent: Window, postMessage: &fnof;, blur: &fnof;, focus: &fnof;, close: &fnof;, &hellip;}<br />
+length: 5<br />
+__proto__: Array(0)<br />
+relatedTarget: null<br />
+returnValue: true<br />
+screenX: 504<br />
+screenY: 194<br />
+shiftKey: false<br />
+sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}<br />
+srcElement: button.event<br />
+target: button.event<br />
+timeStamp: 972.4999999998545<br />
+toElement: button.event<br />
+type: &quot;click&quot;<br />
+view: Window {parent: Window, postMessage: &fnof;, blur: &fnof;, focus: &fnof;, close: &fnof;, &hellip;}<br />
+which: 1<br />
+x: 23<br />
+y: 55</span></p>
+
+<p><span style="color:#7f8c8d">*/</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">document</span>.<span style="color:#2ecc71">querySelector</span>(&#39;.<span style="color:#f1c40f">event</span>&#39;).<span style="color:#d35400">addEventListener</span>(&#39;<span style="color:#f1c40f">click</span>&#39; , <span style="color:#e74c3c">extra</span>);&nbsp; <span style="color:#7f8c8d">&nbsp; // without ()</span></p>
+
+<p><br />
+<span style="color:#3498db">function </span><span style="color:#27ae60">extra</span>(<span style="color:#d35400">event</span>){<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(&#39;<span style="color:#f1c40f">hello</span>&#39;);<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">document</span>.<span style="color:#27ae60">querySelector</span>(&#39;.<span style="color:#f1c40f">event</span>&#39;).<span style="color:#d35400">addEventListener</span>(&#39;<span style="color:#f1c40f">click</span>&#39; , extra2);</p>
+
+<p><br />
+function <span style="color:#2ecc71">extra2</span>(<span style="color:#f1c40f">event</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#3498db">let </span>val;<br />
+&nbsp;&nbsp; &nbsp;val = event;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp; &nbsp;val = event.<span style="color:#e74c3c">target</span>;<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(val);&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&lt;button class=&quot;event&quot;&gt;btn&lt;/button&gt;</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;val = val.<span style="color:#e74c3c">className</span>;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//event</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp; &nbsp;val = event.<span style="color:#e74c3c">type</span>;<br />
+&nbsp;&nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; /<span style="color:#7f8c8d">/click</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;val = event.<span style="color:#e74c3c">clientX</span>;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; //265</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp; &nbsp;val = event.<span style="color:#e74c3c">clientY</span>;<br />
+&nbsp;&nbsp;<span style="color:#2980b9"> &nbsp;console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //36</span></p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;val = event.<span style="color:#e74c3c">offsetX</span>;<br />
+&nbsp;<span style="color:#7f8c8d">&nbsp; &nbsp;console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //3</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp; &nbsp;val = event.<span style="color:#e74c3c">offsetY</span>;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#7f8c8d">console.log</span>(val);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //10</span></p>
+
+<p><br />
+}<br />
+&nbsp;</p>
+</div> 
+
+
+
+  
+<h2 class="y">-------  Mouse Event ------</h2>
+  
+ <div class="code"><p><em>click<br />
+dblclick<br />
+submit<br />
+mousedown<br />
+mouseup<br />
+mousemove</em></p>
+
+<p dir="rtl"><br />
+با <span style="color:#d35400">حرکت موس رو المنت بدون کلیک</span> این ایونت اجرا می شود</p>
+
+<p>&nbsp;</p>
+
+<p>mouseenter</p>
+
+<p dir="rtl"><br />
+<span style="color:#8e44ad">زمانی که موس وارد المان می شود این مورد اجرا می شود </span>مانند <span style="color:#d35400">hover</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p>mouseleave</p>
+
+<p dir="rtl"><br />
+<span style="color:#d35400">زمانی که موس از المانی خارج می شود</span> این مورد اجرا می شود مانند خارج شدن از hover</p>
+
+<p>&nbsp;</p></div>  
+
+
+
+
+<h2 class="y">-------  Keyboard Event ------</h2>
+
+
+<div class="code"><p><em>keydown<br />
+keyup<br />
+keypress<br />
+focus<br />
+blur</em></p>
+
+<p dir="rtl"><br />
+خارج شدن از اینپوت</p>
+
+<p><em>cut&nbsp;</em></p>
+
+<p dir="rtl"><br />
+زمانی که چیزی را کات می کنید روی می دهد</p>
+
+<p><em>paste<br />
+input</em></p>
+
+<p dir="rtl"><br />
+تمام رویداد هاز بالا روی هر اینپوت را شامل می شود</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>btn = <span style="color:#2ecc71">document</span>.<span style="color:#e67e22">getElementById</span>(&#39;<span style="color:#f1c40f">btn</span>&#39;);<br />
+btn.<span style="color:#d35400">addEventListener</span>(&#39;<span style="color:#f1c40f">cut</span>&#39;,<span style="color:#3498db">function</span>(){});</p>
+
+</div>   
+
+
+
+
+<h2 class="y">-------  local storage  ------</h2>
+<p dir="rtl">برای اینکه بتوانیم <span style="color:#f39c12">اطلاعاتی را روی مروگر کاربر ذخیره</span> و بعدا از آن استفاده کنیم.</p>
+
+<p dir="rtl">قبلا از کوکی ها برای این کار استفاده می شود اما <span style="color:#e74c3c">کوکی ها معایب زیادی </span>داشتند که <span style="color:#e74c3c">یکی از مهم ترین آن ها ظرفیت پایین بود و دیتاهای کمی می شد در آن ها ذخیره کرد.</span></p>
+
+<p dir="rtl">نوع دیگر ذخیره اطلاعات برای استفاده <span style="color:#d35400">Session</span> ها هستند که کارایی زیادی دارند اما <span style="color:#d35400">بعد از بسته شدن مرورگر پاک می شود.</span></p>
+
+<p dir="rtl"><span style="color:#27ae60">اما local storage با بستن مرورگر پاک نمی شود و دیتای بیشتری را هم ذخیره می کند.</span></p>
+
+<p dir="rtl"><span style="color:#e74c3c">توجه </span>==&gt; لوکال استورج را باید <span style="color:#e74c3c">حتما به صورت String </span>ذخیره کنید. یعنی دیتا باید حتما استرینگ باشد.</p>
+
+<p dir="rtl">در شی <span style="color:#9b59b6">window </span>می توانید local storage و قابلیت ها آن را ببنید.</p>
+
+<p dir="rtl"><span style="color:#f39c12">محدودیتی در set کردن&nbsp;local storage ندارید.</span></p>
+
+<p dir="rtl">اگر key لوکال استورج هایی که ذخیره می کنیم یکسان باشد، روی هم <span style="color:#e74c3c">overwrite </span>می شوند و <span style="color:#e74c3c">مقدار قبلی حذف </span>می شود. برای جلوگیری از این اتفاق دیتاها را <span style="color:#9b59b6">به صورت ارایه تبدیل شده به استرینگ</span> ذخیره می کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#7f8c8d">clear:&nbsp;&fnof;&nbsp;clear()<br />
+getItem:&nbsp;&fnof;&nbsp;getItem()<br />
+key:&nbsp;&fnof;&nbsp;key()<br />
+length:&nbsp;(...)<br />
+removeItem:&nbsp;&fnof;&nbsp;removeItem()<br />
+setItem:&nbsp;&fnof;&nbsp;setItem()<br />
+constructor:&nbsp;&fnof;&nbsp;Storage()<br />
+Symbol(Symbol.toStringTag):&nbsp;&quot;Storage&quot;<br />
+get length:&nbsp;&fnof;&nbsp;length()<br />
+__proto__:&nbsp;Object</span></p>
+
+<p dir="rtl">&nbsp;</p></div>
+
+
+<p dir="rtl">تابع&nbsp;<span style="color:#27ae60">JSON</span>.<span style="color:#d35400">stringify </span>هر مقداری که با آن بدهیم را <span style="color:#e74c3c">تبدیل می کند به استرینگ</span>.</p>
+
+<p dir="rtl">دستور&nbsp;<span style="color:#27ae60">JSON</span><span style="color:#d35400">.parse</span> دقیقا برعکس&nbsp;JSON.stringify و مقداری که با&nbsp;JSON.stringify استرینگ شده است را <span style="color:#e74c3c">به type اصلی خودش برمی گرداند.</span></p>
+
+
+<div class="code"><p><span style="color:#8e44ad">localStorage</span>.<span style="color:#d35400">setItem</span>(&#39;<span style="color:#f1c40f">name</span>&#39; , &#39;<span style="color:#f1c40f">Ali</span>&#39;);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// add</span></p>
+
+<p><br />
+<span style="color:#9b59b6">sessionStorage</span>.<span style="color:#d35400">setItem</span>(&#39;<span style="color:#f1c40f">name</span>&#39; , &#39;<span style="color:#f1c40f">Ali</span>&#39;);&nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;// set session</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">localStorage</span>.<span style="color:#d35400">removeItem</span>(&#39;name&#39;);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//delete</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">localStorage</span>.<span style="color:#d35400">setItem</span>(&#39;<span style="color:#f1c40f">lang</span>&#39; , &#39;<span style="color:#f1c40f">JS</span>&#39;);</p>
+
+<p><br />
+<span style="color:#3498db">const </span>geting = <span style="color:#9b59b6">localStorage</span>.<span style="color:#d35400">getItem</span>(&#39;<span style="color:#f1c40f">lang</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.lo</span>g(geting);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//JS</span><br />
+&nbsp;</p>
+
+<p><br />
+&nbsp;<span style="color:#8e44ad">localStorage</span>.<span style="color:#d35400">clear</span>();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //clear all</span></p>
+
+<p><br />
+&nbsp;<span style="color:#2980b9">console.log</span>(<span style="color:#d35400">JSON.stringify</span>(&nbsp; [&#39;ali&#39;]&nbsp; ));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//conver array to string &nbsp; &nbsp;[&quot;ali&quot;]</span></p>
+
+<p><br />
+&nbsp;<span style="color:#d35400">JSON.parse</span>();&nbsp;</p>
+</div> 
+
+<p dir="rtl">نوع ایونت&nbsp; <span style="color:#d35400">DOMContentLoaded </span>برای زمانی است که می خواهیم بگوییم وقتی صفحه DOM لود شد کدها اجرا شود</p>
+
+<div class="code">
+<p><span style="color:#9b59b6">document</span>.<span style="color:#e74c3c">addEventListener</span>(&quot;<span style="color:#d35400">DOMContentLoaded </span>&quot; ,<span style="color:#3498db">function</span>(){</p>
+
+<p>&nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;#code</span></p>
+
+<p>});</p></div>  
+
+
+<h2 class="y">-------  Full Screen  ------</h2>
+
+<div class="code"><p>in Js</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">function </span><span style="color:#2ecc71">activateFullscreen</span>(<span style="color:#e67e22">element</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">if</span>(element.<span style="color:#27ae60">requestFullscreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;element.<span style="color:#d35400">requestFullscreen</span>(); &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// W3C spec</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">else if</span> (element.<span style="color:#27ae60">mozRequestFullScreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;element.<span style="color:#d35400">mozRequestFullScreen</span>(); &nbsp; &nbsp; <span style="color:#7f8c8d">// Firefox</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">else if</span> (element.<span style="color:#27ae60">webkitRequestFullscreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;element.<span style="color:#d35400">webkitRequestFullscreen</span>();&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // Safari</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">else if</span>(element.<span style="color:#27ae60">msRequestFullscreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;element.<span style="color:#d35400">msRequestFullscreen</span>();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; &nbsp;// IE/Edge</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;}<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">function </span><span style="color:#2ecc71">deactivateFullscreen</span>() {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <span style="color:#e74c3c">&nbsp;if</span>(document.<span style="color:#27ae60">exitFullscreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;document.<span style="color:#d35400">exitFullscreen</span>();<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;} <span style="color:#e74c3c">else if</span> (document.<span style="color:#27ae60">mozCancelFullScreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;document.<span style="color:#d35400">mozCancelFullScreen</span>();<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;} <span style="color:#e74c3c">else if </span>(document.<span style="color:#27ae60">webkitExitFullscreen</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;document.<span style="color:#d35400">webkitExitFullscreen</span>();<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;}<span style="color:#e74c3c">else if</span> (document.<span style="color:#27ae60">msExitFullscreen</span>) {<br />
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.<span style="color:#d35400">msExitFullscreen</span>();<br />
+&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+}</p>
+
+<p><span style="color:#3498db">function</span> <span style="color:#2ecc71">toggle</span>(<span style="color:#e67e22">element</span>){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;if (document.<span style="color:#d35400">fullscreenElement </span>|| document.<span style="color:#d35400">mozFullScreenElement </span>|| document.<span style="color:#d35400">webkitFullscreenElement </span>|| document.<span style="color:#d35400">msFullscreenElement</span>) {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#8e44ad">deactivateFullscreen</span>();<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;} else {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#8e44ad">activateFullscreen</span>(element);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp;}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>****** in HTML</p>
+
+<p>&nbsp;</p>
+
+<p>&lt;<span style="color:#e74c3c">div </span>id=&quot;<span style="color:#f1c40f">app</span>&quot; style=&quot;overflow: auto;&quot;&gt;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;<span style="color:#e74c3c">button</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#27ae60">onclick</span>=&quot;<span style="color:#d35400">activateFullscreen</span>(document.<span style="color:#3498db">getElementById</span>(&#39;<span style="color:#f1c40f">app</span>&#39;));&quot;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&gt;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;Go fullscreen!<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/<span style="color:#e74c3c">button</span>&gt;</p>
+
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;<span style="color:#e74c3c">button</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#27ae60">onclick</span>=&quot;<span style="color:#d35400">deactivateFullscreen</span>();&quot;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&gt;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;Leave fullscreen<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/<span style="color:#e74c3c">button</span>&gt;</p>
+
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;<span style="color:#e74c3c">button</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<span style="color:#27ae60">onclick</span>=&quot;<span style="color:#d35400">toggle</span>(document.<span style="color:#3498db">getElementById</span>(&#39;<span style="color:#f1c40f">app</span>&#39;));&quot;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&gt;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;Toggle<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/<span style="color:#e74c3c">button</span>&gt;<br />
+&lt;/<span style="color:#e74c3c">div</span>&gt;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>**** in CSS</p>
+
+<p><span style="color:#7f8c8d">/* Targets the<br />
+&nbsp; HTML element that&#39;s<br />
+&nbsp; in fullscreen mode */</span><br />
+:<span style="color:#2ecc71">fullscreen</span>,<br />
+:<span style="color:#2ecc71">-webkit-full-screen</span>,<br />
+:<span style="color:#2ecc71">-moz-full-screen</span>,<br />
+:<span style="color:#2ecc71">-ms-fullscreen</span> {<br />
+&nbsp; <span style="color:#3498db">background</span>: <span style="color:#3498db">transparent</span>;<br />
+}</p>
+
+<p><br />
+<span style="color:#7f8c8d">/* Styling the<br />
+&nbsp; backdrop */</span><br />
+::<span style="color:#27ae60">backdrop </span>{<br />
+&nbsp; &nbsp;<span style="color:#3498db">background</span>: <span style="color:#3498db">transparent</span>;<br />
+}</p>
+
+</div> 
+<br />
+<h2 class="y">-------  جدا کردن سه تایی اعداد و قیمت   ------</h2>
+
+<div class="code"><p><span style="color:#3498db">window</span>.<span style="color:#d35400">number_format</span> = <span style="color:#2ecc71">function </span>(<span style="color:#e67e22">number</span>, <span style="color:#e67e22">decimals</span>, <span style="color:#e67e22">dec_point</span>, <span style="color:#e67e22">thousands_point</span>) {</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c"> if</span> (number == <span style="color:#9b59b6">null </span>|| <span style="color:#9b59b6">!</span><span style="color:#27ae60">isFinite</span>(number)) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">throw new </span><span style="color:#3498db">TypeError</span>(&quot;<span style="color:#f39c12">number is not valid</span>&quot;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">if</span> (<span style="color:#9b59b6">!</span>decimals) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#3498db">var </span>len = number.<span style="color:#27ae60">toString</span>().<span style="color:#27ae60">split</span>(&#39;<span style="color:#f39c12">.</span>&#39;).length;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; decimals = len <span style="color:#e74c3c">&gt;</span> 1 <span style="color:#e74c3c">?</span> len <span style="color:#e74c3c">: </span>0;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">&nbsp; if </span>(<span style="color:#9b59b6">!</span>dec_point) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; dec_point = &#39;<span style="color:#f39c12">.</span>&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c"> if</span> (<span style="color:#9b59b6">!</span>thousands_point) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; thousands_point = &#39;<span style="color:#f39c12">,</span>&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; number = <span style="color:#27ae60">parseFloat</span>(number).<span style="color:#27ae60">toFixed</span>(decimals);</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; number = number.<span style="color:#3498db">replace</span>(&quot;<span style="color:#f39c12">.</span>&quot;, dec_point);</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; var splitNum = number.<span style="color:#27ae60">split</span>(dec_point);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; splitNum[<span style="color:#9b59b6">0</span>] = splitNum[<span style="color:#9b59b6">0</span>].<span style="color:#27ae60">replace</span>(<span style="color:#d35400">/\B(?=(\d{3})+(?!\d))/g</span>, thousands_point);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; number = splitNum.<span style="color:#27ae60">join</span>(dec_point);</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">return </span>number;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// for use</span></p>
+
+<p><span style="color:#3498db">console.log</span>(<span style="color:#d35400">number_format</span> (<span style="color:#9b59b6">300000</span>));&nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&nbsp; &quot;300,000&quot;</span></p>
+
+<p><span style="color:#3498db">console.log</span>(<span style="color:#d35400">number_format </span>(<span style="color:#9b59b6">300000 </span>,<span style="color:#d35400"> </span><span style="color:#9b59b6">2</span>));&nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&nbsp; &quot;300,000.00&quot;</span></p>
+
+<p><span style="color:#3498db">console.log</span>(<span style="color:#d35400">number_format</span> (<span style="color:#9b59b6">300000, 2 , &quot;.&quot; , &quot;/&quot;</span>));&nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&nbsp;&quot;300/000.00&quot;</span></p>
+<p>&nbsp;</p></div> 
+
+
+<p dir="rtl">برای جدا کننده ها که اینجا <span style="color:#e74c3c">,</span> و <span style="color:#e74c3c">.</span> است می توانیم پارامترهای دلخواه را به عنوان ورودی های<span style="color:#d35400"> سوم و چهارم</span> به تابع پاس بدهیم.&nbsp; این تابع به صورت <span style="color:#9b59b6">گلوبال </span>در شی <span style="color:#2980b9">window </span>تعریف می شود و <span style="color:#ff0099">در تمام سایت قابل دسترس</span> است.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+
+
+<h2 class="y">-------  فارسی کردن اعداد  ------</h2>
+
+<div class="code"><p>&nbsp; &nbsp; <span style="color:#3498db">window</span>.<span style="color:#27ae60">toPersianNum </span>= <span style="color:#2ecc71">function </span>(<span style="color:#d35400">num</span>, <span style="color:#d35400">dontTrim</span>) {</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#3498db">var </span>i = <span style="color:#9b59b6">0</span>,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; dontTrim = dontTrim <span style="color:#e74c3c">||</span> <span style="color:#9b59b6">false</span>,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; num <span style="color:#e74c3c">=</span> dontTrim <span style="color:#e74c3c">?</span> num.<span style="color:#27ae60">toString</span>() <span style="color:#e74c3c">: </span>num.<span style="color:#27ae60">toString</span>().<span style="color:#27ae60">trim</span>(),<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; len <span style="color:#e74c3c">=</span> num.length,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; res = &#39;&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pos,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; persianNumbers = <span style="color:#e74c3c">typeof </span>persianNumber <span style="color:#e74c3c">==</span> &#39;<span style="color:#f39c12">undefined</span>&#39; ?<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [&#39;<span style="color:#f39c12">۰</span>&#39;, &#39;<span style="color:#f39c12">۱</span>&#39;, &#39;<span style="color:#f39c12">۲</span>&#39;, &#39;<span style="color:#f39c12">۳</span>&#39;, &#39;<span style="color:#f39c12">۴</span>&#39;, &#39;<span style="color:#f39c12">۵</span>&#39;, &#39;<span style="color:#f39c12">۶</span>&#39;, &#39;<span style="color:#f39c12">۷</span>&#39;, &#39;<span style="color:#f39c12">۸</span>&#39;, &#39;<span style="color:#f39c12">۹</span>&#39;] :<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; persianNumbers;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">for </span>(; i &lt; len; i<span style="color:#e74c3c">++</span>)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">if</span> ((pos = <span style="color:#3498db">persianNumbers</span>[num.<span style="color:#27ae60">charAt</span>(i)]))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; res <span style="color:#e74c3c">+=</span> pos;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; res <span style="color:#e74c3c">+=</span> num.<span style="color:#3498db">charAt</span>(i);</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">return </span>res;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp;</p><p><span style="color:#7f8c8d">// for Use</span></p>
+
+<p><span style="color:#3498db">console.log</span>(<span style="color:#d35400">toPersianNum</span>(<span style="color:#9b59b6">300</span>))&nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; //&nbsp; &quot;۳۰۰&quot;</span></p>
+
+<p>&nbsp;</p></div> 
+
+
+
+
+
+<!--          
+
+<div class="code"></div>   
+<h2 class="y">-------  BOM Parts  ------</h2>
+  -->
+
+</div><!-- Main -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

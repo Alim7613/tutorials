@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vuex</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						VueX	4				 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/vue.png" width="150" height="150"></p>
+<i class="ti or"> {{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Vuex 4&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }}</i>
+<br>
+<p dir="rtl"><strong><span style="color:#16a085"><em> Vuex </em> </span> </strong> یک &nbsp;</p>
+
+<span class="g">state managments pattern</span>
+<br>
+<p dir="rtl">هست که می آید داده ها را <span style="color:#c0392b">در یک جا ذخیره </span>می کند و ما بعد می توانیم <span style="color:#e67e22">در هر کامپوننتی از آن ها</span> استفاده کنیم</p>
+
+<p dir="rtl"><br />
+<span style="color:#3498db">اگر در حالت عادی 10 تا کامپوننت داشته باشیم و بخواهیم داده ها را دائم از این کامپوننت به کامپوننت دیگر پاس دهیم به مشکل میخوریم</span><br />
+مفاهیم<br />
+<span style="color:#c0392b">state&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color:#f39c12"> =====&gt;&nbsp; </span>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#16a085">&nbsp;دیتا ها</span><br />
+<span style="color:#c0392b">Actions&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color:#f39c12">=====&gt;&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#1abc9c">تغغیرات مثلا اضافه کردن یکی به کانت با کلیک&nbsp;</span>&nbsp;<br />
+<span style="color:#c0392b">View&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color:#f39c12">=====&gt;</span></p>
+
+
+
+<p dir="rtl"><br />
+!!!!&nbsp; به <span style="color:#e74c3c">هیچ وجه نیازی نیست</span> در همه پروژه ها از&nbsp; <span style="color:#3498db">vuex&nbsp; &nbsp;</span>استفاده کنید و <span style="color:#d35400">این تکنولوژِی برای پروژه های بزرگ</span> است<br />
+&nbsp;</p>
+
+
+<p><span style="color:#8e44ad"><em><span style="font-size:22px">install</span></em></span></p>
+<p dir="rtl" style="text-align:center"><span style="color:#ffffff"><span style="background-color:#000000">doc vuex ==&gt; npm install vuex@next --save</span></span></p>
+<br />
+<p dir="rtl"><br />
+ویو&nbsp; ایکس&nbsp; می اید کدها مارا در <span style="color:#e74c3c">یک جا ذخیره</span> و به سایر کامپوننت ها پاس می دهد. به همین دلیل به جایی برای پیاده سازی کدها نیاز داریم. بهتر ایت داخل پوشه&nbsp; <span style="color:#c0392b">src&nbsp;</span>یک پوشه به اسم&nbsp; <span style="color:#d35400"><strong>store&nbsp;&nbsp;</strong></span>بسازیم و یک فایل <span style="color:#f39c12">index.js</span><br />
+در آن قرار دهیم</p>
+
+
+<div class="code">
+
+<p><br />
+<span style="color:#d35400">in index&nbsp;</span></p><br><br><br>
+
+<p><span style="color:#c0392b">import </span>{<span style="color:#dddddd">createStore</span>} <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">vuex</span>&#39;<br />
+<span style="color:#3498db">const </span><span style="color:#8e44ad">store </span>= <span style="color:#2ecc71">createStore</span>({</p>
+
+<p>});<br /><br><br>
+<span style="color:#e74c3c">export default</span> <span style="color:#3498db">store</span>;</p>
+
+<p dir="rtl" style="text-align:center"><br /><br><br>
+<span style="color:#e74c3c">حالا باید به ویو بگوییم که همچین فایل برای ویو ایکس&nbsp; وجود دارد</span></p><br><br>
+
+<p><br />
+<span style="color:#d35400">in main.js </span></p><br><br>
+
+<p><span style="color:#e74c3c">import </span><span style="color:#3498db">store </span><span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">./store/index.js</span>&#39;<br /><br>
+<span style="color:#3498db">const </span><span style="color:#f1c40f">app </span>= <span style="color:#2ecc71">createApp</span>(<span style="color:#9b59b6">App</span>);<br /><br>
+<span style="color:#9b59b6">app</span>.<span style="color:#2ecc71">use</span>(<span style="color:#dddddd">store</span>);<br /><br>
+<span style="color:#9b59b6">app</span>.<span style="color:#2ecc71">mount</span>(&#39;<span style="color:#f1c40f">#app</span>&#39;);</p>
+
+
+
+</div>
+
+
+
+
+<h2 class="y">---------------------    State    ---------------------</h2>
+<p><span style="color:#e74c3c">state</span> <span style="color:#f1c40f">==&gt;</span> <span style="color:#27ae60">همان حالت دیتا در ویو را دارد و به همان شکل هم تعریف می شود</span></p>
+<p style="direction:rtl">دو روش برای <span><span style="color:#f1c40f">تعریف state</span></span> وجود دارد.</p>
+<p style="direction:rtl"><span style="color:#c0392b">1. به صورت تابع</span></p><p style="direction:rtl"><span style="color:#c0392b">2. به صورت آبجکت</span></p>
+
+in index.js   ==>  
+<div class="code">
+<p><span style="color:#2980b9">const </span><span style="color:#8e44ad">store </span>= <span style="color:#16a085">createStore</span>({<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#bdc3c7">state</span>(){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">count </span>: 0<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}<br />
+});</p>
+------------------------
+<p><span style="color:#3498db">state</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#8e44ad">count </span>: 21<br />
+&nbsp;&nbsp; &nbsp;}</p>
+</div>
+
+<p style="direction:rtl"><span style="color:#27ae60">&nbsp;برای استفاده از&nbsp;state&nbsp; در فایل های &nbsp;ویو باید از</span><span style="color:#e67e22">&nbsp; &nbsp;</span><span style="color:#c0392b">computed&nbsp; </span><span style="color:#27ae60">استفاده کنیم&nbsp;</span></p>
+
+<p><span style="color:#f1c40f"><em><span style="font-size:22px">(Vue 2)</span></em></span></p>
+
+import {mapState} from 'vuex'
+
+<div class="code">
+1. <br>
+<p>&nbsp;<span style="color:#e74c3c">computed</span>:{<br />
+&nbsp; &nbsp; <span style="color:#2ecc71">count</span>(){<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#c0392b">return </span><span style="color:#f39c12">this</span>.<span style="color:#3498db">$store</span>.state.count<br />
+&nbsp; &nbsp; }<br />
+&nbsp; }</p>
+
+<p style="text-align:right">&nbsp;&nbsp;<br />
+<span style="color:#27ae60">.vue&nbsp;</span> حالا در هر جای پروژه می توانیم آن را صدا بزنیم ==&gt; فایل &nbsp;</p>
+
+<p><br />
+<span style="color:#c0392b">in template tag</span><br />
+{{ <span style="color:#3498db">count </span>}}</p>
+<br><br><br>
+2. <br>
+<p>&nbsp;<span style="color:#e74c3c">computed</span>:{<br />
+&nbsp; &nbsp; <span style="color:#c0392b">...</span><span style="color:#2ecc71">mapState</span>([&#39;<span style="color:#f1c40f">count</span>&#39;]),<br />
+&nbsp; &nbsp; <span style="color:#9b59b6">name</span>(){<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#c0392b">return </span>&#39;<span style="color:#f1c40f">Web</span>&#39;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; }</p>
+
+<br><br><br>
+3.<br>
+<p><span style="color:#e74c3c">computed </span>: <span style="color:#27ae60">mapState</span>([&#39;<span style="color:#f1c40f">count</span>&#39;])</p>
+<br><br><br>
+
+4.<br>
+<p>&nbsp;<span style="color:#e74c3c">computed </span>: <span style="color:#27ae60">mapState</span>({<br />
+&nbsp; &nbsp; <span style="color:#95a5a6">count</span>:&#39;<span style="color:#f1c40f">count</span>&#39;<br />
+&nbsp; })</p>
+
+<br><br><br>
+5.<br>
+
+<p><span style="color:#e74c3c">computed </span>: <span style="color:#27ae60">mapState</span>({<br />
+&nbsp; &nbsp; <span style="color:#95a5a6">count</span>: (<span style="color:#d35400">state</span>) =&gt; <span style="color:#3498db">state.count</span><br />
+&nbsp; })</p>
+</div>
+
+<p><span style="color:#f1c40f"><em><span style="font-size:22px">(Vue 3)</span></em></span></p>
+import {useStore} from 'vuex' <br>
+import {computed} from 'vue'
+  
+<div class="code">
+<p><span style="color:#16a085">setup</span>(){<br />
+&nbsp; &nbsp; <span style="color:#3498db">const </span><span style="color:#d35400">store</span> = <span style="color:#27ae60">useStore</span>();<br />
+&nbsp; &nbsp; <span style="color:#3498db">const </span><span style="color:#d35400">count </span>= <span style="color:#e74c3c">computed</span>(()=&gt;<span style="color:#2980b9">store.state.count</span>);<br />
+&nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; <span style="color:#c0392b">return </span>{<span style="color:#f1c40f">count</span>}<br />
+&nbsp; }</p>
+
+
+</div>  
+
+<p style="direction:rtl">ما در متود&nbsp; <span style="color:#27ae60">setup </span>به&nbsp; <span style="color:#f39c12">this </span>دسترسی نداریم زیرا ست آپ قبل از لایف سایکل ویو صدا زده می شود&nbsp;</p>
+
+<p style="direction:rtl">برای حالت<span style="color:#8e44ad"> اپشن&nbsp;api</span>&nbsp; می توانید برای&nbsp;<span style="color:#27ae60">computed </span>از&nbsp;<span style="color:#d35400">mapStore </span>استفاده کنید که این مورد در<span style="color:#27ae60">&nbsp;composition Api</span>&nbsp; در <span style="color:#e74c3c">دسترس نیست</span></p>
+
+|================|
+
+<p dir="rtl"><span style="font-size:16px"><span style="color:#d35400">برای مواقعی که داده تنها مربوط به یک کامپوننت است نیازی نیست از state ها استفاده کنیم.</span></span></p>
+
+
+
+
+  
+<h2 class="y">---------------------    Getter    ---------------------</h2>
+
+<div class="code">
+in index.js
+<br>
+<br>
+<p><span style="color:#d35400">state</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">count </span>: 21,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#27ae60">todos</span>:[<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{id:1, text:&#39;<span style="color:#f1c40f">todo1</span>&#39;, done:<span style="color:#9b59b6">true</span>},<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{id:2, text:&#39;<span style="color:#f1c40f">todo2</span>&#39;, done:<span style="color:#9b59b6">false</span>},<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;]<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<br /><br />
+	in Components
+<br /><br />
+<p><span style="color:#3498db">const </span>todos = <span style="color:#27ae60">computed</span>(()=&gt;store.state.todos);<br />
+<span style="color:#3498db">const </span>todosDone = <span style="color:#27ae60">computed</span>(()=&gt;<span style="color:#e74c3c">store.state.todos</span>.<span style="color:#8e44ad">filter</span>(<span style="color:#d35400">todo </span>=&gt; todo.done) );</p>
+
+
+</div>
+<p style="direction:rtl"><span style="color:#d35400">در حالت عادی باید روش بالا را برای هر کامپوننتی که به todos نیاز داریم پیاده سازی کنیم که اصلا جالب نیست.</span></p>
+
+<br>	
+
+<p style="direction:rtl"><span style="color:#2980b9">اگر توابع و کامپیوتد های پیچیده داشته باشیم و بخواهیم آن ها را در کامپوننت های مختلف استفاده کنیم. قعطا پردازش کدهای زیادی و توابع کمی مشکل ساز می شوند. از سوی دیگر</span><span style="color:#e74c3c"> ما داریم یک روند را بارها تکرار می کنیم</span><span style="color:#2980b9">. پس بهتر است که یک </span><span style="color:#d35400">getter </span><span style="color:#2980b9">پیاده سازی کنیم که کدهای لازم را پیاده سازی می کند و بعد آن را فراخوانی کنیم.</span></p>
+
+<div class="code">
+
+in index.js
+<br>
+<br>
+
+<p><span style="color:#27ae60">state</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#d35400">count </span>: 21,</p>
+
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#d35400">todos</span>:[<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{id:1, text:&#39;<span style="color:#f1c40f">todo1</span>&#39;, done:true},<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{id:2, text:&#39;<span style="color:#f1c40f">todo2</span>&#39;, done:false},<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;]<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">getters</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#8e44ad">doneTodosGetter</span>(<span style="color:#c0392b">state</span>){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>state.todos.<span style="color:#2980b9">filter</span>(<span style="color:#d35400">todo </span>=&gt; todo.done);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<br>
+<br>
+<br>
+in component  (<span class="y">Vue 3</span>)
+<br>
+<br>
+<p>&nbsp;<span style="color:#2980b9">const </span><span style="color:#27ae60">todosDone </span>= <span style="color:#8e44ad">computed</span>(()=&gt;store.<span style="color:#c0392b">getters</span>.doneTodosGetter );</p>
+
+<br>
+<br>
+<br>
+in component  (<span class="y">Vue 2</span>)
+<br>
+<br>
+
+<p><span style="color:#d35400">computed</span>:{<br />
+&nbsp; &nbsp; <span style="color:#2ecc71">count</span>(){<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">return </span>this.$store.state.count<br />
+&nbsp; &nbsp; },<br />
+&nbsp; &nbsp; <span style="color:#66cc33">todos</span>(){<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">return </span>this.$store.state.todos<br />
+&nbsp; &nbsp; },<br />
+&nbsp; &nbsp; <span style="color:#66cc33">todosDone</span>(){<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">return </span>this.$store.<span style="color:#c0392b">getters</span>.doneTodosGetter<br />
+&nbsp; &nbsp; }<br />
+&nbsp; }</p>
+
+
+
+
+
+
+</div>
+<p style="direction:rtl">مانند حالت state&nbsp; ما&nbsp;&nbsp;<span style="color:#d35400"><code>mapGetters</code>&nbsp; </span>هم داریم که دقیقا مشابه همان است&nbsp;</p>
+
+<div class="code">
+<pre>
+<code><span style="color:#c0392b">import </span>{ <span style="color:#2ecc71">mapGetters </span>} <span style="color:#c0392b">from </span>&#39;<span style="color:#f1c40f">vuex</span>&#39;
+
+<span style="color:#c0392b">export default</span> {
+  // ...
+  <span style="color:#c0392b">computed</span>: {
+    // mix the getters into computed with object spread operator
+    ...<span style="color:#8e44ad">mapGetters</span>([
+      &#39;<span style="color:#f39c12">doneTodosCount</span>&#39;,
+      &#39;<span style="color:#f39c12">anotherGetter</span>&#39;,
+      // ...
+    ])
+  }
+}</code></pre>
+
+</div>
+
+<h3 class="red"><p style="direction:rtl">ارسال پارامتر به &nbsp; <span style="color:#d35400">Getters</span></p>
+</h3>
+
+<div class="code">
+in index.js
+<br /><br />
+
+<p><span style="color:#d35400">getters</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">getTodoById &nbsp;</span>: (<span style="color:#d35400">state</span>) =&gt; (<span style="color:#d35400">id</span>)=&gt;{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return </span>state.todos.find(<span style="color:#d35400">todo </span>=&gt; todo.id == id)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<br /><br />
+in component
+<br /><br />
+<p><span style="color:#3498db">const </span><span style="color:#27ae60">getTodoById </span>= <span style="color:#d35400">computed</span>( ()&nbsp; =&gt;&nbsp; store.getters.<span style="color:#f39c12">getTodoById</span>(2) );</p>
+
+</div>
+
+
+<h2 class="y">---------------------    Mutations    ---------------------</h2>
+<p style="direction:rtl">در Vuex اشاره می شود که <span style="color:#e74c3c">تنها راه</span> تغیر <span style="color:#27ae60">state </span>ها&nbsp;&nbsp;<span style="color:#d35400">Mutations </span>است.</p>
+
+<div class="code">
+in index.js
+<br /><br />
+
+<p><span style="color:#27ae60">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#8e44ad">increment</span>(<span style="color:#d35400">state</span>){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#f39c12">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.countMutate</span>++;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<br /><br />
+in component
+<br /><br />
+
+<p><span style="color:#7f8c8d">// &nbsp;Mutation</span><br />
+&nbsp; &nbsp; &nbsp;<span style="color:#3498db">const </span>countM = <span style="color:#8e44ad">computed</span>(()=&gt;<span style="color:#c0392b">store.state.countMutate</span> );</p>
+
+<p>&nbsp; &nbsp; &nbsp;function <span style="color:#2ecc71">Increment</span>(){<br />
+&nbsp; &nbsp; &nbsp; store.<span style="color:#d35400">commit</span>(&#39;<span style="color:#f1c40f">increment</span>&#39;);<br />
+&nbsp; &nbsp; &nbsp;}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">in&nbsp; &nbsp;template</span></p>
+
+<p>&nbsp;&lt;<span style="color:#c0392b">div</span>&gt; {{countM}} &lt;/<span style="color:#c0392b">div</span>&gt;</p>
+
+<p>&nbsp;&lt;<span style="color:#c0392b">button </span>@<span style="color:#16a085">click</span>=&quot;<span style="color:#d35400">Increment</span>&quot;&gt;Increment&lt;/<span style="color:#c0392b">button</span>&gt;</p>
+
+</div>
+
+<p style="direction:rtl; text-align:center"><span style="color:#d35400">ارسال پارامتر به Mutation</span></p>
+
+<div class="code">
+in index.js
+<br /><br />
+<p><span style="color:#27ae60">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#8e44ad">increment</span>(<span style="color:#d35400">state</span>, <span style="color:#d35400">payload</span>){ &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.countMutate += <span style="color:#3498db">payload</span>.<span style="color:#e67e22">number</span>;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<br /><br />
+in component
+<br /><br />
+
+<p><span style="color:#3498db">const </span><span style="color:#9b59b6">countM </span>= <span style="color:#16a085">computed</span>(()=&gt;<span style="color:#e74c3c">store.state.countMutate</span> );</p>
+
+<p>function <span style="color:#27ae60">Increment</span>(){<br />
+&nbsp; &nbsp; store.<span style="color:#d35400">commit</span>(&#39;<span style="color:#f1c40f">increment</span>&#39; , {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:#9b59b6">number </span>: 2,<br />
+&nbsp; &nbsp; });<br />
+}</p>
+
+</div>
+
+<p dir="rtl">می توانیم یک فایل تعریف کنیم و<span style="color:#c0392b"> ثابت ها</span> را داخل آن قرار دهیم تا در جایی که نیاز بود آن ها را صدا بزنیم. البته این مورد موضوع مهم نیست.&nbsp; (<span style="color:#d35400">mutation-types.js</span>)</p>
+
+<div class="code">
+in mutation-types.js
+<br /><br />
+
+<p><span style="color:#e74c3c">export </span><span style="color:#3498db">const </span><span style="color:#f39c12">INCREMENT </span>= &quot;<span style="color:#f1c40f">INCREMENT</span>&quot;;</p>
+
+
+
+<br /><br />
+in index.js
+<br /><br />
+<p><span style="color:#e74c3c">import </span>{<span style="color:#2ecc71">INCREMENT</span>} <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">./mutation-types.js</span>&#39;</p>
+
+---------------
+<p><span style="color:#2ecc71">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;[<span style="color:#ff0066">INCREMENT</span>](<span style="color:#d35400">state</span>, <span style="color:#d35400">payload</span>){ &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.countMutate <span style="color:#e74c3c">+=</span> payload.number;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+}</p>
+
+
+
+<br /><br />
+in component
+<br /><br />
+
+<br>
+<p><span style="color:#2980b9">const </span>countM = <span style="color:#27ae60">computed</span>(()=&gt;<span style="color:#f39c12">store.state.countMutate</span> );</p>
+
+<p>&nbsp;function <span style="color:#27ae60">Increment</span>(){<br />
+&nbsp; &nbsp; &nbsp; store.<span style="color:#ff0066">commit</span>(&#39;<span style="color:#f1c40f">INCREMENT</span>&#39;&nbsp;, {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#9b59b6">number</span> : 2,<br />
+&nbsp; &nbsp; &nbsp; });<br />
+}</p>
+</div>
+<p style="direction:rtl">توجه داشته باشید که mutation ها حتما باید از نوع <span style="color:#c0392b">Synchronous </span>باشند و اما استفاده از <span style="color:#e67e22">asynchronous </span>وجود ندارد. پس در&nbsp;<span style="color:#8e44ad">mutation </span>امکان ارسال و درخواست <span style="color:#f39c12">API </span>وجود ندارد که <span style="color:#ff0066">برای این کار ما از Actions کمک می گیریم.</span></p>
+
+
+
+<h2 class="y">-----    Actions    -----</h2>
+
+<p dir="rtl">خود سایت <em><span style="color:#e74c3c">vuex </span></em>می گوید که <span style="color:#f39c12">Action کاملا شبیه Mutations است</span> اما با تفاوت هایی. شبیه بودن یعنی<span style="color:#d35400"> اکشن ها می تواند State را تغییر دهد.</span></p>
+
+<p dir="rtl"><span style="color:#27ae60">تفاوت ها:</span>&nbsp;&nbsp;<span style="color:#e74c3c">(خیلی مهم)</span></p>
+
+<p dir="rtl">1<span style="color:#ff0066">. اکشن می اید&nbsp;</span><span style="color:#d35400">Mutations&nbsp; </span><span style="color:#ff0066">را&nbsp; صدا می زند </span><span style="color:#27ae60">و&nbsp;Mutations هم state را تغییر</span><span style="color:#ff0066"> می دهد.</span><br />
+2. <span style="color:#ff0066">اما مهم ترین تفاوت این است که&nbsp;Action&nbsp; از نوع&nbsp; </span><span style="color:#8e44ad">Asynchoronous </span><span style="color:#ff0066">است و می توانیم در این قسمت </span><span style="color:#f39c12">به API درخواست ارسال کنیم</span><span style="color:#ff0066"> و با </span><span style="color:#27ae60">توجه به پاسخی که برمی گردد</span><span style="color:#ff0066"> به&nbsp;&nbsp;</span><span style="color:#f1c40f">Mutations&nbsp; دستور بدهیم که state را تغییر</span><span style="color:#ff0066"> دهد.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code">
+in index.js
+<br /><br />
+
+<p><span style="color:#27ae60">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">INCREMENT</span>(<span style="color:#d35400">state</span>){ &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.countMutate <span style="color:#e74c3c">+=</span> 1;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+},</p>
+
+<p><span style="color:#27ae60">actions</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// <span style="color:#2ecc71">Aincrement</span>(<span style="color:#d35400">context</span>){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // context &nbsp;==&gt; all content of Vuex</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// &nbsp;&nbsp; &nbsp;context.<span style="color:#3498db">commit</span>(&#39;<span style="color:#f1c40f">INCREMENT</span>&#39;)<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// }</p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">Aincrement</span>(&nbsp; &nbsp;{<span style="color:#d35400">commit</span>}&nbsp; &nbsp;){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#d35400">// get commet from context</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">commit</span>(&#39;<span style="color:#f1c40f">INCREMENT</span>&#39;)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //&nbsp; <span style="color:#d35400">INCREMENT&nbsp; --&gt; Mutation</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;}</p>
+
+
+
+
+<br /><br />
+in component
+<br /><br />
+<p><span style="color:#3498db">function </span><span style="color:#27ae60">AIncrement</span>(){<br />
+&nbsp; &nbsp; &nbsp; store.<span style="color:#d35400">dispatch</span>(&#39;<span style="color:#f1c40f">Aincrement</span>&#39;);<br />
+}</p>
+
+<br /><br />
+in template
+<br /><br />
+<p>&lt;<span style="color:#e74c3c">button </span>@<span style="color:#2ecc71">click</span>=&quot;<span style="color:#f1c40f">AIncrement</span>&quot;&gt;Increment&lt;/<span style="color:#e74c3c">button</span>&gt;</p>
+</div>
+
+
+<p dir="rtl"><span style="color:#d35400">ارسال پارامتر به action</span></p>
+<div class="code">
+in index.js
+<br /><br />
+
+<p><span style="color:#27ae60">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">INCREMENT</span>(<span style="color:#d35400">state</span>, <span style="color:#d35400">number</span>){ &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.countMutate <span style="color:#e74c3c">+=</span> number;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+},</p>
+
+<p><span style="color:#27ae60">actions</span>:{<br /><br /><br />
+&nbsp;/// شکل اول<br /><br /><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// <span style="color:#2ecc71">Aincrement</span>(<span style="color:#d35400">context&nbsp;</span> ,&nbsp;<span style="color:#d35400">payload</span>){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // context &nbsp;==&gt; all content of Vuex</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// &nbsp;&nbsp; &nbsp;context.<span style="color:#3498db">commit</span>(&#39;<span style="color:#f1c40f">INCREMENT</span>&#39; , payload.number)<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// }</p>
+<br /><br />
+<p>//&nbsp; شکل دوم&nbsp;<br /><br /><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">Aincrement</span>(&nbsp; &nbsp;{<span style="color:#d35400">commit</span>}&nbsp; ,&nbsp;<span style="color:#d35400">payload </span>){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#d35400">// get commet from context</span><br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">commit</span>(&#39;<span style="color:#f1c40f">INCREMENT</span>&#39; , payload.number)&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // <span style="color:#e74c3c">sent to&nbsp;&nbsp;Mutation</span><br />
+&nbsp;&nbsp;
+
+<br /><br />
+in component
+<br /><br />
+
+<p><span style="color:#3498db">function </span><span style="color:#27ae60">AIncrement</span>(){<br />
+&nbsp; &nbsp; &nbsp; store.<span style="color:#d35400">dispatch</span>(&#39;<span style="color:#f1c40f">Aincrement</span>&#39; ,{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#9b59b6">number </span>: 3<br />
+&nbsp; &nbsp; &nbsp; });<br />
+}</p>
+
+
+<br /><br />
+in template
+<br /><br />
+<p>&lt;<span style="color:#e74c3c">button </span>@<span style="color:#2ecc71">click</span>=&quot;<span style="color:#f1c40f">AIncrement</span>&quot;&gt;Increment&lt;/<span style="color:#e74c3c">button</span>&gt;</p>
+
+</div>
+<p dir="rtl">در حقیقت&nbsp; <span style="color:#ff0066">commit&nbsp; </span>پل ارتباطی برای صدا زدن <span style="color:#f39c12">Mutation</span> است و <span style="color:#d35400">هرجا commit را دیدید بدانید که mutation در حال فراخوانی شدن است</span>.</p>
+
+<p>&nbsp;</p>
+
+
+<h2 class="y">-----    Moudules    -----</h2>
+
+<p style="direction:rtl">ماژول<span style="color:#d35400"> یک بخش از پروژه vuex است</span> که داخل خود <span style="color:#e74c3c">state&nbsp; - mautation - action&nbsp; و ... را دارد.</span>&nbsp;</p>
+
+<p style="direction:rtl"><span style="color:#d35400">هر state یا ... که در یک ماژول تعریف می شود، مربوط به خودش است و کاری به ماژول های دیگر ندارد.</span></p>
+<br>
+===========
+<br>
+
+<p dir="rtl">ابتدا یک پوشه با نام <span style="color:#d35400">modules </span>در پوشه store می سازیم. البته <span style="color:#f39c12">نام ها اختیاری</span> است.&nbsp; حالا داخل این پوشه فایل های ماژول خود را ایجاد می کند.</p>
+
+<div class="code"><p><em>in moduleA.js</em></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>moduleA = {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#8e44ad">namespaced </span>: true,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">state</span> : {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;count : 1<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">inc</span>(<span style="color:#d35400">state</span>, <span style="color:#d35400">number</span>){ &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.count <span style="color:#c0392b">+=</span> number;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">actions</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#2ecc71">act</span>({<span style="color:#d35400">commit</span>} , <span style="color:#d35400">payload</span>){ &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">commit</span>(&#39;<span style="color:#f1c40f">inc</span>&#39; , <span style="color:#d35400">payload.number</span>)<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2ecc71">getters</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">doubleCount</span>(<span style="color:#d35400">state</span>){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return</span> state.count<span style="color:#e74c3c"> *</span> 2;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<p>}</p>
+
+<p><br />
+<span style="color:#e74c3c">export default</span> <span style="color:#8e44ad">moduleA</span>;</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#f39c12">==================</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+<p><em>in moduleB.js</em></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>moduleB = {<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#8e44ad">namespaced </span>: true,<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">state</span> : {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;count : 3<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">mutations</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">inc</span>(<span style="color:#d35400">state</span>, <span style="color:#d35400">number</span>){ &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;state.count <span style="color:#c0392b">+=</span> number;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">actions</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#2ecc71">act</span>({<span style="color:#d35400">commit</span>} , <span style="color:#d35400">payload</span>){ &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">commit</span>(&#39;<span style="color:#f1c40f">inc</span>&#39; , <span style="color:#d35400">payload.number</span>)<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2ecc71">getters</span>:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#27ae60">doubleCount</span>(<span style="color:#d35400">state</span>){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">return</span> state.count<span style="color:#e74c3c"> *</span> 5;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<p>}</p>
+
+<p><br />
+<span style="color:#e74c3c">export default</span> <span style="color:#8e44ad">moduleB</span>;</p>
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+<p><em>in index.js</em></p>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<p><em><span style="color:#7f8c8d">// Modules</span><br />
+<span style="color:#e74c3c">import &nbsp;</span><span style="color:#9b59b6">moduleA </span><span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">./modules/moduleA.js</span>&#39;<br />
+<span style="color:#e74c3c">import &nbsp;</span><span style="color:#9b59b6">moduleB </span><span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">./modules/moduleB.js</span>&#39;</em><br />
+&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>store = <span style="color:#27ae60">createStore</span>({</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#d35400">modules</span>:{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#9b59b6">moduleA</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#9b59b6">moduleB</span><br />
+&nbsp; &nbsp; &nbsp;}</p>
+
+<p>});</p><br><br><br>
+
+<p><em>in component</em></p>
+
+<p>&nbsp;</p>
+
+<p><em><span style="color:#7f8c8d">// Modules</span><br />
+<span style="color:#3498db">const </span>MouduleCount= <span style="color:#27ae60">computed</span>(()=&gt;store<span style="color:#d35400">.state.moduleA.count </span>);<br />
+<span style="color:#3498db">const </span>doubleCount= <span style="color:#27ae60">computed</span>(()=&gt;store<span style="color:#d35400">.getters</span>[&#39;<span style="color:#f1c40f">moduleA/doubleCount</span>&#39;] );</em></p>
+
+<p><br />
+<em><span style="color:#3498db">function </span><span style="color:#27ae60">inc</span>(){</em></p>
+
+<p><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // store.commit(&#39;moduleA/inc&#39; , 1);&nbsp; ==&gt; for commit&nbsp; instance</span></em></p>
+
+<p><em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; store.<span style="color:#d35400">dispatch</span>(&#39;<span style="color:#f1c40f">moduleA/act</span>&#39; ,{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; number : 1<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; &nbsp;}</em></p>
+
+<p>&nbsp;</p><br><br><br>
+
+<p><em>// in template</em></p>
+
+<p>&nbsp;</p>
+
+<p><em>&nbsp;double : {{ <span style="color:#9b59b6">doubleCount </span>}}&nbsp; &nbsp; &nbsp; == &nbsp; &nbsp;co {{<span style="color:#9b59b6">MouduleCount</span>}}<br />
+&nbsp; &nbsp; </em></p>
+
+<p><em>&lt;<span style="color:#e74c3c">button </span>@<span style="color:#2ecc71">click</span>=&quot;<span style="color:#f1c40f">inc</span>&quot;&gt;Increment&lt;/<span style="color:#e74c3c">button</span>&gt;</em></p>
+
+
+</div>
+
+<h2 class="y">-----    اطلاعات تکمیلی    -----</h2>
+
+<p dir="rtl">نحوه استفاده vuex 4 در پروژه تغییر کرده است که برای هنگام بودن بیشتر با Vue3 است البته همچنان می تواند از روش قبلی استفاده کرده اما توصیه می شود از روش جدید استفاده کنید.</p>
+<div class="code">
+<p><span style="color:#e74c3c">import </span>{ <span style="color:#9b59b6">createStore </span>} <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">vuex</span>&#39;</p>
+
+<p><span style="color:#e74c3c">export </span><span style="color:#3498db">const </span>store = <span style="color:#27ae60">createStore</span>({</p>
+
+<p><span style="color:#27ae60">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; state </span>() {</p>
+
+<p><span style="color:#e74c3c">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return </span>{</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; count: 1</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>})</p>
+
+<br>
+<br>
+<br>
+<p><code><span style="color:#e74c3c">import </span>{ createApp } <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">vue</span>&#39;<br />
+<span style="color:#e74c3c">import</span> { store } <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">./store</span>&#39;<br />
+<span style="color:#e74c3c">import</span> App <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">./App.vue</span>&#39;</code></p>
+
+<p><span style="color:#3498db">const </span>app = <span style="color:#27ae60">createApp</span>(App)</p>
+
+<p>app.<span style="color:#d35400">use</span>(store)</p>
+
+<p>app.<span style="color:#d35400">mount</span>(&#39;<span style="color:#f1c40f">#app</span>&#39;)</p>
+
+<p>&nbsp;</p>
+</div>
+<p dir="rtl"><code>در vuex 4 برای ساپورت بیشتر type script -- روش&nbsp;</code>this.$store حذف شده است</p>
+
+<p dir="rtl">اضافه شدن قابلیت&nbsp;<span style="color:#d35400">useStore&nbsp; </span>برای استفاده از<span style="color:#27ae60">&nbsp;Composition API&nbsp;</span></p>
+
+<p dir="rtl">&nbsp;</p>
+<div class="code">
+
+<pre>
+<code><span style="color:#e74c3c">import </span>{ <span style="color:#9b59b6">useStore</span> } <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">vuex</span>&#39;
+
+<span style="color:#e74c3c">export default</span> {
+  <span style="color:#27ae60">setup </span>() {
+    <span style="color:#3498db">const </span>store = <span style="color:#d35400">useStore</span>()
+  }
+}</code></pre>
+</div>
+<p>Vuex supports<br />
+<span style="color:#d35400">hot-reloading mutations,<br />
+modules,<br />
+actions and<br />
+getters</span><span style="color:#e74c3c"> </span>during development, using <span style="color:#16a085"><em>webpack&#39;s&nbsp;Hot Module</em> </span>Replacement API.&nbsp;</p>
+<br /><br />
+<p dir="rtl">اگر در داخل store و در کنار state و ... عبارت&nbsp;<span style="color:#d35400"><em><strong>strict: true&nbsp;</strong></em></span>را قرار دادید باید اینپوت ها به شکل زیر تعریف شوند.</p>
+<div class="code">
+<pre>
+<span style="color:#7f8c8d"><code>// Method 1</code></span>
+</pre>
+
+<p><code>&lt;<span style="color:#e74c3c">input </span>:<span style="color:#2ecc71">value</span>=&quot;<span style="color:#f1c40f">message</span>&quot; @<span style="color:#2ecc71">input</span>=&quot;<span style="color:#d35400">updateMessage</span>&quot;&gt;</code></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code><span style="color:#e74c3c">computed</span>: {
+  ...<span style="color:#f39c12">mapState</span>({
+    <span style="color:#3498db">message</span>: <span style="color:#27ae60">state </span>=&gt; state.obj.message
+  })
+},
+<span style="color:#e74c3c">methods</span>: {
+  <span style="color:#27ae60">updateMessage </span>(<span style="color:#d35400">e</span>) {
+    this.$store.<span style="color:#d35400">commit</span>(&#39;<span style="color:#f1c40f">updateMessage</span>&#39;, <span style="color:#9b59b6">e.target.valu</span>e)
+  }
+}</code></pre>
+
+<p>&nbsp;</p>
+
+<pre>
+<code><span style="color:#e74c3c">mutations</span>: {
+  <span style="color:#2ecc71">updateMessage </span>(<span style="color:#d35400">state, message</span>) {
+    state.obj.message = message
+  }
+}</code></pre>
+
+<p>&nbsp;</p>
+<br>
+<br>
+<br>
+<br>
+<p><span style="color:#7f8c8d"><code>// Method 2</code></span></p>
+
+<pre>
+<code>&lt;<span style="color:#e74c3c">input </span><span style="color:#27ae60">v-model</span>=&quot;<span style="color:#f1c40f">message</span>&quot;&gt;</code></pre>
+
+<p>&nbsp;</p>
+
+<pre>
+<code><span style="color:#e74c3c">computed</span>: {
+  message: {
+    <span style="color:#e67e22">get </span>() {
+      return this.$store.state.obj.message
+    },
+    <span style="color:#e67e22">set </span>(value) {
+      this.$store.<span style="color:#d35400">commit</span>(&#39;<span style="color:#f1c40f">updateMessage</span>&#39;, <span style="color:#9b59b6">value</span>)
+    }
+  }
+}</code></pre>
+</div>
+<p dir="rtl">توجه داشته باشید که <span style="color:#e67e22">نباید&nbsp;</span><strong><span style="color:#e74c3c">strict mode</span>&nbsp;</strong>در زمان آپلود پروژه و اتمام کار فعال بگذارید. زیرا این اصل یک<span style="color:#27ae60"> watcher عمیق</span> برای ردیابی برنامه فعال می کند که در پروزه ها با متغییرها و state های فراوان دردسر ساز می شود.</p>
+<p dir="rtl" class="g">ساختار پیشنهادی برای ساخت پروژه با  <span>vuex</span></p>
+
+ <div class="code"><pre>
+<code>├── index.html
+├── main.js
+├── api
+│   └── ... # abstractions for making API requests
+├── components
+│   ├── App.vue
+│   └── ...
+└── store
+    ├── index.js          # where we assemble modules and export the store
+    ├── actions.js        # root actions
+    ├── mutations.js      # root mutations
+    └── modules
+        ├── cart.js       # cart module
+        └── products.js   # products module</code></pre>
+
+</div> 
+
+<br /><br /><br />
+<div class="code"><p dir="rtl">به متودهای getters می توانیم به عنوان <span style="color:#e74c3c">پارامتر سوم</span> &nbsp;خود <span style="color:#d35400">getters </span>را پاس دهیم تا در تابع دیگر بتوانیم از<span style="color:#2980b9"> توانیع قبلی استفاده کنین</span></p>
+
+<p><br />
+<code>getters: {&nbsp;</code></p>
+
+<p><code>&nbsp; &nbsp; <span style="color:#27ae60">doneTodos </span>(<span style="color:#d35400">state</span>) {&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">return </span>state.todos.<span style="color:#3498db">filter</span>(<span style="color:#e67e22">todo </span>=&gt; todo.done)<br />
+&nbsp; &nbsp; },</code></p>
+
+<p><code>&nbsp; &nbsp; &nbsp;<span style="color:#27ae60">doneTodosCount </span>(<span style="color:#d35400">state, getters</span>) {&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">return </span>getters.doneTodos.length<br />
+&nbsp; &nbsp; }&nbsp;</code></p>
+
+<p><code>}</code></p>
+
+<p dir="rtl"><br />
+=========<br />
+می توانیم تمام موارد ارسالی به <span style="color:#d35400">commit </span>را در قالب <span style="color:#f1c40f">یک ابجکت با type ا</span>رسال کنیم. type برابر با نام <span style="color:#f1c40f">mutation </span>مورد نظر باید باشد.</p>
+
+<p><code>store.<span style="color:#d35400">commit</span>({&nbsp;<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">type</span>: &#39;<span style="color:#f1c40f">increment</span>&#39;,&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;amount: 10&nbsp;<br />
+})</code></p>
+
+<p><br />
+<code><span style="color:#2ecc71">mutations</span>: {<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#16a085">increment </span>(<span style="color:#d35400">state, payload</span>) {&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state.count <span style="color:#e74c3c">+=</span> payload.amount&nbsp;<br />
+&nbsp; &nbsp; &nbsp;}&nbsp;<br />
+}</code></p>
+
+<p dir="rtl">=========<br />
+توجه داشته باشید که در vue2 &nbsp;کامیت ها باید در <span style="color:#e67e22">methods</span> فراخوانی شوند. هنچنین ما <span style="color:#e67e22">mapMutations </span>هم داریم&nbsp;</p>
+
+<p><span style="color:#e74c3c">import </span>{ mapMutations } <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">vuex</span>&#39;&nbsp;</p>
+
+<p><span style="color:#e74c3c">export default</span> {<br />
+&nbsp;<br />
+methods:{<br />
+&nbsp; &nbsp; &nbsp; &nbsp;...<span style="color:#8e44ad">mapMutations</span>([ &#39;increment&#39;,<br />
+&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&#39;<span style="color:#f1c40f">incrementBy</span>&#39;&nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// map this.incrementBy(amount) to this.$store.commit(&#39;incrementBy&#39;, amount)</span></p>
+
+<p>&nbsp;]),&nbsp;</p>
+
+<p>...<span style="color:#9b59b6">mapMutations</span>({&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;add: &#39;<span style="color:#f1c40f">increment</span>&#39;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp; // map this.add() to this.$store.commit(&#39;increment&#39;)`&nbsp;</span></p>
+
+<p>&nbsp; &nbsp; &nbsp;})<br />
+}</p>
+
+<p>}</p>
+
+<p dir="rtl"><br />
+========<br />
+نمونه ای از عملیات <span style="color:#e74c3c">asynchornous</span> در داخل actions</p>
+
+<p>&nbsp;actions: {&nbsp;<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#2ecc71">incrementAsync </span>({ <span style="color:#e67e22">commit </span>}) {&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#3498db">setTimeout</span>(() =&gt; {&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#d35400">commit</span>(&#39;<span style="color:#f1c40f">increment</span>&#39;)&nbsp;<br />
+&nbsp; &nbsp; &nbsp; },&nbsp;<span style="color:#9b59b6">1000</span>)&nbsp;<br />
+&nbsp; &nbsp;}&nbsp;<br />
+}</p>
+
+<p dir="rtl">روش های trigger &nbsp;یک action</p>
+
+<p><span style="color:#95a5a6">// dispatch with a payload&nbsp;</span></p>
+
+<p>store.<span style="color:#d35400">dispatch</span>(&#39;<span style="color:#f1c40f">incrementAsync</span>&#39;,&nbsp;{&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;amount: 10&nbsp;<br />
+})&nbsp;</p>
+
+<p>&nbsp;</p>
+
+</div> 
+
+
+<p dir="rtl">اگر برای تعریف state از حالت<span style="color:#e74c3c"> فانکشن</span> استفاده کنیم که یک ابجکت برمی گرداند به این حالت<span style="color:#f39c12"> root state </span>گفته می شود.</p>
+
+<p dir="rtl">ویژگی actions <span style="color:#9b59b6">دو پارامتر</span> می گیرد که اولی <span style="color:#d35400">context &nbsp;</span>و دومی <span style="color:#ff0099">مقدار ارسالی</span> است.<br />
+لازم به ذکر است که <span style="color:#9b59b6">context </span>شامل موارد زیر است&nbsp;</p>
+
+<div class="code"><p>{&nbsp;<br />
+<span style="color:#d35400">state</span>,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // same as store.state, or local state if in modules&nbsp;</span></p>
+
+<p><span style="color:#d35400">rootState</span>,&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // same as store.state, only in modules&nbsp;</span></p>
+
+<p><span style="color:#d35400">commit</span>,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">// same as store.commit&nbsp;</span></p>
+
+<p><span style="color:#d35400">dispatch</span>,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // same as store.dispatch&nbsp;</span></p>
+
+<p><span style="color:#d35400">getters</span>,&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// same as store.getters, or local getters if in modules&nbsp;</span></p>
+
+<p><span style="color:#d35400">rootGetters&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color:#7f8c8d">// same as store.getters, only in modules</span></p>
+
+<p>&nbsp;}</p>
+</div> 
+
+<p dir="rtl" style="text-align:center"><br />
+<span style="color:#ff0099">مواردی که در vuex در دسترس هستند</span></p>
+
+<div class="code">
+<p><br />
+state<br />
+mutations<br />
+actions<br />
+getters<br />
+modules<br />
+plugins<br />
+strict<br />
+devtools</p></div> 
+
+<p dir="rtl"><br />
+<span style="color:#f39c12">devtools</span> ===&gt;&nbsp; به کمک ان می توانیم افزونه <span style="color:#7f8c8d">devtools </span>را در <span style="color:#27ae60">یک ماژول فعال یا غیرفعال </span>کنین.&nbsp; &nbsp;این زمانی کاربرد دارد که <span style="color:#d35400">چندین ماژول یا store در یک سینگل پیج دارید</span></p>
+
+
+
+
+<h2 class="y">-----   Deploy    -----</h2>
+
+<p dir="rtl"><br />برای سرور لینوکسی فرمت فایل فشرده باید <span style="color:#d35400">Zip</span> باشد و نه <span style="color:#d35400">.rar</span></p>
+
+
+<div class="code">
+
+npm run build
+
+<br>
+<br>
+<br>
+
+Zip dist folder  &nbsp;&nbsp;&nbsp;  (Zip   no rar)
+
+<br>
+<br>
+<br>
+<span class="or">Upload  &nbsp;&nbsp;==>&nbsp;&nbsp; Extract &nbsp;&nbsp; ===>&nbsp;&nbsp; paste on root host&nbsp;&nbsp; ==> &nbsp;&nbsp; add htaccess</span>
+<br>
+<br>
+<br>
+
+<span class="g">
+&lt;IfModule mod_rewrite.c><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RewriteEngine On <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RewriteBase / <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RewriteRule ^index\.html$ - [L] <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RewriteCond %{REQUEST_FILENAME} !-f <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RewriteCond %{REQUEST_FILENAME} !-d <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RewriteRule . /index.html [L] <br>
+&lt;/IfModule><br>
+</span>
+
+</div>
+<br>
+<br>
+
+<h2 class="y">-----   Use Jquery in Vue    -----</h2>
+
+<p dir="rtl">ما می توانیم برای<span style="color:#e67e22"> پروژه های خیلی خاص&nbsp;</span>و بنا به دلایلی از <span style="color:#8e44ad">jQuery </span>در کنار <span style="color:#27ae60">Vue </span>استفاده کنیم که گاها این کار <span style="color:#e74c3c">توصیه نمی شود</span>. برای استفاده از این دو مورد با هم باید به یکی از<span style="color:#3498db"> دو روش</span> زیر عمل کنیم.</p>
+
+
+<div class="code">
+
+<pre>
+<code><span style="color:#7f8c8d">// method   1</span>
+
+<span style="color:#e74c3c">import </span><span style="color:#3498db">JQuery </span><span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">jquery</span>&#39;
+<span style="color:#e67e22">window</span>.<span style="color:#e74c3c">$</span> = <span style="color:#3498db">JQuery
+</span></code></pre>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">or simply</span></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code><span style="color:#e74c3c">import </span><span style="color:#27ae60">$</span> <span style="color:#e74c3c">from </span>&#39;<span style="color:#f1c40f">jquery</span>&#39;</code></pre>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</div> 
+
+<p>&nbsp;</p>
+<div dir="rtl">
+حالا باید کدهای<span style="color:#9b59b6"> جی کوئری</span> خود را داخل <span style="color:#d35400">mounted </span>بنویسیم.</div>
+
+
+<div class="code">
+<p><span style="color:#27ae60">mounted </span>() {</p>
+
+<p>&nbsp; &nbsp; <span style="color:#7f8c8d">// Your JQuery code here<br />
+&nbsp; &nbsp;  </span><span style="color:#e74c3c">$</span>(&#39;<span style="color:#f1c40f">#jqcode-example</span>&#39;).<span style="color:#3498db">fadeIn</span>();</p>
+
+<p>}</p>
+</div>    
+
+<p dir="rtl">در روش اول معمولا تداخل هایی روی می دهد و ما <span style="color:#9b59b6">شاهد ارور</span> خواهیم بود پس استفاده از روش دوم توصیه می شود.</p>
+<p>&nbsp;</p>
+<p class="g">Method 2</p>
+
+<p dir="rtl">مثل قبلا جی کوئری را<span style="color:#e74c3c"> به روش سنتی در داخل صفحه اضافه می کنیم</span> و کدهای خود را مانند قبل در<span style="color:#d35400"> یک فایل .js</span> می نویسیم. <span style="color:#e74c3c">در این روش دیگر نیازی به نوشتن کدها داخل mounted نیست</span>. این روش ترکیبی از روش نوین و کلاسیک است.&nbsp;</p>
+
+ <div class="code"><p>&lt;<span style="color:#e74c3c">script</span> <span style="color:#2ecc71">src</span>=&quot;<span style="color:#f1c40f">https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js</span>&quot;&gt;&lt;/<span style="color:#e74c3c">script</span>&gt;<br />
+&lt;<span style="color:#e74c3c">script</span> <span style="color:#2ecc71">src</span>=&quot;<span style="color:#f1c40f">./js/main.js</span>&quot;&gt;&lt;/<span style="color:#e74c3c">script</span>&gt;</p></div> 
+
+
+<br>
+
+
+<p dir="rtl">در <span style="color:#27ae60">Vue 3</span> برای ارسال <span style="color:#d35400">prop </span>به کامپوننت و <span style="color:#c0392b">watch </span>کردن آن باید به روش زیر عمل کنیم&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#2ecc71">setup</span>(<span style="color:#d35400">props</span>){</p>
+
+<p>&nbsp; &nbsp;<span style="color:#3498db">const </span><span style="color:#e74c3c">&nbsp;{ current }</span> = <span style="color:#27ae60">toRefs</span>(props);</p>
+
+<p>&nbsp; &nbsp;<span style="color:#27ae60">watch</span>(<span style="color:#e74c3c">current</span>,()=&gt;{</p>
+
+<p>&nbsp; &nbsp; &nbsp; <span style="color:#2980b9">&nbsp;console.log</span>(<span style="color:#f1c40f">current</span>);</p>
+
+<p>&nbsp; }</p>
+
+<p>}</p></div> 
+
+  <p dir="rtl">&nbsp;</p> 
+<p dir="rtl">برای رفع ارور <span style="color:#e74c3c">error in eslint configoration not found</span> دو دستور زیر را در <span style="color:#9b59b6">روت پروژه</span> اجرا می کنیم.</p>
+
+
+<div class="code">
+
+
+
+<span style="color:#f1c40f">npm </span><span style="color:#3498db">install </span><span style="color:#e74c3c">eslint </span><span style="color:#e67e22">-g</span> <span style="color:#ff0099">-D</span><br/>
+<span style="color:#e74c3c">eslint </span><span style="color:#2ecc71">--init</span>
+
+</div> 
+
+
+
+
+<!--        
+
+   <div class="code"></div>    
+	<h2 class="y">-----       -----</h2>
+
+   -->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

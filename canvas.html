@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+	<style>
+		canvas{
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+
+<canvas id="canvas" width="300" height="300">
+	Your browder dont support HTML canvas tag!!
+</canvas>
+<canvas id="canvas2" width="300" height="300">
+	Your browder dont support HTML canvas tag!!
+</canvas>
+<canvas id="canvas3" width="300" height="300">
+	Your browder dont support HTML canvas tag!!
+</canvas>
+<canvas id="canvas4" width="300" height="300">
+	Your browder dont support HTML canvas tag!!
+</canvas>
+
+	<script>
+		var canvas=document.getElementById('canvas'); //get canvas
+		var ctx=canvas.getContext("2d"); // create object canvas
+		ctx.fillStyle='blue'; // background color
+		ctx.strokeStyle='#000';// border for stroke
+		ctx.lineWidth=4; //lineWidth
+		ctx.fillRect(60,60,100,100); // fill rectangle
+		ctx.strokeRect(40,40,80,80); // to khali rectangle
+		ctx.clearRect(20,20,20,20); // clear part of rectangle
+///////////////////////////////////////////////////////////
+		ctx.beginPath(); // start a path for tarsim
+		ctx.strokeStyle='red';
+		ctx.fillStyle='green';
+		ctx.moveTo(15,15);// last point
+		ctx.lineTo(15,70); // tarsim line
+		ctx.lineTo(70,120); // tarsim line
+		ctx.lineTo(120,200); // tarsim line
+		ctx.lineTo(200,200); // tarsim line
+		ctx.lineTo(15,15); // tarsim line
+		ctx.stroke();
+		ctx.fill();
+		ctx.closePath(); // end a path for tarsim
+		//////////// img
+		var img=new Image();
+		img.onload= function(){
+			ctx.drawImage(img,0,0);// put img on background
+			ctx.beginPath();
+			ctx.strokeStyle='pink';
+			ctx.fillStyle='yellow';
+			ctx.moveTo(90,90);
+			ctx.lineTo(90,300);
+			ctx.lineTo(140,160);
+			ctx.lineTo(200,160);
+			ctx.lineTo(200,90);
+			ctx.lineTo(140,300);
+			ctx.lineTo(90,90);
+			ctx.stroke();
+			ctx.fill();
+			ctx.closePath();
+		}
+		img.src="cover.jpg";
+		////////////
+		var canvas2=document.getElementById('canvas2');
+		var ctx2=canvas2.getContext("2d");
+		// arc ---> circle
+		//arc(x,y,r or shoa,start angle,end angle, oooo) --> true or false
+		// if false ---> saat gard
+		// if true ---> pad saat gard
+		ctx2.beginPath();
+		ctx2.strokeStyle='red';
+		ctx2.lineWidth=4;
+		//ctx2.globalAlpha=.1; ///     transparenti 0 to 1
+		ctx2.arc(50,50,60,0,Math.PI*2,false);
+		ctx2.stroke();
+		ctx2.closePath();
+		///////
+		ctx2.beginPath();
+		//quadraticCurveTo(); tarsim curve
+		//quadraticCurveTo(cx,cy,x,y);  --->  cx & cy ---> curve direct
+		ctx2.strokeStyle='#ccc';
+		ctx2.lineWidth=4;
+		ctx2.moveTo(100,100);
+		ctx2.quadraticCurveTo(30,180,250,250);
+		ctx2.stroke();
+		ctx2.closePath();
+		//////
+		ctx2.beginPath();
+		//bezierCurveTo(); tarsim with two curve
+		//bezierCurveTo(cx1,cy1,cx2,cy2,x,y);  --->  cx & cy ---> curve direct
+		ctx2.strokeStyle='#000000';
+		ctx2.lineWidth=4;
+		ctx2.moveTo(200,0);
+		ctx2.bezierCurveTo(300,200,0,300,100,300);
+		ctx2.stroke();
+		ctx2.closePath();
+		////////
+		ctx2.beginPath();
+		ctx2.fillStyle='green';
+		ctx2.fillRect(80,80,50,50);
+		ctx2.fillStyle='blue';
+		ctx2.globalAlpha=.1;
+		ctx2.fillRect(90,90,50,50);
+		ctx2.fill();
+		ctx2.closePath();
+		///////// gradient in canvas
+		var canvas3=document.getElementById('canvas3'); //get canvas
+		var ctx3=canvas3.getContext("2d");
+		// createLinearGradient(x1,y1,x2,y2); // linear gradient
+		//addColorStop();  /// estabilish color
+		//rgba();
+		//hsla();
+		//createRadialGradient(x1,y1,r1,x2,y2,r2); ///  circle gradient
+		ctx3.beginPath();
+		var gr=ctx3.createLinearGradient(50,50,100,200);
+		gr.addColorStop(0,'rgba(17,227,122,.8)');
+		gr.addColorStop(.2,'rgba(5,187,239,.8)');
+		gr.addColorStop(0.4,'rgba(236,219,9,1)');
+		gr.addColorStop(0.6,'rgba(226,106,16,1)');
+		gr.addColorStop(0.8,'rgba(141,3,152,1)');
+		gr.addColorStop(1,'rgba(191,53,91,0.3)');
+		ctx3.lineWidth=5;
+		ctx3.fillStyle=gr;
+		ctx3.fillRect(60,70,150,170);
+		ctx3.fill();
+		ctx3.closePath();
+
+
+		ctx3.beginPath();
+		var gr=ctx3.createRadialGradient(40,40,10,40,40,80);
+		gr.addColorStop(0,'rgba(17,227,122,.8)');
+		gr.addColorStop(.2,'rgba(5,187,239,.8)');
+		gr.addColorStop(0.4,'rgba(236,219,9,1)');
+		gr.addColorStop(0.6,'rgba(226,106,16,1)');
+		gr.addColorStop(0.8,'rgba(141,3,152,1)');
+		gr.addColorStop(1,'rgba(191,53,91,0.3)');
+		ctx3.fillStyle=gr;
+		ctx3.fillRect(0,0,200,200);
+		ctx3.closePath();
+
+		////text//////////////////////////////////////
+		var canvas4=document.getElementById('canvas4'); //get canvas
+		var ctx4=canvas4.getContext("2d");
+		//fillText(text,x,y,maxWidth);
+		//font => bold - font size - font name
+		//strokeText();
+		//textAlign
+		//textBaseLine  -> vertical location of text
+		////////////shadow
+		//shadowOffsetX
+		//shadowOffsetY
+		//shadowOffsetBlur
+		//shadowOffsetColor
+
+		ctx4.beginPath();
+		ctx4.fillStyle="blue";
+		ctx4.shadowOffsetX= 10;
+		ctx4.shadowOffsetY= 10;
+		ctx4.shadowColor="red";
+		ctx4.shadowBlur= 8;
+		ctx4.fillRect(20,20,120,25);
+		ctx4.font = "bold 60px tahoma";
+		ctx4.fillStyle="green";
+		ctx4.fillText("javaScript",60,180);
+		ctx4.strokeText("javaScript",20,120);
+		ctx4.fill();
+		ctx4.closePath();
+
+		
+	</script>
+
+</body>
+</html>

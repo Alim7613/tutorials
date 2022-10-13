@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue Js</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						Vue Js			 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/vue.png" width="150" height="150"></p>
+
+<i class="ti or"> {{ &nbsp; &nbsp; &nbsp; &nbsp;  Vue Js  &nbsp; &nbsp; &nbsp; &nbsp; }}</i>
+
+
+<h2 class="y">------   Introduction   ------</h2> 
+
+
+<p style="text-align:center">&nbsp;</p>
+
+<p style="text-align:center"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span style=":Courgette"><span style="color:#32495e">Toso -&gt; #35495e (53,73,94)</span></span></span><span style="font-size:12.0pt"><span style=":Courgette"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---&ndash;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#41b883">Green -&gt; #41b883 (65,184,131)</span></span></span></span></span></p>
+
+<p style="text-align:center"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span style=":Courgette"><span style="color:#767171">Persion Font </span></span></span><span style="font-size:12.0pt"><span style=":Wingdings"><span style="color:#767171">&agrave;</span></span></span><span style="font-size:12.0pt"><span style=":Courgette"><span style="color:#767171"> Bkoodak&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; English Font </span></span></span><span style="font-size:12.0pt"><span style=":Wingdings"><span style="color:#767171">&agrave;</span></span></span><span style="font-size:12.0pt"><span style=":Courgette"><span style="color:#767171"> Courgette</span></span></span></span></span></p>
+
+
+<br>
+<br>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span >برای استفاده بهتر از ویو می توانید افزونه</span></span> &nbsp;<span style="color:#d35400"><strong><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette">Vue Devtools</span></span></strong></span><strong> </strong><span style="font-size:12.0pt"><span >&nbsp;&nbsp;را به مرورگر خود اضافه کنید. لازم به ذکر است که این افزونه <span style="color:#e74c3c">تنها در حالت&nbsp; Development </span>به درستی کار می کند و زمانی که پروژه تکمیل شد و در حالت&nbsp; <span style="color:#27ae60">Production</span> قرار گرفت دیگر کار نخواهد کرد.&nbsp;</span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right">&nbsp;</p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span >زمانی که برنامه را اجرا می کنید در <span style="color:#f39c12">کنسول دوتا اعلان</span> می آید اولی می گوید که شما در حال استفاده از نسخه محصوص توسعه هستید و <span style="color:#9b59b6">اگر می خواهید سایت را اپلود کنید</span> برای سرعت بیشتر در</span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette"> vue3</span></span><span style="font-size:12.0pt"><span >از</span></span> &nbsp;<span style="color:#d35400"><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette">(<strong>*.prod.js</strong>)</span></span></span><span style="font-size:12.0pt"><span > استفاده کنید.</span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right">&nbsp;</p>
+
+<p style="text-align:center"><span style="color:#ff0099"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span style=":Courgette">Make sure to use the production build (*.prod.js) when deploying for production</span></span><span dir="RTL" lang="FA" style="font-size:12.0pt"><span >.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span >دومی هم می گوید که افزونه را نصب کنید برای مدیریت بهتر پروژه ها.</span></span></span></span></p>
+
+
+<br>
+<br>
+
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span ><span >کدهایی که در فایل </span></span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette"><span >HTML</span></span></span><span style="font-size:12.0pt"><span ><span > خود قرار می دهیم (در اصل آن قسمتی که با </span></span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette"><span >el</span></span></span><span style="font-size:12.0pt"><span ><span > به یک نمونه </span></span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette"><span >Vue</span></span></span><span style="font-size:12.0pt"><span ><span > متصل شده باشند) توسط </span></span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette"><span >Vue</span></span></span><span style="font-size:12.0pt"><span ><span > دریافت شده و در پشت پرده پردازش می شود. این پردازش بر اساس </span></span></span><span style="color:#d35400"><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette">template engine</span></span></span><span style="font-size:12.0pt"><span ><span > فریم ورک </span></span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette"><span >Vue</span></span></span><span style="font-size:12.0pt"><span ><span > انجام می شود که فعلا با آن کاری نداریم. </span><span style="color:#e74c3c">نکته مهم این است که </span></span></span><span style="color:#e74c3c"><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette">Vue</span></span><span style="font-size:12.0pt"><span > کدهای </span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette">HTML</span></span><span style="font-size:12.0pt"><span > شما را گرفته و درون حافظه خود آن ها را پردازش می کند. سپس یک فایل نهایی </span></span><span dir="LTR" style="font-size:12.0pt"><span style=":Courgette">HTML</span></span><span style="font-size:12.0pt"><span > می سازد و آن کدهای نهایی را به کاربر می دهد.</span></span></span></span></span></p>
+
+
+<br>
+<br>
+
+
+<p dir="RTL" style="text-align:right"><span style="color:#ff0099"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span >دقت کنید که مقدار وارد شده بین &nbsp;{{ }} &nbsp;باید مقداری باشد که توانایی تبدیل شدن به رشته (</span></span><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette">string</span></span><span style="font-size:12.0pt"><span >) را دارا باشد.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="color:#d35400"><span style="font-size:12.0pt"><span >داخل تگ ها</span></span><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette"> html </span></span><span style="font-size:12.0pt"><span >نمی توانیم از {{}}&nbsp; استفاده کنیم و فقط بیرون تگ ها</span></span><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette"> .</span></span></span> <span style="color:#27ae60"><span style="font-size:12.0pt"><span >&nbsp; &nbsp; &nbsp; &nbsp;برای داخل تگ ها باید بایند ( : ) کنیم</span></span><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette">.</span></span>&nbsp;</span></span><span style="color:#27ae60"><span style="font-family:Cambria, serif"><span style="font-size:16px">&nbsp;&nbsp;</span></span></span></p>
+
+<p dir="RTL" style="text-align:right">&nbsp;</p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span ><span style="color:red">نکته مهم : </span><span style="color:#8e44ad">شما می توانید از این روش برای </span></span></span><span style="color:#8e44ad"><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette">bind</span></span><span style="font-size:12.0pt"><span > کردن تمام </span></span><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette">attribute</span></span><span style="font-size:12.0pt"><span > های </span></span><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette">HTML</span></span><span style="font-size:12.0pt"><span > استفاده کنید</span></span></span></span></span></p>
+
+<p style="text-align:center"><span style="color:#f39c12"><span style="font-size:11pt"><span ><span style="font-size:14.0pt"><span>(class&nbsp;-&nbsp;style&nbsp;-&nbsp;data&nbsp;-&nbsp;href&nbsp;-&nbsp;src&nbsp;-&nbsp;alt&nbsp;-&hellip;.)</span></span></span></span></span></p>
+
+<p><br />
+&nbsp;</p>
+
+
+
+
+
+<h2 class="y">------   Show Data   ------</h2> 
+
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span >برای نمایش اطلاعات در صفحه باید ابتدا یک محدود با </span></span><span style="color:#d35400"><span dir="LTR" style="font-size:12.0pt"><span style="font-family:Courgette">id </span></span></span><span style="font-size:12.0pt"><span ><span style="color:#d35400">&nbsp;</span>مشخص کنیم و بعد داخل آن محدوده دیتاها را به یکی از این دو روش صدا بزنیم. <span style="color:#f39c12">با کولی بریس یا علامت سیبیل</span></span></span></span></span></p>
+
+<div class="code">
+<p>&lt;<span style="color:#e74c3c">div </span><span style="color:#2ecc71">id</span>=&quot;<span style="color:#f1c40f">app</span>&quot;&gt;&lt;/<span style="color:#e74c3c">div</span>&gt;</p>
+
+<br>
+<br>
+
+
+<ol>
+	<li><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span style="font-family:Courgette"><span >&nbsp; &nbsp;{{&nbsp; </span><span style="color:#9b59b6">msg</span><span >&nbsp; }}</span></span></span></span></span></li>
+	<li><span style="font-size:11pt"><span ><span style="font-size:12.0pt"><span ><span style="">&nbsp; &nbsp; In html Tag&nbsp; &nbsp; &nbsp;</span><span style="color:#27ae60">v-text</span><span style="">=&rdquo;</span><span style="color:#f1c40f">msg</span><span style="">&rdquo;</span></span></span></span></span></li>
+</ol>
+
+
+
+</div>  
+
+
+
+
+
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

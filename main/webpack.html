@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Webpack</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						Webpack     			 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/webpack.png" width="150" height="150"></p>
+
+<i class="ti or"> Webpack </i>
+<br />
+<br />
+
+<h2 class="y">------   Intro   ------</h2> 
+<br />
+
+<p dir="rtl">در حقیقت <span style="color:#3498db">webpack </span>یک <span style="color:#e74c3c">bundler </span>است به این معنی که<span style="color:#d35400"> فایل های ما را دریافت می کند و آن ها را به یک فایل تبدیل می کند</span>. مثلا <span style="color:#9b59b6">10 </span>تا فایل js را تحویل می گیرد و<span style="color:#f39c12"> یک فایل js </span>به ما می دهد.&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">webpack </span>از<span style="color:#e67e22"> ماژول های ES6 </span>و <span style="color:#e67e22">import</span> و <span style="color:#e67e22">require </span>پشتیبانی می کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">webpack </span>به طور <span style="color:#f39c12">دیفالت </span>روی فایل js کار می کند. امروزه کتابخانه های قدرتمندی آمده اند و ما برای بالا آوردن <span style="color:#9b59b6">یک پروژه باید از کتابخانه های مختلفی استفاده کنیم</span>. بدین ترتیب در حالت عادی<span style="color:#2ecc71"> تعداد فایل های js وارد شده به صفحه html زیاد می شود.</span> خوب مشکل زمانی ایجاد می شود که <span style="color:#9b59b6">مرورگر می خواهد فایل ها را بخواند</span>. مرورگر<span style="color:#d35400"> اگر یک فایل باشد آن را به سرعت دانلود می کند و پردازش را روی آن آغاز می کند </span>اما <span style="color:#e74c3c">زمانی که 10 فایل js داشته باشیم. مرورگر باید 10 تا درخواست ارسال کند و 10 فایل را دانلود کند </span>و بعد به پردازش آنها بپردازد که این موضوع<span style="color:#e74c3c"> خودش سرعت لود سایت را به شدت پایین می آورد</span>. چون مرورگر <span style="color:#ff0099">به جای پردازش فایل ها باید نصف زمان خود را صرف دانلود تعداد زیادی فایل بکند</span>.</p>
+
+<p dir="rtl">اگر تنها یک فایل باشد حتما اگر مرورگر کند باشد ب<span style="color:#f1c40f">ازهم به راحتی می تواند آن را دانلود کند اما زمانی که تعداد زایادی فایل باشد مرورگر بسته به سرعت اینترنت و دانلودهایی که باید انجام دهد سرعت لودش کم می شود</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">قابلیت دیگر <span style="color:#3498db">webpack</span> این است که می تواند <span style="color:#d35400">فایل های scss را هم تشخیص دهد و به فایل های css کامپایل </span>کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">webpack </span>بای ایجاد <span style="color:#e74c3c">dependency graph</span> می آید<span style="color:#d35400"> وابستگی های پروژه ما را تشخیص می دهد.</span> امروز <span style="color:#3498db">webpack </span><span style="color:#f1c40f">خیلی قابلیت های بیشتری نسبت به gulp یا grant دارد و بروز تر</span> است. در <span style="color:#ff0099">gulp برخی task ها را باید خودمان بنویسیم اما در webpack تسک ها خودشات تعریف شده اند</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">ما <span style="color:#f1c40f">دو نوع ماژول</span> داریم&nbsp;</p>
+
+<p dir="rtl">1. <span style="color:#e74c3c">common.js</span> که شامل <span style="color:#d35400">require </span>و&nbsp;<span style="color:#d35400"> module.export</span> است.</p>
+
+<p dir="rtl">2. <span style="color:#e74c3c">ES6</span> که شامل <span style="color:#d35400">export </span>و <span style="color:#d35400">import </span>است&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">ماژول بندی</span> پروژه با <span style="color:#9b59b6">export </span>و <span style="color:#9b59b6">import </span>زمانی به درد می خورد که<span style="color:#ff0099"> ما یک فایل js بزرگ داریم که شامل کدهای زیادی است. حالا این فایل را به فایل های کوچک تر می شکنیم تا کار کردن با کدها راحت تر شود.</span></p>
+
+<p dir="rtl"><span style="color:#3498db">webpack </span>به خوبی <span style="color:#27ae60">امکان استفاده از این ماژول ها را به ما می دهد و خودش آن ها را هندل می کند.</span></p>
+
+<br />
+<h2 class="y">------   init webpack   ------</h2> 
+<br />
+
+<p dir="rtl">برای استفاده از <span style="color:#3498db">webpack </span>باید آن را <span style="color:#f39c12">به پروژه خودمان اضافه کنیم</span>. برای این کار ما از <span style="color:#ff0099">npm </span>استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#e74c3c">init&nbsp; </span><span style="color:#f1c40f">-y</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#2ecc71">i </span><span style="color:#d35400">webpack&nbsp; webpack-cli</span> <span style="color:#2ecc71">-D</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">این <span style="color:#e74c3c">دوتا پکیج</span> یکی <span style="color:#d35400">هسته خود webpack</span> است و دیگر<span style="color:#d35400"> امکان استفاده از command های webpack (یعنی استفاده از وب پک با cmd)</span>&nbsp;را به ما می دهد.&nbsp;</p>
+
+<p dir="rtl">&nbsp;برای این از<span style="color:#f1c40f"> D </span>استفاده می کنیم که ما از <span style="color:#3498db">webpack</span> <span style="color:#27ae60">تنها در حالت dev نیاز داریم</span> و در<span style="color:#ff0099"> حالت production نیازی به webpack وجود ندارد</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#2ecc71">استفاده </span>از <span style="color:#3498db">webpack </span>بعد از نصب <span style="color:#d35400">باید داخل script مربوط به فایل package.json دستورات کامند </span>تعریف کنیم.</p>
+
+<div class="code"><p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">build</span>&quot;: &quot;<span style="color:#f39c12">webpack</span>&quot;<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">in&nbsp; &nbsp;cmd&nbsp; &nbsp;=&gt;</span> <span style="color:#9b59b6">npm </span><span style="color:#d35400">run </span><span style="color:#e74c3c">build</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای این که <span style="color:#3498db">webpack</span> به <span style="color:#f1c40f">درستی </span>کار کند باید یک <span style="color:#e74c3c">پوشه src </span>داشته باشیم و<span style="color:#e67e22"> فایل های خود را داخل آن قرار دهیم.</span> حالا زمانی که دستور <span style="color:#3498db">Webpack </span>را اجرا می کنیم می آید<span style="color:#d35400"> فایل های src را کامپایل می کند و یک فایل main در پوشه dist برای ما ایجاد می کند.</span>&nbsp;البته Webpack به سراغ فایل index.j<span style="color:#e74c3c">s </span>داخل <span style="color:#f1c40f">src </span>می رود و <span style="color:#27ae60">کامپایل را از آن و فایل های مرتبط با آن آغاز می کند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">webpack</span> کلی <span style="color:#e74c3c">تنظیمات</span> دارد که به ما امکان می دهد که <span style="color:#f39c12">کدام فایل ها را بخوانیم. فایل نهایی در کدام پوشه قرار گیرد و چه فایل هایی خوانده نشوند و ..</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر<span style="color:#e74c3c"> بدون تنظیمات</span> از <span style="color:#3498db">Webpack</span> استفاده کنیم که به شکل زیر می شود به آن می گویند <span style="color:#d35400">zero config</span></p>
+
+<p dir="rtl">توجه کنیم که <span style="color:#e74c3c">اسم پوشه های در حالت zero config مهم است</span> و ما باید حتما پوشه <span style="color:#f1c40f">src </span>و فایل <span style="color:#f1c40f">index.js</span> را داشته باشیم. <span style="color:#e74c3c">خروجی نهایی هم همیشه با نام main در پوشه dist قرار می گیرد </span>مگر این که <span style="color:#3498db">تنظیمات </span>روی <span style="color:#3498db">webpack</span> لحاظ کنیم.</p>
+<div class="code">
+<p><span style="color:#7f8c8d">in&nbsp; index.js</span></p>
+
+<p><span style="color:#e74c3c">import</span> sum <span style="color:#e74c3c">from</span> &#39;<span style="color:#f39c12">./sum.js</span>&#39;;</p>
+
+<p><span style="color:#3498db">console</span>.<span style="color:#27ae60">log</span>(<span style="color:#3498db">sum</span>(<span style="color:#9b59b6">2</span>,<span style="color:#9b59b6">5</span>));</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">in sum.js</span></p>
+
+<p><span style="color:#3498db">const </span>sum = (<span style="color:#d35400">a</span>,<span style="color:#d35400">b</span>)=&gt; a<span style="color:#e74c3c">+</span>b;</p>
+
+<p><span style="color:#e74c3c">export default</span> sum;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">in main.js&nbsp;</span><span style="color:#f39c12"> after&nbsp;&nbsp;npm run build</span></p>
+
+<p>(()=&gt;{&quot;<span style="color:#f39c12">use strict</span>&quot;;<span style="color:#3498db">console</span>.<span style="color:#27ae60">log</span>(<span style="color:#9b59b6">2</span>+<span style="color:#9b59b6">5</span>)})();</p>
+
+<p dir="rtl">&nbsp;</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<br />
+<h2 class="y">------   webpack config and setting  ------</h2> 
+<br />
+<p dir="rtl">باید <span style="color:#f39c12">فایل کانفیگ </span>مربوط به <span style="color:#2ecc71">webpack </span>را در <span style="color:#d35400">ریشه پروژه</span> ایجاد کنیم. اسم فایل راهم <span style="color:#e74c3c">webpack.config.js </span>قرار می دهیم.&nbsp;</p>
+
+<p dir="rtl">در داخل فایل ایجاد شده باید در حال حاضر برای <span style="color:#f1c40f">export </span>از <span style="color:#2ecc71">Syntax </span>مربوط به <span style="color:#e74c3c">common.js </span>یعنی <span style="color:#ff0066">module.exports</span> استفاده کنیم.</p>
+<div class="code"><p><span style="color:#2980b9">const </span>path = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">path</span>&#39;);</p>
+
+<p><span style="color:#3498db">module</span>.<span style="color:#e74c3c">exports </span>= {<br />
+&nbsp;&nbsp; &nbsp;entry: &#39;<span style="color:#f39c12">./src/index.js</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;output : {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;filename : &#39;<span style="color:#f39c12">bundle.js</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;path : <span style="color:#2ecc71">path</span>.<span style="color:#d35400">resolve</span>(<span style="color:#9b59b6">__dirname </span>, &#39;<span style="color:#f39c12">./dist</span>&#39;)<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;mode : &#39;<span style="color:#f39c12">none</span>&#39;<br />
+}</p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0066">entry&nbsp; </span>==&gt; <span style="color:#f1c40f">نقطه شروع </span>و فایلی که باید <span style="color:#3498db">Webpack </span>از آن<span style="color:#e74c3c"> پردازش را شروع کند</span> مشخص می کند.</p>
+
+<p dir="rtl"><span style="color:#ff0066">output&nbsp; </span>==&gt; تنظیمات <span style="color:#d35400">مربوط به فایل خروجی</span> را در داخل این ویژگی قرا می دهیم</p>
+
+<p dir="rtl">&nbsp; &nbsp; &nbsp;<span style="color:#ff0066">filename&nbsp; </span>=&gt; <span style="color:#e67e22">اسم فایل که خروجی </span>با آن ذخیره می شود.</p>
+
+<p dir="rtl">&nbsp; &nbsp; &nbsp;<span style="color:#ff0066">path </span>=&gt; <span style="color:#e74c3c">مسیر فایل که خروجی با آن ذخیره می شود</span>. برای ویژگی باید <span style="color:#d35400">Absolute path</span> بعدهیم یعنی مسیر کامل و <span style="color:#f39c12">نمی توانیم مسیر نسبی</span> بدهیم</p>
+
+<p dir="rtl"><span style="color:#ff0066">mode&nbsp; </span>==&gt;&nbsp; سه حالت <span style="color:#f1c40f">none </span>و <span style="color:#f1c40f">development </span>و <span style="color:#f1c40f">production </span>دارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#9b59b6">dirname__</span>&nbsp; &nbsp;یکی زا قابلیت های <span style="color:#27ae60">node.js </span>است که به ما امکان می دهد <span style="color:#e74c3c">مسیر absolute فایل ها را روی سیستم پیدا کنیم</span>.&nbsp; ==&gt;<span style="color:#3498db">&nbsp;C:\Users\HomaRayaneh\Desktop\webpack-sandbox</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بعد از<span style="color:#f1c40f"> اعمال تنظیمات</span> لازم نیست کار خاصی انجام دهیم و<span style="color:#e74c3c"> تنها کافی است دستور مربوط به run کردن یعنی&nbsp;npm run build را بزنیم خود وب پک تنظیمات را شناسیایی و آن ها را دریافت می کند.</span></p>
+<p dir="rtl">&nbsp;</p>
+
+<br />
+<h2 class="y">------   webpack output check  ------</h2> 
+<br />
+<p dir="rtl">در حالت <span style="color:#f1c40f">عادی </span>در <span style="color:#d35400">فایل خروجی webpack</span> تنها <span style="color:#f39c12">کامپایل شده کدهای خودمان</span> قرار دارد اما زمانی که از<span style="color:#e67e22"> تنظیمات مربوط به webpack استفاده می کنیم</span>. خود <span style="color:#3498db">webpack </span><span style="color:#e74c3c">کلی کدهای دیگر به فایل خروجی اضافه می کند</span>.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">نباید </span>در فایلی که <span style="color:#3498db">webpack </span>به<span style="color:#e67e22"> صورتی خروجی</span> به ما می دهد<span style="color:#e74c3c"> هیچ تغییر دستی ایجاد کنیم</span>. زیرا وب پک <span style="color:#f1c40f">طبق الگوریتمی که دارد </span>فایل ها را <span style="color:#ff0066">داخل توابع و ابجکت ها صدا می زند و به طور خیلی پیچیده از آن ها استفاده می کند.</span> <span style="color:#f39c12">تغییر فایل نهایی به شکل دستی باعث ارورهای زیادی می شود</span>. <span style="color:#27ae60">تغییرات باید تنها در ماژول ها ایجاد شوند و بعد خروجی گرفته شود.</span></p>
+<p dir="rtl">&nbsp;</p>
+
+
+<br />
+<h2 class="y">------  loaders in  webpack   ------</h2> 
+<br />
+<p dir="rtl">در حالت <span style="color:#f1c40f">عادی </span><span style="color:#3498db">webpack </span>با<span style="color:#e74c3c"> فایل js</span> کار می کند و <span style="color:#e67e22">برای کار با آن ها طراحی شده است</span> اما اگر نیاز داشته باشیم که از <span style="color:#3498db">webpack </span><span style="color:#ff0099">برای فایل های دیگر مانند تصاویر یا sass یا css یا ... هم استفاده کنیم </span>به <span style="color:#e74c3c">loader </span>ها نیاز داریم.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">loader </span>ها<span style="color:#f39c12"> یکسری کتابخانه های جاوااسکریپتی&nbsp;هستند</span> که به<span style="color:#ff0099"> شما اجازه می دهند فایل های دیگر را import کنید</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">webpack&nbsp; </span>خیلی <span style="color:#ff0099">loader </span>دارد که می توانیم <span style="color:#f1c40f">برخی از آن ها را داکیومنت خود webpack مشاهده کنیم </span>یا اینکه عبارت<span style="color:#9b59b6"> list of webpack loader</span> را در <span style="color:#2ecc71">گوگل</span> سرچ کنیم و وارد <span style="color:#e67e22">گیت هاب</span> شویم تا <span style="color:#d35400">لیست کامل loader های وب پک را ببینیم که تقریبا برای هرکاری loader دارد و شمار آن ها هم خیلی زیادی است.</span></p>
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر بخواهیم <span style="color:#f1c40f">ساختار درستی</span> برای پروژه داشته باشیم باید <span style="color:#d35400">نام پوشه ها و فایل های را طبق استانداردها قرار دهیم.</span> برای مثال زمانی که <span style="color:#e74c3c">می خواهیم ماژول ها را در ساختار پروژه تعریف کنیم که بخشی از پروژه ما هستند</span> باید آن ها را داخل پوشه <span style="color:#ff0066">components </span>قرار دهیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">یک مزیت دیگر <span style="color:#3498db">webpack </span>این است که می توانیم <span style="color:#e74c3c">فایل های css را داخل فایل های js مورد نظرimport کنیم. </span>خود <span style="color:#3498db">webpack </span>آنها را<span style="color:#ff0066"> دریافت می کند و کامپایل می کند و خود در قابل یک فایل css در اختیار ما قرار می دهد.</span> و<span style="color:#27ae60"> حتی خودش بدون هیچ کاری که ما انجام دهیم آن را به سند html ما اضافه می کند.</span></p>
+
+<div class="code"><p><span style="color:#7f8c8d">//&nbsp; in components/button/Button.js</span></p>
+
+<p><span style="color:#e74c3c">import </span>&#39;<span style="color:#f39c12">./button.css</span>&#39;;</p>
+
+<p>class <span style="color:#27ae60">Button </span>{<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">render</span>(){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">const </span>button = document.<span style="color:#f39c12">createElement</span>(&#39;<span style="color:#f39c12">button</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;button.<span style="color:#e74c3c">innerHTML </span>= &quot;<span style="color:#f39c12">وب پروگ</span>&quot;;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;button.<span style="color:#3498db">classList</span>.<span style="color:#e67e22">add</span>(&#39;<span style="color:#f39c12">btn-dark</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">const </span>body = document.<span style="color:#2ecc71">querySelector</span>(&#39;<span style="color:#f39c12">body</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;body.<span style="color:#e74c3c">appendChild</span>(button);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;button.<span style="color:#2ecc71">onclick </span>= ()=&gt;{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;const p = document.<span style="color:#2ecc71">createElement</span>(&#39;<span style="color:#f39c12">p</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;p.<span style="color:#e74c3c">innerHTML </span>= &quot;<span style="color:#f39c12">تست مربوط به کلاس</span>&quot;;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;p.<span style="color:#27ae60">classList</span>.<span style="color:#3498db">add</span>(&#39;<span style="color:#f39c12">text-info</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;body.<span style="color:#e74c3c">appendChild</span>(p);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;}<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp; in components/button/Button.css</span></p>
+
+<p>.<span style="color:#27ae60">btn-dark</span> {<br />
+&nbsp;&nbsp; &nbsp;color:<span style="color:#3498db">#fff</span>;<br />
+&nbsp;&nbsp; &nbsp;background: <span style="color:#9b59b6">#171a1b</span>;<br />
+&nbsp;&nbsp; &nbsp;padding:10<span style="color:#e74c3c">px</span> 15<span style="color:#e74c3c">px</span>;<br />
+&nbsp;&nbsp; &nbsp;border :0;<br />
+&nbsp;&nbsp; &nbsp;outline: <span style="color:#3498db">none</span>;<br />
+}</p>
+
+<p>.<span style="color:#27ae60">text-info</span>{<br />
+&nbsp;&nbsp; &nbsp;color:<span style="color:#9b59b6">#10707f</span>;<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in src/index.js</span></p>
+
+<p><span style="color:#e74c3c">import </span>Button <span style="color:#e74c3c">from </span>&#39;<span style="color:#f39c12">./components/button/Button.js</span>&#39;;</p>
+
+<p><span style="color:#3498db">const </span>button = <span style="color:#e74c3c">new </span><span style="color:#27ae60">Button</span>();</p>
+
+<p>button.<span style="color:#d35400">render</span>();</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in index.html</span></p>
+
+<p>&lt;<span style="color:#e74c3c">script </span><span style="color:#2ecc71">src</span>=&quot;<span style="color:#f39c12">./dist/bundle.js</span>&quot;&gt;&lt;/<span style="color:#e74c3c">script</span>&gt;</p>
+</div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#f1c40f"> لود css</span> ها ما باید <span style="color:#e67e22">لودر css</span> را از <span style="color:#e74c3c">داکیومنت webpack</span> دانلود کنیم.&nbsp;</p>
+
+<p dir="rtl">برای استفاده از <span style="color:#3498db">webpack</span> برای فایل های css ما نیاز به<span style="color:#d35400"> دوتا loader </span>داریم.</p>
+
+<p dir="rtl">1.&nbsp; <span style="color:#ff0066">css loader</span></p>
+
+<p dir="rtl">2. <span style="color:#ff0066">style loader</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">اولی </span>می آید<span style="color:#e74c3c"> فایل های css ما را دریافت می کند و در اختیار webpack قرار می دهد.</span></p>
+
+<p dir="rtl"><span style="color:#f1c40f">دومی </span>می آید<span style="color:#d35400"> فایل های css کامپایل شده را به تگ head در سند HTML اضافه می کند.</span></p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">i</span><span style="color:#d35400"> css-loader</span> <span style="color:#f39c12">style-loader</span> <span style="color:#27ae60">-D</span></p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">با دستور بالا می توانیم <span style="color:#d35400">loader هایی که می خواهیم را می توانیم لود کنیم</span>. بعد از <span style="color:#9b59b6">نصب </span>باید <span style="color:#f1c40f">کانفیگ های لازم را در فایل webpack.config</span> اضافه کنیم.</p>
+
+<div class="code"><p><span style="color:#3498db">const </span>path = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">path</span>&#39;);</p>
+
+<p>module.<span style="color:#e74c3c">exports </span>= {<br />
+&nbsp;&nbsp; &nbsp;entry: &#39;<span style="color:#f39c12">./src/index.js</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;output : {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;filename : &#39;<span style="color:#f39c12">bundle.js</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;path : <span style="color:#3498db">path</span>.<span style="color:#d35400">resolve</span>(<span style="color:#9b59b6">__dirname </span>, &#39;<span style="color:#f39c12">./dist</span>&#39;)<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;mode : &#39;<span style="color:#f39c12">none</span>&#39;,</p>
+
+<p><br />
+&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">module </span>: {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#d35400">rules </span>: [<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;test : <span style="color:#f1c40f">/\.css$/i</span>,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;use:[&#39;<span style="color:#f39c12">style-loader</span>&#39;, &#39;<span style="color:#f39c12">css-loader</span>&#39;]<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;]<br />
+&nbsp;&nbsp; &nbsp;}</p>
+
+<p><br />
+}<br />
+&nbsp;</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f39c12">تمام لودرها </span>را باید در داخل <span style="color:#e74c3c">rules </span>اضافه کنیم این ویژگی <span style="color:#d35400">برای اضافه کردن loader</span> های ما است.</p>
+
+<p dir="rtl"><span style="color:#ff0066">test : /\.css$/i,</span> ==&gt; این <span style="color:#f39c12">الگو </span>می گوید که هر فایلی که پسوند آن <span style="color:#9b59b6">.css</span> بود را دریافت کند و<span style="color:#e74c3c"> لودرهایی که در&nbsp;use:[&#39;style-loader&#39;, &#39;css-loader&#39;] قرار دارند را روی آن اعمال کن.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f39c12">ترتیب تعریف</span> در&nbsp;use:[&#39;<span style="color:#f39c12">style-loader</span>&#39;, &#39;<span style="color:#f39c12">css-loader</span>&#39;] مهم است چراکه <span style="color:#3498db">Webpack </span>از <span style="color:#e74c3c">(سمت راست)</span> یعنی <span style="color:#d35400">آخرین المان ارایه لودرها را دریافت می کند</span>. ما هم در اینجا <span style="color:#f39c12">ابتدا به&nbsp;css-loader</span>&nbsp; نیاز داریم<span style="color:#3498db"> تا فایل های css را دریافت کنیم و کامپایل کنیم </span>و بعد به&nbsp;<span style="color:#f39c12">style-loader</span> نیاز داریم <span style="color:#d35400">تا آن ها را به تگ html اضافه کنیم.</span></p>
+
+<p dir="rtl">پس توجه داشته باشید که <span style="color:#3498db">Webpack </span>از<span style="color:#e74c3c"> آخر به اول د</span>ریافت می کند.</p>
+
+<p dir="rtl">بعد <span style="color:#27ae60">داخل فایل های js فایل های Css مورد نظر را import</span> می کنیم.&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+<div class="code"><p><span style="color:#e74c3c">import </span>&#39;<span style="color:#f39c12">./button.css</span>&#39;;</p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">run </span><span style="color:#d35400">build</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<br />
+<h2 class="y">------   Sass Loader  ------</h2> 
+<br />
+
+<p dir="rtl">برای استفاده از فایل های <span style="color:#e74c3c">sass </span>در <span style="color:#3498db">webpack </span>ما نیاز به<span style="color:#d35400"> 4 لودر</span> داریم.</p>
+
+<p dir="rtl">1. <span style="color:#ff0066">sass loader</span></p>
+
+<p dir="rtl">2. <span style="color:#ff0066">sass</span></p>
+
+<p dir="rtl">3. <span style="color:#ff0066">css loader</span></p>
+
+<p dir="rtl">4. <span style="color:#ff0066">style loader</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">اولی </span><span style="color:#9b59b6">فایل های scss را دریافت می کند</span> و <span style="color:#f39c12">در اختیار webpack قرار</span> می دهد.</p>
+
+<p dir="rtl"><span style="color:#f1c40f">دومی </span><span style="color:#d35400">فایل های scss را به کد های css کامپایل </span>می کند.</p>
+
+<p dir="rtl"><span style="color:#f1c40f">سومی</span> و <span style="color:#f1c40f">چهارمی </span>هم به <span style="color:#d35400">ترتیب کدهای css را دریافت می کند و بعد از تگ head سند html بارگذاری</span> می کند.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#f1c40f">i</span> <span style="color:#d35400">sass-loader</span>&nbsp; <span style="color:#e74c3c">sass </span><span style="color:#ff0066">-D</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بعد از <span style="color:#27ae60">نصب </span>باید به <span style="color:#e74c3c">فایل config برویم و یک rule برای استفاده از sass</span> تعریف کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">module </span>: {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#d35400">rules </span>: [<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;test : <span style="color:#f39c12">/\.css$/i</span>,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;use:[&#39;<span style="color:#f39c12">style-loader</span>&#39;, &#39;<span style="color:#f39c12">css-loader</span>&#39;]<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;test :<span style="color:#ff0066"> /\.scss$/i</span>,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;use:[&#39;<span style="color:#f39c12">style-loader</span>&#39;, &#39;<span style="color:#f39c12">css-loader</span>&#39;,&#39;<span style="color:#f39c12">sass-loader</span>&#39;]<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;]<br />
+&nbsp;}</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">خود&nbsp;<span style="color:#f39c12">sass-loader </span>لودر <span style="color:#e67e22">sass </span>را فراخوانی می کند و <span style="color:#e74c3c">نیازی نیست ما sass را هم اضافه کنیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای تست در مثال قبلی به جای css فایل <span style="color:#f39c12">scss </span>را <span style="color:#9b59b6">import </span>می کنیم</p>
+<div class="code"><p><span style="color:#7f8c8d">// in components/button/Button.js</span></p>
+
+<p><span style="color:#e74c3c">import </span>&#39;<span style="color:#f39c12">./button.scss</span>&#39;;</p></div> 
+<p>&nbsp;</p>
+
+
+<br />
+<h2 class="y">------   image|File  Loader  ------</h2> 
+<br />
+<p dir="rtl">برای استفاده از تصاویر در <span style="color:#3498db">webpack </span>ما از <span style="color:#e74c3c">file loader</span> استفاده می کنیم</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#27ae60">i</span> <span style="color:#e74c3c">file-loader</span> <span style="color:#e67e22">-D</span></p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">بعد از <span style="color:#9b59b6">نصب </span>به <span style="color:#d35400">بخش کانفیگ میریم و یک rule جدید اضافه </span>می کنیم.</p>
+
+<div class="code"><p>{<br />
+&nbsp; &nbsp; test : <span style="color:#f39c12">/\.(png|jpg|svg|jpeg)$/i</span>,<br />
+&nbsp; &nbsp; &nbsp;use:[&#39;<span style="color:#f39c12">file-loader</span>&#39;]<br />
+}</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">بعد در فایل مورد نظر <span style="color:#f39c12">img </span>را <span style="color:#8e44ad">import</span> می کنیم و دستور <span style="color:#27ae60">build </span>را می زنیم</p>
+
+<p dir="rtl">زمانی که از<span style="color:#d35400"> rule بالا استفاده می کنیم اسم فایل را به شکل </span><span style="color:#e74c3c">hash </span><span style="color:#d35400">شده در می آورد</span> اما ما می توانیم <span style="color:#ff0099">option هایی تعریف کنیم که اسم فایل مانند خودش باشد و hash نشود.</span></p>
+<div class="code"><p>{<br />
+&nbsp; &nbsp; test : <span style="color:#f39c12">/\.(png|jpg|svg|jpeg)$/i</span>,<br />
+&nbsp; &nbsp; use:[{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#9b59b6">loader</span>: &#39;<span style="color:#f39c12">file-loader</span>&#39;,&nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; // loader name</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: &#39;<span style="color:#f39c12">[</span><span style="color:#d35400">name</span><span style="color:#f39c12">].[</span><span style="color:#d35400">ext</span><span style="color:#f39c12">]</span>&#39;,&nbsp; &nbsp;<span style="color:#7f8c8d"> // file name structure</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; outputPath: &#39;<span style="color:#f39c12">images/</span>&#39;&nbsp; &nbsp;<span style="color:#7f8c8d">// output path</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}]<br />
+}</p></div>
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#7f8c8d">//&nbsp; in components/iamges/Images.js</span></p>
+
+<p><span style="color:#e74c3c">import </span>webpackImage <span style="color:#e74c3c">from </span>&#39;<span style="color:#f39c12">./wbp.png</span>&#39;;</p>
+
+<p><span style="color:#3498db">class </span><span style="color:#27ae60">Images </span>{<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#d35400">render</span>(){<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#3498db">const </span>img = document.<span style="color:#27ae60">createElement</span>(&#39;<span style="color:#f39c12">img</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;img.alt = &quot;<span style="color:#f39c12">image webpack</span>&quot;;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;img.src = <span style="color:#e74c3c">webpackImage</span>;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;img.width = <span style="color:#9b59b6">200</span>;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;img.height = <span style="color:#9b59b6">200</span>;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#2980b9">const </span>body = document.<span style="color:#e67e22">querySelector</span>(&#39;<span style="color:#f39c12">body</span>&#39;);<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;body.<span style="color:#e74c3c">appendChild</span>(img);&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;}<br />
+}</p>
+
+<p><br />
+<span style="color:#e74c3c">export default </span>Images;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in index.js</span></p>
+
+<p><span style="color:#e74c3c">import </span>Images <span style="color:#e74c3c">from </span>&#39;<span style="color:#f39c12">./components/images/Images.js</span>&#39;;</p>
+
+<p><span style="color:#2980b9">const </span>image = <span style="color:#e74c3c">new </span><span style="color:#27ae60">Images</span>();</p>
+
+<p>image.<span style="color:#d35400">render</span>();</p>
+
+<p>&nbsp;</p>
+</div> 
+
+<p dir="rtl">&nbsp;</p>
+<br />
+<h2 class="y">------   Font Loader  ------</h2> 
+<br />
+
+<p dir="rtl">برای استفاده از <span style="color:#d35400">فونت ها</span> در <span style="color:#3498db">webpack </span>ما نیاز به <span style="color:#e74c3c">url loader</span> داریم. حتی می توانیم از همان <span style="color:#ff0066">file-loader</span> هم استفاده کنیم و فرقی ندارد. اما توصیه می شود برای فایل هایی که در css با <span style="color:#2ecc71">url </span>فراخوانی می شوند به جز <span style="color:#f1c40f">تصاویر </span>از url-loader استفاده کنید<span style="color:#e74c3c"> اما در کل این دو تفاوتی باهم ندارند.</span></p>
+<div class="code"><p><span style="color:#9b59b6">npm</span><span style="color:#e67e22"> i</span> <span style="color:#e74c3c">url-loader</span> <span style="color:#ff0066">-D</span></p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">حالا در فایل <span style="color:#f1c40f">کانفیگ</span></p>
+<div class="code"><p>{<br />
+&nbsp; &nbsp; test : <span style="color:#ff0066">/\.(eot|ttf|woff|woff2)$/i</span>,<br />
+&nbsp; &nbsp; &nbsp;use:[&#39;<span style="color:#f39c12">url-loader</span>&#39;]<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in Button.scss</span></p>
+
+<p><span style="color:#c0392b">@font-face</span>{<br />
+&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; <span style="color:#3498db">&nbsp;font-family</span>: &quot;<span style="color:#f39c12">os</span>&quot;;<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#3498db">src</span>: url(&quot;<span style="color:#f39c12">../../fonts/os.ttf</span>&quot;) format(&quot;<span style="color:#f39c12">turetype</span>&quot;);<br />
+&nbsp;&nbsp; &nbsp;<br />
+}</p>
+
+
+
+<p><span style="color:#7f8c8d">// in Button .js</span></p>
+
+<p><span style="color:#e74c3c">import</span> &#39;<span style="color:#f39c12">./button.scss</span>&#39;;</p>
+</div> 
+<p>&nbsp;</p>
+
+<br />
+<h2 class="y">--  jQuery  --</h2> 
+<br />
+<p dir="rtl">ّبا توجه به اینکه <span style="color:#f1c40f">جی کوئری </span>یک پکیج <span style="color:#f39c12">جاوااسکریپتی </span>است ما <span style="color:#e74c3c">نیازی به نصب loader خاصی نداریم.</span></p>
+
+ <div class="code"><p><span style="color:#9b59b6">npm</span><span style="color:#e67e22"> i</span> <span style="color:#e74c3c">jquery</span></p>
+
+<p><span style="color:#c0392b">import </span><span style="color:#ff0066">$</span> <span style="color:#e74c3c">from </span>&quot;<span style="color:#f39c12">jquery</span>&quot;</p></div> 
+ <p dir="rtl">بعد <span style="color:#2ecc71">هر طور که خواستیم</span> از jquery&nbsp; استفاده می کنیم.</p>
+ 
+ <p>&nbsp;</p>
+ 
+<br />
+<h2 class="y">--  Bootstrap --</h2> 
+<br />
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#e67e22">i</span> <span style="color:#e74c3c">bootstrap</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#e67e22">i</span> <span style="color:#e74c3c">@popperjs/core</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">import </span>bootstrap <span style="color:#e74c3c">from </span>&quot;<span style="color:#f39c12">bootstrap</span>&quot;;<br />
+<span style="color:#e74c3c">import </span>&quot;<span style="color:#f39c12">bootstrap/dist/css/bootstrap.min.css</span>&quot;;</p></div> 
+ 
+ <p>&nbsp;</p>
+
+<p dir="rtl">اگر از<span style="color:#ff0066"> فایل عادی bootstrap.js</span> استفاده کنیم <span style="color:#e74c3c">باید پکیج </span><span style="color:#e67e22">popper </span><span style="color:#e74c3c">را هم نصب کنیم </span>اما خود <span style="color:#9b59b6">bootstrap </span>یک فایل به نام <span style="color:#e74c3c">bootatrap.bundle.js</span> را هم همراه خود دارد که <span style="color:#ff0066">خودش popper را به فایل های js اضافه کرده است</span> و<span style="color:#f1c40f"> نیازی نیست ما دوباره popper را نصب کنیم. به همین دلیل ما معمولا از bundle استفاده می کنیم.</span></p>
+<div class="code"><p><span style="color:#e74c3c">import </span>bootstrap <span style="color:#e74c3c">from </span>&quot;<span style="color:#f39c12">bootstrap/dist/js/bootstrap.bundle.min.js</span>&quot;;</p></div> 
+ 
+<p>&nbsp;</p>
+<p dir="rtl">حتما برای استفاده از <span style="color:#3498db">bootstrap </span>باید <span style="color:#e74c3c">css-loader</span> و <span style="color:#e74c3c">style-loader</span> را نصب کنیم و با توجه به این که معمولا فایل <span style="color:#9b59b6">bootstrap </span>را از <span style="color:#2ecc71">node_modules </span>به داخل فایل <span style="color:#e74c3c">sass </span>با دستور <span style="color:#e74c3c">import@</span> ایمپورت می کنیم. بهتر است <span style="color:#ff0066">sass</span> و <span style="color:#ff0066">sass-loader</span> را هم نصب کنید.</p>
+<div class="code">
+<p><span style="color:#e74c3c">@import</span>&nbsp;&quot;<span style="color:#f39c12">~bootstrap/dist/css/bootstrap.min.css</span>&quot;</p>
+
+<p><span style="color:#7f8c8d">OR</span></p>
+
+<p><span style="color:#e74c3c">@import</span>&nbsp;&quot;<span style="color:#f39c12">bootstrap/dist/css/bootstrap.min.css</span>&quot;</p></div> 
+
+
+<p>&nbsp;</p>
+<br />
+<h2 class="y">--  deployment --</h2> 
+<br />
+
+<p dir="rtl">برای <span style="color:#e74c3c">اپلود پروژه روی سرور</span> ما تنها به <span style="color:#9b59b6">index.html</span> و<span style="color:#d35400"> پوشه dist</span> داریم و <span style="color:#2ecc71">نیاز به هیچ چیز دیگری نداریم</span>.&nbsp; این فایل ها را <span style="color:#f39c12">zip </span>می کنیم و<span style="color:#e67e22"> روی سرور آپلود</span> می کنیم.</p>
+
+
+
+
+
+
+
+<p>&nbsp;</p>
+<br />
+<h2 class="y">--  babel package --</h2> 
+<br />
+
+<p dir="rtl"><span style="color:#ff9933">Babel </span>در دنیای <span style="color:#9b59b6">js </span>خیلی معروف است. در حقیقت <span style="color:#ff9933">Babel </span>یک کامپایلر برای <span style="color:#f1c40f">javascript</span> است.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff9933">babel </span>می آید <span style="color:#e67e22">کدهای جاواسکریپت ما را دریافت می کند</span> و کدهایی که مربوط به <span style="color:#3498db">ECMA Script&nbsp; 2015 </span>و <span style="color:#3498db">نسخه های بالاتر </span>است (یعنی <span style="color:#e67e22">کدهای ES6 و بالا تر</span>) را <span style="color:#e74c3c">به ES های قدیمی تر مثل ES5 و ES4 تبدیل می کند تا مرورگرهای قدیمی مثل IE توانایی خوندن این کدها را داشته باشند.</span></p>
+
+<p dir="rtl"><span style="color:#ff9933">babel </span>مانند یک <span style="color:#9b59b6">فیلتر </span>عمل می کند و <span style="color:#27ae60">کدهای اکما جدید که شامل arrow function ها و کلاس ها و ... است</span> را تبدیل می کند به <span style="color:#e67e22">کدهای قدیمی و قابل درک برای browser های قدیمی</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">webpack</span> برای <span style="color:#ff9933">babel </span>یک <span style="color:#9b59b6">loader </span>دارد که <span style="color:#d35400">بسیاری از کانفیگ های مورد نیاز babel در آن لحاظ شده است. </span>اما<span style="color:#27ae60"> می توان bable را جدا هم نصب کرد و کانفیگ های آن را انجام داد.</span> برای این کار باید <span style="color:#8e44ad">document</span> مربوط به <span style="color:#ff9933">babel </span>به طور کامل خوانده شود.</p>
+
+<p><span style="color:#ff0066">babeljs.io</span></p>
+
+<p dir="rtl">برای استفاده از<span style="color:#ff9933"> babel loader</span> باید <span style="color:#ff0066">3 پکیج </span>را نصب کنیم.</p>
+
+<p dir="rtl">1. <span style="color:#ff0066">babel-loader</span></p>
+
+<p dir="rtl">2.<span style="color:#ff0066">babel/core@</span></p>
+
+<p dir="rtl">3. <span style="color:#ff0066">babel/preset-env@</span></p>
+
+<div class="code"><p><span style="color:#9b59b6">npm</span><span style="color:#e74c3c"> i</span>&nbsp;<span style="color:#d35400">babel-loader</span>&nbsp;<span style="color:#d35400">@babel/core</span> <span style="color:#d35400">@babel/preset-env</span></p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#f1c40f">اولی </span>لودر <span style="color:#ff9933">babel </span>است که کدها را در اختیار <span style="color:#3498db">webpack </span>قرار می دهد</p>
+
+<p dir="rtl"><span style="color:#f1c40f">دومی </span><span style="color:#e74c3c">هسته اصلی babel است </span>که<span style="color:#ff0066"> کامپایل کدها به کدهای قدیمی تر را انجام می دهد.</span></p>
+
+<p dir="rtl"><span style="color:#f1c40f">سومی </span>یکسری <span style="color:#d35400">تنظیمات دیفالت برای babel است که کار خود را به بهترین شکل انجام دهد و نیازی نباشد ما تنظیمات مربوط به babel را لحاظ کنیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بعد از نصب به سراغ فایل <span style="color:#ff9933">کانفیگ </span>میریم</p>
+
+<div class="code"><p>{<br />
+&nbsp; &nbsp; &nbsp;test : <span style="color:#f39c12">/\.js$/i</span>,<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">exclude</span>:/<span style="color:#f39c12">node_modules</span>/,<br />
+&nbsp; &nbsp; &nbsp;use:[&#39;<span style="color:#f39c12">babel-loader</span>&#39;]<br />
+},</p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">دستور بالا می گوید که <span style="color:#3498db">webpack</span><span style="color:#e74c3c"> تمام فایل هایی که پسوند js</span> دارند را از<span style="color:#ff9933"> فیلتر babel </span>رد کن <span style="color:#27ae60">به جز فایل هایی که در پوشه&nbsp;node_modules&nbsp; است</span>. در واقع از&nbsp;<span style="color:#e74c3c">exclude </span>برای <span style="color:#9b59b6">بیان استثناها</span> استفاده می کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">زمانی که <span style="color:#ff9933">babel </span>را نصب کردیم خودمان می توانیم <span style="color:#d35400">config هم برای ان ست کنیم</span>. برای این منظور در <span style="color:#9b59b6">root</span> پروژه یک فایل به است <span style="color:#e74c3c">.babelrc</span> می سازیم و <span style="color:#ff9933">کانفیگ های babel</span> را در آن قرار می دهیم.</p>
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// .babelrc</span></p>
+
+<p>{<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">presets</span>&quot;: [&quot;<span style="color:#f39c12">@babel/preset-env</span>&quot;]<br />
+}</p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">البته می توانیم این تنظیمات را به <span style="color:#e74c3c">option</span> خود <span style="color:#3498db">webpack config</span> اضافه کنیم اما برخی از <span style="color:#ff0066">پلاگین ها مثل eslint نیاز دارند که فایل babelrc باشد.</span></p>
+<p dir="rtl">&nbsp;</p>
+
+
+<br />
+<h2 class="y">--  Plugins --</h2> 
+<br />
+<p dir="rtl">وظیفه <span style="color:#9b59b6">loader </span>ها <span style="color:#e67e22">اضافه کردن چیزی</span> به <span style="color:#3498db">webpack </span>است اما <span style="color:#e74c3c">plugin </span>ها <span style="color:#3498db">Webpack </span>را <span style="color:#f1c40f">انعطاف پذیرتر</span> می کنند و به ما امکان می دهند<span style="color:#d35400"> تا کنترل بیشتری رو روند پروژه داشته باشیم.</span> برای مثال می خواهیم <span style="color:#ff0066">حجم فایل js نهایی را کم کنیم که برای اینکار می توانیم از پلاگین ها استفاده کنیم.</span></p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای <span style="color:#e74c3c">کاهش حجم فایل js خروجی </span>ما از پلاگین <span style="color:#ff0066">terserWebpackPlugin </span>استفاده می کنیم.</p>
+
+<p dir="rtl">این <span style="color:#d35400">پلاگین فایل نهایی js</span> ما&nbsp;رو <span style="color:#f39c12">minify </span>میکنه</p>
+
+<p dir="rtl">&nbsp;</p>
+<div class="code"><p><span style="color:#9b59b6">npm</span><span style="color:#e67e22"> i&nbsp;</span><span style="color:#e74c3c">terser-webpack-plugin</span> <span style="color:#ff0066">-D</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">بعد از نصب به فایل <span style="color:#3498db">کانفیگ </span>می رویم.</p>
+
+<div class="code">
+<p><span style="color:#2980b9">const </span>TerserPlugin = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">terser-webpack-plugin</span>&#39;);</p>
+
+<p>plugins:[<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">new </span><span style="color:#d35400">TerserPlugin</span>()<br />
+&nbsp;]</p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">در حالت عادی <span style="color:#3498db">Webpack</span> تمام <span style="color:#e67e22">css </span>ها را در تگ استایل در <span style="color:#e74c3c">تگ head</span> قرار می دهد که<span style="color:#9b59b6"> کار درستی نیست</span>. برای <span style="color:#d35400">جلوگیری از این منظور می خواهیم از پلاگینی استفاده کنیم که تمام فایل و کدهای css&nbsp; را استخراج می کند و داخل یک فایل قرار می دهد و آن فایل را به سند html ما import می کند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای این منظور از پلاگین <span style="color:#d35400">miniCssExtract </span>استفاده می کنیم.</p>
+<div class="code"><p><span style="color:#9b59b6">npm</span><span style="color:#e74c3c"> i </span><span style="color:#ff0066">mini-css-extract-plugin</span> <span style="color:#f1c40f">-D</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">حالا در فایل <span style="color:#3498db">کانفیگ webpack</span></p>
+<div class="code"><p><span style="color:#2980b9">const </span>miniCssExtractPlugin = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">mini-css-extract-plugin</span>&#39;);</p>
+
+<p>plugins:[<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">new</span> <span style="color:#d35400">TerserPlugin</span>(),<br />
+&nbsp;&nbsp; &nbsp;&nbsp;<span style="color:#e74c3c">new </span><span style="color:#d35400">miniCssExtractPlugin</span>()<br />
+]</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">زمانی که از این پلاگین استفاده می کنیم <span style="color:#e74c3c">نیازی به style-loader نداریم</span> و از <span style="color:#d35400">لودر همین پلاگین باید استفاده کنیم در بخشی که مربوط به لود فایل های css است</span></p>
+
+<div class="code"><p>use:[&#39;<span style="color:#f39c12">style-loader</span>&#39;, &#39;<span style="color:#f39c12">css-loader</span>&#39;,&#39;<span style="color:#f39c12">sass-loader</span>&#39;]&nbsp; &nbsp;==&gt;&nbsp; use:[<span style="color:#e74c3c">miniCssExtractPlugin</span>.<span style="color:#ff0066">loader</span>, &#39;<span style="color:#f39c12">css-loader</span>&#39;,&#39;<span style="color:#f39c12">sass-loader</span>&#39;]</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">بعد از این دستور <span style="color:#1abc9c">build </span>را می زنیم. بعد از <span style="color:#d35400">این که کامپایل تمام شد داخل پوشه dist یک فایل main.css به ما می دهد که باید آن را در تگ head سند html مان import کنیم.</span></p>
+
+<div class="code"><p>&lt;<span style="color:#e74c3c">link </span><span style="color:#27ae60">rel</span>=&quot;<span style="color:#f39c12">stylesheet</span>&quot; <span style="color:#27ae60">href</span>=&quot;<span style="color:#f39c12">./dist/main.css</span>&quot;&gt;</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">حتی می توانیم به این پلاگین <span style="color:#e67e22">option </span>هایی هم بدهیم</p>
+
+<p><span style="color:#e74c3c">new </span><span style="color:#27ae60">miniCssExtractPlugin</span>({<br />
+&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#9b59b6">filename</span>:&quot;<span style="color:#e74c3c">css/style.css</span>&quot;<br />
+&nbsp;})</p>
+<div class="code"><p>&lt;<span style="color:#e74c3c">link </span><span style="color:#27ae60">rel</span>=&quot;<span style="color:#f39c12">stylesheet</span>&quot; <span style="color:#27ae60">href</span>=&quot;<span style="color:#f39c12">./dist/css/style.css</span>&quot;&gt;</p></div> 
+
+<p>&nbsp;</p>
+
+<br />
+<h2 class="y">--  Browser cache --</h2> 
+<br />
+
+<p dir="rtl"><span style="color:#f39c12">همه مرورگرها یک سیستم به اسم سیستم </span><span style="color:#e67e22">کش </span>دارند. زمانی که <span style="color:#9b59b6">مرورگر request رو به سرور شما ارسال میکنه</span> یکسری پاسخ همراه <span style="color:#2ecc71">فایل های css و js </span>دریافت می کند و آنها را <span style="color:#f39c12">کش </span>می کند. <span style="color:#d35400">این کار سبب میشه تا مرورگر دفعات بعدی فایل های مورد نیاز خودش را از کش بخواند و نیازی به دانلود دوباره نداشته باشد. به طبع این رفتار مرورگر سرعت لود سایت را به مراتب بالاتر می برد.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی ما <span style="color:#e67e22">تغییری در فایل css ایجاد می کنیم </span>مثلا یک رنگ را تغییر می دهیم اما زمانی که روی سرور قرار می دهیم<span style="color:#ff0066"> سرور آن را دانلود نمی کند چون </span><span style="color:#3498db">اسمش مشابه قبلی است و مرورگر به سراغ کش های خودش می رود</span><span style="color:#ff0066">. پس کاربران تا </span><span style="color:#9b59b6">ctrl + f5</span><span style="color:#ff0066"> را نزنند که </span><span style="color:#f39c12">کش پاک شود نمی توانند تغییرات جدید را ببینند</span><span style="color:#ff0066">.</span></p>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#f39c12">حل این مشکل</span> باید نام<span style="color:#e74c3c"> فایل های css و js با هر تغییر تغییر کند تا مرورگر برایش ناشناخته باشد و دوباره آن را دانلود و کش کند.</span> برای این منظور <span style="color:#3498db">Webpack </span>کمک زیادی به ما می کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای این منظور باید در <span style="color:#3498db">کانفیگ webpack </span>زمانی که<span style="color:#d35400"> نام برای فایل های خروجی تعیین می کنیم </span>به شکل زیر عمل کنیم.</p>
+<div class="code"><p>filename : &#39;<span style="color:#f39c12">bundle.</span><span style="color:#e74c3c">[contenthash]</span><span style="color:#f39c12">.js</span>&#39;,</p></div> 
+
+<p dir="rtl">حالا <span style="color:#9b59b6">فایل خروجی</span> که به ما می دهد<span style="color:#f39c12">&nbsp;bundle.b7f4f65994a8ab5604a7</span> به این شکل است و با <span style="color:#d35400">هربار build کردن یک اسم جدید generate می شود.</span> این باعث می شود که ا<span style="color:#ff0066">سم جدید برای مرورگر ناشناخته باشد و آن را دانلود کند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اما <span style="color:#f1c40f">مشکلی </span>که داریم این است که با <span style="color:#e67e22">هربار خروجی گرفتن یک فایل js جدید به پوشه dist اضافه می شود</span> که این موضوع باعث می شود <span style="color:#27ae60">پوشه dist دائما پر شود.</span> برای این منظور <span style="color:#d35400">ما از یک پلاگین استفاده می کنیم تا با هربار خروجی گرفتن کل پوشه dist پاک شود و دوباره ساخته شود.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">پاکسازی خودکار پوشه</span> <span style="color:#f39c12">dist </span>ما از پلاگین <span style="color:#d35400">clean-webpack-plugin</span> استفاده می کنیم.</p>
+<div class="code"><p><span style="color:#9b59b6">npm</span><span style="color:#e74c3c"> i</span>&nbsp;<span style="color:#ff0066">clean-webpack-plugin</span> <span style="color:#f39c12">-D</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#2980b9">const </span>{CleanWebpackPlugin} = <span style="color:#d35400">require</span>(&#39;<span style="color:#f39c12">clean-webpack-plugin</span>&#39;);</p>
+
+<p>plugins:[<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">new </span><span style="color:#27ae60">CleanWebpackPlugin</span>()<br />
+&nbsp;]</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اما هنوز هم یک <span style="color:#f39c12">مشکل</span> وجود دارد و آن این است که باید <span style="color:#e74c3c">هربار فایل index.html را تغییر دهیم و مسیردهی مجدد کنیم.</span> <span style="color:#3498db">webpack </span>یک <span style="color:#3498db">پلاگین برای حل این مشکل هم دارد.</span></p>
+
+<p dir="rtl">برای این کار از <span style="color:#ff0066">htmlWebpackPlugin </span>استفاده می کنیم.</p>
+<div class="code"><p><span style="color:#9b59b6">npm </span>i <span style="color:#d35400">html-webpack-plugin</span> <span style="color:#27ae60">-D</span></p></div> 
+
+<p dir="rtl">این پلاگین زمانی که به شکل زیر تعیین شود<span style="color:#d35400"> تمام محتویات فایلی که به عنوان template به آن می دهیم را کپی می کند</span> و در فایل <span style="color:#f39c12">html </span>جدیدی که در پوشه dist ساخته می شود قرار می دهد<span style="color:#ff0066"> با این تفاوت که خودش دیگر مسیردهی های js و css را درست می کند.</span></p>
+<p dir="rtl">&nbsp;</p>
+<div class="code"><p><span style="color:#2980b9">const </span>HtmlWebpackPlugin = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">html-webpack-plugin</span>&#39;);</p>
+
+<p><span style="color:#e74c3c">new </span><span style="color:#d35400">HtmlWebpackPlugin</span>({<br />
+&nbsp; &nbsp; &nbsp; &nbsp;template: &quot;<span style="color:#f39c12">index.html</span>&quot;,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;filename: &quot;<span style="color:#f39c12">index.html</span>&quot;,<br />
+})</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">به کمک دستور بالا <span style="color:#ff0066">هربار که خروجی می گیریم فایل index.html با محتویات آن که به کمک&nbsp;template به آن معرفی کردیم </span>را میگیرد و<span style="color:#d35400"> یک فایل html جدید</span> التبه <span style="color:#e74c3c">حتما html نه</span> و <span style="color:#cc0066">هر پسوندی که قرار بدهیم فایل با همان پسوند ساخته می شود.</span><br />
+بعد از ساخت <span style="color:#f1c40f">خودش لینک های جدید فایل js&nbsp; و css</span> را قرار می دهد و <span style="color:#16a085">نیازی نیست ما کار خاصی انجام دهیم.</span></p>
+
+<p dir="rtl">در نهایت هم تنها کافی است<span style="color:#d35400"> پوشه dist</span> را ببریم روی <span style="color:#3498db">سرور</span></p>
+<p>&nbsp;</p>
+<p dir="rtl">زمانی که فایل ها را <span style="color:#d35400">پلاگین </span>می سازد گاهی می خواهیم <span style="color:#9b59b6">یک پسوند به مسیرهای فایل css و js اضافه کنیم. </span>مثلا به جای <span style="color:#2ecc71">dist/main.js </span>به شکل <span style="color:#27ae60">public/dist/main.js</span><span style="color:#2ecc71"> </span>باشد که برای این <span style="color:#e67e22">موضوع option</span> با نام&nbsp; <span style="color:#e74c3c">publicPath </span>را به&nbsp;<span style="color:#f39c12">HtmlWebpackPlugin&nbsp; </span>اضافه می کنیم و <span style="color:#ff0066">پسوند را در آن قرار می دهیم.</span></p>
+<div class="code"><p><span style="color:#d35400">publicPath </span>: &quot;<span style="color:#f39c12">public/</span>&quot;</p>
+</div> 
+<p>&nbsp;</p>
+
+
+<br />
+<h2 class="y">--  Eslint --</h2> 
+<br />
+<p dir="rtl">برای آشنایی با <span style="color:#9b59b6">eslint </span>باید ابتدا با بحث <span style="color:#d35400">lint </span>یا <span style="color:#d35400">linter </span>آشنا شویم.</p>
+
+<p dir="rtl"><span style="color:#e67e22">lint</span> و&nbsp;<span style="color:#e67e22">linter </span>در واقع <span style="color:#e74c3c">static code analysis</span> هست که <span style="color:#ff0066">سورس کدهای ما را بررسی می کنند و اگر ارور یا باگ یا مشکلات احتمالی را شناسایی می کنند و به ما اطلاع می دهند.</span></p>
+
+<p dir="rtl">این موضوع در مورد <span style="color:#f1c40f">پروژه های بزرگ خیلی اهمیت</span> دارد که کدهای ما <span style="color:#e67e22">بدون خطا و باگ باشند.</span> برای مثال ما برخی دیتاها رو<span style="color:#16a085"> console.log</span> کردیم اما <span style="color:#e74c3c">بعد یادمان می رود که این را حذف کنیم و پروژه را آپلود کنیم اما ابزارهای lint این امکان را به ما می دهند با به راحتی مشکلات را شناسایی کنیم و آن ها را برطرف کنیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#2ecc71">شروع </span><span style="color:#f39c12">lint</span> از <span style="color:#e74c3c">unix utility </span>های زبان <span style="color:#9b59b6">c</span> بوده اما ا<span style="color:#d35400">مروزه تمام زبان های برنامه نویسی </span><span style="color:#e74c3c">linter </span><span style="color:#d35400">دارند که معروف ترین آن ها برای جاوااسکریپت </span><span style="color:#ff0066">Eslint </span><span style="color:#d35400">هست.</span></p>
+
+<p dir="rtl">برای<span style="color:#9b59b6"> هر پروژه می توانیم از eslint استفاده کنیم</span> و<span style="color:#f39c12"> نیازی نیست حتما از webpack استفاده کنیم</span> اما <span style="color:#3498db">webpack </span>یک پلاگین دارد که کار با <span style="color:#e67e22">eslint </span>را<span style="color:#f1c40f"> ساده تر</span> می کند.</p>
+<p dir="rtl">&nbsp;</p>
+<div class="code"><p><span style="color:#9b59b6">npm </span>i <span style="color:#e74c3c">eslint-webpack-plugin</span> <span style="color:#d35400">-D</span>&nbsp; &nbsp;<span style="color:#7f8c8d">// eslint webpack plugin</span></p>
+
+<p><span style="color:#9b59b6">npm </span>i <span style="color:#e74c3c">eslint&nbsp;&nbsp;</span><span style="color:#d35400">-D</span>&nbsp; &nbsp; <span style="color:#7f8c8d">// eslint core</span></p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بعد در فایل <span style="color:#3498db">کانفیگ</span></p>
+
+<div class="code"><p><span style="color:#2980b9">const </span>ESLintPlugin = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">eslint-webpack-plugin</span>&#39;);</p>
+
+<p><span style="color:#7f8c8d">// in plugins</span></p>
+
+<p><span style="color:#e74c3c">new </span><span style="color:#d35400">ESLintPlugin</span>()</p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">بعد از این باید <span style="color:#f1c40f">فایل کانفیگ eslint</span> را در <span style="color:#f39c12">روت پروژه </span>با نام <span style="color:#e74c3c">.eslintrc</span> ایجاد کنیم.</p>
+
+<p dir="rtl">حالا باید <span style="color:#9b59b6">داکیومنت </span>خود <span style="color:#e67e22">eslint </span>را بخوانیم و در <span style="color:#e74c3c">فایل کانفیگ تعریف کنیم که به چه مواردی گیر بدهد و آن ها را به ما اطلاع دهد</span></p>
+
+<p dir="rtl">حالا به بخش <span style="color:#f39c12">rules </span>می رویم تا <span style="color:#f39c12">قوانین </span>را ببینیم . <span style="color:#1abc9c">خود eslint یک ویژگی دارد </span>به اسم&nbsp;<span style="color:#e74c3c">&quot;extends&quot;: &quot;eslint:recommended&quot;&nbsp;</span> که اگر <span style="color:#ff0066">آن را به فایل کانفیگ اضافه کنیم یکسری تنظیمات دیفالت که در بخش rules خود با تیک مشخص کرده است روی کدها و بررسی های eslint اعمال می شود.</span></p>
+<p dir="rtl">&nbsp;</p>
+<div class="code"><p>{<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">extends</span>&quot;: &quot;<span style="color:#f39c12">eslint:recommended</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">parserOptions</span>&quot;:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">ecmaVersion</span>&quot;:<span style="color:#9b59b6">6</span>,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">sourceType</span>&quot;:&quot;<span style="color:#f39c12">module</span>&quot;<br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">env</span>&quot;:{<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">browser</span>&quot;: <span style="color:#9b59b6">true</span>,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">node</span>&quot;:<span style="color:#9b59b6">true</span><br />
+&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">rules</span>&quot;: {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">no-console</span>&quot;:&quot;<span style="color:#f39c12">warn</span>&quot;<br />
+&nbsp;&nbsp; &nbsp;}<br />
+}</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بخش&nbsp;<span style="color:#f39c12">parserOptions&nbsp;</span>برای فهماندن این موضوع به <span style="color:#9b59b6">eslint&nbsp; </span>است که از<span style="color:#e74c3c"> es6</span> استفاده می کنیم و همچنین <span style="color:#ff0066">ماژول های import&nbsp; و export</span></p>
+
+<p dir="rtl">بخش&nbsp;<span style="color:#f39c12">rules&nbsp;</span>برای تعریف <span style="color:#9b59b6">قوانین </span>به شکل <span style="color:#e74c3c">دستی </span>است.</p>
+
+<p dir="rtl"><span style="color:#f39c12">no-console </span>یعنی اگر <span style="color:#3498db">console.log</span> توی کدها بود <span style="color:#f1c40f">warning </span>بده</p>
+
+<p dir="rtl"><span style="color:#f39c12">env&nbsp;</span>برای این است که به <span style="color:#9b59b6">eslint </span>بگوییم <span style="color:#ff0066">متغییرهای محیطی مانند document و window</span> که مربوط به <span style="color:#f39c12">مرورگر </span>هستند را <span style="color:#27ae60">هم اجازه استفاده بده.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بعد از این دستور <span style="color:#9b59b6">build </span>را میزنیم و ارورهایی که در <span style="color:#e74c3c">cmd </span>آمده است را مشاهده و<span style="color:#d35400"> برطرف می کنیم که مربوط به اشکالات کدها است.</span></p>
+<p dir="rtl">&nbsp;</p>
+
+<br />
+<h2 class="y">--  development and Production mode --</h2> 
+<br />
+<p dir="rtl">برای <span style="color:#e67e22">تغییر حالت پروژه</span> از حالت <span style="color:#d35400">develope </span>به <span style="color:#e74c3c">production </span>و بالعکس باید <span style="color:#ff3399">mode </span>را در فایل <span style="color:#3498db">webpack.config</span> تغییر دهیم اما <span style="color:#3498db">webpack </span>برای این که بتوانیم <span style="color:#f1c40f">تنظیمات مربوط به develope را از تنظیمات مربوط به production جدا کنیم اجازه می دهد که دوتا فایل کانفیگ داشته باشیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای اینکار باید <span style="color:#e67e22">دوتا فایل js </span>ایجاد کنیم و اسم یکی را <span style="color:#16a085">webpack.dev.config.js</span> و دیگری را <span style="color:#3498db">webpack.prod.config.js</span> قرار دهیم و <span style="color:#f1c40f">mode </span>هر کدام را بر اساس نوع روی <span style="color:#d35400">development </span>یا <span style="color:#d35400">production </span>قرار می دهیم.</p>
+
+<p dir="rtl">حالا باید فایل <span style="color:#9b59b6">package.json</span> را هم اصلاح کنیم.</p>
+
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p>&nbsp;&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">dev</span>&quot;: &quot;<span style="color:#f39c12">webpack --config webpack.dev.config.js</span>&quot;,<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">prod</span>&quot;: &quot;<span style="color:#f39c12">webpack --config webpack.prod.config.js</span>&quot;<br />
+&nbsp; },</p></div> 
+<p dir="rtl">&nbsp;</p>
+<br />
+<h2 class="y">--  webpack dev server --</h2> 
+<br />
+
+<p dir="rtl">این مورد یک <span style="color:#d35400">سرور مجازی</span> برای <span style="color:#3498db">webpack </span>ایجاد می کند و کار ما را در<span style="color:#f39c12"> توسعه بسیار آسان</span> می کند. این مورد خودش <span style="color:#e74c3c">Watch </span>انجام می دهد و نیازی نیست ما <span style="color:#e67e22">دائما دستور run را بزنیم</span></p>
+<div class="code">
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#e67e22">i</span> <span style="color:#e74c3c">webpack-dev-server</span> <span style="color:#27ae60">-D</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in development config</span></p>
+
+<p><span style="color:#e67e22">devServer</span>: {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<span style="color:#e74c3c">static</span>: {<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;directory: &nbsp;path.<span style="color:#d35400">resolve</span>(<span style="color:#9b59b6">__dirname </span>, &#39;<span style="color:#f39c12">./dist</span>&#39;),<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;},<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;compress: <span style="color:#9b59b6">true</span>,<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;port: <span style="color:#9b59b6">9000</span>,
+<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;devMiddleware: {
+<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;writeToDisk:<span style="color:#9b59b6">true</span>
+<br />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;}
+<br />
+&nbsp;&nbsp; &nbsp;}<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in package.json</span></p>
+
+<p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">dev</span>&quot;: &quot;<span style="color:#f39c12">webpack serve --config webpack.dev.config.js</span>&quot;,&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // add serve</span><br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">prod</span>&quot;: &quot;<span style="color:#f39c12">webpack --config webpack.prod.config.js</span>&quot;<br />
+&nbsp;},</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#d35400">run </span><span style="color:#e74c3c">dev</span></p>
+</div>
+<p dir="rtl">&nbsp;</p>
+
+<br />
+<h2 class="y">--  Multi page app --</h2> 
+<br />
+
+<p dir="rtl">برای این منظور باید از قابلیت <span style="color:#e74c3c">code spliting</span> استفاده کنیم. اگر <span style="color:#d35400">چند صفحه html</span> داریم بهتر است فایل <span style="color:#f1c40f">js </span>مربوط به هر صفحه جدا باشد<span style="color:#e67e22"> تا حجم فایل بالا نرود و در لود به مشکل نخوریم.</span></p>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای انیکار باید<span style="color:#d35400"> فایل های کانفیگ خود</span> را تغییر دهیم.</p>
+<div class="code"><p>entry: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">button</span>&quot;:&quot;<span style="color:#f39c12">./src/button.js</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">image</span>&quot;:&quot;<span style="color:#f39c12">./src/index.js</span>&quot;<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p>output : {<br />
+&nbsp;&nbsp;&nbsp;filename : &#39;<span style="color:#f39c12">[</span><span style="color:#3498db">name</span><span style="color:#f39c12">].[</span><span style="color:#3498db">contenthash</span><span style="color:#f39c12">].js</span>&#39;,<br />
+&nbsp;&nbsp; path : path.<span style="color:#d35400">resolve</span>(<span style="color:#9b59b6">__dirname </span>, &#39;<span style="color:#f39c12">./dist</span>&#39;)<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">new </span>HtmlWebpackPlugin({<br />
+&nbsp; &nbsp; &nbsp; filename:&quot;<span style="color:#f39c12">button.html</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp;&nbsp;chunks:[&#39;<span style="color:#f39c12">button</span>&#39;],&nbsp; &nbsp;<span style="color:#7f8c8d">// js file name for add to this html file</span><br />
+&nbsp; &nbsp; &nbsp; template: &quot;<span style="color:#f39c12">button.html</span>&quot;<br />
+}),</p>
+
+<p><br />
+<span style="color:#e74c3c">new </span>HtmlWebpackPlugin({<br />
+&nbsp; &nbsp; &nbsp;&nbsp;filename:&quot;<span style="color:#f39c12">image.html</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp;&nbsp;chunks:[&#39;<span style="color:#f39c12">image</span>&#39;],<br />
+&nbsp; &nbsp; &nbsp; template: &quot;<span style="color:#f39c12">index.html</span>&quot;<br />
+}),</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">new </span>miniCssExtractPlugin({<br />
+&nbsp; &nbsp; &nbsp; filename:&quot;<span style="color:#f39c12">css/[name].[contenthash].css</span>&quot;<br />
+}),</p>
+</div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">اگر به ارور<span style="color:#e74c3c"> operation not permited lated</span> خوردیم باید <span style="color:#ff0099">صفحه مرورگر که در ادرس آن localhost وارد کردیم</span> را ببندیم و <span style="color:#3498db">دوباره dev را بزنیم.</span></p>
+<p>&nbsp;</p>
+<br />
+<h2 class="y">--  webpack lazy loader --</h2> 
+<br />
+<p dir="rtl">ممکن است یک <span style="color:#e67e22">فایل یا کامپوننت</span> داشته باشیم که <span style="color:#e74c3c">فایل های جاوواسکریپت سنگینی</span> دارد. پس ما می خواهید آن<span style="color:#d35400"> کامپوننت را برای یک صفحه در دسترس</span> قرار دهیم اما زمانی که<span style="color:#f1c40f"> صدایش زدیم اجرا شویم.</span> در این صورت <span style="color:#27ae60">کامپوننت ها در زمان نیاز لود می شوند و ما مشکل لود سنگین به خاطر حجم بالای کدها را نخواهیم داشت.</span></p>
+
+<p dir="rtl">برای مثال در <span style="color:#9b59b6">رویداد کلیک</span> به شکل زیر عمل می کنیم</p>
+<div class="code"><p><span style="color:#e74c3c">import</span>(&quot;<span style="color:#f39c12">../image/Image.js</span>&quot;).then(<span style="color:#e67e22">module </span>=&gt;{<br />
+&nbsp; &nbsp; &nbsp; <span style="color:#2980b9">const </span>Image = module.<span style="color:#e74c3c">default</span><br />
+&nbsp; &nbsp; &nbsp; <span style="color:#2980b9">const </span>image = <span style="color:#e74c3c">new </span><span style="color:#27ae60">Image</span>();<br />
+&nbsp; &nbsp; &nbsp; image.<span style="color:#d35400">render</span>();<br />
+});</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا در کنسول به tab مربوط به <span style="color:#f1c40f">network</span> می رویم و می بینیم که<span style="color:#e74c3c"> کامپوننتی که بعدا به آن نیاز داریم هنوز لود نشده است</span> اما زمانی که مثلا روی المان مورد نظر کلیک می کنیم <span style="color:#d35400">کامپوننت و فایل های مربوط به آن لود می شوند.</span></p>
+<p dir="rtl">&nbsp;</p>
+<br />
+<h2 class="y">--  module federation --</h2> 
+<br />
+<p dir="rtl">روشی که در <span style="color:#d35400">lazy </span>استفاده کردیم برای زمانی است که <span style="color:#e74c3c">کامپوننت یا فایل js روی سرور و دامنه خودمان </span>قرار دارد اما گاهی <span style="color:#d35400">کامپوننت ما روی یک سرور و هاست دیگر قرار دارد</span> که <span style="color:#ff0066">برای دریافت و استفاده از آن ما از این قابلیت که در webpack 5 معرفی شده است، استفاده می کنیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+<div class="code"><p><span style="color:#7f8c8d">// in webpack config&nbsp; // کامپوننتی که&nbsp; که میخاهم آن را از راه دور دریافت کنیم</span></p>
+
+<p><span style="color:#2980b9">const </span>{ <span style="color:#d35400">ModuleFederationPlugin </span>} = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">webpack</span>&#39;).<span style="color:#e74c3c">container</span>;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in plugins part</span></p>
+
+<p><span style="color:#e74c3c">new&nbsp;&nbsp;</span><span style="color:#d35400">ModuleFederationPlugin</span>({<br />
+&nbsp; &nbsp; name: &quot;<span style="color:#f39c12">ImageApp</span>&quot;,<br />
+&nbsp; &nbsp; exposes: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">./ImageModule</span>&quot; : &quot;<span style="color:#f39c12">./src/components/image/Image.js</span>&quot;</p>
+
+<p>&nbsp; &nbsp; },</p>
+
+<p>&nbsp; &nbsp; filename: &quot;<span style="color:#f39c12">remoteEntry.js</span>&quot;<br />
+&nbsp;});</p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0066">exposes&nbsp; </span>=&gt; در این بخش فایل هایی که <span style="color:#e67e22">می خواهیم ارسال شوند </span>را مشخص می کنیم.</p>
+
+<p dir="rtl"><span style="color:#ff0066">filename </span>=&gt; اسم<span style="color:#d35400"> فایل نهایی </span>که ارسال می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp; in receptor&nbsp; &nbsp;webpack config</span></p>
+
+<p>const { ModuleFederationPlugin } = <span style="color:#d35400">require</span>(&#39;<span style="color:#f39c12">webpack</span>&#39;).<span style="color:#e67e22">container</span>;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in plugins part</span></p>
+
+<p><span style="color:#e74c3c">new&nbsp;&nbsp;</span><span style="color:#d35400">ModuleFederationPlugin</span>({<br />
+&nbsp; &nbsp; name: &quot;<span style="color:#f39c12">ButtonApp</span>&quot;,<br />
+&nbsp; &nbsp; remotes: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">ImageApp</span>&quot; : &quot;<span style="color:#f39c12">ImageApp@http://localhost:9001/remoteEntry.js</span>&quot;</p>
+
+<p>&nbsp; &nbsp; }<br />
+&nbsp;});</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// usage</span></p>
+
+<p><span style="color:#e74c3c">import</span>(&quot;<span style="color:#f39c12">ImageApp/ImageModule</span>&quot;).<span style="color:#e74c3c">then</span>(<span style="color:#d35400">module </span>=&gt; {</p>
+
+<p>});</p></div> 
+<p>&nbsp;</p><p dir="rtl">&nbsp;</p>
+
+
+
+
+
+
+
+
+
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

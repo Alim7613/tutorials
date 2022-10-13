@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Postman</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						Postman 				 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre" style="padding-bottom:4rem;">
+<p style="text-align:center"><img src="../img/postman.png" width="150" height="150"></p>
+
+<i class="ti or"> {{ &nbsp; &nbsp;   Postman   &nbsp; &nbsp; }}</i>
+<br /><br />
+<br />
+<h2 class="y">------   Set Default Browser   ------</h2> 
+<br />
+
+<p><span style="color:#f39c12">Search default Program in start menu&nbsp;</span> &nbsp; &nbsp;&gt;&nbsp; <span style="color:#e74c3c">&nbsp;select&nbsp; set your default program</span>&nbsp; &nbsp; &nbsp;&gt;&nbsp; &nbsp; <span style="color:#ff0099">selcet&nbsp; browser mored nazar&nbsp;</span> &nbsp; &nbsp;&gt;&nbsp;<span style="color:#27ae60"> &nbsp;select&nbsp; set this program as default&nbsp;</span> &nbsp; &gt;&nbsp; &nbsp;<span style="color:#3498db">ok</span></p>
+
+
+<br /><br />
+<h2 class="y">------   Intro   ------</h2> 
+<br />
+
+<p dir="rtl"><span style="color:#e67e22">postman </span>یک ابزار <span style="color:#e74c3c">برای بررسی و تست api ها</span> است. ما با این <span style="color:#9b59b6">platform </span>سایت یا <span style="color:#e67e22">Api نمی نویسیم</span> و تنها<span style="color:#d35400"> Api هایی که داریم را تست می کنیم</span>.</p>
+
+<p dir="rtl">از آنجایی که postman برای <span style="color:#9b59b6">تست Api ها</span> است اصلا<span style="color:#e74c3c"> اهمیتی ندارد که با چه زبانی کد نویسی می کنید</span>، به راحتی می توانید از این ابزار<span style="color:#27ae60"> برای تست هر Api</span> استفاده کنید.</p><br />
+
+<p dir="rtl">postman امکان <span style="color:#e67e22">کار تیمی روی یک پروژه </span>را به ما می دهد. ممکن است ما <span style="color:#f39c12">خودمان Api نویس باشیم</span> یا این که برای مثلا <span style="color:#9b59b6">برای سایت</span> یا <span style="color:#9b59b6">App اندورید خود</span> از Api استفاده می کنیم. این اصلا اهمیتی ندارد و ما به راحتی در <span style="color:#3498db">هر شرایطی می توانیم از این ابزار استفاده کنیم</span>.</p>
+<br />
+<p dir="rtl"><span style="color:#e74c3c">API Client</span> ==&gt; سیستمی که <span style="color:#d35400">درخواست را به Api ارسال می کند</span>. این می توان یک <span style="color:#f39c12">App اندرویید</span> باشد یا <span style="color:#f39c12">یک سایت با فریم ورک های جاوااسکریپتی</span> یا <span style="color:#f39c12">کلا ارسال کننده درخواست خود postman</span> باشد.</p>
+<br />
+<p dir="rtl"><span style="color:#3498db">postman </span> زا <span style="color:#e74c3c">restful </span>- <span style="color:#e74c3c">Soap </span>- <span style="color:#e74c3c">GraphQL </span>پشتیبانی می کند.</p>
+<br />
+<p dir="rtl">پستمن همچنین امکان ایجاد <span style="color:#d35400">workspace </span>ها محتلف برای <span style="color:#e74c3c">کارهای تیمی مختلف به صورت real-time </span>را می دهد.</p>
+<br />
+<p dir="rtl">یک از ویژگی های postman این است که می توانیم<span style="color:#e74c3c"> Mock &amp; Design</span> طراحی کنیم یعنی <span style="color:#d35400">یکسری end point</span> تعریف کنیم و برنامه خود را براساس آن بسازیم و <span style="color:#ff0099">بعد این شکل طراحی را بدهیم به برنامه نویس backend و بگوییم که پاسخ های که از سرور برگشت داده می شود</span> باید در این قالب باشند.</p>
+
+<p dir="rtl">همچنین پستمن به ما امکان ایجاد <span style="color:#27ae60">Documention </span>برای <span style="color:#9b59b6">end point</span> ها می دهد و ما<span style="color:#f39c12"> به راحتی این doc را در اختیار برنامه نویس وب یا موبایل قرار می دهیم</span> تا به راحتی بداند که <span style="color:#9b59b6">end point </span>ها چی هست و براساس آن ها <span style="color:#e67e22">برنامه نهایی و پاسخ های یا درخواست ها</span> را طراحی کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<p dir="rtl">برای <span style="color:#e67e22">نصب </span>postman به آدرس زیر مراجعه می کنیم</p>
+
+<p dir="ltr">https://www.postman.com/downloads/</p>
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">ممکن است در <span style="color:#e67e22">هنگام نصب پستمن</span> به <span style="color:#e74c3c">ارور </span>زیر بخوریم</p>
+
+<div class="code">
+<p><br />
+error entry point not SetDefaultDllDirectory <span style="color:#e74c3c">Kernel32.dll </span>&nbsp;...</p></div> 
+<p dir="rtl">در این صورت به لینک زیر می رویم و فایل را <span style="color:#9b59b6">دانلود کرده و نصب می کنیم</span> و بعد&nbsp;<span style="color:#e74c3c">restart</span> می کنیم.</p>
+
+<div class="code"><p>https://www.microsoft.com/en-us/download/details.aspx?id=35903</p></div> 
+<p dir="rtl">الان باید postman به <span style="color:#f1c40f">درستی اجرا</span> شود. پستمن در<span style="color:#d35400"> قالب مرورگر اجرا</span> می شود اما در خود سایت آمده باید در <span style="color:#e74c3c">پایین صفحه روی agent browser</span> قرار دهیم. یا کلا می توانیم چیزی<span style="color:#f39c12"> دانلود نکنیم</span> و<span style="color:#9b59b6"> فقط از سایت postman استفاده کنیم</span> که <span style="color:#e74c3c">در این صورت ممکن است header های درخواست به درستی به ما نمایش داده نشود</span>.</p>
+
+
+<br />
+<h2 class="y">------   Start   ------</h2> 
+<br />
+
+
+
+<p dir="rtl">برای <span style="color:#e74c3c">کار تیمی</span>&nbsp;روی یک پروژه باید&nbsp;<span style="color:#d35400">workspace </span>ایجاد کنید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#9b59b6">پروژه های شخصی </span>که تنها خودمان کار می کنیم می توانیم در هنگام <span style="color:#d35400">ساخت نوع personal </span>را انتخاب کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">می توانیم برای <span style="color:#d35400">هر پروژه یک&nbsp;workspace داشته باشیم</span> یا اینکه <span style="color:#e74c3c">یک&nbsp;workspace داشته باشیم و برای هر پروژه آن را پوشه بندی</span> کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">می توانیم خودمان&nbsp;<span style="color:#9b59b6">workspace </span>یا اینکه از <span style="color:#f39c12">نمونه دیفالتی</span> که خودش قرار داده است استفاده کنیم. <span style="color:#27ae60">زمانی که روی اسم&nbsp;workspace مورد نظر کلیک کنیم وارد آن می شویم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در هر&nbsp;workspace<span style="color:#27ae60"> یک ایکون سبز sync</span> وجود دارد که می گوید<span style="color:#e74c3c"> اطلاعات شما در حال ذخیره شدن روی سرور</span> است و می توانید <span style="color:#d35400">در هر جایی به آن ها دسترسی </span>داشته باشید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در بخش <span style="color:#e67e22">overview </span>یکسری <span style="color:#9b59b6">اطلاعات توضیحی به ما می دهد که زیاد کاریش نداریم</span>. حال روی<span style="color:#e74c3c"> علامت +</span> می زنیم و <span style="color:#e74c3c">یک tab جدید ایجاد</span> می کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">این تب بخش <span style="color:#f39c12">اصلی ما</span> برای تست <span style="color:#e74c3c">API </span>ها است. در این بخش یک <span style="color:#d35400">URI </span>و <span style="color:#d35400">METHOD </span>ست می کنیم و <span style="color:#e74c3c">درخواست ها به آن ارسال می کند</span>. یعنی خود postman به URL که دادیم با متود مورد نظر<span style="color:#ff0099"> یک درخواست ارسال می کند و جواب را برمیگرداند و نمایش می دهد</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در<span style="color:#f39c12"> پایین صفحه</span> اگر از طریق <span style="color:#d35400">اینترنت</span> کار می کنیم باید مقدار را روی<span style="color:#e74c3c"> agent browser</span> بگذاریم اما اگر روی <span style="color:#d35400">desktop </span>کار می کنیم باید این مقدار را <span style="color:#e74c3c">desktop </span>بگذاریم.</p>
+
+<br />
+<h2 class="y">------   Collection   ------</h2> 
+<br />
+
+<p dir="rtl">برای<span style="color:#e74c3c"> منظم کردن درخواست هایی که برای یک پروژه ارسال</span> می کنیم، آن ها را داخل <span style="color:#d35400">collection </span>قرار می دهیم.</p>
+
+<p dir="rtl">روی <span style="color:#9b59b6">تب کناری روی collection</span> می زنیم و بعد <span style="color:#f39c12">crate collection</span> را انتخاب می کنیم. بعد اسم آن را وارد می کنیم. حالا کالکشن ما ساخته شده و بعد زمانیکه که URL را وارد کردیم و می توانیم روی<span style="color:#d35400"> Save</span> بزنیم و اسم برای چیزی که <span style="color:#d35400">ذخیره می شود امتخاب کنیم&nbsp;و کالکشن </span>را هم&nbsp; انتخاب کنیم.</p>
+
+<p dir="rtl">با این کار <span style="color:#e74c3c">تمام درخواست ها</span> و <span style="color:#e74c3c">API </span>ها ما دسته بندی میشوند و<span style="color:#f1c40f"> دیگر نیازی به سردرگمی نیست</span>.</p>
+
+
+<br />
+<h2 class="y">------   Environment   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e67e22">گلوبال</span> یعنی یک دسترسی<span style="color:#e74c3c"> یه یک چیز در کل کالکشن ها</span> اما&nbsp;<span style="color:#e74c3c">Environment </span><span style="color:#e67e22">یک محیط کوچک تر</span> است که <span style="color:#ff0099">خودمان تعیین می کنیم چه چیزهایی داخل آن</span>  باشد.</p>
+
+<p dir="rtl">برای اینجاد&nbsp;<span style="color:#2ecc71">Environment </span>روی <span style="color:#3498db">چشم </span>بالا می زنیم و گزینه<span style="color:#ff0099"> add در بخش&nbsp;Environment</span> را انتخاب می کنیم.</p>
+
+
+<br />
+<h2 class="y">------   Variable   ------</h2> 
+<br />
+<p dir="rtl">ممکن است <span style="color:#f39c12">تعداد زیادی درخواست</span> داشته باشیم که به یک <span style="color:#e74c3c">URL خاص</span> ارسال می شوند و<span style="color:#d35400"> دامنه ارسالی در همه آنها یکسان</span> است. حالا اگر <span style="color:#f1c40f">فردا روزی دامنه سایت تغییر کرد ما مجبور می شویم که تمام URL ها را تغییر دهیم که اصلا کار معقولانه ای نیست</span>. به همین دلیل postman&nbsp; <span style="color:#e67e22">یک قابلیت با نام variable </span>در اختیار ما قرار می دهید که به وسیله آن می توانیم<span style="color:#ff0099"> موارد تکراری را تنها یکبار در قالب یک name تعریف کنیم </span>و دفعات زیادی از آن استفاده کنیم. حالا اگر<span style="color:#e74c3c"> دامنه سایت تغییر کرد ما تنها باید آن variable را اصلاح</span> کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#f39c12">ایجاد variable</span> آن قسمتی از <span style="color:#f39c12">URL </span>که در درخواست های <span style="color:#2ecc71">مختلف تکراری است را select میکنیم</span>. حالا <span style="color:#8e44ad">خودش یک&nbsp; pop-up باز می کند که داخل آن می گوید آیا می می خواهید set variable انجام دهید یا نه.</span> اگر انتخاب کردیم<span style="color:#f39c12"> لیست variable های قبلی را می آورد یا اینکه می توانیم یکی اضافه </span>کنیم.</p>
+
+<p dir="rtl">ابتدا <span style="color:#f39c12">یک نام انتخاب می کنیم</span> و بعد نوع آن که یکی از مقادیر زیر است را انتخاب می کنیم.</p>
+
+<p dir="rtl"><span style="color:#ff0099">Global </span>===&gt; در <span style="color:#e74c3c">تمام کالکشن ها و&nbsp;Environment ها&nbsp;به آن دسترسی</span> داریم.</p>
+
+<p dir="rtl"><span style="color:#ff0099">Environment&nbsp; </span>==&gt;&nbsp;<span style="color:#e74c3c"> فقط در&nbsp;Environment انتخابی در دسترس</span> است.</p>
+
+<p dir="rtl"><span style="color:#ff0099">Collection </span>==&gt; <span style="color:#e74c3c">فقط در کالکشن انتخابی در دسترس</span> است.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا هر کدام را زدیم در آن <span style="color:#f1c40f">ذخیره </span>می شود. اگر کالکشن را انتخاب کردیم برای دیدن آن<span style="color:#f39c12"> باید روی کاکشن مورد نظر بزنیم و به بخش&nbsp;variables برویم</span>. در این بخش دو مورد وجود دارند.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">INITIAL VALUE&nbsp;</span>&nbsp; &nbsp; ==&gt; <span style="color:#d35400">یعنی اگر پروژه را برای کسی فرستادیم یا share&nbsp;این مورد نمایش داده می شود</span>.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">CURRENT VALUE</span>&nbsp; &nbsp; ==&gt; یعنی مقدار <span style="color:#d35400">اصلی که خودمان می توانیم ببینیم و کسی نباید به آن را ببیند زیرا ممکن است حاوی اطلاعات امنیتی </span>باشد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای&nbsp;<span style="color:#ff0099">Environment&nbsp; </span>&nbsp;و <span style="color:#ff0099">Global </span>هم به همین صورت است ولی برای مشاهده آن ها باید روی چشم بزنیم و&nbsp;<span style="color:#ff0099">Environment&nbsp; </span>یا <span style="color:#ff0099">Global </span>مورد نظر برویم.</p>
+
+
+
+
+<br />
+<h2 class="y">------   Query Parameter   ------</h2> 
+<br />
+
+<p dir="rtl">منظور از <span style="color:#e74c3c">query params </span>همان <span style="color:#d35400">کوئری استرینگ ها </span>و مقادیر ارسالی است.</p>
+
+<p dir="rtl">زمانی که در حال<span style="color:#f1c40f"> ست کردن URL و MRTHOD </span>هستیم می توانیم این موارد را هم <span style="color:#e74c3c">در بخش params</span> وارد کنیم.&nbsp;userId=5&amp;_limit=3</p>
+
+
+<br />
+<h2 class="y">------   Path Variable   ------</h2> 
+<br />
+<p dir="rtl">برای مثال زمانی که می خواهیم <span style="color:#9b59b6">پست شماره 10 </span>از سایر پست ها را <span style="color:#f1c40f">درخواست کنیم URL</span> ما به شکل <span style="color:#d35400">posts/10</span> می شود. به <span style="color:#3498db">10 که متغییر است و محتوای مجزایی را فراخوانی می کند</span> <span style="color:#e74c3c">path variable</span> می گویند.</p>
+
+<p dir="rtl">برای <span style="color:#9b59b6">اعمال </span>این کار در post من <span style="color:#f39c12">ما در URL</span>&nbsp; ابتدا <span style="color:#e74c3c">:</span> قرار می دهیم و<span style="color:#d35400"> بعد اسم دلخواهی که دوست داریم</span>. با این کار<span style="color:#ff0066"> یک جدول خودش اضافه می کند با نام&nbsp;path variable</span> که نام ما در آن قرار دارد <span style="color:#27ae60">هر مقداری برای آن ست کنیم به این منزله است که ما مثلا ایدی دادیم</span></p>
+
+<div class="code"><p><span style="color:#f39c12">/posts/12</span>&nbsp; <span style="color:#e74c3c">&nbsp;==&nbsp;</span> <span style="color:#f39c12">&nbsp;/posts/</span><span style="color:#d35400">:</span><span style="color:#9b59b6">post_id</span></p></div>
+
+
+<br />
+<h2 class="y">------   Post Request   ------</h2> 
+<br />
+<p dir="rtl">برای فرستادن این درخواست با <span style="color:#f1c40f">post man</span> ابتدا باید متود را روی <span style="color:#d35400">post </span>قرار دهیم و بعد در<span style="color:#e74c3c"> تب body</span> مقادیر مورد نظر که<span style="color:#d35400"> باید ارسال شود را ست</span> کنیم.</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">در قسمت <span style="color:#9b59b6">body&nbsp; </span>ما چنتا موضوع داریم</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0099">none&nbsp; &nbsp;</span>==&gt;&nbsp; یعنی <span style="color:#d35400">چیزی قرار نیست همراه درخواست ارسال کنیم</span> ومقداری قرار نیست به سمت سرور ارسال شود. در این صورت<span style="color:#e74c3c"> در بخش headers گزینه مربوط به content-type حذف میشود</span>.</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0099">form-data</span>&nbsp; ===&gt;&nbsp; یعنی می توانیم <span style="color:#ff0099">در این درخواست فایل هم ارسال کنیم</span>. تنها کافی است <span style="color:#e74c3c">بخش text را به file تبدیل</span> کنیم. <span style="color:#d35400">هدر content-type در این مورد به multipart-formdata تبدیل می شود</span>.</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0099">x-www-form-underscore&nbsp;</span> ===&gt; در این مورد <span style="color:#d35400">تنها می توانیم درخواست هایی از نوع text ازسال کنیم</span> و <span style="color:#e74c3c">هدر content-type برابر با x-www-form-underscore است</span>.</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0099">raw&nbsp; &nbsp;</span>==&gt; برای زمانی است که می خواهیم<span style="color:#d35400"> به صورت دستی درخواست با فرمت Json یا فرمت دیگر که سرور پشتیبانی می کند </span>ارسال کنیم. زمانی که این مورد را انتخاب می کنیم<span style="color:#cc0066"> یک بخش اضافه می شود که در آن می توانیم فرمت درخواست ارسالی را تعیین کنیم</span> که <span style="color:#e74c3c">همزمان با آن هدر هم تغییر می کند. برای مثال json یا text&nbsp;</span></p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0099">binary </span>==&gt; برای<span style="color:#d35400"> ارسال فایل ها به صورت باینری</span> است</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0099">graphQL </span>===&gt; برای<span style="color:#d35400"> درخواست هایی است که در سمت سرور به شکل QraphQl</span> به آن ها رسیدگی می شود. <span style="color:#27ae60">ما در حال حاضر از Restful استفاده می کنیم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<br />
+<h2 class="y">------   random test Data   ------</h2> 
+<br />
+<p dir="rtl">در این مبحث postman خودش می آید <span style="color:#f39c12">برای متغییر ها یا دیتاهایی که سمت سرور ارسال</span> می کنیم، <span style="color:#e74c3c">مقدار فیک و رندوم ارسال می کند</span> و<span style="color:#d35400"> ما می توانیم با مقادیر محتلف تست های خود</span> را انجام دهیم.</p>
+
+<p dir="rtl">برای اینکار در<span style="color:#e74c3c"> بخش value به جای نوشتن عبارت استاتیک</span> به این صورت می نویسم</p>
+
+<div class="code"><p>&nbsp;{{$<span style="color:#d35400">randomCity</span>}}</p>
+
+<p>&nbsp;{{$<span style="color:#d35400">randomInt</span>}}</p></div> 
+
+
+<p dir="rtl">برای مشاهده<span style="color:#ff0099"> لیست کامل این مقادیر گلوبال</span> و <span style="color:#cc0066">مثال ها و مقادیری</span> که برمی گردانند وارد <span style="color:#27ae60">doc </span>پستمن می شویم و<span style="color:#e74c3c"> بخش write script</span> که در آنجا به هم این موارد اشاره شده است.</p>
+
+
+<br />
+<h2 class="y">------   PUT & Delete Method   ------</h2> 
+<br />
+
+<p dir="rtl">برای <span style="color:#d35400">update </span>در پستمن می توانیم از متودهای <span style="color:#e74c3c">PUT</span> و<span style="color:#e74c3c"> PATCH</span> استفاده کنیم. این دو تفاوتی ندارند و <span style="color:#f1c40f">هر دو کار آپدیت</span> را انجام می دهند. برای اپدیت علاوه بر اینکه <span style="color:#ff0099">باید دیتاهایی که باید به عنوان آپدیت ذخیره می شوند را ارسال کنیم</span>، باید <span style="color:#9b59b6">URL </span>به شکل زیر باشد</p>
+
+<div class="code">
+<p><span style="color:#d35400">PUT </span>or <span style="color:#d35400">PATCH&nbsp; &nbsp; </span>||&nbsp; &nbsp;{{<span style="color:#e67e22">baseURL</span>}}<span style="color:#3498db">/posts/</span><span style="color:#e74c3c">:id</span></p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای <span style="color:#d35400">DELETE </span>هم دقیقا مثل آپدیت عمل میکنیم با <span style="color:#e67e22">این تفاوت که دیگر مقداری نباید ارسال کنیم </span>و تنها <span style="color:#9b59b6">URL </span>باید به شکل زیر باشد.</p>
+<div class="code">
+<p><span style="color:#d35400">DELETE&nbsp; </span>||&nbsp; &nbsp; {{<span style="color:#f39c12">baseURL</span>}}<span style="color:#3498db">/posts/</span><span style="color:#e74c3c">:id</span></p>
+</div> 
+
+<br />
+<h2 class="y">------   Autoraization   ------</h2> 
+<br />
+
+<p dir="rtl">گاهی در زمان استفاده از <span style="color:#9b59b6">postman </span>نیاز است<span style="color:#3498db"> درخواست های خود را به مسیرهایی ارسال کنیم</span> که <span style="color:#d35400">نیاز به login و ... یا نیاز به Autorization با توکن </span>دارند. در این صورت<span style="color:#e74c3c"> ما باید همراه درخواست خود Token را هم ارسال کنیم تا سرور اجازه دسترسی به ما بدهد</span>. برای این کار به روش زیر عمل می کنیم.</p>
+
+<p dir="rtl">برای اینکار<span style="color:#e74c3c"> ابتدا توکن</span> را که ساخته شده است ابتدا <span style="color:#e74c3c">با درخواست لاگین برگردانیم و بعد آن را کپی کنیم</span>. سپس در<span style="color:#d35400"> پستمن به بخش&nbsp;Autorization برویم</span> و در select box گزینه <span style="color:#f39c12">Bearer token</span> را انتخاب کنیم و بعد در <span style="color:#f1c40f">اینپوت توکن خود</span> را وارد کنیم. در واقع این کار برای ما<span style="color:#2c3e50"> </span><span style="color:#f39c12">یک&nbsp;header ست</span><span style="color:#2c3e50"> </span>می کند که حاوی توکن است و <span style="color:#3498db">به سرور می فهماند که من توکن را دارم.</span></p>
+
+<p dir="rtl">بهتر است<span style="color:#d35400"> به جای وارد کردن توکن به صورت دستی</span> در<span style="color:#e74c3c"> همه درخواست هایی که نیاز به&nbsp;Autorization دارند، این توکن را در قالب یک متغییر تعریف کنیم </span>و به آن ها پاس دهیم تا <span style="color:#ff0099">نیاز نباشد هربار که توکن تغییر کرد همه آن ها را تغییر دهیم و تنها همان متغییر را تغییر دهیم</span>.</p>
+
+
+<br />
+<h2 class="y">------   Pre-request Script    ------</h2> 
+<br />
+
+<p dir="rtl">در این بخش دستوراتی که باید <span style="color:#e74c3c">قبل از ارسال request </span>اجرا شوند را می نویسیم. در این <span style="color:#d35400">بخش باید کدهای جاوااسکریپت</span> بنویسیم.</p>
+
+<p dir="rtl">هدف از این بخش این است که<span style="color:#e74c3c"> قبل از ارسال درخواست یکسری متغییرها را تغییر بدهد</span>.</p>
+
+<p dir="rtl">خود پستمن برای این کار <span style="color:#f39c12">یک سری تابع در کنار صفحه قرار داده است</span> که می توانیم با <span style="color:#e67e22">کلیک روی آن ها از آن ها </span>استفاده کنیم.</p>
+
+<p dir="rtl">برای مثال <span style="color:#e74c3c">set collection variable </span>را می زنیم بعد در <span style="color:#ff0099">محل کدها خود پستمن یک تابع برای ما قرار می دهد</span> که به شکل زیر است.</p>
+
+<div class="code"><p><span style="color:#27ae60">pm</span>.<span style="color:#d35400">collectionVariables</span>.<span style="color:#3498db">set</span>(&quot;<span style="color:#f39c12">variable_key</span>&quot;,&nbsp;&quot;<span style="color:#f39c12">variable_value</span>&quot;);</p></div> 
+
+
+<p dir="rtl">حالا ما در پارامتر<span style="color:#f39c12"> اول یک نام به متغییر مورد نظر می دهیم</span> و در<span style="color:#d35400"> پارامتر دوم مقداری که می خواهیم قبل از ارسال درخواست ست شود</span> را قرار می دهیم.</p>
+
+<div class="code"><p><span style="color:#27ae60">pm</span>.<span style="color:#d35400">collectionVariables</span>.<span style="color:#3498db">set</span>(&quot;<span style="color:#f39c12">postId</span>&quot;,&nbsp;<span style="color:#3498db">parseInt</span>(<span style="color:#27ae60">Math</span>.<span style="color:#3498db">random</span>()&nbsp;<span style="color:#e74c3c">*</span>&nbsp;<span style="color:#9b59b6">100</span>));</p></div> 
+
+<p dir="rtl">حالا در بخش <span style="color:#e74c3c">params </span>به جای این که<span style="color:#d35400"> مقدار متغییر&nbsp;Path Variable&nbsp; را دستی وارد کنیم</span>، <span style="color:#e74c3c">value را به شکل زیر قرار</span> می دهیم.</p>
+
+
+<div class="code">
+
+<p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#d35400">URL&nbsp; &nbsp;</span>==&gt;&nbsp;&nbsp;{{<span style="color:#f1c40f">baseURL</span>}}<span style="color:#f39c12">/posts/:post_id</span></p>
+
+<p><span style="color:#d35400">Key&nbsp; &nbsp;</span>==&gt;&nbsp;<span style="color:#f39c12">post_id</span></p>
+
+<p><span style="color:#d35400">Value&nbsp; &nbsp;</span>==&gt;&nbsp;{{<span style="color:#e74c3c">postId</span>}}</p></div> 
+
+<p dir="rtl">حالا زمانیکه که<span style="color:#9b59b6"> درخواست را ارسال می کنیم</span>، هربار<span style="color:#d35400"> یک عدد رندوم برگشت داده می شود و پست جدیدی از سرور برمیگردد</span> که در این صورت می توانیم <span style="color:#e74c3c">بهتر تست های خود را انجام دهیم</span>.</p>
+
+<br />
+<h2 class="y">------   Test Api Writting   ------</h2> 
+<br />
+<p dir="rtl">این بخش مربوط به <span style="color:#e74c3c">بعد از ارسال درخواست</span> است. یعنی<span style="color:#d35400"> بعد از اینکه response</span> <span style="color:#e74c3c">برگشت دستورات test اجرا می شوند</span>.&nbsp;</p>
+
+<p dir="rtl">در این بخش هم<span style="color:#f39c12"> باید کدهای جاوااسکریپت</span> بنویسیم.</p>
+
+<p dir="rtl">این بخش به <span style="color:#f39c12">شدت برای زمانی که باید توکن را دریافت و برای درخواست ها ست کنیم مناسب است</span>. این مورد به ما کمک می کند که <span style="color:#ff0099">با هربار ارسال درخواست و تغییر توکن لاگین، توکن را دریافت کنیم و آن را ر یک متغییر بریزیم تا به راحتی در درخواست های دیگر از آن استفاده کنیم</span>.</p>
+
+
+<div class="code">
+
+<p><span style="color:#7f8c8d">in test part</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">let&nbsp;</span>res&nbsp;=&nbsp;<span style="color:#27ae60">pm</span>.<span style="color:#d35400">response</span>.<span style="color:#e74c3c">json</span>();&nbsp; &nbsp; <span style="color:#7f8c8d">// دسترسی به پاسخ&nbsp;</span></p>
+
+<p><span style="color:#e74c3c">if</span>(res.id&nbsp;==&nbsp;<span style="color:#9b59b6">5</span>){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#27ae60">pm</span>.<span style="color:#d35400">collectionVariables</span>.<span style="color:#3498db">set</span>(&quot;<span style="color:#f39c12">ali</span>&quot;,&nbsp;&quot;<span style="color:#f39c12">Vue</span>&quot;);</p>
+
+<p>}else{</p>
+
+<p>&nbsp; &nbsp;&nbsp;<span style="color:#27ae60">pm</span>.<span style="color:#d35400">collectionVariables</span>.<span style="color:#3498db">set</span>(&quot;<span style="color:#f39c12">ali</span>&quot;,&nbsp;&quot;<span style="color:#f39c12">Laravel</span>&quot;);</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">console.log</span>(<span style="color:#27ae60">pm</span>.<span style="color:#d35400">collectionVariables</span>.<span style="color:#3498db">get</span>(&quot;<span style="color:#f39c12">ali</span>&quot;));&nbsp; &nbsp;// if == 5&nbsp; &nbsp;==&gt; Vue&nbsp; &nbsp; else&nbsp; ===&gt; Laravel</p>
+</div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">پستمن در بخش test یکسری توابع مانند <span style="color:#27ae60">status code 200</span> دارد که بررسی میکند آیا <span style="color:#9b59b6">تمام مراحل ارسال و برگشت پاسخ به درستی بوده</span> است یا نه. در این تابع ما <span style="color:#f39c12">یک مقدار</span> تعریف می کنیم و یک <span style="color:#f39c12">callback function</span> که <span style="color:#ff0099">اگر status code 200 بود فانکشن اجرا می شود و همچنین مقداری که به عنوان پارامتر اول داده ایم را به خروجی می فرستد</span>.</p>
+
+<p dir="rtl">برای دیدن خروجی حتما باید به تب<span style="color:#e74c3c"> test results</span>&nbsp; برویم.</p>
+<div class="code">
+
+<p><span style="color:#2ecc71">pm</span>.<span style="color:#8e44ad">test</span>(&quot;<span style="color:#f39c12">Status&nbsp;code&nbsp;is&nbsp;200</span>&quot;,&nbsp;function&nbsp;()&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#27ae60">pm</span>.<span style="color:#d35400">response</span>.<span style="color:#d35400">to</span>.<span style="color:#3498db">have</span>.<span style="color:#f39c12">status</span>(<span style="color:#9b59b6">200</span>);</p>
+
+<p>});</p></div>
+
+<p dir="rtl">پستمن برای این بخش از کتابخانه <span style="color:#e74c3c">chai.js </span>استفاده می کند که یک کتابخانه <span style="color:#f39c12">عالی برای تست های جاوااسکریپت</span> است. حتما داکیومنت را بخوانید.</p>
+
+<div class="code"><p>www.chaijs.com</p></div>
+
+<br />
+
+<h2 class="y">------   Running Collection    ------</h2> 
+<br />
+
+
+<p dir="rtl">برای <span style="color:#f1c40f">run</span> کردن<span style="color:#e74c3c"> تمام end point ها</span> در یک <span style="color:#f39c12">کالکشن </span>به <span style="color:#3498db">3</span> شکل زیر می توانیم عمل کنیم.</p>
+
+<p dir="rtl"><span style="color:#ff0099">1</span>. <span style="color:#d35400">Collection Runner</span></p>
+
+<p dir="rtl"><span style="color:#ff0099">2</span>.<span style="color:#d35400"> New Man with Cli</span></p>
+
+<p dir="rtl"><span style="color:#ff0099">3</span>. <span style="color:#d35400">Monitor</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f">--&nbsp; &nbsp;Collection Runner&nbsp; --&nbsp;&nbsp;</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای استفاده از روش&nbsp;<span style="color:#d35400">Collection Runner</span> روی <span style="color:#e74c3c">Runner </span>در<span style="color:#9b59b6"> پایین صفحه </span>می زنیم. ب<span style="color:#f1c40f">عد ترتیب end point </span>ها را درست می کنیم و <span style="color:#f39c12">بعد روی اجرا Run</span> می زنیم <span style="color:#e74c3c">تا خود تک تک end point ها را تست کند و نتیجه نهایی را به ما اعلام کند</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f">--&nbsp; &nbsp;New Man Cli&nbsp;&nbsp;Runner&nbsp; --&nbsp;&nbsp;</span></p>
+
+<p dir="rtl">برای این <span style="color:#9b59b6">روش تست</span> ابتدا باید <span style="color:#e74c3c">newman </span>را به کمک <span style="color:#d35400">npm </span>به صورت<span style="color:#e74c3c"> گلوبال</span> روی خود npm نصب کنیم.</p>
+
+<div class="code"><p><a >www.npmjs.com/package/newman</a></p>
+
+<pre>
+<span style="color:#9b59b6">npm </span><span style="color:#d35400">install </span><span style="color:#f1c40f">-g</span> <span style="color:#e74c3c">newman</span></pre></div>
+
+<p dir="rtl">بعد از نصب به <span style="color:#f39c12">دو طریق</span> می توانیم کالکشن را <span style="color:#9b59b6">run&nbsp; </span>کنیم.</p>
+
+<p dir="rtl"><span style="color:#ff0099">روش اول</span> اینکه در پستمن روی<span style="color:#2ecc71"> 3 نقطه کالکشن</span> بزنیم و <span style="color:#d35400">export </span>کنیم. <span style="color:#ff0099">recommended</span> را انتخاب و <span style="color:#e74c3c">export را می زنیم که یک فایل json شروع به دانلود می کند</span>.</p>
+
+<p dir="rtl">حالا <span style="color:#f39c12">به پوشه ای که فایل دانلود شده</span> را در آن قرار داده ایم در <span style="color:#9b59b6">cmd </span>می رویم و بعد دستور را اجرا می کنیم.</p>
+<div class="code"><p><span style="color:#f39c12">cd desktop</span></p>
+
+<p><span style="color:#e74c3c">newman </span><span style="color:#d35400">run&nbsp; </span><span style="color:#3498db">fileName.json</span></p>
+
+<p><span style="color:#e74c3c">newman </span><span style="color:#d35400">run&nbsp; </span><span style="color:#3498db">postman_test.postman_collection.json</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا شروع به<span style="color:#ff0099"> تست می کند و نتیجه را به ما اعلام </span>می کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0099">روش دوم</span> این است که <span style="color:#d35400">بدون اینکه ما کالکشن را export و دانلود کنیم</span>، می توانیم آن را <span style="color:#e74c3c">publish </span>کنیم و <span style="color:#f39c12">بعد لینک را در cmd وارد</span> کنیم.</p>
+
+<p dir="rtl">در پستمن روی<span style="color:#f39c12"> 3 نقطه کالکشن </span>می زنیم و گزنیه <span style="color:#e74c3c">share collection</span> را انتخاب می کنیم و <span style="color:#d35400">بعد وارد Via Json Link</span>&nbsp; می زنیم و روی <span style="color:#e74c3c">get public link</span> می زنیم تا لینک را به ما بدهد.</p>
+
+<div class="code"><p><span style="color:#bdc3c7">e.g.&nbsp;</span> &nbsp;&nbsp;https://www.getpostman.com/collections/a8b309ff18358f4df80b</p></div> 
+
+<p dir="rtl">حالا اگر خواستیم <span style="color:#f39c12">کسی کالکشن ما برایش باز شود</span> و <span style="color:#d35400">بتواند روی آن کار کند</span> این لینک را به او می دهیم.</p>
+
+<p dir="rtl">برای <span style="color:#9b59b6">Running </span>هم به شکل زیر عمل می کنیم.</p>
+
+<p><span style="color:#d35400">newman&nbsp;&nbsp;</span><span style="color:#e74c3c">run&nbsp;</span><span style="color:#f39c12">&nbsp;https://www.getpostman.com/ collections/a8b309ff18358f4df80b</span></p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><span style="color:#f1c40f">--&nbsp; &nbsp;Monitor&nbsp; Runner&nbsp; --&nbsp;</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">می توانیم از<span style="color:#9b59b6"> منوی کناری</span> <span style="color:#e74c3c">monitoring </span>را انتخاب کنیم و <span style="color:#f1c40f">یک مانیتور بسازیم</span>. وظیفه این مانیتور این است که می توانیم به آن بگوییم <span style="color:#e74c3c">در بازه های زمانی مشخص به کالکشن ما درخواست ارسال کنید و گزارشی از آن در اختیار ما قرار دهیم</span>.</p>
+
+<p dir="rtl">تنها <span style="color:#f1c40f">مشکلی </span>که وجود دارد این است که&nbsp;<span style="color:#f39c12">monitoring </span>روی <span style="color:#e74c3c">localhost </span>و <span style="color:#d35400">لینک های مربوط به لوکال هاست کار نمی کند</span>. یا به عبارت دیگر لوکال هایت لینک ها را <span style="color:#f1c40f">نمی شناسد</span> و ارور می دهد.<span style="color:#ff0066"> این اقدام به این علت پیاده سازی شده است که همیشه localhost ران نیست و ممکن است در بازه زمانی که مانیتور درخواست ارسال می کند و ران نباشد و گزارشات با خطا مواجه شوند</span>.</p>
+<p>&nbsp;</p>
+<p dir="rtl">ابتدا <span style="color:#f1c40f">نام</span> را انتخاب می کنیم&nbsp;&nbsp;</p>
+
+<p dir="rtl">بعد <span style="color:#d35400">کالکشن </span>را انتخاب می کنیم.</p>
+
+<p dir="rtl">اگر <span style="color:#d35400">Environment </span>ست کردیم باید آن را انتخاب کنیم.</p>
+
+<p dir="rtl">بعد <span style="color:#f39c12">زمان مانیتور</span> را تعیین می کنیم.</p>
+
+<p dir="rtl">بعد میگه که<span style="color:#e74c3c"> منطقه زمانی</span> را خودم به طور خودکار اضافه کنم.</p>
+
+<p dir="rtl">بعد می گوید که گزارش به<span style="color:#d35400"> چه ایمیلی ارسال شود که می توانیم دو مورد انتخاب کنی</span>م.</p>
+
+<p dir="rtl">بعد از این یکسری option های دیگر وجود دارند که می توانیم آن ها را <span style="color:#9b59b6">متناسب با نیاز خود انتخاب کنیم یا اصلا آن ها را تغییر ندهیم.</span></p>
+
+<p dir="rtl">حالا روی <span style="color:#e74c3c">create</span> می زنیم تا ساخته شود و بعد آن را <span style="color:#e74c3c">run&nbsp; </span>می کنیم.</p>
+
+<p dir="rtl">حالا باید خودش <span style="color:#f1c40f">کالکشن را ران کند و یک گزارش به ما بدهد</span>. <span style="color:#d35400">از این به بعد توی اون مدت زمانی که تعیین کردیم postman یک تست روی آن کالکشنی که مانیتور کردیم انجام می دهد و گزاشش را به ما می دهد</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<br />
+
+<h2 class="y">------   Mock Server    ------</h2> 
+<br />
+
+<p dir="rtl"><span style="color:#e74c3c">Mock server</span> یک <span style="color:#d35400">fake Api</span> مانند<span style="color:#f39c12"> json placeholder</span> است.</p>
+
+<p dir="rtl">زمانی که<span style="color:#ff0066"> توسعه دهنده فرانت</span> در حال کدنویسی است ممکن است هنوز <span style="color:#e67e22">server</span> و <span style="color:#e67e22">backend </span>آماده <span style="color:#9b59b6">نباشد </span>تا بتواند کدهایی که نوشته است را <span style="color:#d35400">تست کند</span>.<span style="color:#e74c3c"> برای این منظور ما می توانیم به راحتی از mock server استفاده کنیم</span>.</p>
+
+<p dir="rtl">به این صورت که<span style="color:#e67e22"> ما یک سری end point با فیلدهای دیتایی که نیاز داریم ایجاد می کنیم</span> و بعد آن را دیزاین می کنیم و می گوییم که <span style="color:#e74c3c">اگر درخواست آمد مثلا فلان دیتا فیک را برگردان. در صورت به راحتی می توانیم کدهای فرانت را تست کنیم تا قسمت سرور و backend ایجاد شود</span>.</p>
+
+<p dir="rtl">این مورد یکی از <span style="color:#f39c12">بهترین </span>ویژگی های <span style="color:#27ae60">postman </span>است.</p>
+
+<br />
+<p dir="rtl">برای <span style="color:#d35400">ساخت mock server</span> کافی است از <span style="color:#e74c3c">منوی کناری وارد بخش Mock</span> شویم و روی <span style="color:#9b59b6">create</span>&nbsp; بزنیم.</p>
+
+<p dir="rtl">حالا مواردی که <span style="color:#f39c12">خواسته مانند url</span> و <span style="color:#e74c3c">متن جواب برگشتی</span> و <span style="color:#27ae60">status code</span> برگشتی و .. را انتخاب می کنیم و <span style="color:#e67e22">بعد باید کالکشن مورد نظر را انتخاب کنیم و روی next</span> بزنیم.</p>
+
+<p>URL&nbsp; &nbsp;==&gt;&nbsp; <span style="color:#f39c12">/comments</span></p>
+
+<p dir="rtl">حالا باید <span style="color:#d35400">اسم mock</span><span style="color:#d35400"> </span>را انتخاب کنیم و اگر <span style="color:#f39c12">Environment </span>داریم انتخاب کنیم. همچنین می توانیم<span style="color:#ff0099"> تعیین کنیم که از نوع private باشد و دیگران به آن دسترسی نداشته</span> باشد.</p>
+
+<p dir="rtl">همچنین <span style="color:#f1c40f">یکی از ویژگی های خوب</span> این بخش این است که می توانیم <span style="color:#e74c3c">با تیک زدن&nbsp;Simulate fixed network delay به پستمن بگوییم</span> که پاسخ ها را <span style="color:#d35400">کمی با تاخیر بفرست تا شبیه تاخیر web </span>در حالت عادی باشد. حتی می توانیم <span style="color:#ff0099">زمان تاخیر را هم انتخاب </span>کنیم.</p>
+
+<p dir="rtl">بعد روی <span style="color:#ff0099">create&nbsp; </span>می زنیم. حالا <span style="color:#f39c12">mock سرور ما ایجاد</span> میشود. حالا یک <span style="color:#9b59b6">URl </span>هم به ما می دهد که<span style="color:#f39c12"> باید درخواست را به آن ارسال</span> کنیم.</p>
+
+<p>https://2135c867- 3eba-4645-af90-9ab8cc835c84.mock .pstmn.io</p>
+
+<p dir="rtl">اگر<span style="color:#f39c12"> کالکشنی انتخاب نکرده باشیم خود پستمن یک کالکشن جدید و یک environment جدید ساخته است </span>که <span style="color:#e74c3c">URL در آن تعریف شده است</span> و<span style="color:#f39c12"> باید حتما آن را انتخاب کنیم</span> تا&nbsp;<span style="color:#d35400">{{url}}//comments</span> تا متغییر{{<span style="color:#d35400">url</span>}} شناخته شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا به <span style="color:#f39c12">بخش کالکشن ها می رویم</span> و روی <span style="color:#e74c3c">defalt </span>زیر <span style="color:#f39c12">endpoint</span> می زنیم. وقتی وارد آن شدیم<span style="color:#ff0099"> می توانیم تغییراتی که می خواهیم را اعمال کنیم و بعد ذخیره کنیم وبعد وارد خود endpoint که بالای آن قرار داده بشویم و درخواست ارسال کنیم</span>.</p>
+
+<p dir="rtl">حتی می توانیم <span style="color:#e74c3c">داخل کالکشن یک endpoint جدید بسازیم</span> با زدن <span style="color:#f39c12">doubled </span>و بعد<span style="color:#ff0099"> روی 3 نقطه بزنیم و add example بزنیم تا یک mock به آن اضافه کند تا بتوانیم برای response آن را دیزاین کنیم و بگوییم که وقتی درخواست به آن ارسال شد چه چیزهایی برگرداند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<br />
+
+<h2 class="y">------   Documention    ------</h2> 
+<br />
+
+<p dir="rtl">زمانی که ما <span style="color:#e74c3c">یک API می نویسیم</span> باید <span style="color:#f39c12">حتما داکیومنت هم بنویسیم </span>تا دیگران<span style="color:#d35400"> با خواندن آن داکیومنت کامل متوجه شوند که باید درخواست ها را با چه متودی و به چه شکل به چه URL ارسال کنند تا response مناسب را دریافت کنند</span>.&nbsp;</p>
+
+<p dir="rtl">در حالت عادی نوشتن داکیومنت <span style="color:#9b59b6">مدت زمانی خیلی طولانی از ما صرف می کند</span> اما به کمک پسمتن <span style="color:#d35400">می توانیم به راحتی در کنار تست API ها، برای آن ها یک داکیومنت عادی هم تولید کنیم</span>.</p>
+
+<p dir="rtl">اگر روی <span style="color:#3498db">3 نقطه کالکشن ب</span>زنیم به راحتی می توانیم گزینه <span style="color:#cc0099">view Documnetion</span> را بزنیم تا<span style="color:#e67e22"> پیش نمایشی از آن به ما داده شود</span>.&nbsp;</p>
+
+<p dir="rtl">حالا اگر نیازی بود <span style="color:#f1c40f">تغییرات </span>را روی آن اعمال می کنیم.</p>
+
+<p dir="rtl">حتی می توانیم در قسمت <span style="color:#d35400">language&nbsp; </span><span style="color:#e74c3c">زبان برنامه نویسی که باید بعدا در خروجی پیش نمایش کدها برای آن باشد را انتخاب کنیم</span>. برای مثال jQuery&nbsp; or Node Axios</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">وقتی تنظیمات را لحاظ کردیم روی <span style="color:#e74c3c">publish&nbsp; </span>می زنیم. حالا وارد یک صفحه می شود که می توانیم <span style="color:#ff0099">یکسری تنظیمات دیگر لحاظ کنیم مثل URL&nbsp; اختصاصی - انتخاب Environment&nbsp;</span></p>
+
+<p dir="rtl">یکی دیگر از ویژگی ها این است که می توانیم <span style="color:#27ae60">رنگ بخش های مختلف doc خروجی</span> را هم تنظیم کنیم.</p>
+
+<p dir="rtl">تنظیمات را که لحاظ کردیم روی<span style="color:#f39c12"> publish collection</span> می زنیم.</p>
+
+<p dir="rtl">حالا یک <span style="color:#e74c3c">URL به ما می دهد که doc به طور کامل در آن قرار داده </span>و<span style="color:#d35400"> به راحتی می توانیم آن را در اختیار هر کسی که خواستیم قرار بدهیم</span>.</p>
+
+<p dir="rtl">این<span style="color:#e74c3c"> URL فعال است</span> و می توان از اطلاعات آن استفاده کرد تا این که آن را&nbsp; <span style="color:#f39c12">unpublish </span>کنیم. <span style="color:#ff0099">در این صورت آن URL غیرفعال می شود و با رفتن به آن 404 نمایش داده می شود</span>.</p>
+
+<p dir="rtl">همچنین <span style="color:#d35400">هر وقت که خواستیم می توانیم از بالای صفحه بخش published تغییرات دیگربه doc اضافه کنیم یا لینک آن را کپی کنیم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<br />
+
+<h2 class="y">--  &nbsp;swagger&nbsp;&nbsp; and &nbsp;&nbsp; APIs&nbsp;    --</h2> 
+<br />
+
+<p dir="rtl">داکیومنت هایی که<span style="color:#f39c12"> برای یک API نوشته</span> می شود باید طبق <span style="color:#e74c3c">یک فرمت مشخص باشد که هم انسان و هم ماشین بتواند آن را بخواند</span>.</p>
+
+<p dir="rtl"><span style="color:#27ae60">swagger </span>یکسری ابزار است که به ما کمک می کند تا <span style="color:#d35400">استانداردترین داکیومنت</span> را بنویسیم.</p>
+
+<p dir="rtl">این ابزار <span style="color:#f39c12">API </span>ها را براساس <span style="color:#e74c3c">OpenApi </span>با<span style="color:#e74c3c"> استانداردترین فرمت در اختیار</span> ما قرار می دهد که فرمت آن <span style="color:#ff0099">json </span>یا <span style="color:#ff0099">YAML</span> است و به راحتی می توانیم آن را به <span style="color:#f39c12">پستمن بدهیم تا خودش هم end point ها و درخواست های مورد نیاز ما را ایجاد کند</span>.</p>
+
+<p dir="rtl">برای استفاده از این بخش در <span style="color:#f39c12">postman </span>می توانیم در <span style="color:#f39c12">منوی کناری به بخش APIs برویم</span>. بعد <span style="color:#9b59b6">create </span>را بزنیم. حالا می گوید که <span style="color:#f39c12">یک نام</span> انتخاب کن. سپس <span style="color:#e74c3c">ورژن </span>را می گوید وارد کند و <span style="color:#e67e22">بعد باید نوع را انتخاب کنیم که ما روی Open Api</span>&nbsp; می گذاریم و <span style="color:#f1c40f">فرمت </span>را می توانیم از نوع <span style="color:#f1c40f">json&nbsp; </span>یا <span style="color:#f1c40f">YAML </span>انتخاب کنیم. حالا روی <span style="color:#ff0099">create </span>می زنیم تا ساخته شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا ساخته شده است و می توانیم روی<span style="color:#d35400"> view Schema</span> بزنیم و<span style="color:#2ecc71"> نمونه آن</span> را ببنیم.<span style="color:#d35400">&nbsp; تغییرات لازم را روی آن لحاظ کنیم</span>.</p>
+
+<p dir="rtl">زمانی که اصلاحات لازم را انجام دادیم می توایم روی <span style="color:#e74c3c">generate collection</span> بزنیم و از آن <span style="color:#d35400">یک کالکشن برای تست ایجاد </span>کنیم.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// YAML</span></p>
+
+<p>&nbsp;</p>
+
+<p>openapi: 3.0.0<br />
+info:<br />
+&nbsp; version: &#39;1.0.0&#39;<br />
+&nbsp; title: &#39;test apis&#39;<br />
+servers:<br />
+&nbsp; - url: &#39;localhost:3000&#39;<br />
+paths:<br />
+&nbsp; /user:<br />
+&nbsp; &nbsp; get:<br />
+&nbsp; &nbsp; &nbsp; summary: &#39;Sample endpoint: Returns details about a particular user&#39;<br />
+&nbsp; &nbsp; &nbsp; operationId: listUser<br />
+&nbsp; &nbsp; &nbsp; tags:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; - user<br />
+&nbsp; &nbsp; &nbsp; parameters:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; - name: id<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; in: query<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; description: ID of the user<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; required: true<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; schema:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: integer<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; format: int32<br />
+&nbsp; &nbsp; &nbsp; responses:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &#39;200&#39;:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; description: &#39;Sample response: Details about a user by ID&#39;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; headers:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x-next:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; description: A link to the next page of responses<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; schema:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: string<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; content:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; application/json:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; schema:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $ref: &#39;#/components/schemas/User&#39;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; default:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; description: Unexpected error<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; content:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; application/json:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; schema:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $ref: &#39;#/components/schemas/Error&#39;<br />
+components:<br />
+&nbsp; schemas:<br />
+&nbsp; &nbsp; User:<br />
+&nbsp; &nbsp; &nbsp; type: object<br />
+&nbsp; &nbsp; &nbsp; required:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; - id<br />
+&nbsp; &nbsp; &nbsp; &nbsp; - name<br />
+&nbsp; &nbsp; &nbsp; properties:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; id:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: integer<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; format: int64<br />
+&nbsp; &nbsp; &nbsp; &nbsp; name:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: string<br />
+&nbsp; &nbsp; &nbsp; &nbsp; tag:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: string<br />
+&nbsp; &nbsp; Error:<br />
+&nbsp; &nbsp; &nbsp; type: object<br />
+&nbsp; &nbsp; &nbsp; required:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; - code<br />
+&nbsp; &nbsp; &nbsp; &nbsp; - message<br />
+&nbsp; &nbsp; &nbsp; properties:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; code:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: integer<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; format: int32<br />
+&nbsp; &nbsp; &nbsp; &nbsp; message:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: string<br />
+&nbsp; securitySchemes:<br />
+&nbsp; &nbsp; BasicAuth:<br />
+&nbsp; &nbsp; &nbsp; type: http<br />
+&nbsp; &nbsp; &nbsp; scheme: basic<br />
+security:<br />
+&nbsp; - BasicAuth: []</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// JSON</span></p>
+
+<p>&nbsp;</p>
+
+<p>{<br />
+&nbsp; &quot;openapi&quot;: &quot;3.0.0&quot;,<br />
+&nbsp; &quot;info&quot;: {<br />
+&nbsp; &nbsp; &quot;version&quot;: &quot;1.0.1&quot;,<br />
+&nbsp; &nbsp; &quot;title&quot;: &quot;test 2&quot;,<br />
+&nbsp; &nbsp; &quot;license&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &quot;name&quot;: &quot;MIT&quot;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; },<br />
+&nbsp; &quot;servers&quot;: [<br />
+&nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &quot;url&quot;: &quot;localhost:3000&quot;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; ],<br />
+&nbsp; &quot;paths&quot;: {<br />
+&nbsp; &nbsp; &quot;/user&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &quot;get&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;summary&quot;: &quot;Details about a user&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;operationId&quot;: &quot;listUser&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;tags&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;user&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;parameters&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot;: &quot;id&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;in&quot;: &quot;query&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;description&quot;: &quot;ID of the user&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;required&quot;: true,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;schema&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;integer&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;format&quot;: &quot;int32&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;responses&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;200&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;description&quot;: &quot;Details about a user&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;headers&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;x-next&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;description&quot;: &quot;A link to the next page of responses&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;schema&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;string&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;content&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;application/json&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;schema&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;$ref&quot;: &quot;#/components/schemas/User&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;default&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;description&quot;: &quot;unexpected error&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;content&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;application/json&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;schema&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;$ref&quot;: &quot;#/components/schemas/Error&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; },<br />
+&nbsp; &quot;components&quot;: {<br />
+&nbsp; &nbsp; &quot;schemas&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &quot;User&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;object&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;required&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;id&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;properties&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;id&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;integer&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;format&quot;: &quot;int64&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;string&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;tag&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;string&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &quot;Error&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;object&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;required&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;code&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;message&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;properties&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;code&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;integer&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;format&quot;: &quot;int32&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;message&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;string&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &quot;securitySchemes&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &quot;BasicAuth&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;http&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;scheme&quot;: &quot;basic&quot;<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; },<br />
+&nbsp; &quot;security&quot;: [<br />
+&nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &quot;BasicAuth&quot;: []<br />
+&nbsp; &nbsp; }<br />
+&nbsp; ]<br />
+}</p>
+</div> 
+ 
+ 
+ 
+ 
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

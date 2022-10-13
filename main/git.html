@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Git</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						Git	 	     			 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre" style="padding-bottom:2rem;">
+<p style="text-align:center"><img src="../img/git.png" width="150" height="150"></p>
+
+<i class="ti or"> Git </i>
+<br />
+<br />
+
+<p dir="rtl">در فرایند انجام یک پروژه <span style="color:#f39c12">بارها و بارها</span> در پروژه <span style="color:#9b59b6">تغییرات اعمال می کنیم</span> تا به نتیجه مطلوب برسیم. گاهی هم نیاز است برای<span style="color:#3498db"> بهبود روند انجام یک پروژه نیاز</span> است که بخش های مختلف<span style="color:#d35400"> یک پروژه را در اختیار توسعه دهندگان مختلف قرار</span> دهیم. <span style="color:#e74c3c">گیت </span>برای حل این مشکلات به ما کمک می کند.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">git </span>یک<span style="color:#ff0066"> version controller</span> است. یک <span style="color:#f1c40f">داکیومنت </span>از گیت در آدرس<span style="color:#9b59b6"> git-scm.com</span> وجود دارد که می توانیم از آن استفاده کنیم.&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">یک از <span style="color:#3498db">ویژگی </span>های عالی گیت این است که برای مثال ما <span style="color:#e74c3c">یک تغییر در پروژه خود داده ایم اما نمی خواهیم آن تغییر باشد</span> و می خواهیم برگردیم <span style="color:#d35400">به تغییرات قبلی و کدهای قبلی بدون آن که تغییرات فعلی روی آن ها لحاظ شده باشد</span>. <span style="color:#f1c40f">گیت </span>به خوبی این <span style="color:#3498db">امکان را در اختیار ما قرار</span> می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در پروژه های <span style="color:#9b59b6">بزرگ </span>شاید در <span style="color:#3498db">یک برحه از زمان یک خروجی از کدها بگیریم</span> اما <span style="color:#1abc9c">بعد از مدتی از ما خواسته می شوید که توسعه دیگری روی پروژه </span>انجام دهیم. قبلا باید می آمدیم <span style="color:#d35400">پوشه پروژه قبلی را کپی و در قالب پروژه جدید آن را توسعه می دادیم که این کار زیاد معقول نبود</span> اما<span style="color:#ff0099"> گیت به ما امکان می دهد در قالب همان پروژه اول اما در یک شاخه جدید تغییرات خود را اعمال کنیم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   init &nbsp;&nbsp; Git   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اصلا <span style="color:#f1c40f">سطح پروژه مهم نیست </span>در هر پروژه ای برای <span style="color:#e74c3c">کنترل بهتر تغییرات و توسعه می توانیم از git </span>استفاده کنیم.</p>
+
+<p dir="rtl">برای <span style="color:#f39c12">نصب </span>گیت به سایت آن به آدرس&nbsp;<span style="color:#9b59b6">git-scm.com</span> برویم. خودش در<span style="color:#d35400"> کنار صفحه بهترین نسحه را به ما پیشنهاد می دهد</span> اما می توانیم به بخش downloads برویم و اگر خواستیم نسخه های دیگر را هم دانلود کنیم.</p>
+
+<p dir="rtl">برای آن که متوجه شویم<span style="color:#f39c12"> گیت به درستی نصب شده </span>است یا نه وارد <span style="color:#ff0099">cmd </span>می شویم و دستور زیر می زنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#9b59b6">--version</span></p></div> 
+<p>&nbsp;</p> 
+<p dir="rtl">البته به جز این با <span style="color:#2ecc71">نصب گیت </span>خودش یک ابزار با نام <span style="color:#e74c3c">git bash</span> در اختیار ما قرار می دهد که می توانیم از آن استفاده کنیم. برای استفاده از<span style="color:#f39c12"> این ابزار روی desktop راست کلیک می کنیم و آن را انتخاب می کنیم</span>. <span style="color:#e74c3c">git bash here</span></p>
+
+<p dir="rtl">این ابزار در<span style="color:#9b59b6"> هر directory در دسترس است و تنها کافی است راست کلیک کرده و آن را انتخاب کنیم</span>. این ابزار امکان <span style="color:#3498db">دسترسی سریع به گیت</span> را به ما می دهد و عالی است.</p>
+<div class="code"><p><span style="color:#7f8c8d">// in git bash</span></p>
+
+<p><span style="color:#27ae60">$</span> <span style="color:#d35400">git </span><span style="color:#9b59b6">--help</span><br />
+&nbsp;</p></div> 
+ <p>&nbsp;</p> 
+ <p dir="rtl">دستور بالا<span style="color:#e74c3c"> اطلاعات کاملی در مورد دستورات مختلف git در اختیار ما</span> قرار می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#d35400"> استفاده از git در دایرکتوری پروژه</span> به شکل زیر عمل می کنیم.</p>
+
+<p dir="rtl">1. ابتدا<span style="color:#f39c12"> در cmd به دایرکتوری مدنظر می رویم</span> یا می توانیم با <span style="color:#f1c40f">دستور mkdir یک پوشه بسازیم </span>در هر جایی</p>
+
+<p dir="rtl">2. زمانی که در پروژه مورد نظر قرار گرفتیم می توانیم با <span style="color:#3498db">دستور زیر vs code را در آن دایرکتوری باز کنیم</span></p>
+<div class="code"><p><span style="color:#e74c3c">code .</span></p></div> 
+
+ <p dir="rtl">زمانی که گیت نصب باشد با <span style="color:#f1c40f">هر ترمینال یا ابزار خط فرمانی به آن دسترسی </span>داریم.</p>
+
+<p dir="rtl">3. حالا باید گیت را به<span style="color:#f39c12"> پروژه اضافه کنیم </span>و در واقع <span style="color:#e74c3c">یک repository گیت را داخل پروژه</span> ایجاد کنیم تا فایل ها و <span style="color:#d35400">دایرکتوری های پروژه را کنترل کند. برای این کار باید ابتدا دستور زیر را داخل پوشه پروژه </span>بزنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">init</span></p></div>  
+
+<p dir="rtl">با زدن این دستور<span style="color:#f1c40f"> یک&nbsp;repository از گیت در پروژه</span> ایجاد می شود که ما<span style="color:#e74c3c"> هر تغییری در پروژه ایجاد کنیم، گیت آن را دنبال</span> می کند.</p>
+
+<p dir="rtl">این دستور داخل <span style="color:#d35400">پوشه پروژه یک پوشه مخفی با نام دات گیت .git ایجاد میکند</span>. اگر <span style="color:#9b59b6">این پوشه را نمی توانستیم ببنیم باید کاری کنیم که ویندوز پوشه های hidden را هم نشان دهد</span>.</p>
+
+<p dir="rtl">حالا گیت ایجاد شده است و <span style="color:#f1c40f">کاری به آن پوشه هم نداریم و باید مخفی باشد</span> اما <span style="color:#e74c3c">هر تغییری که در پروژه ایجاد کنیم، گیت آن را تشخیص می دهد و به ما اطلاع می دهد </span>که <span style="color:#e67e22">می توانیم آن را نهایی کنیم یا بزاریم به همان حالت باشد تا بعدا آن را اصلاح کنیم</span>. برای <span style="color:#ff0066">دیدن این تغییرات بهتر است از vscode استفاده</span> کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">زمانی که <span style="color:#f1c40f">گیت </span>را به<span style="color:#9b59b6"> پوشه پروژه </span>اضافه می کنیم در <span style="color:#3498db">vscode </span><span style="color:#e74c3c">گیت با تغییر رنگ فایل هایی که اضافه کردیم یا آن ها را تغییر داده ایم به ما می گوید که دارد پروژه را دنبال می کند</span>.</p>
+
+<p dir="rtl">به کمک دستور زیر می توانیم متوجه شویم که<span style="color:#e74c3c"> وضعیت پروژه ما به چه شکل است</span>.<span style="color:#d35400"> ایا شاخه کاری ما خالی است یا پر یا فرایندی برای اجرا داریم یا نه</span></p>
+
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#e74c3c">status</span></p></div> 
+<p dir="rtl">زمانیکه یک <span style="color:#9b59b6">فایل جدید</span> ایجاد می کنیم،<span style="color:#f1c40f"> رنگ آن در vscode </span><span style="color:#27ae60">سبز </span>می شود و <span style="color:#e74c3c">یک U در مقابل آن قرار می دهد</span>. این بدین معنی است که<span style="color:#ff0066"> فایل ما هنوز Untracked است و هنوز نهایی نشده، پس گیت تغییراتی که در این فایل ایجاد کنیم را دنبال نمی کند</span>.</p>
+
+<p dir="rtl">زمانی که دستور <span style="color:#e74c3c">status </span>را می زنیم گیت<span style="color:#e67e22"> در بخش&nbsp;Untracked به ما می گوید که چه فایل هایی تازه ایجاد شده اند و در سطح ابتدایی هستند و باید سطح آن ها را تغییر دهیم</span>.</p>
+
+<p dir="rtl">ما <span style="color:#f1c40f">چند سطح</span> در گیت داریم.</p>
+
+<p dir="rtl">1. <span style="color:#ff0066">شاخه ابتدایی</span>: گیت تنها می گوید که<span style="color:#f1c40f"> این فایل اضافه شده است و تغییرات آن را دنبال نمی کند</span>.</p>
+
+<p dir="rtl">2.<span style="color:#ff0066"> شاخه کاری</span>: به ما می گوید که <span style="color:#e74c3c">چه فایل هایی را اضافه کردیم و چه فایل هایی را در آن ها تغییر ایجاد کردیم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">به کمک دستور زیر می توانیم<span style="color:#f39c12"> فایل ها را تایید کنیم تا گیت بتواند آن ها را چک کند و آن ها را زیر نظر بگیرد و تغییرات آن ها را دنبال کن</span>د.</p>
+
+<div class="code">
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">add&nbsp; </span><span style="color:#3498db">fileName</span></p></div>  
+<p dir="rtl">با زدن این دستور <span style="color:#f1c40f">فایل وارد</span>&nbsp;<span style="color:#ff0066">stage </span>می شود و<span style="color:#27ae60"> گیت می تواند آن را زیر نظر بگیرد</span>. همچنین <span style="color:#e67e22">علامت U به&nbsp; (Added) A در vscode</span> تبدیل می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی <span style="color:#f1c40f">تعداد فایل هایی که می خواهیم به شاخه&nbsp;stage اضافه کنیم زیاد است</span> و <span style="color:#3498db">نیازی نیست ما اسم تک تک آن ها را وارد کنیم. با کمک دستور زیر می توانیم تمام فایل های دایرکتوری مدنظر را به شاخه&nbsp;&nbsp;unstage اضافه کنیم</span>.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">add&nbsp; </span><span style="color:#ff0066">.</span></p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+
+
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   Commit   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">یکی از <span style="color:#9b59b6">مزایای گیت</span> این است که در <span style="color:#d35400">هر مرحله می توانیم برگردیم به حالت های قبلی که توش قرار داشتیم</span>.&nbsp;</p>
+
+<p dir="rtl">ما با دستور <span style="color:#f1c40f">Add </span>فایل ها را <span style="color:#e74c3c">به مخزن گیت اضافه کردیم</span>، به این روش <span style="color:#ff0066">commit </span>کردن هم می گویند. <span style="color:#e74c3c">زمانی که به مخزن گیت اضافه می کنیم فایل ها ر stage کردیم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">حذف </span>کردن <span style="color:#f1c40f">فایل ها از مخرن</span> گیت یا به عبارت دیگر <span style="color:#ff0066">unstage </span>کردن فایل ها وقتی دستور <span style="color:#3498db">git status</span> را می زنیم، <span style="color:#27ae60">خود گیت هم اشاره کرده است که باید از دستور زیر استفاده کنیم</span>.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">rm&nbsp; </span><span style="color:#ff0066">--cached&nbsp; </span><span style="color:#9b59b6">filename</span></p>
+</div>  
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی نیاز است <span style="color:#f39c12">تمام فایل هایی که داخل Stage قرار دارند را unstage کنیم</span> که برای این کار از دستور زیر استفاده می کنیم.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">rm&nbsp; </span><span style="color:#ff0066">--cached</span>&nbsp; <span style="color:#f39c12">-r</span>&nbsp;<span style="color:#f1c40f"> .</span></p></div>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">به کمک دستور زیر می توانیم به <span style="color:#d35400">گیت بگوییم که تغییراتی که تا کنون داده ام را با این نامی که بهت دادم در مخزن خودت ذخیره کن</span>.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">commit&nbsp; </span><span style="color:#ff0066">-m</span> &quot;<span style="color:#f39c12">add project to git</span>&quot;</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">با زدن این دستور فایل هایی که<span style="color:#d35400"> داخل stage قرار دارند را commit می کنیم </span>و <span style="color:#f39c12">به مخزن گیت اضافه می کنیم و در vscode رنگ فایل ها و علامت هایی که جلوی هر فایل بود از بین می رود</span>.</p>
+
+<p dir="rtl">حالا&nbsp;بعد از این دستور اگر <span style="color:#f39c12">status</span> را بزنیم میگه که <span style="color:#e74c3c">شاخه کاری شما خالی است و فایلی داخل stage ندارید</span>.</p>
+
+<p dir="rtl">حالا اگر هر تغییری در فایل هایی که <span style="color:#e67e22">Commit </span>شده اند ایجاد کنیم <span style="color:#f1c40f">git </span>متوجه می شود و به ما با <span style="color:#ff0066">زرد کردن رنگ اسم فایل و قرار دادن</span> (<span style="color:#9b59b6">Modified</span>) <span style="color:#e74c3c">M </span>رو به روی آن در vscode این موضوع را می گوید. <span style="color:#3498db">Modified یعنی تغییر کرده یا اصلاح شده</span></p>
+
+<p dir="rtl">حالا&nbsp; اگر دستور <span style="color:#9b59b6">status </span>را بزنیم می بینیم که اسم فایل در بخش <span style="color:#2ecc71">chnage not staged for commit</span> اضافه شده است. حالا برای این که <span style="color:#d35400">فایل دوباره کامیت شود باید ابتدا آن را Add کنیم به stage و دوباره دستور commit را بزنیم.</span></p>
+
+<p dir="rtl">یک نمای <span style="color:#f1c40f">کلی </span>از <span style="color:#e67e22">سطح های گیت</span> تا کنون&nbsp;</p>
+<div class="code"><p><span style="color:#e67e22">unstage&nbsp; &nbsp;</span>--<span style="color:#e74c3c">add</span>--&gt;&nbsp; <span style="color:#e67e22">stage&nbsp; &nbsp;</span>--<span style="color:#e74c3c">commit</span>--&gt;&nbsp; <span style="color:#e67e22">&nbsp;repository git</span></p></div>
+
+<p dir="rtl">&nbsp;</p>
+
+
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   restore   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی نیاز داریم که فایل هایی که<span style="color:#d35400"> حتی آن ها را commit کردیم</span> و به repository گیت اضافه کردیم را <span style="color:#f39c12">دوباره unstage کنیم</span> که در این صورت از دستور زیر استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">restore&nbsp; </span>--<span style="color:#ff0066">staged&nbsp; </span><span style="color:#9b59b6">fileName</span></p>
+
+
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">restore&nbsp; </span>--<span style="color:#ff0066">staged</span>&nbsp; <span style="color:#e74c3c">ali.php</span></p></div> <p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#e74c3c">مهم:</span> همچنین یک دستور داریم که به کمک آن<span style="color:#e74c3c"> می توانیم برگردیم به تغییرات قبلی که فایل را با ان ها commit کرده بودیم</span>. <span style="color:#d35400">عملا می خواهیم تغییرات جدید را نادیده بگیریم</span></p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">restore&nbsp;</span>&nbsp;<span style="color:#9b59b6">fileName</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   diff   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+ 
+<p dir="rtl">اگر یک <span style="color:#f39c12">فایل را حذف کردیم</span> می توانیم با دستور <span style="color:#e74c3c">زیر آن را بازگردانی</span> کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#e74c3c">restore </span><span style="color:#9b59b6">FileName</span></p></div>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">به کمک دستور زیر می توانیم<span style="color:#d35400"> یک فایل را به طور کامل حذف کنیم.</span></p>
+  
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#e67e22">rm&nbsp;&nbsp;</span><span style="color:#e74c3c">-f&nbsp;</span> &nbsp;<span style="color:#9b59b6">fileName</span></p></div>  
+
+<p>&nbsp;</p>
+
+<p dir="rtl">به کمک دستور زیر می توانیم<span style="color:#ff0066"> تغییرات که در هر فایل&nbsp; بین هر commit وجود دارد</span> را به ما نمایش می دهد. همچنین <span style="color:#ff0066">تغییرات هر شاخه کاری را هم نمایش می دهد</span>.</p>
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#e74c3c">diff</span></p></div> 
+<p>&nbsp;</p>
+<p dir="rtl">همان طور که قبلا دیدیم زمانی که یک فایل را <span style="color:#3498db">تغییر </span>می دهیم، از<span style="color:#f39c12"> حالت کامیت به modifed تغییر می کند</span> اما می توانیم از دستور زیر برای<span style="color:#e74c3c"> طی چند مرحله به صورت یکجا استفاده کنیم. این دستور خود به stage اضافه می کند و بعد commit می کند</span>.</p>
+
+<p dir="rtl"><span style="color:#f1c40f">-a&nbsp;</span> =&gt;&nbsp; منطور <span style="color:#3498db">add </span>هست</p>
+ 
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#e74c3c">commit </span><span style="color:#27ae60">-a</span>&nbsp; <span style="color:#e67e22">-m</span> &quot;<span style="color:#f39c12">save changes</span>&quot;</p></div> 
+<p>&nbsp;</p>
+ <p dir="rtl">برای تمام دستورات git می توانیم از <span style="color:#e74c3c">help-- </span>استفاده کنیم. این دستور <span style="color:#f1c40f">به صفحه مرورگر می رود و یک داکیومنت کامل از آن دستور به ما ارائه می دهد</span>.</p>
+<div class="code">
+<p><span style="color:#d35400">git </span>&nbsp;<span style="color:#e74c3c">diff </span><span style="color:#ff0066">--help</span></p>
+
+<p><span style="color:#d35400">git </span>&nbsp;<span style="color:#e74c3c">add&nbsp; </span><span style="color:#ff0066">--help</span></p>
+
+<p><span style="color:#d35400">git </span>&nbsp;<span style="color:#e74c3c">restore&nbsp; </span><span style="color:#ff0066">--help</span></p>
+
+<p>.<br />
+.</p></div>
+<p dir="rtl">&nbsp;</p>
+
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   log   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">به کمک دستور زیر می توانیم<span style="color:#e74c3c"> یک log کامل از commit هایی که انجام دادیم و کارهای دیگر روی شاخه های پروژه </span>را مشاهده کنیم.</p>
+  
+<div class="code">
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">log</span></p></div>  
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">با توجه به اینکه دستور بالا <span style="color:#d35400">اطلاعات کاملی در مورد کسی که کامیت را انجام داده و زمان و ... در اختیار ما قرار می دهد،</span> گاهی نیاز داریم که<span style="color:#ff0066"> تنها اطلاعات مختصری از هر کامیت را ببینم</span> و به عبارت دیگر مختصری از هر چیزی را در<span style="color:#e74c3c"> یک خط</span> مشاهده کنیم که برای این کار از دستور زیر استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">log</span>&nbsp; <span style="color:#ff0066">--oneline</span></p></div>  
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">گاهی می خواهیم <span style="color:#e74c3c">محدودیت ایجاد کنیم</span> برای مثال تنها 2 کامیت <span style="color:#f1c40f">آخری </span>را نشان دهد که برای این کار از دستور زیر استفاده می کنیم.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">log</span> <span style="color:#ff0066">-1</span> <span style="color:#f1c40f">--oneline</span></p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">یکی از قدرمتندترین کاربردهای log این است که<span style="color:#e74c3c"> کامیت ها را همراه تغییرات موجود در هر فایل</span> نمایش می دهد. برای این کار از دستور زیر استفاده می کنیم.</p> 
+ 
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">log</span>&nbsp;<span style="color:#ff0066"> -p</span></p>
+
+<p dir="rtl">&nbsp;</p>
+<p><span style="color:#7f8c8d">commit dbd9b40361acc97b8f77e583ecdd6f7867fbd95b (HEAD -&gt; master)<br />
+Author: my name &lt;myEmail.com&gt;<br />
+Date: &nbsp; Mon Oct 18 18:20:29 2021 +0330</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp; &nbsp; project</span></p>
+
+<p><span style="color:#7f8c8d">diff --git a/ali.txt b/ali.txt<br />
+new file mode 100644<br />
+index 0000000..e69de29<br />
+diff --git a/mm.txt b/mm.txt<br />
+new file mode 100644<br />
+index 0000000..e69de29</span></p>
+</div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   reset   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">گاهی بعد از انجام کلی کار <span style="color:#e74c3c">نیاز پیدا می کنیم که به حالت اولیه پروژه برگردیم</span>. که برای اینکار از دستور زیر استفاده می کنیم. <span style="color:#d35400">ابتدا باید دستور log را بزنیم و ایدی کامیت مورد نظر را کپی</span> کنیم.<span style="color:#ff0066"> به جای ایدی کامل می توانیم قسمت اول ایدی را بنویسیم</span>.</p>
+  
+<div class="code"><p><span style="color:#d35400">git </span><span style="color:#e74c3c">reset&nbsp; &nbsp;</span><span style="color:#9b59b6">idCommit&nbsp; (e.g.&nbsp; dbd9b40361acc97b8f77e583ecdd6f7867fbd95b&nbsp; or&nbsp;&nbsp;dbd9b&nbsp;)</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">ایدی هر commit یونیک است</span> و اگر آن را داشته باشیم <span style="color:#f39c12">به راحتی می توانیم بین commit های مختلف جابه جا شویم</span>. برای مثال در دستور<span style="color:#e67e22"> بالا ما ایدی اولین کامیت را به دستور reset دادیم تا به اولین کامیت برگردد </span>اما <span style="color:#d35400">اگر ایدی آخرین کامیت را قبل از دستور بالا در log کپی کنیم به راحتی با زدن دستور بالا و زدن ایدی اخرین کامیت می توانیم به اخرین کامیت مجددا برگردیم. بعد از هر بار اجرای این دستور باید دستور restore را هم بزنیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر <span style="color:#e74c3c">نخواستیم بعد از اجرا دستور بالا حتما دستور restore را هم بزنیم </span>می توانیم از <span style="color:#d35400">option </span>زیر استفاده کنیم.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git&nbsp; &nbsp;</span><span style="color:#e74c3c">reset&nbsp;</span>&nbsp; <span style="color:#ff0066">--hard</span>&nbsp; <span style="color:#9b59b6">idCommit</span></p></div>
+
+ <p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   branch   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">در حالت <span style="color:#2ecc71">عادی </span>زمانی که<span style="color:#f39c12"> نسخه های مختلفی</span> از برنامه را توسعه می دهیم باید برای <span style="color:#e67e22">هر نسخه یک پوشه داشته باشیم و تغییرات را در آن اعمال کنیم اما زمانی که از گیت استفاده می کنیم</span>. نیازی به این کار نیست و<span style="color:#e74c3c"> تنها کافی است برای هر نسخه یک شاخه مجزا ایجاد کنیم</span>.</p>
+
+<p dir="rtl">یک دیگر از ویژگی های <span style="color:#ff0066">branch </span>این است که گاهی نیاز داریم در <span style="color:#d35400">طول توسعه یک پروژه توسعه دهندگان مختلفی روی شاخه های مختلف پروژه کار کنند و تغییرات آن ها روی پروژه در branch ها مختلف ذخیره شود</span>.</p>
+
+<p dir="rtl">در<span style="color:#3498db"> نهایت</span> تغییرات در <span style="color:#e67e22">branch </span>ها مختلف را <span style="color:#e74c3c">merge </span>می کنیم و <span style="color:#ff0066">نسخه نهایی را منتشر می کنیم</span>.&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#e74c3c"> ایجاد branch جدید </span>می توانیم از دستور زیر استفاده کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">branch</span> <span style="color:#9b59b6">dev1</span></p></div>  
+<p>&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#f1c40f"> مشاهده کل branch هایی که داریم</span> می توانیم از دستور زیر استفاده کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">branch</span></p>
+
+<p><span style="color:#7f8c8d">//OR</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">branch</span> <span style="color:#ff0066">-a</span></p></div>  
+<p dir="rtl">برای <span style="color:#e74c3c">جابه جا شدن بین branch ها</span> مختلف می توانیم از دستور زیر استفاده کنیم.</p>
+
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#ff0066">checkout&nbsp; </span><span style="color:#9b59b6">branchName</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#ff0066">checkout&nbsp; </span><span style="color:#9b59b6">dev1</span></p></div>  
+<p>&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#e74c3c"> حذف یک branch&nbsp; از دستور زیر استفاده می کنیم</span>. اما توجه داشته باشید که <span style="color:#d35400">branch فعال یا همان branch که در آن قرار داریم را نمی توانیم حذف کنیم</span>.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">branch</span> <span style="color:#ff0066">-d</span>&nbsp;&nbsp;<span style="color:#9b59b6">branchName</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">branch</span> <span style="color:#ff0066">-d</span>&nbsp;&nbsp;<span style="color:#9b59b6">div1</span></p></div>  
+<p>&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم<span style="color:#ff0066"> یک شاخه ایجاد کنیم و بلافاصله به آن برویم و نیازی نباشد که دو دستور</span> بزنیم.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#ff0066">checkout</span>&nbsp; <span style="color:#f39c12">-b</span>&nbsp; &nbsp;<span style="color:#9b59b6">branchName</span></p></div> 
+<p>&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   merge   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">زمانی که از <span style="color:#d35400">branch </span>در گیت استفاده می کنیم <span style="color:#e74c3c">تغییراتی که در هر فایل اضافه می کنیم تنها و تنها مربوط به همان branch</span> هست.<br />
+برای مثال ما در<span style="color:#3498db"> شاخه Ali</span> هستیم و در فایل <span style="color:#3498db">index.php </span>یک عبارت Aaaa را اضافه می کنیم. حالا اگر به branch <span style="color:#3498db">دیگری فرضا MM سوئیچ کنیم</span>، دیگر <span style="color:#9b59b6">عبارت Aaaa در فایل index وجود ندارد</span>. اما اگر دوباره به <span style="color:#3498db">Ali </span>برگردیم بازم این عبارت Aaaa را <span style="color:#9b59b6">در فابل index می بینیم</span>.&nbsp;</p>
+
+<p dir="rtl">این یک برتری برای <span style="color:#f1c40f">گیت </span>است که این امکان را فراهم می کند که <span style="color:#ff0066">چند توسعه دهنده به طور همزمان روی یک پروژه کار کنند</span>. و در <span style="color:#d35400">نهایت تغیرات همه فایل ها را merge می کنیم تا نسخه نهایی release شود</span>.&nbsp;</p>
+
+<p dir="rtl">برای merge کردن<span style="color:#e74c3c"> باید به branch برویم که می خواهیم یکسری branch های دیگر را با آن ادغام کنیم</span>.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">//&nbsp; in Desired branch&nbsp;</span></p>
+
+<p style="white-space:nowrap;"><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">merge&nbsp; </span><span style="color:#9b59b6">branchName&nbsp; &nbsp; &nbsp;</span><span style="color:#7f8c8d">=&gt; شاخه که می خواهیم با شاخه ای که در آن هستیم ادغام شود.</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">merge&nbsp; </span><span style="color:#9b59b6">dev2</span></p></div> 
+<p>&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   Stash   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">در <span style="color:#f39c12">گیت </span>می توانیم ببینیم که<span style="color:#d35400"> کامیت ها چگونه بودند و همچنین مواردی که آن ها را merge کردیم چه چیزهایی بوده اند</span>. برای این کار از دستور زیر استفاده می کنیم.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git</span>&nbsp; <span style="color:#e74c3c">log&nbsp; </span><span style="color:#ff0066">--graph</span></p></div> 
+<p>&nbsp;</p>
+ <p dir="rtl">زمانی که <span style="color:#f39c12">تغییری روی فایل های یک branch ایجاد</span> می کنیم، آن ها در حالت <span style="color:#f1c40f">modified </span>قرار می گیرند. حالا اگر بخواهیم<span style="color:#9b59b6"> از این شاخه به شاخه ای دیگر سوئیچ کنیم</span>، گیت به ما می گوید که که یا باید ت<span style="color:#e67e22">غییرات را restore کنیم</span> و به حالت قبل برگردانیم یا<span style="color:#e67e22"> آن ها را کامیت کنیم </span>و از حالت modified در بیاوریم و یا این که <span style="color:#e67e22">از stash استفاده کنیم</span>.</p>
+
+<p dir="rtl">در حقیقت <span style="color:#e74c3c">stash </span>یک <span style="color:#d35400">حالت کش کردن</span> دارد که تغییرات ما را<span style="color:#ff0066"> کش می کند و هر موقع که خواستیم استش را فراخوانی و از تغییراتی که کش کردیم استفاده می کنیم</span>. برای این منظور از دستور زیر استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git</span>&nbsp; <span style="color:#e74c3c">stash</span></p>
+</div> 
+<p>&nbsp;</p>
+<p dir="rtl">حالا اگر دستور زیر را بزنیم <span style="color:#ff0066">لیست stash ها</span> را به ما می دهد.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git</span>&nbsp; <span style="color:#e74c3c">stash&nbsp;&nbsp;</span><span style="color:#ff0066">list</span></p></div>  
+<p>&nbsp;</p>
+
+<p dir="rtl">حالا برای اینکه ببنیم <span style="color:#e74c3c">هر stash مربوط به چی هست و شامل چه اطلاعاتی است</span> از دستور زیر استفاده می کنیم اما <span style="color:#f1c40f">قبل از آن باید دستور stash list را زده باشیم و ایدی stash مورد نظر را کپی کنیم</span>.</p>
+
+<div class="code"><p><span style="color:#d35400">git</span>&nbsp; <span style="color:#e74c3c">stash&nbsp;</span><span style="color:#ff0066">show&nbsp; &nbsp;</span><span style="color:#9b59b6">idStash</span></p>
+
+<p><span style="color:#d35400">git</span>&nbsp; <span style="color:#e74c3c">stash&nbsp;&nbsp;</span><span style="color:#ff0066">show&nbsp; &nbsp;</span><span style="color:#9b59b6">stash@{0}</span></p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#f39c12">مشاهده این استش ها با جزئیات بیشتر و اطلاعات کامل در مورد تغییرات و ...</span> از<span style="color:#e74c3c"> آپشتن p- </span>استفاده می کنیم.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">stash&nbsp;&nbsp;</span><span style="color:#3498db">show&nbsp;</span><span style="color:#ff0066"> &nbsp;-p</span>&nbsp; &nbsp;<span style="color:#9b59b6">idStash</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">stash&nbsp;&nbsp;</span><span style="color:#3498db">show&nbsp; &nbsp;</span><span style="color:#ff0066">-p</span>&nbsp; <span style="color:#9b59b6">&nbsp;stash@{0}</span></p>
+</div>  
+<p>&nbsp;</p>
+<p dir="rtl">برای <span style="color:#e74c3c">ایجاد یک Stash سفارشی </span>از دستور زیر استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">stash </span><span style="color:#f1c40f">-m</span> &quot;<span style="color:#f39c12">message</span>&quot;</p></div> 
+<p>&nbsp;</p>
+<p dir="rtl">برای <span style="color:#e74c3c">جذف یک stash </span>از دستور زیر استفاده می کنیم.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">stash</span>&nbsp; <span style="color:#ff0066">drop</span>&nbsp; &nbsp;<span style="color:#9b59b6">idStash</span></p></div> 
+ <p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#d35400">فراخوانی تغییرات هر استش و استفاده از آن ها</span> به شکل زیر عمل می کنیم. بعد از فراخوانی <span style="color:#e74c3c">حتما باید کامیت را هم انجام دهیم</span>.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">stash</span> <span style="color:#ff0066">apply&nbsp; </span><span style="color:#9b59b6">idStash</span></p>
+
+<p><span style="color:#7f8c8d">// OR</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">stash</span> <span style="color:#ff0066">pop </span><span style="color:#9b59b6">idStash</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#d35400">git </span><span style="color:#e74c3c">commit&nbsp; </span><span style="color:#f1c40f">-a</span> <span style="color:#3498db">-m</span> &quot;<span style="color:#f39c12">message</span>&quot;</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="font-size:22px"><span style="color:#f1c40f">تفاوت apply&nbsp; و&nbsp;pop</span></span></p>
+
+<p dir="rtl">در حقیقت دستور <span style="color:#e74c3c">Apply </span>این امکان را به ما می دهد که<span style="color:#d35400"> استش مورد نظر را فراخوانی کنیم بدون آن که استش مورد نظر حذف شود</span>. یعنی بعد از<span style="color:#ff0066"> فراخوانی بازهم استش در لیست استش ها وجود دارد</span> اما <span style="color:#d35400">دستور pop بعد از فراخوانی استش، آنرا از لیست stash ها حذف می کند</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   gitignore    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی نیاز است که به <span style="color:#f1c40f">گیت بفهمانیم </span>که یکسری<span style="color:#d35400"> فایل ها را اصلا کاری بهشون نداشته باش و آنها را دنبال نکن</span>. برای این کار از فایل<span style="color:#e74c3c"> gitignore. </span>استفاده می کنیم.&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#27ae60">اضافه </span>کردن این فایل به پروژه باید حتما از <span style="color:#e67e22">git bash</span> استفاده کنیم و به <span style="color:#f39c12">دایکتوری پروژه برویم و با راست کلیک آن</span> را انتخاب کنیم.</p>
+<div class="code"><p><span style="color:#7f8c8d">// in git bash</span></p>
+
+<p><span style="color:#e74c3c">touch </span><span style="color:#ff0066">.gitignore</span></p>
+
+<p><span style="color:#d35400">git </span><span style="color:#e74c3c">add&nbsp;</span><span style="color:#ff0066">.gitignore</span></p>
+
+<p><span style="color:#d35400">git </span><span style="color:#e74c3c">commit&nbsp; </span><span style="color:#9b59b6">-m</span> &quot;<span style="color:#f39c12">add .gitignore</span>&quot;</p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">حالا داخل این فایل <span style="color:#e74c3c">باید لیستی از فایل ها که نمی خواهیم گیت آن ها را دنبال کند</span>، قرار دهیم.</p>
+
+<p dir="rtl">زمانی که یک<span style="color:#f1c40f"> فایل جدید</span> ایجاد می کنیم <span style="color:#d35400">نمی توانیم مستقیما برای اولین بار</span> از دستور</p>
+ <div class="code"><p>&nbsp;<span style="color:#d35400">git&nbsp;</span><span style="color:#e74c3c">commit&nbsp;</span><span style="color:#9b59b6">-a</span>&nbsp;&nbsp;<span style="color:#3498db">-m</span>&nbsp;&quot;<span style="color:#f39c12">save changes</span>&quot;</p></div>  
+ <p dir="rtl">استفاده کنیم و برای <span style="color:#e67e22">اولین بار باید اضافه شده به stage و commit را دستی انجام </span>دهیم.&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<p dir="rtl">زمانی که<span style="color:#e67e22"> پوشه ای</span> را به<span style="color:#f1c40f"> gitignore</span> اضافه می کنیم اگر در ابتدای آن<span style="color:#e74c3c"> \</span> قرار دهیم<span style="color:#e74c3c"> تمام دایرکتوری ها و فایل های داخل آن را هم نادیده</span> می گیرد.</p>
+
+<p dir="rtl">گاهی ما<span style="color:#9b59b6"> فایل های زیادی از نوع txt داریم</span> و می خواهیم <span style="color:#e67e22">همه آن ها را فیلتر کنیم و کاری کنیم که گیت توجهی به آن ها نداشته باشد</span>. یا باید همه آن ها را به این فایل اضافه کنیم یا از دستور زیر <span style="color:#e67e22">برای فیلتر کردن همه فایل های txt&nbsp; استفاده کنیم</span>.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// in&nbsp; gitignore</span></p>
+
+<p><span style="color:#e74c3c">*</span>.<span style="color:#f39c12">txt</span></p></div>  
+<p>&nbsp;</p>
+<p dir="rtl">گاهی می خواهیم بگوییم که <span style="color:#ff0066">همه فایل های txt را فیلتر کن به جز یک مورد خاص</span></p>
+<div class="code"><p><span style="color:#e74c3c">*</span>.<span style="color:#f39c12">txt</span></p>
+
+<p><span style="color:#e74c3c">!</span><span style="color:#9b59b6">name.txt</span></p></div> 
+ <p>&nbsp;</p>
+<p dir="rtl"><span style="color:#f1c40f">کامنت </span>کردن در <span style="color:#e67e22">gitignore </span>با <span style="color:#e74c3c">#</span></p>
+
+<p dir="rtl">گاهی قبلا فایل هایی را به <span style="color:#f1c40f">Repository </span>گیت اضافه کردیم اما حالا می خواهیم آن ها را<span style="color:#9b59b6"> نادیده بگیریم</span> که برای این کار <span style="color:#e74c3c">ابتدا فایل ها را از repository خارج می کنیم و بعد دوباره add را انجام می دهیم</span>.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">rm </span><span style="color:#ff0066">--cached</span> <span style="color:#9b59b6">-r</span></p>
+
+<p>&nbsp;</p>
+
+<p>*** add file name to gitignore</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#d35400">git </span><span style="color:#e74c3c">add </span><span style="color:#ff0066">.</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;<span style="color:#d35400">git&nbsp;</span><span style="color:#e74c3c">commit&nbsp;</span><span style="color:#f1c40f">-a</span>&nbsp;&nbsp;<span style="color:#ff0066">-m</span>&nbsp;&quot;<span style="color:#f39c12">second commit for gitignore</span>&quot;</p></div> 
+
+<p>&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   git config    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">تا حالا هرچه گفته شده مربوط به کار با گیت روی<span style="color:#f1c40f"> لوکال</span> بود اما نیاز است که گاها<span style="color:#e74c3c"> پروژه خود را به صورت عمومی یا private روی گیت هاب قرار دهیم تا سایر توسعه دهندگانی که روی این پروژه کار می کنند</span> هم به آن دسترسی داشته باشند.</p>
+
+<p dir="rtl">برای این کار نیاز به برخی از<span style="color:#f39c12"> config </span>ها داریم. کانفیگ هایی که انجام می دهیم داخل<span style="color:#e74c3c"> پوشه مخفی git.</span> در پروژه و<span style="color:#e74c3c"> فایل config</span> ذخیره می شود. (<span style="color:#3498db">لوکال</span>)</p>
+ 
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#d35400">git config&nbsp; </span><span style="color:#9b59b6">user.name</span> &quot;<span style="color:#f39c12">ali mohseny</span>&quot;&nbsp; <span style="color:#7f8c8d">==&gt; local</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//Global</span></p>
+
+<p><span style="color:#d35400">git config</span> <span style="color:#e74c3c">--global</span> <span style="color:#9b59b6">user.name</span> &quot;<span style="color:#f39c12">ali mohseny</span>&quot;</p></div>  
+<p>&nbsp;</p>
+
+<p dir="rtl">برای اپلود پروژه <span style="color:#e74c3c">روی گیت هاب</span> باید حتما <span style="color:#d35400">2 کانفیگ</span> زیر را انجام دهید.</p>
+
+<div class="code"><p><span style="color:#d35400">git config&nbsp;</span><span style="color:#e74c3c">--global </span><span style="color:#9b59b6">user.name</span> &quot;<span style="color:#f39c12">ali mohseny</span>&quot;</p>
+
+<p><span style="color:#d35400">git config</span> <span style="color:#e74c3c">--global </span><span style="color:#9b59b6">user.email</span>&nbsp; &quot;<span style="color:#f39c12">ali@gmail.com</span>&quot;</p></div>  
+<p>&nbsp;</p>
+
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   github    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای اپلود پروژه روی گیت هاب باید بعد از لاگین یک <span style="color:#f39c12">repository </span>ایجاد کنید.</p>
+
+<p dir="rtl">بعد باید با دستور زیر یک <span style="color:#d35400">remote </span>ایجاد کنیم و بعد لینک مربوط به <span style="color:#e74c3c">git clone ریپازیتوری </span>که در <span style="color:#f1c40f">گیت هاب </span>ایجاد کردیم را به آن بدهیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">remote </span><span style="color:#3498db">add </span><span style="color:#f1c40f">RemoteName </span><span style="color:#9b59b6">https://github.com/Alim7613/test.git</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">remote </span><span style="color:#3498db">add</span> <span style="color:#f1c40f">ali&nbsp; </span><span style="color:#9b59b6">https://github.com/Alim7613/test.git</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا برای دیدن<span style="color:#d35400"> لیست همه remote هایی که داریم</span> می توانیم از دستور زیر استفاده کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">remote</span></p>
+</div>  
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">حذف یک remote</span> هم می توانیم از دستور زیر استفاده کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">remote</span> &nbsp;<span style="color:#f39c12">remove&nbsp; </span><span style="color:#9b59b6">remoteName</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">remote</span>&nbsp; <span style="color:#f39c12">remove&nbsp; </span><span style="color:#9b59b6">ali</span></p></div>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">بعد از این برای <span style="color:#f1c40f">اپلود </span>باید از دستور <span style="color:#e74c3c">push </span>استفاده کنیم.</p>
+
+<div class="code">
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">push </span><span style="color:#3498db">-u</span> <span style="color:#9b59b6">remoteName </span><span style="color:#3498db">branchName</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">اگر اطلاعاتی که در<span style="color:#e74c3c"> گیت کانفیگ ذخیره</span> کردیم با <span style="color:#e74c3c">اطلاعات حساب کاربری ما در سایت گیت هاب</span> <span style="color:#d35400">یکی </span>باشد، گیت هاب ما را به عنوان یک <span style="color:#f39c12">توسعه دهنده اصلی پروژه</span> شناسایی می کند.</p>
+
+<p dir="rtl">برای<span style="color:#e74c3c"> اپدیت پروژه ای که روی گیت هاب</span> قرار دادیم می توانیم ابتدا به <span style="color:#f1c40f">branch </span>مورد نظر در cmd برویم و بعد<span style="color:#9b59b6"> دستور زیر</span> را بزنیم تا همچیز آپدیت شود.</p>
+ 
+<div class="code"><p><span style="color:#d35400">git</span>&nbsp; <span style="color:#e74c3c">push</span></p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   pull - clone    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم <span style="color:#f1c40f">عکس قضیه </span>مربوط به اپدیت را انجام دهیم. یعنی <span style="color:#e74c3c">بیاییم و تغییراتی که در سایت گیت هاب روی پروژه خود اعمال کردیم را روی پروژه خودمان روی سیستم لوکال هم اعمال کنیم</span>. برای این کار می توانیم به روش زیر عمل کنیم.</p>
+<div class="code"><p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">pull&nbsp; </span><span style="color:#9b59b6">remoteName</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی به هر دلیل ممکن است <span style="color:#3498db">پروژه از روی سیستم ما حذف شود</span> که در این صورت نیاز پیدا می کنیم که<span style="color:#e74c3c"> دوباره آن را دانلود کنیم</span>. می توانیم <span style="color:#e67e22">به راحتی آن را از گیت هاب دریافت</span> کنیم. با <span style="color:#9b59b6">دانلود کردن</span> یا <span style="color:#9b59b6">clone </span>کردن.</p>
+
+<p dir="rtl">در قسمت <span style="color:#27ae60">دانلود خود گیت هاب یک لینک را هم قرار می دهد</span> که باید برای <span style="color:#e67e22">Clone </span>کردن آن را برداریم و داخل<span style="color:#f39c12"> git bash here</span> در هر پوشه ای که خواستیم استفاده و دانلود کنیم پروژه را.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">in desktop</span></p>
+
+<p><span style="color:#7f8c8d">in git bash here</span></p>
+
+<p><span style="color:#d35400">git&nbsp; </span><span style="color:#e74c3c">clone&nbsp; </span><span style="color:#ff0066">AddressCopied </span><span style="color:#9b59b6">nameForFloderProjectDownloaded</span></p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">اگر عملیات <span style="color:#f1c40f">merge را روی پروژه انجام نداده باشیم</span> زمانی که دانلود می کنیم تنها<span style="color:#e74c3c"> اطلاعات branch فعال که در گیت هاب در آن قرار داریم دانلود می شود</span> اما ا<span style="color:#ff0066">گر عملیات merge را انجام داده باشیم کل پروژه با تمام فایل های آن دانلود می شود</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای <span style="color:#e74c3c">merge کردن</span> اطلاعات باید<span style="color:#e67e22"> قبل از آپلود پروژه روی گیت هاب merge ها لازم بین branch ها مختلف را انجام دهیم</span> و یک <span style="color:#9b59b6">release نهایی </span>تولید کنیم و <span style="color:#27ae60">آن را اپلود کنیم تا هنگام دانلود فایل های پروژه به درستی دانلود شوند</span>.</p>
+
+<p dir="rtl">این مزیت به ما کمک می کند<span style="color:#d35400"> بیشمار branch </span>داشته باشیم اما<span style="color:#e74c3c"> هر زمان که خواستیم تنها مواردی که نیاز داریم را باهم merge کنیم و یک Release نهایی را تحت عنوان یک پروژه اپلود</span> کنیم.</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">مزیت دیگر این است که ما می توانیم با ایجاد یک <span style="color:#ff0066">repository private</span> از گیت هاب یک عنوان یک <span style="color:#e74c3c">backup center</span> استفاده کنیم و <span style="color:#d35400">پروژه های خود را با تغییرات نهایی داخل آن</span> قرار دهیم. مثلا بعد از هر بار توسعه پروژه دستور<span style="color:#3498db"> اپلود را بزنیم تا تغییرات همیشگی روی پروژه اعمال شوند</span> و اگر سیستم شما به مشکلی خورد<span style="color:#f1c40f"> پروژه هایتان روی گیت هاب سالم </span>باشند.</p>
+
+
+
+<p dir="rtl">&nbsp;</p>
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------  Fork    ------</h2> 
+<p dir="rtl">&nbsp;</p> 
+<p dir="rtl">گاهی می خواهیم<span style="color:#ff0066"> روی یک پروژه توسعه دهندگان دیگری هم کار</span> کنند یا به عبارتی ما بیاییم و <span style="color:#e74c3c">تیمی کار کنیم که در این صورت موضوع fork </span>مطرح می شود.</p>
+ 
+  
+  
+  
+  
+  
+  
+<div class="code"></div>  
+<div class="code"></div>  
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

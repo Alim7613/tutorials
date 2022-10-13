@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>React</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						React     	     		 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/react.png" width="150" height="150"></p>
+
+<i class="ti or"> React </i>
+<br />
+<br />
+
+
+<p dir="rtl">آموزش <span style="color:#3498db">React 18</span></p>
+
+<p dir="rtl">برای شروع react&nbsp; به 3 اکستنشن در <span style="color:#f39c12">vscode </span>نیاز داریم&nbsp;</p>
+
+<p dir="rtl">prittier</p>
+
+<p dir="rtl">simple react snipted</p>
+
+<p dir="rtl">برای شروع کار باید داخل پوشه src یک فایل با نام<span style="color:#e67e22"> index.js</span> ایجاد و react را ایمپورت کنیم.</p>
+<div class="code"><p>import&nbsp;<span style="color:#27ae60">React&nbsp;</span>from&nbsp;&#39;react&#39;;</p>
+
+<p>import&nbsp;<span style="color:#27ae60">ReactDOM&nbsp;</span>from&nbsp;&#39;react-dom/client&#39;;</p></div>  
+<br />
+<p dir="rtl">برای<span style="color:#e74c3c"> ایجاد یک المنت&nbsp;</span></p>
+
+
+<div class="code"><p>const&nbsp;element&nbsp;=&nbsp;React.cloneElement(</p>
+
+<p>&nbsp;&nbsp;&#39;div&#39;,&nbsp;</p>
+
+<p>&nbsp;&nbsp;{id:&#39;title&#39;,&nbsp;className:&#39;app-title&#39;},&nbsp;</p>
+
+<p>&nbsp;&nbsp;&#39;this&nbsp;is&nbsp;frist&nbsp;React&nbsp;Element&#39;</p>
+
+<p>);</p></div>  
+<br />
+<p dir="rtl">برای رندر و <span style="color:#e74c3c">اتصال به VDOM</span></p>
+
+<div class="code">
+<p>const&nbsp;root&nbsp;=&nbsp;ReactDOM.<span style="color:#27ae60">createRoot</span>(document.getElementById(&#39;root&#39;));</p>
+
+<p>root.render(element);</p>
+</div>
+<br />
+<p dir="rtl">کامپوننت ها کلاس یا فانکشن هستند. برای اجرا کاپوننت ها می گوییم آن ها را render می کنیم.&nbsp;</p>
+
+<p dir="rtl">برای رندر کردن هم کافی است که کامپوننت را به صورت تگ های html بنویسیم&nbsp; &nbsp; &lt;App /&gt;</p>
+
+<p dir="rtl">کامپوننت ها حالت استفاده js و html در کنار هم را ایجاد می کنند که به آن jsx می گویند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">زمانی که کامپوننت ها را در پوشه های جدا قرار می دهیم و آن ها را بعدا import می کنیم برای استفاده به این روش modular programming می گویند. یعنی برنامه نویسی با جزهای جدا از هم</p>
+
+
+<div class="code">
+<p>in&nbsp; component</p>
+
+<p>&nbsp;</p>
+
+<p>import&nbsp;React&nbsp;from&nbsp;&#39;react&#39;;</p>
+
+<p>&nbsp;</p>
+
+<p>const&nbsp;App&nbsp;=&nbsp;()&nbsp;=&gt;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;container&quot;&nbsp;id=&quot;title&quot;&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;REACT&nbsp;18&lt;/h1&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;);</p>
+
+<p>}<br />
+&nbsp;</p>
+
+<p>export&nbsp;default&nbsp;App;</p>
+</div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#d35400">3 نوع props</span> داریم&nbsp;</p>
+
+<p dir="rtl">1. <span style="color:#e67e22">Attribute</span></p>
+
+<p dir="rtl">2. <span style="color:#e67e22">children</span></p>
+
+<p dir="rtl">3. <span style="color:#e67e22">event</span></p>
+  <p dir="rtl">&nbsp;</p>
+  
+<div class="code">
+
+<p>import&nbsp;Product&nbsp;from&nbsp;&#39;./components/Products/Product&#39;;</p>
+
+<p>&nbsp;</p>
+
+<p>const&nbsp;App&nbsp;=&nbsp;()&nbsp;=&gt;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;className=&quot;container&quot;&nbsp;id=&quot;title&quot;&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;REACT&nbsp;18&lt;/h1&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Product&nbsp;tut=&quot;react&quot;&nbsp;/&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Product&nbsp;tut=&quot;node&quot;&nbsp;/&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Product&nbsp;tut=&quot;laravel&quot;&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;20$&lt;/p&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Product&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;);</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in&nbsp;Product</span></p>
+
+<p>const&nbsp;Product&nbsp;=&nbsp;(props)&nbsp;=&gt;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&nbsp;{props.tut}&nbsp;Tutoril&lt;/p&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.children}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;);</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>export&nbsp;default&nbsp;Product;</p>
+</div>  
+<p>&nbsp;</p>
+
+
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

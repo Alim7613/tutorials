@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('./font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+<!-- Html -->
+
+
+.path {
+  animation: draw 14s infinite;
+  animation-timing-function: linear;
+}
+
+  .path-2 {
+  animation: draw 14s infinite;
+  animation-delay: 1s;
+  animation-timing-function: linear;
+}
+
+.el-path-parent{
+	width:100%;
+	position:relative;
+	height:200px;
+	overflow:hidden;
+}
+#el-path-svg{
+	position: absolute;
+    top: -400px;
+    left: -150px;
+}
+#center-path {
+  animation: opa 1s linear infinite;
+}
+
+@keyframes draw {
+  0% {
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+  }
+}
+
+@keyframes opa {
+  0% {
+	stroke-width: 2px;
+    opacity: 0.7;
+  }
+  50% {
+    stroke-width: 4px;
+    opacity: 0.9;
+  }
+  100% {
+    stroke-width: 3px;
+    opacity: 1;
+  }
+}
+
+
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						HTML		 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="./img/html.png" width="150" height="150"></p>
+
+<i class="ti or"> &lt; &nbsp; &nbsp; &nbsp; &nbsp;  HTML  &nbsp; &nbsp; &nbsp; &nbsp; /&gt;</i>
+<p>&nbsp;</p><p>&nbsp;</p>
+<p dir="rtl">در <span style="color:#c0392b">SVG </span>یکی از تگ ها <span style="color:#d35400">polyline&nbsp; </span>است که به کمک آن می توانیم <span style="color:#9b59b6">خط های ممتد</span> رسم کنیم. در این تگ ما یک <span style="color:#27ae60">attribute </span>داریم به اسم <span style="color:#d35400">points </span>که روش تعریف آن به این صورت است که هر<span style="color:#e74c3c"> دو عدد مختصات یک نقطه</span> را نشان می دهند.&nbsp;</p>
+<p>&nbsp;</p>
+<div class="code"><p>&lt;<span style="color:#e74c3c">polyline&nbsp; </span><span style="color:#9b59b6">points</span>=&quot;<span style="color:#f39c12">18 0 27 0 </span>&quot;&gt;&lt;/polyline&gt;</p>
+
+
+<p>&lt;<span style="color:#e74c3c">polyline&nbsp; </span><span style="color:#9b59b6">points</span>=&quot;<span style="color:#f39c12">X-first point&nbsp;&nbsp;&nbsp;Y-first point&nbsp; X-second point&nbsp;&nbsp;&nbsp;Y-second point </span>&quot;&gt;&lt;/<span style="color:#e74c3c">polyline</span>&gt;</p></div> 
+
+<div style="position:relative; height:200px; width:100%;">
+<svg id="el-path-svg" width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute; left:-200px; top:-400px;">
+<g id="paths" class="path" stroke="#fa2752" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-opacity="1" stroke-dasharray="30,150" stroke-dashoffset="2000">
+    <g id="left" transform="translate(461.000000, 416.000000)">
+      <polyline points="18 0 27 0 55 28 95 28 115 48 127 48"></polyline>
+      <polyline points="18 23 27 23 47 43 86 43 107 64 127 64"></polyline>
+      <polyline points="-8.03677904e-06 10.9791757 26.9791757 10.9791757 51 35 90 35 111 56 127 56"></polyline>
+      <polyline points="72 92 98 92 110 80 127 80"></polyline>
+      <polyline points="84 80 99 80 107 72 127 72"></polyline>
+    </g>
+    <g id="bottom" transform="translate(596.000000, 504.000000)">
+      <polyline points="4.02077033 67.0000542 4.02077033 63.0208243 12.0415946 55 12.0415946 40.0415946 0 28 0 -5.68434189e-14"></polyline>
+      <polyline points="20 67 20 36 8 24 8 0"></polyline>
+      <polyline points="27 59 27 31 16 20 16 0"></polyline>
+      <polyline points="36 67 36 28 24 16 24 0"></polyline>
+      <polyline points="48 56 48 48 44 44 44 23 32 11 32 0"></polyline>
+    </g>
+  </g>
+  <g id="paths-2" class="path-2" stroke="#fa2752" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-opacity="1" stroke-dasharray="50,150" stroke-dashoffset="2000"
+    <g id="right" transform="translate(620.000000, 427.000000)">
+      <polyline points="16 69 28 69 44 85 52 85 56 81 68 81"></polyline>
+      <polyline points="16 61 100 61 104 65 111 65"></polyline>
+      <polyline points="16 53 120 53 132.041595 65.0415946 132.041595 72.0001243"></polyline>
+      <polyline points="16 45 124.00463 45 141.002315 61.9976854"></polyline>
+      <polyline points="16 37 128 37 144 53 152 53"></polyline>
+      <polyline points="8 28 8 21 17 12 44 12 60 28 131 28 140 37 152 37"></polyline>
+      <polyline points="0 28 0 16 16 0 22 0"></polyline>
+    </g>
+  </g>
+  
+  
+  
+  <g id="paths-bg" stroke="#fa2752" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+    <g id="left" transform="translate(461.000000, 416.000000)">
+      <polyline points="18 0 27 0 55 28 95 28 115 48 127 48"></polyline>
+      <polyline points="18 23 27 23 47 43 86 43 107 64 127 64"></polyline>
+      <polyline points="-8.03677904e-06 10.9791757 26.9791757 10.9791757 51 35 90 35 111 56 127 56"></polyline>
+      <polyline points="72 92 98 92 110 80 127 80"></polyline>
+      <polyline points="84 80 99 80 107 72 127 72"></polyline>
+    </g>
+    <g id="bottom" transform="translate(596.000000, 504.000000)">
+      <polyline points="4.02077033 67.0000542 4.02077033 63.0208243 12.0415946 55 12.0415946 40.0415946 0 28 0 -5.68434189e-14"></polyline>
+      <polyline points="20 67 20 36 8 24 8 0"></polyline>
+      <polyline points="27 59 27 31 16 20 16 0"></polyline>
+      <polyline points="36 67 36 28 24 16 24 0"></polyline>
+      <polyline points="48 56 48 48 44 44 44 23 32 11 32 0"></polyline>
+    </g>
+    <g id="right" transform="translate(620.000000, 427.000000)">
+      <polyline points="16 69 28 69 44 85 52 85 56 81 68 81"></polyline>
+      <polyline points="16 61 100 61 104 65 111 65"></polyline>
+      <polyline points="16 53 120 53 132.041595 65.0415946 132.041595 72.0001243"></polyline>
+      <polyline points="16 45 124.00463 45 141.002315 61.9976854"></polyline>
+      <polyline points="16 37 128 37 144 53 152 53"></polyline>
+      <polyline points="8 28 8 21 17 12 44 12 60 28 131 28 140 37 152 37"></polyline>
+      <polyline points="0 28 0 16 16 0 22 0"></polyline>
+    </g>
+	
+	
+	<g id="center-path" stroke-width="3" transform="translate(562.000000, 425.000000) scale(0.6)">
+      <polyline points="55 110 51 108 51 91 81 91 81 57 52 75 52 81 68 81"></polyline>
+      <polyline points="69 109 64 115 81 127 81 109"></polyline>
+      <polyline points="86 75 86 57 103 69 98 75"></polyline>
+	  <polyline points="111 72 115 74 115 91 86 91 86 127 115 109 115 103 99 103"></polyline>
+    </g>
+	
+	
+    <g id="elements" transform="translate(453.000000, 412.000000)" stroke="#fa2752">
+      <rect x="135" y="44" width="48" height="48" rx="4"></rect>
+      <circle cx="87" cy="84" r="4"></circle>
+      <circle cx="75" cy="96" r="4"></circle>
+      <circle cx="22" cy="4" r="4"></circle>
+      <circle cx="22" cy="27" r="4"></circle>
+      <circle cx="4" cy="15" r="4"></circle>
+      <circle cx="193" cy="15" r="4"></circle>
+      <circle cx="323" cy="52" r="4"></circle>
+      <circle cx="323" cy="68" r="4"></circle>
+      <circle cx="311" cy="80" r="4"></circle>
+      <circle cx="282" cy="80" r="4"></circle>
+      <circle cx="179" cy="163" r="4"></circle>
+      <circle cx="191" cy="152" r="4"></circle>
+      <circle cx="163" cy="163" r="4"></circle>
+      <circle cx="147" cy="163" r="4"></circle>
+      <circle cx="299" cy="91" r="4"></circle>
+      <path d="M143,43 L143,31"></path>
+      <path d="M159,43 L159,31"></path>
+      <path d="M151,43 L151,31"></path>
+	  <circle cx="144" cy="79.5" r="1.5"></circle>
+	  <circle cx="152" cy="61.5" r="1.5"></circle>
+	  <circle cx="157.3" cy="76.5" r="1.5"></circle>
+	  <circle cx="161" cy="60.5" r="1.5"></circle>
+	  <circle cx="174.5" cy="55.5" r="1.5"></circle>
+	  <circle cx="166" cy="74.5" r="1.5"></circle>
+    </g>
+  </g>
+
+</svg>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

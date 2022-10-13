@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue Ruoter</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|					Vue Ruoter	      			 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/vue.png" width="150" height="150"></p>
+
+<i class="ti or"> {{ &nbsp; &nbsp; &nbsp; &nbsp;  Vue Ruoter  &nbsp; &nbsp; &nbsp; &nbsp; }}</i>
+
+
+
+<h2 class="y">------   Problem   ------</h2>
+
+<p dir="rtl">در <span style="color:#27ae60">Vue 2</span>&nbsp; و هنگام با آن <span style="color:#d35400">vue-router 3</span> زمانی که روت تغییر می دهیم <span style="color:#e74c3c">همچنان روت home یا / دارای کلاس active</span> می ماند. برای حل این مشکل <span style="color:#8e44ad">3</span> راه حل ارائه شده است.</p>
+<br>
+<br>
+
+<p dir="rtl"><span style="color:#d35400">1.</span>&nbsp; &nbsp; به <span style="color:#e67e22">router-link</span> مربوط به <span style="color:#f1c40f">/</span> یک اتریبوت اضافه کنیم با نام<span style="color:#e74c3c">&nbsp;exact</span></p>
+
+<p dir="rtl"><span style="color:#d35400">2.</span>&nbsp; &nbsp; کلاس ها&nbsp; &nbsp;<span style="color:#ff0099">router-link-exact-active&nbsp; و active</span> را با ویژگی&nbsp;<span style="color:#d35400">active-class</span> و&nbsp;<span style="color:#d35400">exact-active-class</span> خود ویو تغییر دهیم.</p>
+
+<p dir="rtl"><span style="color:#d35400">3.</span>&nbsp; &nbsp; استایل های خود را برای لینک <span style="color:#8e44ad">active</span> براساس<span style="color:#27ae60">&nbsp;router-link-exact-active</span> تعریف کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// Method 1</span></p>
+
+<p>&lt;<span style="color:#e74c3c">router-link</span> <span style="color:#2ecc71">to</span>=&quot;<span style="color:#f1c40f">/</span>&quot;&nbsp; &nbsp;<span style="color:#d35400">exact&nbsp;</span>&gt;Home&lt;/<span style="color:#e74c3c">router-link</span>&gt;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// Method 2</span></p>
+
+<p>&lt;<span style="color:#e74c3c">router-link&nbsp; &nbsp;</span><span style="color:#2ecc71"> to</span>=&quot;<span style="color:#f1c40f">/</span>&quot;&nbsp; <span style="color:#2ecc71">&nbsp;active-class</span>=&quot;<span style="color:#f1c40f">router-link-exact-active</span>&quot;&nbsp;&nbsp;<span style="color:#2ecc71">exact-active-class</span>=&quot;<span style="color:#f1c40f">active</span>&quot;&nbsp;&nbsp;&gt;Home&lt;/<span style="color:#e74c3c">router-link</span>&gt;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// Method 3</span></p>
+
+<p>.<span style="color:#27ae60">router-link-exact-active</span> {</p>
+
+<p>&nbsp; <span style="color:#3498db">background</span>:<span style="color:#9b59b6">#ccc</span>;</p>
+
+<p>}</p>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--           
+
+<div class="code"></div> 
+
+<h2 class="y">------   Title   ------</h2>
+
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>filepond uploader</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						filepond uploader	 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/flu.png" width="150" height="150"></p>
+
+<i class="ti or"> -- &nbsp;   filepond uploader  &nbsp; --</i>
+
+<p><br />
+&quot;https://pqina.nl/filepond/&quot;</p>
+
+
+<h2 class="y">------   ویژگی ها   ------</h2> 
+
+<div class="code"><p><span style="color:#d35400">name</span></p>
+<p><br />
+name=&quot;ali&quot;</p>
+</div>  
+
+<p dir="rtl"><br />
+ویژگی <span style="color:#d35400">name </span>در اینپوتی که ارسال می شود</p>
+
+<br />
+
+<div class="code"><p>className</p>
+<p>className=&quot;red bgdarg&quot;</p></div> 
+
+
+<p dir="rtl"><br />
+کلاس های css دلخواهی که می خواهیم به اپلودر اضافه شوند</p>
+<br />
+
+<div class="code"><p><span style="color:#d35400">required</span></p>
+
+<p dir="rtl"><br /><p>required=&quot;<span style="color:#f39c12">true</span>&quot;</p></div>  
+
+<p>ست required برای اینپوتی که ارسال می شود</p>
+
+<p>&nbsp;</p>
+
+
+<div class="code"><p><br />
+<span style="color:#d35400">disabled</span></p>
+<p>disabled=&quot;<span style="color:#f39c12">true</span>&quot;</p></div>  
+
+<p dir="rtl">
+ست <span style="color:#8e44ad">disabled</span></p>
+<br />
+<div class="code"><p><br />
+<span style="color:#d35400">allowDrop</span></p>
+<p>allowDrop=&quot;<span style="color:#f39c12">true</span>&quot;</p></div>  
+
+<p dir="rtl">
+<span style="color:#8e44ad">اجازه دادن برای دراپ و دون کردن</span></p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">allowBrowse</span></p><p><br />
+allowBrowse=&quot;<span style="color:#f39c12">true</span>&quot;</p></div> 
+
+<p dir="rtl">
+اجازه میدهد که بتوانیم با <span style="color:#8e44ad">بروزر اینپوت فایل</span> را از روی دستگاه خود انتخاب کنیم</p>
+<p>&nbsp;</p>
+<div class="code"><p><span style="color:#d35400">allowPaste</span></p><p>allowPaste=&quot;<span style="color:#f39c12">true</span>&quot;</p></div> 
+
+<p dir="rtl">
+اجازه میدهد فایلی که کپی کردیم را پیست دهیم</p>
+<p>&nbsp;</p>
+<div class="code"><p><br />
+<span style="color:#d35400">allowMultiple</span></p><p>allowMultiple=&quot;<span style="color:#f39c12">true</span>&quot;</p></div> 
+<p dir="rtl">اجازه برای انتخاب <span style="color:#8e44ad">چند فایل</span></p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">allowReplace</span></p></div> 
+<p dir="rtl">
+زمانی که انتخاب چندتایی<span style="color:#2980b9"> فعال نیست</span> این گزینه اجازه میدهد که فایل های جدیدی که انتخاب میکنید <span style="color:#2ecc71">جایگزین قبلی شوند</span></p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">allowRevert</span></p>
+
+<p><span style="color:#e67e22">allowRevert </span>: <span style="color:#8e44ad">false</span></p></div> 
+<p dir="rtl">
+اجازه به نمایش<span style="color:#f1c40f"> دکمه مربوط به اپلود مجدد فایل دیگر</span> (باید در <span style="color:#e74c3c">setOptions </span>استفاده شود)</p>
+<p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">allowRemove</span></p>
+
+<p><span style="color:#e67e22">allowRemove </span>: <span style="color:#8e44ad">false</span>,</p></div> 
+
+<p dir="rtl">
+اجازه نمایش <span style="color:#8e44ad">دکمه حذف فایل</span> انتخاب شده (باید در <span style="color:#e74c3c">setOptions </span>استفاده شود)</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">allowProcess</span></p>
+
+<p><span style="color:#e67e22">allowProcess </span>:&nbsp; <span style="color:#8e44ad">true</span></p></div> 
+<p dir="rtl">اجازه نمایش دکمه <span style="color:#8e44ad">پردازش </span>=&gt; دکمه ای که <span style="color:#2ecc71">بعد از انتخاب عکس روی آن می زنیم تا فایل اپلود شود</span>(فلش رو به بالا)(باید در <span style="color:#e74c3c">setOptions </span>استفاده شود)</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">maxFiles</span></p>
+
+<p><span style="color:#e67e22">maxFiles </span>:<span style="color:#d35400"> </span><span style="color:#2ecc71">15</span></p>
+</div> 
+<p dir="rtl">
+تعیین <span style="color:#f1c40f">بیشترین تعداد فایلی</span> که می توانید در<span style="color:#e74c3c"> اپلود های چندتایی</span> انتخاب کنید</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">maxParallelUploads</span></p></div> 
+
+<p dir="rtl">
+تعیین <span style="color:#e74c3c">تعداد اپلودهایی که همزمان میتوانند</span> انجام شوند.</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">itemInsertLocation</span></p></div> 
+
+
+
+<p dir="rtl">تعیین می کند که در<span style="color:#8e44ad"> اپلود چندتایی</span> فایل جدیدی که انتخاب کردیم به<span style="color:#f39c12"> ابتدا یا انتهای فایل های دیگر لیست</span> اضافه شود.<br />
+<span style="color:#ff0099">before &nbsp; </span>/ &nbsp; <span style="color:#ff0099">after&nbsp;</span></p>
+
+<p>&nbsp;</p>
+<div class="code"><p><span style="color:#d35400">itemInsertInterval</span></p></div> 
+
+<p dir="rtl">
+<span style="color:#2ecc71">فاصله زمانی قبل از</span> اضافه شدن فایلی که انتخاب کردیم به لیست فایل های انتخاب شده قبلی</p>
+<p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">credits</span></p>
+
+<p><span style="color:#27ae60">credits&nbsp;</span>: &quot; {<span style="color:#8e44ad">url , label</span>}&quot;</p>
+
+<p><span style="color:#27ae60">credits </span>: &quot;<span style="color:#f39c12">google.com ,</span> <span style="color:#f39c12">webprog</span>&quot;,</p></div>
+
+<p dir="rtl">نمایش پیام powerd by pqina &nbsp;<br />
+البته می توانیم <span style="color:#f39c12">متن دلخواه همراه لینک</span> را به جای متن دیفالت قرار دهیم</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">dropOnPage</span></p>
+
+<p><span style="color:#e67e22">dropOnPage </span>: <span style="color:#8e44ad">false</span></p></div> 
+
+<p dir="rtl">
+برای درگ و دراپ کاربرد دارد و میگوید<span style="color:#f1c40f"> اگر فایل هرجایی از صفحه وب دراپ شد و توسط کاربر رها شد من ان را بگیرم یا نه</span></p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">dropOnElement</span></p>
+
+<p><span style="color:#e67e22">dropOnElement </span>: <span style="color:#9b59b6">true</span></p></div> 
+<p dir="rtl">
+می گوید که برای اینکه فایل دراپ شده را دریافت کنم باید ان را <span style="color:#2980b9">حتما روی خودت المان filepond</span> رها کنید.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">dropValidation</span></p>
+
+<p><span style="color:#e67e22">dropValidation </span>: <span style="color:#8e44ad">true&nbsp;</span></p></div> 
+
+<p dir="rtl">
+فایل را <span style="color:#e74c3c">بعد از رها شدن اعتبار سنجی</span> می کند. اگر نامعتبر بود ان را اضافه نمی کند.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">server</span></p></div> 
+
+<p dir="rtl">
+اطلاعات مربوط به <span style="color:#e74c3c">ارتباط با سرور</span> را باید به این پاس دهیم</p>
+<p>&nbsp;</p>
+<div class="code"><p><br />
+<span style="color:#d35400">instantUpload</span></p>
+
+<p><span style="color:#e67e22">instantUpload </span>: <span style="color:#9b59b6">true&nbsp;</span></p></div> 
+
+<p dir="rtl">
+<span style="color:#d35400">فورا فایلهای جدید</span> را روی سرور بارگذاری می کند. اگر این مورد را <span style="color:#9b59b6">false </span>قرار دهیم <span style="color:#e67e22">بعد از انتخاب فایل یک دکمه با فلش رو به بالا </span>به ما نمایش داده میشود که اگر روی آن بزنیم فایل اپلود می شود اما اگر <span style="color:#9b59b6">true </span>باشد بعد از انتخاب فایل توسط کاربر، <span style="color:#3498db">خودکار اپلود می شود</span>.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">chunkUploads</span></p>
+
+<p><span style="color:#e67e22">chunkUploads </span>:&nbsp; <span style="color:#9b59b6">false&nbsp;</span></p></div> 
+
+
+<p dir="rtl">
+اگر این مورد را<span style="color:#f1c40f"> فعال کنیم</span> با توجه به حجمی که در <span style="color:#e74c3c">chunkSize </span>مشخص کردیم <span style="color:#f39c12">فایل ها را تکه تکه کرده و بعد اپلود</span> می کند</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">chunkForce</span></p>
+
+<p><span style="color:#e67e22">chunkForce </span>: <span style="color:#9b59b6">false&nbsp;</span></p></div> 
+<p dir="rtl">
+می گوید که حتی فایل های <span style="color:#27ae60">کوچکتر </span>از <span style="color:#e74c3c">chunkSize </span>هم باید <span style="color:#f39c12">به اجبار تکه تکه</span> شوند</p>
+
+<p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">chunkSize</span></p>
+
+<p><span style="color:#e67e22">chunkSize </span>: <span style="color:#9b59b6">5000000</span></p></div> 
+
+<p dir="rtl">
+<span style="color:#e74c3c">حجم تکه شدن</span> فایل ها براساس بایت را تعیین می کند</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">chunkRetryDelays</span></p>
+
+<p><span style="color:#e67e22">chunkRetryDelays </span>: [<span style="color:#9b59b6">500 </span>, <span style="color:#9b59b6">1000 </span>, <span style="color:#9b59b6">3000</span>]&nbsp;</p></div> 
+<p dir="rtl">
+<span style="color:#f39c12">زمان و تاخیر بزن تکه کردن</span> فایل و اپلود ان را مشخص می کند</p>
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   برچسب ها   ------</h2> 
+
+<p dir="rtl">از برچسب ها باید در&nbsp;<span style="color:#e74c3c">setOptions</span> استفاده کنید.</p>
+<div class="code"><p><span style="color:#d35400">labelIdle</span></p></div> 
+
+<p dir="rtl">
+<span style="color:#27ae60">متن داخل اینپوت</span> برای <span style="color:#27ae60">انتخاب فایل</span> را تعیین می کند . به طور پیشفرض متن زیر است</p>
+
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Drag &amp; Drop your files or &lt;span class=&quot;filepond--label-action&quot;&gt; Browse &lt;/span&gt;</span>&#39;</p></div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">labelInvalidField</span></p></div>
+<p dir="rtl">متن داخل این لیبل زمانی نمایش داده می شود که<span style="color:#e74c3c"> فایل غیرمجاز انتخاب</span> کردید.&nbsp; &nbsp; متن پیشفرض</p>
+<div class="code"><p><span style="color:#f39c12">&#39;Field contains invalid files</span>&#39;</p></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<div class="code"><p>
+<span style="color:#d35400">labelFileWaitingForSize</span></p></div>
+
+<p dir="rtl">
+این مورد زمانی نمایش داده می شود که <span style="color:#f1c40f">در حال دریافت اطلاعات مربوط به سایز فایل</span> هست .&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Waiting for size</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">labelFileSizeNotAvailable</span></p></div>
+
+<p dir="rtl">زمانی که <span style="color:#9b59b6">نتواند اطلاعات مربوط به سایز فایل را دریافت</span> کند &nbsp;این مورد نمایش داده می شود. متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Size not available</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">labelFileLoading</span></p></div>
+<p dir="rtl">
+زمانی که <span style="color:#27ae60">در حال بارگذاری یک فایل</span> است متن این لیبل نمایش داده می شود.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Loading</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">labelFileLoadError</span></p></div>
+<p dir="rtl">
+زمانی که در <span style="color:#3498db">طی فرایند بارگذاری فایل به ارور میخورد</span> متن این لیبل نمایش &nbsp;داده می شود.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code">
+<p>
+&#39;<span style="color:#f39c12">Error during load</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p><br />
+<span style="color:#d35400">labelFileProcessing</span></p></div>
+<p dir="rtl">این لیبل زمانی که<span style="color:#27ae60"> اپلود در حال اتفاق افتادن</span> است نمایش داده میشود. متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Uploading</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">labelFileProcessingComplete</span></p></div>
+<p dir="rtl">این لیبل زمانی نمایش داده می شود که<span style="color:#3498db"> اپلود به پایان رسیده </span>است.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Upload complete</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">labelFileProcessingAborted</span></p></div>
+<p dir="rtl">
+زمانی که <span style="color:#2980b9">اپلود فایل کنسل شد </span>این لیبل نمایش داده می شود.&nbsp; متن پیشفرض&nbsp;</p>
+
+<div class="code"><p>&#39;<span style="color:#f39c12">Upload cancelled</span>&#39;</p></div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">labelFileProcessingError</span></p></div>
+<p dir="rtl">
+زمانی که در حین<span style="color:#3498db"> اپلود به ارور میخورد</span> متن این لیبل نمایش داده میشود. متن پیشفرض&nbsp;</p>
+
+<div class="code"><p>&#39;<span style="color:#f39c12">Error during upload</span>&#39;</p></div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+<div class="code"><p>
+<span style="color:#d35400">labelFileProcessingRevertError</span></p></div>
+<p dir="rtl">
+این لیبل زمانی نمایش داده میشود که <span style="color:#3498db">وقتی روی دکمه بازگردانی برای اپلود زدیم </span>مشکلی روی بدهد. متن پیشفرض&nbsp;</p>
+<div class="code">
+<p>
+&#39;<span style="color:#f39c12">Error during revert</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+<div class="code">
+<p><span style="color:#d35400">labelFileRemoveError</span></p></div>
+<p dir="rtl">
+زمانی که اروری <span style="color:#e74c3c">در طی حذف فایل روی میدهد</span> این لیبل نمایش داده میشود.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Error during remove</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">labelTapToCancel</span></p></div>
+<p dir="rtl">
+متن مربوط به &#39;<span style="color:#ff0099">tap to cancel</span>&#39;<br />
+متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">tap to cancel</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">labelTapToRetry</span></p></div>
+<p dir="rtl">
+متن پیشفرض&nbsp;</p>
+<div class="code">
+<p>
+&#39;<span style="color:#f39c12">tap to retry</span>&#39;</p></div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<div class="code"><p>
+<span style="color:#d35400">labelTapToUndo</span></p></div>
+<p dir="rtl">متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">tap to undo</span>&#39;</p></div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">labelButtonRemoveItem</span></p></div>
+<p dir="rtl"><span style="color:#3498db">متن مربوط به دکمه حذف</span>.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Remove</span>&#39;</p></div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">labelButtonAbortItemLoad</span></p></div>
+
+<p dir="rtl">
+<span style="color:#3498db">متن دکمه abort</span>.&nbsp; &nbsp;متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Abort</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">labelButtonRetryItemLoad</span></p></div>
+<p dir="rtl">
+<span style="color:#3498db">تکرار بارگذاری فایل</span>.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code">
+<p>
+&#39;<span style="color:#f39c12">Retry</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">labelButtonAbortItemProcessing</span></p></div>
+<p dir="rtl">
+متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Cancel</span>&#39;</p></div>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+<div class="code"><p>
+<span style="color:#d35400">labelButtonUndoItemProcessing</span></p></div>
+<p dir="rtl">متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Undo</span>&#39;</p></div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">labelButtonRetryItemProcessing</span></p></div>
+<p dir="rtl">
+<span style="color:#3498db">تکرار پردازش.&nbsp;</span>متن پیشفرض&nbsp;</p>
+<div class="code"><p>
+&#39;<span style="color:#f39c12">Retry</span>&#39;&nbsp;</p></div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#d35400">labelButtonProcessItem</span></p></div>
+<p dir="rtl">
+متن <span style="color:#3498db">دکمه اپلود</span>.&nbsp; متن پیشفرض&nbsp;</p>
+<div class="code">
+<p>
+&#39;<span style="color:#f39c12">Upload</span>&#39;</p></div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   Icons   ------</h2> 
+
+<div class="code"><p>&nbsp;</p>
+
+<p><span style="color:#d35400">iconRemove</span><br />
+&#39;<span style="color:#f1c40f">&lt;svg&gt;...&lt;/svg&gt;</span>&#39;</p>
+
+<p><br />
+<span style="color:#d35400">iconProcess</span></p>
+
+<p><br />
+<span style="color:#d35400">iconRetry</span></p>
+
+<p><br />
+<span style="color:#d35400">iconUndo</span><br />
+&nbsp;</p>
+</div>
+<br />
+<br />
+<p dir="rtl">برای <span style="color:#e67e22">ارتباط با لاراول</span> و ارسال اطلاعات سمت سرور باید <span style="color:#f1c40f">حتما name اینپوت</span> را برابر <span style="color:#e74c3c">file </span>قرار دهیم و در<span style="color:#27ae60"> vue</span> هم به جای آن باید <span style="color:#9b59b6">prop کامپوننت</span> به اسم <span style="color:#f39c12">name </span>را برابر <span style="color:#e74c3c">file </span>قرار دهیم</p>
+
+<div class="code">
+
+<p>&lt;<span style="color:#e74c3c">input&nbsp; &nbsp; </span><span style="color:#2ecc71">type</span>=&quot;<span style="color:#f39c12">file</span>&quot;&nbsp; &nbsp;<span style="color:#2ecc71">name</span>=&quot;<span style="color:#f39c12">file</span>&quot;&nbsp; &nbsp;/&gt;</p>
+<br />
+<p>&lt;<span style="color:#e74c3c">input&nbsp; &nbsp; </span><span style="color:#2ecc71">type</span>=&quot;<span style="color:#f39c12">file</span>&quot;&nbsp; &nbsp;<span style="color:#2ecc71">name</span>=&quot;<span style="color:#f39c12">file[ ]</span>&quot;&nbsp; &nbsp;/&gt;&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// Multiple</span></p>
+<br />
+<p>&lt;<span style="color:#e74c3c">file-pond</span>&nbsp; <span style="color:#27ae60">name</span>=&quot;<span style="color:#f39c12">file</span>&quot;&gt;&lt;/<span style="color:#e74c3c">file-pond</span>&gt;</p></div>
+<br /><br />
+<h2 class="y">------   Functions   ------</h2> 
+<br />
+
+<div class="code"><p>
+<span style="color:#d35400">oninit</span>()</p></div>
+
+
+<p dir="rtl"<br />
+زمانی که نمونه filepond ساخته شده و <span style="color:#2980b9">آماده اجرا هست این متود صدا زده</span> می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">onwarning</span>([<span style="color:#2ecc71">error</span>, <span style="color:#2ecc71">file</span>, <span style="color:#2ecc71">status</span>])</p></div>
+<p dir="rtl">زمانی که به<span style="color:#f1c40f"> یک هشدار میخوریم</span> این متود صدا زده می شود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">onerror</span>([<span style="color:#9b59b6">error</span>, <span style="color:#9b59b6">file</span>, <span style="color:#9b59b6">status</span>])</p></div>
+
+<p dir="rtl">
+زمانی که به <span style="color:#e74c3c">یک ارور &nbsp;میخوریم </span>این متود صدا زده می شود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">oninitfile</span>(<span style="color:#9b59b6">file</span>)</p></div>
+
+<p dir="rtl"><br />
+زمانی که فایل<span style="color:#9b59b6"> ایتم ساخته شد</span> این متود فراخونی می شود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">onaddfilestart</span>(<span style="color:#9b59b6">file</span>)</p></div>
+<p dir="rtl">
+زمانی که <span style="color:#e67e22">لود فایل شروع شد</span> این متود فراخوانی می شود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code">
+<p><span style="color:#d35400">onaddfileprogress</span>(<span style="color:#9b59b6">file</span>, <span style="color:#9b59b6">progress</span>)</p></div>
+
+<p dir="rtl">
+زمانی که<span style="color:#f39c12"> لود فایل پیشرفت پیدا می کند</span> این متود فراخوانی می شود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">onaddfile</span>(<span style="color:#9b59b6">error</span>, <span style="color:#9b59b6">file</span>)</p></div>
+
+<p dir="rtl">
+اگر <span style="color:#27ae60">اروری وجود نداشت و فایل با موفقیت لود شد</span> این متود فراخوانی میشود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">onprocessfilestart</span>(<span style="color:#9b59b6">file</span>)</p></div>
+<p dir="rtl">زمانی که<span style="color:#e74c3c"> پردازش فایل شروع</span> (ا<span style="color:#f1c40f">رسال به سمت سرور</span>)&nbsp;می شود این متود هم فراخوانی میشود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">onprocessfileprogress</span>(<span style="color:#9b59b6">file</span>, <span style="color:#9b59b6">progress</span>)</p></div>
+<p dir="rtl">
+زمانی که <span style="color:#2980b9">پردازش فایل پیشرفت کرد</span> این متود فراخوانی میشود</p>
+<p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">onprocessfileabort</span>(<span style="color:#9b59b6">file</span>)</p></div>
+
+<p dir="rtl">زمانی که <span style="color:#e74c3c">پردازش فایل abbort شد</span> این متود فراخوانی می شود. (<span style="color:#f1c40f">کنسل شد</span>)</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code">
+<p>
+<span style="color:#d35400">onprocessfilerevert</span>(<span style="color:#9b59b6">file</span>)</p></div>
+
+<p dir="rtl">زمانی که کاربر روی دکمه <span style="color:#e74c3c">اپلود مجدد می زند</span> را <span style="color:#f39c12">revert</span> می گویند و این تابع اجرا می شود.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">onprocessfile</span>(<span style="color:#9b59b6">error</span>, <span style="color:#9b59b6">file</span>)</p></div> 
+
+<p dir="rtl">اگر <span style="color:#27ae60">&nbsp;اروری وجود نداشت و پردازش فایل با موفقیت انجام شد</span> این متود فراخوانی میشود. (<span style="color:#f39c12">بعد از دریافت پاسخ از سرور</span>)</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">onprocessfiles</span>()</p></div> 
+<p dir="rtl">
+زمانی <span style="color:#3498db">همه فایل های لیست پروسس شدند</span> این متود فراخوانی میشود&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">onremovefile</span>(<span style="color:#9b59b6">error</span>, <span style="color:#9b59b6">file</span>)</p></div> 
+<p dir="rtl">
+زمانی که <span style="color:#f39c12">فایل حذف شد</span> این متود فراخوانی میشود&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div class="code">
+<p><span style="color:#d35400">onupdatefiles</span>(<span style="color:#9b59b6">files</span>)</p></div> 
+<p dir="rtl">زمانی که <span style="color:#2ecc71">فایلی اضافه یا حذف شد فایل های موجود در لیست</span> را برمیگرداند</p>
+<p>&nbsp;</p>
+
+<div class="code">
+<p>
+<span style="color:#d35400">onactivatefile</span>(<span style="color:#9b59b6">file</span>)</p></div> 
+<p dir="rtl">
+زمانی که <span style="color:#e67e22">روی یک فایل کلیک </span>کردیم فراخوانی می شود.</p><p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">onreorderfiles</span>(<span style="color:#9b59b6">files</span>, <span style="color:#9b59b6">origin</span>, <span style="color:#9b59b6">target</span>)</p></div>
+<p dir="rtl">
+زمانی که <span style="color:#3498db">ترتیب لیست را تغییر می دهیم</span> این متود فراخوانی میشود.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   Hooks   ------</h2> 
+ <p dir="rtl">&nbsp;</p>
+ 
+ 
+<div class="code"><p><span style="color:#d35400">beforeDropFile</span>(<span style="color:#9b59b6">file</span>)</p></div> 
+<p dir="rtl">
+<span style="color:#9b59b6">قبل از دراپ شدن فایل</span> فراخوانی میشود و شما توانید <span style="color:#e74c3c">اعتبارسنجی یا کار خاصی </span>که مدنظرتان است را انجام دهید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">beforeAddFile</span>(<span style="color:#9b59b6">item</span>)</p>
+</div> 
+<p dir="rtl"><span style="color:#f39c12">قبل از اضافه شدن فایل فراخوانی میشود</span> و شما توانید اعتبارسنجی یا کار خاصی که مدنظرتان است را انجام دهید.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p>
+<span style="color:#d35400">beforeRemoveFile</span>(<span style="color:#9b59b6">item</span>)</p></div> 
+<p dir="rtl">قبل از <span style="color:#e74c3c">حذف شدن فایل فراخوانی میشود</span> و شما توانید اعتبارسنجی یا کار خاصی که مدنظرتان است را انجام دهید.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   Styles   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">stylePanelLayout</span></p></div> 
+<p dir="rtl">
+می توانیم با <span style="color:#f39c12">این پراپرتی شکل اینپوت دریافتی را تغییر دهیم</span> و روی یکی از مقادیر زیر ست کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p>&#39;<span style="color:#d35400">integrated</span>&#39;,&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> /// به عنوان بخشی از عنصر بزرگتر در نظر گرفته می شود</span></p>
+
+<p><br />
+&#39;<span style="color:#d35400">compact</span>&#39;,&nbsp; &nbsp; <span style="color:#7f8c8d">//&nbsp; حالت فشرده با حذف padding</span></p>
+
+<p>&nbsp;</p>
+
+<p>and/or &#39;<span style="color:#d35400">circle</span>&#39;.&nbsp; &nbsp;<span style="color:#7f8c8d">/// حالت دایره ای</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+stylePanelAspectRatio&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">//تعیین نسبت تصویر</span><br />
+&#39;<span style="color:#f39c12">1:1</span>&#39;</p>
+
+<p><br />
+<span style="color:#d35400">styleButtonRemoveItemPosition</span>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> //محل دکمه حذف ایتم</span><br />
+&#39;<span style="color:#f39c12">left</span>&#39;,&nbsp;<br />
+&#39;<span style="color:#f39c12">center</span>&#39;,&nbsp;<br />
+&#39;<span style="color:#f39c12">right</span>&#39;,&nbsp;<br />
+and/or &#39;<span style="color:#f39c12">bottom</span>&#39;</p>
+
+<p>Default =&gt; &nbsp;<span style="color:#3498db">left&nbsp;</span></p>
+
+<p><br />
+<span style="color:#d35400">styleButtonProcessItemPosition&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;</span><span style="color:#7f8c8d">/// محل دکمه پراسس</span></p>
+
+<p>&#39;<span style="color:#f39c12">left</span>&#39;,&nbsp;<br />
+&#39;<span style="color:#f39c12">center</span>&#39;,&nbsp;<br />
+&#39;<span style="color:#f39c12">right</span>&#39;,&nbsp;<br />
+and/or &#39;<span style="color:#f1c40f">bottom</span>&#39;</p>
+
+<p>Default =&gt; &nbsp;<span style="color:#3498db">right</span>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#d35400">styleLoadIndicatorPosition&nbsp; &nbsp; </span><span style="color:#7f8c8d">///محل نشانگر لود</span></p>
+
+<p>&#39;<span style="color:#f39c12">left</span>&#39;,&nbsp;<br />
+&#39;<span style="color:#f39c12">center</span>&#39;,&nbsp;<br />
+&#39;<span style="color:#f39c12">right</span>&#39;,&nbsp;<br />
+and/or &#39;<span style="color:#f39c12">bottom</span>&#39;</p>
+
+<p>Default =&gt; &nbsp;<span style="color:#3498db">right&nbsp;</span></p>
+
+<p>styleItemPanelAspectRatio&nbsp; <span style="color:#7f8c8d">&nbsp;//نسبت فایل ها را تعیین می کند</span></p></div> 
+<p>&nbsp;</p><p>&nbsp;</p>
+<h2 class="y">------   Methods   ------</h2> 
+<p>&nbsp;</p>
+ 
+<div class="code"><p><span style="color:#d35400">setOptions</span>({});&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">//در این تابع میتوانیم اپشن ها را ست کنیم</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">const </span>pond = <span style="color:#2ecc71">FilePond</span>.<span style="color:#d35400">create</span>();<br />
+pond.<span style="color:#e74c3c">setOptions</span>({&nbsp;<br />
+&nbsp; <span style="color:#ff0099">maxFiles</span>: <span style="color:#8e44ad">10</span>,&nbsp;<br />
+&nbsp; <span style="color:#ff0099">required</span>: <span style="color:#9b59b6">true</span>,&nbsp;<br />
+});</p>
+
+<p>&nbsp;</p></div> 
+<p dir="rtl">روش دوم ست کردن ویژگی ها</p>
+
+<div class="code"><p><span style="color:#3498db">const </span>pond = <span style="color:#2ecc71">FilePond</span>.<span style="color:#c0392b">create</span>();<br />
+pond.<span style="color:#ff0099">maxFiles </span>= <span style="color:#9b59b6">10</span>;<br />
+pond.<span style="color:#ff0099">required </span>= <span style="color:#9b59b6">true</span>;</p>
+
+<p>&nbsp;</p></div> 
+<p>
+اضافه کردن فایل<br />
+&nbsp;</p>
+
+<div class="code"><p><br />
+pond.<span style="color:#e67e22">addFile</span>(&#39;<span style="color:#f39c12">./my-file.jpg</span>&#39;);</p>
+
+<p>pond.<span style="color:#e74c3c">addFiles</span>([&#39;<span style="color:#f39c12">./my-file.jpg</span>&#39;, &#39;<span style="color:#f39c12">./my-documents.zip</span>&#39;]);</p>
+
+<p>pond.<span style="color:#e67e22">addFile</span>(&#39;<span style="color:#f39c12">./my-file.jpg</span>&#39;)&nbsp;<br />
+.<span style="color:#3498db">then</span>((<span style="color:#e67e22">file</span>) =&gt; {&nbsp;<br />
+&nbsp; &nbsp;<span style="color:#7f8c8d"> // File has been added</span><br />
+&nbsp;})<br />
+&nbsp;.<span style="color:#3498db">catch</span>((<span style="color:#e74c3c">error</span>) =&gt; {&nbsp;<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d">// Something went wrong</span><br />
+&nbsp;});</p>
+
+<p>&nbsp;</p></div> 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">processFile&nbsp; &nbsp;</span><span style="color:#7f8c8d"> //&nbsp;به ما این امکان را می دهد که به طور دستی فایل ها را پردازش کنیم.</span></p>
+
+<p>pond.<span style="color:#e74c3c">processFile</span>().<span style="color:#2ecc71">then</span>((<span style="color:#e67e22">file</span>) =&gt; {<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> // File has been processed</span><br />
+&nbsp;});</p>
+
+<p>&nbsp;</p></div> 
+<p>&nbsp;</p><p>&nbsp;</p>
+<div class="code"><p><span style="color:#d35400">getFile&nbsp; &nbsp; &nbsp; </span><span style="color:#7f8c8d">//به ما امکان دسترسی به فایل ها را می دهد و حتی می توانیم ان index فایل را هم پاس بدهیم</span></p>
+
+<p>pond.<span style="color:#e74c3c">getFile</span>();&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// returns the file item at index 1</span><br />
+&nbsp;pond.<span style="color:#9b59b6">getFile</span>(1);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#d35400">removeFile</span>()&nbsp; <span style="color:#7f8c8d">&nbsp;//به ما امکان حذف فایل را می دهد که میتوانیم به ان ایندکس فایل راهم پاس دهیم</span></p>
+
+<p><br />
+pond.<span style="color:#e74c3c">removeFile</span>();&nbsp;<br />
+<span style="color:#7f8c8d">// removes the file item at index</span><br />
+pond.<span style="color:#e74c3c">removeFile</span>(1);</p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="color:#e74c3c">removeFiles</span>()&nbsp; //به امکان حذف چند فایل را می دهد</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p></div> 
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#d35400">browse</span>()</p></div>
+
+<p dir="rtl">
+یکی از بهترین متودهای این کتابخانه است که به امکان می دهد<span style="color:#2ecc71"> دکمه سفارشی طراحی</span> کنیم و در هرجایی از صفحه که خواستیم قرار دهیم &nbsp;بعد با زدن روی ان browser انتخاب فایل باز شود. &nbsp;<span style="color:#e74c3c">دیگر نیازی نیست حتما روی پارت مخصوص filepond برای انتخاب فایل کلیک کنیم.</span></p>
+
+
+<div class="code"><p>document.<span style="color:#2ecc71">querySelector</span>(&#39;button&#39;).<span style="color:#3498db">addEventListener</span>(&#39;<span style="color:#f39c12">click</span>&#39;, () =&gt; {&nbsp;<br />
+&nbsp; &nbsp; pond.<span style="color:#e74c3c">browse</span>();&nbsp;<br />
+});</p></div>
+<p>&nbsp;</p>
+<p dir="rtl">متود browse به دو روش زیر کار نمی کند و async نیست.</p>
+
+
+<div class="code"><p><span style="color:#3498db">setTimeout</span>(() =&gt; {&nbsp;<br />
+&nbsp; &nbsp;pond.<span style="color:#e74c3c">browse</span>();&nbsp;<br />
+}, <span style="color:#9b59b6">5000</span>);</p>
+
+<p><br />
+document.<span style="color:#3498db">querySelector</span>(&#39;<span style="color:#f39c12">button</span>&#39;).<span style="color:#3498db">addEventListener</span>(&#39;<span style="color:#f39c12">click</span>&#39;, () =&gt; {&nbsp;<br />
+&nbsp; &nbsp; <span style="color:#2980b9">setTimeout</span>(() =&gt;{&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; pond.<span style="color:#e74c3c">browse</span>();&nbsp;<br />
+&nbsp; &nbsp; &nbsp;}, <span style="color:#9b59b6">5000</span>);<br />
+});</p>
+
+<p>&nbsp;</p></div> 
+<p>&nbsp;</p><p>&nbsp;</p>
+
+
+
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div>
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div> 
+<div class="code"></div>
+
+
+
+
+
+
+
+
+
+
+
+<!--           
+
+ 
+<div class="code"></div>  
+
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

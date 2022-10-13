@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>javascript</title>
+</head>
+<body>
+
+
+
+	<script>
+		/// --------------------------------------------- SESSION 1
+		window.print(); // for print or pdf
+		/*
+			<button onclick="window.print()">Print this page</button>
+		*/
+
+		// Writing into an HTML element, using  ---> innerHTML.
+		// Writing into the HTML output using      --->  document.write().
+		// Writing into an alert box, using ---> window.alert().
+		// Writing into the browser console, using  --->  console.log().
+
+		var x; // best
+		var $x;
+		var _x;
+		//--------------------------------------  ***** SESSION 2
+		
+		//assign --> ekhtesas dadan  - entesab kardan -- taeen kardan
+		//declare  -->  shenasandan 
+		//explain  ---> tozih
+		//formal --->  rasmi - gharardadi
+		//expect ---> entezar dashtan
+		//restricted scope --->  daname mahdood
+		//Arithmetic --> hesab
+		//multiplication --> zarb
+		//Exponentiation--> tavan
+
+
+
+		//JavaScript Values --> 1.literl    2.var  
+
+		//Lower Camel Case  naming  --->pageName
+
+		const  // --->  keyword to define a variable that cannot be reassigned ES6 || ES2015
+		let  //--->     keyword to define a variable with restricted scope.
+
+		//In JavaScript, the equal sign (=) is an "assignment" operator, not an "equal to" operator.
+
+		//Using the underscore(_) is not very common in JavaScript, but a convention among professional programmers is to use it as an alias for "private (hidden)" variables.
+
+		//--------------------------------------  ***** SESSION 3
+
+		//concept --> mafhoom
+		//treat  ---> darman  -  talaghi kardan
+		//decimal ---> ashari
+		//cientific  --> elmi
+		//Unfortunately  motaasefaneh
+
+
+		//You can also empty an object by setting it to undefined
+		//You can empty an object by setting it to null
+
+
+		var person = {
+		  firstName: "John",
+		  lastName : "Doe",
+		  id       : 5566,
+		  fullName : function() {
+		    return this.firstName + " " + this.lastName;
+		  }
+		};
+
+		name = person.fullName(); //>  dastrasi to fun in obj
+		name = person.fullName;  // >	 dastrasi to fun in obj
+
+		//--------------------------------------  ***** SESSION 4
+
+		//complicate  pichideh kardan
+		//occurrence  voghoh
+		// omit  == delete
+
+
+
+		//str da edameh is  var
+
+
+		indexOf(); //method returns the position of the first occurrence of a specified text from 0 index
+
+		//var str = "Please locate where 'locate' occurs!";
+		//var pos = str.indexOf("locate");  => 7
+
+		lastIndexOf(); //method returns the index of the last occurrence of a specified text in a string
+
+		/// ****** Both indexOf(), and lastIndexOf() return -1 if the text is not found.
+
+		// str.indexOf("locate", 15); 15 ==> starting position or mahal shoroe
+
+		search();
+
+		//str.indexOf()  similar   str.search()  BUT  indexOf() Dont work in (egular expressions)
+
+
+
+		// here are 3 methods for extracting a part of a string:
+			slice(start, end);
+			substring(start, end);
+			substr(start, length);
+
+			/*var res = str.slice(-12, -6);
+			var res = str.slice(7, 13);
+			var res = str.slice(7);*/
+
+
+			// substring() is similar to slice().
+			// The difference is that substring() cannot accept negative indexes
+
+
+			// substr() is similar to slice().
+			// The difference is that the second parameter specifies the *length* of the extracted part.
+
+
+
+			str.replace("Microsoft", "W3Schools");
+
+
+			//To **replace all** matches, use a regular expression with a /g flag (global match):
+
+			/*
+			str = "Please visit Microsoft and Microsoft!";
+			var n = str.replace(/Microsoft/g, "W3Schools");	
+			*/
+
+
+
+
+			toUpperCase();
+			toLowerCase();
+
+
+			str.trim();
+			//The trim() method removes whitespace from both sides of a string:
+
+
+
+			charAt(); //method returns the character at a specified index (position) in a string
+
+			/*
+				var str = "HELLO WORLD";
+				str.charAt(0);            // returns H
+
+				OR
+
+				str[0];                   // returns H
+			*/
+
+			split();
+			//************A string can be converted to an array with the split() method
+
+			/*
+				var txt = "Hello";       // String
+				txt.split("");           // Split in characters
+			*/
+
+
+			//Hexadecimal is base 16. Decimal is base 10. Octal is base 8. Binary is base 2.
+
+
+
+		//--------------------------------------  ***** SESSION 5
+
+
+		//start from  JavaScript Number Methods
+
+
+
+		toString(); //method returns a number as a string.
+
+		toFixed(); //returns a string, with the number written with a specified number of decimals
+		
+		/*
+			var x = 9.656;
+			x.toFixed(0);           // returns 10
+			x.toFixed(2);           // returns 9.66
+			x.toFixed(4);           // returns 9.6560
+			x.toFixed(6);           // returns 9.656000
+		*/
+
+		toPrecision(); //returns a string, with a number written with a specified length
+
+		/*
+			var x = 9.656;
+			x.toPrecision();        // returns 9.656
+			x.toPrecision(2);       // returns 9.7
+			x.toPrecision(4);       // returns 9.656
+			x.toPrecision(6);       // returns 9.65600
+
+		**/
+		isNaN(); //check for isn't number
+
+		//There are 3 JavaScript methods that can be used to convert variables to numbers:
+
+		 Number();
+		 parseInt();
+		 parseFloat();
+
+
+		// You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array
+
+		///*****Accessing the ***Last*** Array Element
+
+		/*
+			fruits = ["Banana", "Orange", "Apple", "Mango"];
+			var last = fruits[fruits.length - 1];
+		*/
+
+			Adding Array Elements
+
+			/*
+
+			1.
+
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			fruits.push("Lemon");    // adds a new element (Lemon) to fruits
+			-------------------------------------------
+			2.
+
+
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			fruits[fruits.length] = "Lemon";    // adds a new element (Lemon) to fruits
+
+
+			*/
+
+
+			'JavaScript does not support associative arrays'.;
+
+				var points = new Array();     // Bad
+				var points = [];              // Good 
+
+
+			'How to Recognize an Array';
+
+			/*
+				1.
+
+				Array.isArray():
+
+					Array.isArray(fruits);   // returns true
+				
+				-----------------------------------------
+				2.
+
+				var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+					fruits instanceof Array;   // returns true
+
+			*/
+
+
+
+			toString(); //converts an array to a string of (comma separated) array values.
+				/*
+
+					var fruits = ["Banana", "Orange", "Apple", "Mango"];
+					document.getElementById("demo").innerHTML = fruits.toString();
+					Result:
+
+					Banana,Orange,Apple,Mango
+
+				*/
+
+			join(); //method also joins all array elements into a string.
+
+				//It behaves just like toString(), but in addition you can specify the separator
+
+				/*
+				
+					var fruits = ["Banana", "Orange", "Apple", "Mango"];
+					document.getElementById("demo").innerHTML = fruits.join(" * ");
+					Result:
+
+					Banana * Orange * Apple * Mango
+				*/
+
+			pop(); // method removes the last element from an array:
+
+			shift(); //method removes the first array element and "shifts" all other elements to a lower index
+
+			unshift() //method adds a new element to an array (at the beginning), and "unshifts" older elements
+
+
+
+			/**
+				var fruits = ["Banana", "Orange", "Apple", "Mango"];
+				fruits[0] = "Kiwi";        // Changes the first element of fruits to "Kiwi"
+
+			**/
+
+
+			var fruits = ["Banana", "Orange", "Apple", "Mango"];
+			delete fruits[0]; 
+
+			splice(); //method can be used to add new items to an array
+
+				/*
+					var fruits = ["Banana", "Orange", "Apple", "Mango"];
+					fruits.splice(2, 0, "Lemon", "Kiwi");
+
+				*/
+
+			concat(); //method creates a new array by merging (concatenating) existing arrays
+
+				/*
+					var myGirls = ["Cecilie", "Lone"];
+					var myBoys = ["Emil", "Tobias", "Linus"];
+					var myChildren = myGirls.concat(myBoys);   // Concatenates (joins) myGirls and myBoys
+
+				*/
+
+			slice(); //method slices out a piece of an array into a new array.
+
+			/**
+				var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+				var citrus = fruits.slice(1);
+
+				Banana,Orange,Lemon,Apple,Mango
+
+				Orange,Lemon,Apple,Mango
+
+
+			**/
+
+
+			//--------------------------------------  ***** SESSION 6
+
+			//start from JavaScript Sorting Arrays
+
+			sort(); //method sorts an array alphabetically
+
+			reverse(); //method reverses the elements in an array
+
+			/* Sort for number**/
+
+			var points = [40, 100, 1, 5, 25, 10];
+			points.sort(function(a, b){return a - b});
+
+			//reverse
+			var points = [40, 100, 1, 5, 25, 10];
+			points.sort(function(a, b){return b - a});
+
+			/**  Explain
+
+			When the sort() function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+
+			If the result is negative a is sorted before b.
+
+			If the result is positive b is sorted before a.
+
+			If the result is 0 no changes are done with the sort order of the two values.
+
+
+
+			**/
+
+			// indexs change Continuously   with down code
+
+			var points = [40, 100, 1, 5, 25, 10];
+
+			for (i = points.length -1; i > 0; i--) {
+			  j = Math.floor(Math.random() * i)
+			  k = points[i]
+			  points[i] = points[j]
+			  points[j] = k
+			}
+
+
+			Math.max.apply(); //You can use Math.max.apply to find the highest number in an array
+			Math.min.apply(); //You can use Math.min.apply to find the lowest number in an array
+			/*
+				return Math.max.apply(null, arr);
+
+				return Math.min.apply(null, arr);
+			*/
+
+
+
+
+			/****************Sorting Object Arrays**************/
+
+			var cars = [
+			  {type:"Volvo", year:2016},
+			  {type:"Saab", year:2001},
+			  {type:"BMW", year:2010}
+			];
+
+			cars.sort(function(a, b){return a.year - b.year});
+
+
+			///
+			Array.reduce(); // sum indexes
+			Array.filter();
+
+			Array.every(); //method check if all array values pass a test
+
+			Array.some(); //The some() method check if some array values pass a test.
+
+			Array.indexOf(); //The indexOf() method searches an array for an element value and returns its position.
+
+			Array.lastIndexOf();
+
+			Array.find(); //The find() method returns the value of the first array element that passes a test function.
+
+			/*
+
+				var numbers = [4, 9, 16, 25, 29];
+				var first = numbers.find(myFunction);
+
+				document.getElementById("demo").innerHTML = "First number over 18 is " + first;
+
+				function myFunction(value, index, array) {
+				  return value > 18;
+				}
+
+				First number over 18 is 25
+
+
+			**/
+
+			//--------------------------------------  ***** SESSION 7
+
+				//starting from Date Object
+
+				//Independent --> mostaghel
+
+				new Date();
+				// new Date(year, month, day, hours, minutes, seconds, milliseconds);
+				//Wed Mar 25 2015 04:30:00 GMT+0430 (Iran Daylight Time)
+
+				Date.parse(); //convert date to milliseconds 
+				//returns the number of milliseconds between the date and January 1, 1970:
+
+				getTime(); 
+				//method returns the number of milliseconds since January 1, 1970
+
+				getFullYear(); // e.g.  2020
+				//method returns the year of a date as a four digit number
+
+				getMonth(); 
+				//method returns the month of a date as a number (0-11):
+
+				//you can use an array of names, and getMonth() to return the month as a **name**:
+
+				/*Example
+					var d = new Date();
+
+					var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+					document.getElementById("demo").innerHTML = months[d.getMonth()];
+
+				*/
+
+				getDate(); 
+				//method returns the day of a date as a number (1-31):
+
+				getMinutes(); 
+				//method returns the minutes of a date as a number (0-59):
+
+				getSeconds(); 
+				//method returns the seconds of a date as a number (0-59):
+
+				getMilliseconds(); 
+				//method returns the milliseconds of a date as a number (0-999):
+
+				getDay(); 
+				//method returns the weekday of a date as a number (0-6):
+				//week (0) means "Sunday"
+
+				//You can use an array of names, and getDay() to return the weekday as a name:
+
+				/*Example
+					var d = new Date();
+					var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+					document.getElementById("demo").innerHTML = days[d.getDay()];
+				*/
+
+				getUTCDate();	
+				//Same as getDate(), but returns the UTC date
+				getUTCDay();	
+				//Same as getDay(), but returns the UTC day
+				getUTCFullYear();
+				//Same as getFullYear(), but returns the UTC year
+				getUTCHours();	
+				//Same as getHours(), but returns the UTC hour
+				getUTCMilliseconds();	
+				//Same as getMilliseconds(), but returns the UTC milliseconds
+				getUTCMinutes();	
+				//Same as getMinutes(), but returns the UTC minutes
+				getUTCMonth();	
+				//Same as getMonth(), but returns the UTC month
+				getUTCSeconds();	
+				//Same as getSeconds();, but returns the UTC seconds
+
+
+				////////  Set Date Methods
+					///Set Date methods are used for setting a part of a date:
+					/////Method	Description
+				setDate();	
+				//Set the day as a number (1-31)
+				setFullYear();	
+				//Set the year (optionally month and day)
+				setHours();
+				//Set the hour (0-23)
+				setMilliseconds();	
+				//Set the milliseconds (0-999)
+				setMinutes();	
+				//Set the minutes (0-59)
+				setMonth();	
+				//Set the month (0-11)
+				setSeconds();	
+				//Set the seconds (0-59)
+				setTime();	
+				//Set the time (milliseconds since January 1, 1970)
+
+
+
+				//--------------------------------------  ***** SESSION 8
+
+				//starting from Math Object
+
+				
+
+				Math.PI;            // returns 3.141592653589793
+				Math.round(4.7);    // returns 5
+				Math.round(4.4);    // returns 4
+				Math.pow(8, 2);      // returns 64
+				Math.sqrt(64);      // returns 8
+				Math.abs(-4.7);     // returns 4.7
+				Math.ceil(4.4);     // returns 5
+				Math.floor(4.7);    // returns 4
+				Math.sin(90 * Math.PI / 180);     // returns 1 (the sine of 90 degrees)
+				Math.cos(0 * Math.PI / 180);     // returns 1 (the cos of 0 degrees)
+				Math.min(0, 150, 30, 20, -8, -200);  // returns -200
+				Math.max(0, 150, 30, 20, -8, -200);  // returns 150
+				Math.random();     // returns a random number
+				Math.E;        // returns Euler's number
+				Math.PI;     // returns PI
+				Math.SQRT2;    // returns the square root of 2
+				Math.SQRT1_2;  // returns the square root of 1/2
+				Math.LN2;      // returns the natural logarithm of 2
+				Math.LN10;     // returns the natural logarithm of 10
+				Math.LOG2E;   // returns base 2 logarithm of E
+				Math.LOG10E;   // returns base 10 logarithm of E
+				abs();	    //Returns the absolute value of x
+				acos();	   //Returns the arccosine of x, in radians
+				acosh();	//Returns the hyperbolic arccosine of x
+				asin();	   //Returns the arcsine of x, in radians
+				asinh();	//Returns the hyperbolic arcsine of x
+				atan();//Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians
+				atan2(y, x);	//Returns the arctangent of the quotient of its arguments
+				atanh();	//Returns the hyperbolic arctangent of x
+				cbrt();	//Returns the cubic root of x
+				ceil();	//Returns x, rounded upwards to the nearest integer
+				cos();	//Returns the cosine of x (x is in radians)
+				cosh();	//Returns the hyperbolic cosine of x
+				exp();	//Returns the value of Ex
+				floor();	//Returns x, rounded downwards to the nearest integer
+				log();	        //Returns the natural logarithm (base E) of x
+				max(x, y, z, ..., n);	//Returns the number with the highest value
+				min(x, y, z, ..., n);	//Returns the number with the lowest value
+				pow(x, y);	  //Returns the value of x to the power of y
+				random();	 //Returns a random number between 0 and 1
+				round();	//Rounds x to the nearest integer
+				sin();	       //Returns the sine of x (x is in radians)
+				sinh();	           //Returns the hyperbolic sine of x
+				sqrt();	          //Returns the square root of x
+				tan();	        //Returns the tangent of an angle
+				tanh();	      //Returns the hyperbolic tangent of a number
+				trunc();	  ///Returns the integer part of a number (x)  /// Beraket
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

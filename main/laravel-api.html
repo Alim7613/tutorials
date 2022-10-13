@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>laravel api</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						laravel	api				 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/Laravel-api.png" width="150" height="150"></p>
+
+<i class="ti or"> {{ &nbsp; &nbsp;   laravel&nbsp;&nbsp; API  &nbsp; &nbsp; }}</i>
+<br />
+
+<h2 class="y">------   CORS   ------</h2> 
+<br />
+
+
+<video  autoplay loop controls>
+<source src="../img/cors1.mp4" ></source>
+</video>
+<br />
+<video  autoplay loop controls>
+<source src="../img/cors2.mp4" ></source>
+</video>
+<br />
+<video  autoplay loop controls>
+<source src="../img/cors3.mp4" ></source>
+</video>
+ <br />
+ 
+<p>Cross origin resources sharing&nbsp;</p>
+
+<p dir="rtl"><br />
+به اشتراک گذاری <span style="color:#f1c40f">منابع متقابل</span></p>
+
+<p dir="rtl">یک مکانیسم <span style="color:#d35400">http header</span> است که <span style="color:#e74c3c">بررسی می کند که آیا سرور به منابع خارجی برای ارسال درخواست اجازه می دهد یا نه</span>.</p>
+
+<p dir="rtl"><br />
+در این اصل <span style="color:#9b59b6">مرورگر </span>هدرهایی را ارسال می کند که <span style="color:#ff0099">نشان می دهد درخواست ارسالی واقعی</span> است.</p>
+
+<p dir="rtl"><br />
+نمونه ای از<span style="color:#3498db"> cross-origin request</span> این است که درخواست از<span style="color:#9b59b6"> دامنه a با جاوااسکریپت و ایجکس به دامنه b فرستاده می شود</span> تا اطلاعاتی در قالب json دریافت کند.</p>
+
+<p dir="rtl">برای <span style="color:#f39c12">حفظ امنیت</span>, مرورگرهای <span style="color:#ff0099">مدرن &nbsp;</span><span style="color:#e67e22">cross-origin HTTP requests</span> &nbsp;را که از <span style="color:#27ae60">اسکریپت </span>ها می ایند، <span style="color:#9b59b6">محدود </span>می کنند.</p>
+
+<p dir="rtl"><br />
+در حالت عادی web application &nbsp;به <span style="color:#f1c40f">request </span>هایی <span style="color:#9b59b6">اجازه عبور می دهد</span> که از<span style="color:#e74c3c"> api مشابه web application</span> &nbsp;باشند.&nbsp;<br />
+در غیر این صورت <span style="color:#ff0099">اگر دامنه و web application &nbsp;متفاوت باشد</span> و درخواست به <span style="color:#e74c3c">منبع دیگر ارسال شود باید شامل CORS headers های مناسب</span> باشد.</p>
+
+<p dir="rtl"><br />
+مکانیسم <span style="color:#9b59b6">CORS </span>از<span style="color:#e67e22"> درخواستهای امن و انتقال داده بین مرورگرها و سرورها پشتیبانی</span> می کند</p>
+
+<p dir="rtl"><br />
+مرورگرهای مدرن از CORS در <span style="color:#e74c3c">API </span>هایی مانند <span style="color:#d35400">XMLHttpRequest </span>یا <span style="color:#d35400">Fetch </span>استفاده می کنند <span style="color:#e74c3c">تا خطرات درخواست های HTTP مبدا را کاهش</span> دهند.</p>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">مرورگر های <span style="color:#9b59b6">مدرن </span><span style="color:#d35400">front </span>درخواست های <span style="color:#ff0099">http cors</span> را مدیریت می کنند اما <span style="color:#e74c3c">هندل اصلی توسط سرور</span> انجام می شود.</p>
+
+<p dir="rtl">در داخل <span style="color:#2ecc71">css</span> دستور <span style="color:#e67e22">@font-face</span> از <span style="color:#d35400">cors برای دریافت فونت ها ttf</span> استفاده می کند.</p>
+
+<p dir="rtl"><br />
+یک <span style="color:#ff0099">CORS استاندارد</span> کار می کند <span style="color:#e74c3c">با اضافه کردن یک http header که به سرور می فهماند که اجازه دسترسی برای گرفتن اطلاعات بدهد</span>.</p>
+
+<p dir="rtl"><br />
+<span style="color:#f39c12">قبل </span>از ارسال درخواست به سرور &nbsp;مرورگر با سرور <span style="color:#9b59b6">هدف تعامل می کند</span> و بررسی می کند که <span style="color:#f39c12">ایا سرور اجازه دریافت اطلاعات را می دهد یا خیر</span>.</p>
+
+<p dir="rtl"><br />
+<span style="color:#e74c3c">خرابی CORS منجر به خطا می شود </span>، اما به دلایل <span style="color:#e67e22">امنیتی </span>، <span style="color:#e74c3c">جزئیات مربوط به خطا در دسترس جاوا اسکریپت نیست و تنها در کنسول مرورگر می توانیم ببینیم که ارور CORS روی داده است.</span></p>
+ 
+
+<div class="code"><p><br />
+<br />
+<span style="color:#d35400">Access-Control-Allow-Origin</span>: <span style="color:#f1c40f">*</span></p></div> 
+<p dir="rtl">می گوید که<span style="color:#e74c3c"> هر مبدایی با هر ادرسی می تواند به سرور ما درخواست ارسال کند و اطلاعات دریافت کند</span>.</p>
+
+<br />
+<div class="code"><p><br />
+<span style="color:#d35400">Access-Control-Allow-Origin</span>: <span style="color:#f1c40f">https://foo.example</span></p></div> 
+
+<p dir="rtl">یعنی <span style="color:#e74c3c">هیچ دامنه ای غیر از https: //foo.example نمی تواند به سایت ما درخواست ارسال کن</span>د.</p>
+<p dir="rtl"><br />
+به<span style="color:#9b59b6"> درخواستی که توسط مرورگر برای بررسی اجازه سرور قبل از درخواست اصلی ارسال می شود</span> <span style="color:#e74c3c">preflight </span>می گویند.</p>
+<br />
+
+<div class="code"><p><span style="color:#d35400">Access-Control-Request-Method</span>: <span style="color:#f1c40f">POST</span></p></div> 
+<p dir="rtl">با این دستور می توان <span style="color:#e74c3c">نوع متودی که اجازه درخواست به سرور را دارد</span> مشخص کرد</p>
+<br />
+
+<div class="code"><p><span style="color:#d35400">Access-Control-Request-Headers</span></p></div> 
+<p dir="rtl"><br />
+این مورد مشخص می کند که <span style="color:#e74c3c">درخواست اصلی شامل چه هدرهایی است و به سرور اجازه می دهد که تصمیم بگیرد یا درخواست را با این هدرها بپذیرد یا رد کند</span>.</p>
+<p dir="rtl"><br />
+سربرگ <span style="color:#e74c3c">Access-Control-Allow-Origin</span> شیوه به<span style="color:#f1c40f"> اشتراک گذاری منابع را با دامنه&zwnj;های خارجی</span> تعیین می&zwnj;کند.</p>
+
+<p dir="rtl">این مقدار در بیشتر اوقات برابر با <span style="color:#e74c3c">* </span>است که به <span style="color:#f1c40f">معنای اجازه به اشتراک گذاری منابع با هر دامنه دیگری است</span>. گاهی اوقات نیز ممکن است این مقدار<span style="color:#9b59b6"> برابر با یک لیست از وبسایت&zwnj;های مختلف </span>باشد که تنها اجازه اشتراک گذاری با آن&zwnj;ها داده می&zwnj;شود</p>
+
+<p dir="rtl"><br />
+سربرگ <span style="color:#27ae60">HTTP </span>جایی&zwnj; است&nbsp;که قرار است برای <span style="color:#9b59b6">مدیریت CORS به ما کمک بکند</span>.</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#f1c40f">same-origin</span></p>
+
+<p dir="rtl"><br />
+یک پروتکل<span style="color:#e74c3c"> به شدت ضعیف و محدود کننده</span> است که <span style="color:#f39c12">فقط اجازه می دهد اطلاعات را از یک origin با دامنه و پورت یکسان</span> دریافت کنیم. یعنی فقط به درخواستی اطلاعات داده می شود که <span style="color:#e67e22">روی دامنه سایت </span>ارسال شده باشد و نه از مبدا دیگری.</p>
+
+<p dir="rtl">مرورگر<span style="color:#e74c3c"> فقط یک header خاص</span> را برای <span style="color:#f1c40f">مجاز دانستن درخواست های cross-origin می خواهد</span> و آن هم <span style="color:#e74c3c">Access-Control-Allow-Origin</span> می باشد. م<span style="color:#ff0099">قداری که به این header می دهید مشخص خواهد کرد که چه مقصد هایی می توانند به این منبع (سرور ما) درخواست ارسال کنند.</span></p>
+
+<p dir="rtl">به طور مثال اگر قرار است وب سایت https://mywebsite.com به سرور و وب سایت ما (مثلا https://api.mywebsite.com) <span style="color:#4e5f70">دسترسی </span>داشته باشد باید آن را به <span style="color:#e67e22">header </span>ذکر شده پاس بدهیم:</p>
+
+<p dir="rtl">یعنی سایتی که درخواست را برای ما ارسال می کند آدرس خودش را در هدر مشخص کرده باشد.</p>
+
+<p dir="rtl">حالا این مورد با Access-Control-Allow-Origin که در <span style="color:#e74c3c">سمت سرور </span>ست شده است مقایسه می شود. <span style="color:#d35400">اگر این دو یکی نباشند اجازه ارسال درخواست را نخواهید داشت.</span></p>
+
+<p dir="rtl">در نظر داشته باشید که<span style="color:#9b59b6"> Access-Control-Allow-Origin</span> می تواند مقدار <span style="color:#f1c40f">*</span> را نیز بگیرد که در این صورت <span style="color:#f39c12">تمام درخواست های CORS از هر منبعی مجاز خواهند بود</span>. <span style="color:#e74c3c">انجام این کار پیشنهاد نمی شود چرا که خطرات امنیتی خاص خودش را دارد.</span></p>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<h2 class="y">------   HTTP Protocol   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">مخفف <span style="color:#f1c40f">Hyper Text Transfer Protocol</span> است و به <span style="color:#e67e22">ارتباط میان سرویس دهنده (Server) و سرویس گیرنده (Client)</span> می پردازد.</p>
+
+<p dir="rtl">چون کل سند <span style="color:#e67e22">HTML و سایر فایل های همراه مانند اسکریپت ها و استایل ها</span> <span style="color:#9b59b6">خیلی متن بزرگی</span> را می سازند به همین علت به<span style="color:#e74c3c">&nbsp;Hyper Text</span> اشاره می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">ما یکسری <span style="color:#e74c3c">http request </span>و یکسری <span style="color:#e74c3c">http response&nbsp;</span> داریم.</p>
+
+<p dir="rtl">زمانی که کاربر <span style="color:#9b59b6">درخواست می ده</span>د یک&nbsp;<span style="color:#d35400">http request به سمت سرور</span> ارسال می شود و سرور <span style="color:#9b59b6">با توجه به درخواست</span> یک&nbsp;<span style="color:#d35400">http response&nbsp; برمی گرداند</span>. <span style="color:#ff0099">پس از تحویل پیام</span>، <span style="color:#e74c3c">سرور اتصال را می بندد </span>به همین دلیل <span style="color:#d35400">HTTP یک پروتکل بی حالت یا stateless است</span>. یعنی <span style="color:#e74c3c">نمی تواند هیچ اطلاعاتی از اتصال را درخود نگه دارد</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">هر دو پیام&nbsp; <span style="color:#27ae60">http request </span>و&nbsp;<span style="color:#27ae60">http response</span>&nbsp; شامل بخش های زیر هستند.</p>
+
+<p dir="rtl">-<span style="color:#f1c40f"> خط آغاین</span></p>
+
+<p dir="rtl">- <span style="color:#f1c40f">صفر یا چند خط هدر</span></p>
+
+<p dir="rtl">- <span style="color:#f1c40f">یک خط خالی</span></p>
+
+<p dir="rtl">-<span style="color:#f1c40f"> یک متن پیام اختیاری</span></p>
+
+<div class="code"><p>HTTP/1.0 <span style="color:#27ae60">200 </span>OK</p>
+
+<p>Content-Type: text/html</p>
+
+<p>Content-Length: 1345</p>
+
+<p>&nbsp;</p>
+
+<p>&lt;html&gt;</p>
+
+<p>&lt;body&gt; ....&nbsp;&lt;/body&gt;</p>
+
+<p>&lt;/html&gt;</p></div> 
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   HTTPS   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+
+<p dir="rtl"><span style="color:#e67e22">مشکل </span>اصلی HTTP این است که <span style="color:#e74c3c">داده ها را رمزنگاری نمی کند</span> و به <span style="color:#f1c40f">همین دلیل شخصی ثالث می تواند به راحتی این اطلاعات دست پیدا کند</span>. اما می توان به راحتی با <span style="color:#e74c3c">HTTPS</span><span style="color:#d35400"> امنیت را به درجه بالاتری</span> برد.</p>
+
+<p dir="rtl">برای انجام این کار باید از <span style="color:#ff0099">گواهینامه SSL </span>استفاده کنیم. این گواهینامه به منظور<span style="color:#e74c3c"> ایجاد یک لایه امنیتی در اتصال بین مرورگر و سرور</span> انجام می شود. این موضوع برای سایت هایی که <span style="color:#d35400">فعالیت اقتصادی دارند</span> و یا <span style="color:#d35400">از درگاه پرداخت آنلاین</span> استفاده می کنند، <span style="color:#2ecc71">بسیار بااهمیت</span> است.</p>
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   Headers   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#d35400">http headers</span> حاوی<span style="color:#f39c12"> اطلاعاتی در رابطه با نوع درخواست ما</span> هستند. همچنین <span style="color:#e67e22">یک رابط را بین کلاینت و پاسخ سرور</span> ایجاد می کنند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">Http Headers به <span style="color:#ff0099">3 دسته تقسیم</span> میشوند.</p>
+
+<p dir="rtl"><span style="color:#ff0099">1</span>. <span style="color:#e74c3c">Http Request Headers</span></p>
+
+<p dir="rtl"><span style="color:#ff0099">2</span>. <span style="color:#e74c3c">Http General Headers</span></p>
+
+<p dir="rtl"><span style="color:#ff0099">3</span>. <span style="color:#e74c3c">Http Response Headers</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در حقیقت <span style="color:#f39c12">وظیفه هدر ها این است که یکسری اطلاعات را به سرور یا مرورگر بدهند</span> تا براساس این اطلاعات<span style="color:#d35400"> مرورگر یا سرور کارخاصی را انجام دهند</span>. مثلا پاسخ با <span style="color:#f1c40f">فرمت خاص مانند json </span>برگردانند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f"><span style="font-size:20px">&nbsp;---- Http Request Headers&nbsp; --- -</span></span></p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">به <span style="color:#2ecc71">هدرهایی</span> که در <span style="color:#d35400">زمان request یا درخواست به سرور ارسال می شوند</span>، می گوییم. مثلا وقتی به عنوان<span style="color:#f1c40f"> یک درخواست دهنده</span> از طریق یک <span style="color:#9b59b6">Http Client Device</span> مثل browser- command line- postman- android device و ... درخواست ارسال می کنید، می توانید<span style="color:#f39c12"> Request Header</span> ست کنید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">یکسری </span>هدرهای مربوط به <span style="color:#e67e22">request</span></p>
+
+<p dir="rtl"><span style="color:#e74c3c">Accept</span>: به معنی <span style="color:#e74c3c">انواع mime-type هایی که مرورگر کلاینت پشتیبانی</span> می کند</p>
+
+<div class="code"><p><span style="color:#f1c40f">Accept</span>: <span style="color:#3498db">text/html</span>,<span style="color:#3498db">text/css</span>,<span style="color:#3498db">text/plain</span>,<span style="color:#3498db">application/json</span>,<span style="color:#3498db">application/xhtml+xm</span>,<span style="color:#3498db">...</span></p></div>
+
+ <p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">Host</span>: مشخص کننده <span style="color:#d35400">نام هاستی که به آن درخواست ارسال</span> می شود.</p>
+<div class="code"><p><span style="color:#f1c40f">Host</span>: example.io</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">User-Agent</span>: اطلاعات <span style="color:#d35400">دستگاه درخواست دهنده</span>. مثلا دستگاه با سیستم عامل مک و مرورگر فایرفاکس</p>
+
+<div class="code"><p><span style="color:#f1c40f">User-Agent</span>: <span style="color:#9b59b6">Mozilla</span>/5.0 (<span style="color:#2ecc71">Macintosh</span>; <span style="color:#3498db">intel </span><span style="color:#9b59b6">Mac </span>OS X 10.13; rv:<span style="color:#9b59b6">64</span>.0) Gecko/20100101 <span style="color:#f1c40f">Firefox</span>/<span style="color:#f1c40f">64.0</span></p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">Referer</span>: مشخص می کند که از<span style="color:#d35400"> کجا به اینجا آمده</span>. مثلا ار گوگل به سایت دیجی کالا رفتم. این می شود به شکل زیر. درواقع به <span style="color:#27ae60">نوعی معادل همان دکمه back مرورگر</span> است.</p>
+
+<div class="code"><p><span style="color:#f1c40f">Referer</span>: http://google.com</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">Accept-Language</span>: <span style="color:#d35400">زبان </span>مورد نظر. در برخی وبسیات های<span style="color:#d35400"> چند زبانه مانند گوگل به ازای این هدر اطلاعات</span> به شکل زیر باز می گردند.</p>
+
+<div class="code"><p><span style="color:#f1c40f">Accept-Language</span>:<span style="color:#e67e22"> en-US</span>,<span style="color:#e67e22">fr-CA</span>,<span style="color:#e67e22">...</span></p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">Authentication</span>: برای <span style="color:#d35400">احراز هویت</span> است که شامل بخش های زیر است.</p>
+<p dir="rtl">- <span style="color:#cc0066">Basic Auth</span></p>
+
+<p dir="rtl">-<span style="color:#cc0066">Bearer Token</span></p>
+
+<p dir="rtl">- <span style="color:#cc0066">Api Key</span></p>
+
+<p dir="rtl">-<span style="color:#cc0066"> OAuth 2.0</span></p>
+
+<p dir="rtl">&nbsp;- ...</p>
+
+<div class="code"><p><span style="color:#f1c40f">Authentication</span>: <span style="color:#e74c3c">Basic </span>AxVubdkokDFjhdfkl YM==&nbsp; &nbsp;==&gt; تقریبا منسوج شده</p>
+
+<p><span style="color:#f1c40f">Authorization</span>:&nbsp;<span style="color:#e74c3c">Bearer </span>&lt;token&gt;</p>
+
+<p><span style="color:#f1c40f">X-API-Key</span>: dskljfkdj34343</p>
+
+<p><span style="color:#f1c40f">Authorization</span>:&nbsp;<span style="color:#e74c3c">Bearer </span>FDSFvksdf_fsdjf</p></div> 
+
+
+<p>&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="font-size:20px"><span style="color:#f1c40f">----&nbsp; HTTP General Headers&nbsp; ----&nbsp;</span></span></p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">هدرهایی هستند که در<span style="color:#d35400"> هم در request و هم در response وجود</span> دارند. برخی از این موارد عبارتند از:</p>
+
+<p dir="rtl"><span style="color:#e74c3c">Date</span>:<span style="color:#d35400"> زمان ارسال درخواست یا دریافت پاسخ</span> را مشخص می کند.</p>
+
+<div class="code"><p><span style="color:#f1c40f">Date</span>: Sun, 16 Dec 2018 12:25:21 GMT</p></div> 
+
+<p dir="rtl"><span style="color:#e74c3c">Content-Type</span>: این <span style="color:#d35400">هدر در زمان ارسال پاسخ به کلاینت</span>&nbsp;می فهماند که <span style="color:#e74c3c">data های پاسخ با فرمتی ارسال شوند</span>. همچنین در <span style="color:#f39c12">زمان ارسال درخواست به سرور کلاینت به وسیله این هدر به سرو</span>ر می گوید که <span style="color:#d35400">داده ها ورودی درخواست با چه فرمتی به سمت سرور ارسال شوند</span>.<span style="color:#9b59b6"> application/json</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">یکی از راه های<span style="color:#9b59b6"> ارسال درخواست</span>، <span style="color:#e74c3c">فرم های HTML </span>هست. <span style="color:#d35400">ویژگی enctype در فرم به معنای این است</span> که <span style="color:#f39c12">نوع داده ای که به سمت سرور می فرستیم چگونه است</span>. دقیقا <span style="color:#e74c3c">مقدار این ویژگی در هدر قرار می گیرد</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">مقادیر در <span style="color:#9b59b6">دسترس</span> برای&nbsp;<span style="color:#f1c40f">enctype </span>به شرح زیر هستند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">application/x-www-form-urlencoded</span>: به طور <span style="color:#f39c12">پیشفرض </span>در این نوع <span style="color:#d35400">space به + و کاراکترهای خاص به مقادبر ASC معادلشان encode</span> می شوند.</p>
+
+<p dir="rtl"><span style="color:#ff0066">multipart/form-data</span>: داده همراه <span style="color:#d35400">مقدار فایل</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">text/plain</span>: نوع ساده. همان کار<span style="color:#9b59b6">&nbsp;application/x-www-form-urlencoded را انجام می دهد</span> با این تفاوت که <span style="color:#d35400">کاراکترهای خاص encode نمی شوند</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">application/json</span>: اگر از کلاینت دیگری استفاده می شود که <span style="color:#d35400">نیاز است داده های ورودی در قالب JSON ارسال شود</span>، می توان مقدار&nbsp;enctype را برابر <span style="color:#9b59b6">application/json</span> قرار داد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="font-size:20px"><span style="color:#f1c40f">&nbsp;---- HTTP Response Headers -----</span></span></p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">هدرهایی که <span style="color:#e74c3c">توسط سرور در زمان ارسال پاسخ به کلاینت</span>، ارسال می شوند. این هدرها چون<span style="color:#d35400"> توسط سرور کنترل</span> می شوند، در<span style="color:#e74c3c"> مرورگر قابل تغییر نمی باشند</span>. برخی از این هدرها عبارتند از:</p>
+
+<p dir="rtl"><span style="color:#ff0066">Server</span>: <span style="color:#d35400">اطلاعاتی در ارتباط با سرور</span> ارسال می کند.</p>
+
+<div class="code"><p><span style="color:#f1c40f">Server</span>: LiteSpeed</p></div> 
+
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">Set-Cookie</span>: <span style="color:#d35400">کوکی هایی که به دستور سرور باید در مرورگر کاربر ذخیره شوند</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">Location</span>: <span style="color:#d35400">آدرس url که کاربر باید به آن ارسال شود</span>. به طور کل از <span style="color:#d35400">این هدر برای ارسال کاربر به مکان های مختلف پس از انجام پردازش</span> استفاده می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">Content-length</span>: طول <span style="color:#d35400">Entity-body</span> مربوط به response</p>
+
+<p dir="rtl"><span style="color:#ff0066">WWW-Authenticate</span>: این هدر <span style="color:#d35400">نوع الگوریتم authentication </span>را تعیین می کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   Status Code   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<div style="text-align:right;">
+<p dir="rtl">به این موارد<span style="color:#e74c3c"> کدهای وضعیت</span> گفته می شود که<span style="color:#d35400"> 3 رقمی</span> هستند و <span style="color:#f39c12">توسط سرور در پاسخ به درخواستی که از طرف کلاینت به سرور ارسال شده است، صادر می شوند</span>.</p>
+
+<p dir="rtl">این کدها به <span style="color:#e74c3c">معنای مکالمه بین کلاینت و سرور هستند</span> و <span style="color:#9b59b6">سالم بودن یا وجود مشکل، به وسیله این کدها اعلام </span>می شود.</p>
+
+<p dir="rtl"><span style="color:#d35400">عدد اول کدهای وضعیت</span> نشان می دهد که این کدها <span style="color:#e74c3c">در کدام یک از 5 گروه اصلی کدهای وضعیت</span> قرار دارند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">Status code</span> ها به طور کلی به <span style="color:#27ae60">5 گروه زی</span>ر تقسیم می شوند.</p>
+
+<p dir="rtl"><span style="color:#ff0066">1</span>.&nbsp; <span style="color:#999900">1xx</span>&nbsp; &nbsp; --&gt;&nbsp; &nbsp;<span style="color:#d35400">اطلاعاتی</span>: <span style="color:#e74c3c">سرور درخواست شما را دریافت کرده و روند ادامه دارد</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">2</span>.&nbsp; <span style="color:#999900">2xx</span>&nbsp; &nbsp; --&gt;&nbsp;&nbsp;<span style="color:#d35400"> موفقیت آمیز</span>: درخواست<span style="color:#e74c3c"> موفقیت آمیز بوده</span> و <span style="color:#ff0066">کلاینت اطلاعات مورد نظر را دریافت کرده است</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">3</span>.&nbsp; <span style="color:#999900">3xx&nbsp;&nbsp;</span>&nbsp; --&gt;&nbsp;&nbsp;<span style="color:#d35400"> تغییر مسیر</span>: این <span style="color:#e74c3c">سری معمولا کدهای مربوط به ریدایرکت</span> هستند. این به این معنی است که <span style="color:#9b59b6">مجددا هدایت شوید به یک آدرس خاص و تکمیل درخواست به اقدامات بیشتری نیازی</span> دارد.</p>
+
+<p dir="rtl"><span style="color:#ff0066">4</span>.&nbsp; <span style="color:#999900">4xx</span>&nbsp; &nbsp; --&gt;&nbsp; &nbsp;<span style="color:#d35400">خطای کاربر</span>: <span style="color:#e74c3c">دسترسی به وبسایت یا صفحه مورد ممکن نیست</span>. معمولا صفحه <span style="color:#ff0066">غیرقابل دسترسی است یا درخواست یه نحو مناسبی ارسال نشده</span> است.</p>
+
+<p dir="rtl"><span style="color:#ff0066">5</span>.&nbsp;<span style="color:#999900"> 5xx</span>&nbsp; &nbsp; --&gt;&nbsp; &nbsp;<span style="color:#d35400">خطای سرور</span>:&nbsp; در حالی که <span style="color:#ff0066">درخواست معتبر است</span>، <span style="color:#e74c3c">سرور نمی تواند درخواست را انجام دهد</span>. (<span style="color:#f1c40f">مشکل از سمت سرور</span>)</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e67e22">پرکاربردترین </span>status code ها</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">100&nbsp; &nbsp;&nbsp;</span>=&gt;&nbsp; &nbsp; سرور به مرورگر میگه که <span style="color:#d35400">من اطلاعات را دریافت </span>کردم.</p>
+
+<p dir="rtl"><span style="color:#ff0066">101&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;برای <span style="color:#d35400">تغییر پروتکل</span> است. مثلا <span style="color:#9b59b6">میخواهیم پروتکل را از http1.0 به http1.1 تغییر دهیم</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">102&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;گاهی <span style="color:#d35400">درخواست کاربر به سرور به زمان زیادی نیاز دارد</span> تا پاسخ برگردد. در این صورت <span style="color:#e67e22">سرور به مرورگر میگه که من اطلاعات رو دریافت کردم و در حال پردازش آن</span> هستم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">200&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;به معنای <span style="color:#d35400">موفقیت </span>است و <span style="color:#27ae60">OK</span>. یعنی <span style="color:#ff0066">درخواست به درستی انجام شده و پاسخ هم برگردانده شده</span> است.</p>
+
+<p dir="rtl"><span style="color:#ff0066">201&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp; به معنای <span style="color:#d35400">created </span>است. برای مثال ما می گوییم به سرور که <span style="color:#3498db">فلان post رو ایجاد کن در دیتابیس. سرور پست را ایجاد می کند و در جواب موفقیت آمیز بودن آن 201 برمی گرداند</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">202&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;یعنی<span style="color:#d35400"> request دریافت شده است توسط سرور اما هنوز پردازش شروع نشده </span>است.</p>
+
+<p dir="rtl"><span style="color:#ff0066">204&nbsp; &nbsp;&nbsp;</span>=&gt;&nbsp; &nbsp;به معنای<span style="color:#d35400"> non-content</span> است و یعنی <span style="color:#d35400">سرور اطلاعات خاصی برنگردانده </span>است. مثالا وقتی<span style="color:#9b59b6"> پست را حفظ می کنیم، هیچ اطلاعاتی نیاز نیست برگردد. که در این صورت می توانیم از این کد استفاده کنیم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">301&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;به معنای<span style="color:#d35400"> permanent redirect</span> است و یعنی<span style="color:#ff0066"> ریدایرکت دائمی</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">302</span>&nbsp; &nbsp;=&gt;&nbsp; <span style="color:#d35400">&nbsp;temporary redirect</span> یا <span style="color:#ff0066">ریدایرکت موقت</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">400&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;<span style="color:#d35400">bad request </span>: درخواست<span style="color:#f39c12"> به درستی ارسال نشده و سرور نمی تواند آن را پردازش</span> کند.</p>
+
+<p dir="rtl"><span style="color:#ff0066">401&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;<span style="color:#d35400">Unauthorized</span>: یعنی<span style="color:#e74c3c"> برای انجام این درخواست شما باید لاگین کرده باشید اما هنوز لاگین نکرده اید</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">403&nbsp; &nbsp;</span>=&gt;&nbsp; <span style="color:#d35400">Forbidden</span>: یعنی <span style="color:#e74c3c">اجازه استفاده از این درخواست به شما داده نشده است. شما مجوز استفاده نداری</span>د.</p>
+
+<p dir="rtl"><span style="color:#ff0066">404&nbsp; &nbsp;</span>=&gt;&nbsp;<span style="color:#d35400"> not Found</span> : <span style="color:#ff0066">درخواست مورد نظر قابل اجرا نیست</span> چون اصلا وجود ندارد. مثال<span style="color:#9b59b6"> شما کامنت ها رو درخواست کردی اما سرور اصلا کامنتی ندارد که برگردان</span>د.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0066">500&nbsp;&nbsp;</span>=&gt;&nbsp;&nbsp;<span style="color:#cc0066">همچی اوکی است اما سرور به هر دلیل نمی تواند پاسخ را برگرداند</span>.</p>
+</div>
+<p dir="rtl">&nbsp;</p>
+
+
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   API & Rest Architecture   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#cc0066">API </span>==&gt; مخفف&nbsp; <span style="color:#d35400">Application Programming Interface</span> است و به زبان ساده یعنی ب<span style="color:#f1c40f">خشی از برنامه است که وظیفه ارائه اطلاعات</span> را دارد.<span style="color:#e67e22"> پس از دریافت درخواست یک نرم افزار</span>، یک پ<span style="color:#3498db">اسخ به همراه اطلاعات درخواست شده برمی گرداند به درخواست کننده</span>.</p>
+<p dir="rtl">&nbsp;</p>
+<img src="../img/apis.jpg" style="width:100%;">
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">API  ==>  رابط برنامه نویسی اپلیکیشن</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">انواع<span style="color:#e67e22"> API</span></p>
+
+<p dir="rtl">- <span style="color:#cc0066">API سخت افزاری</span>&nbsp; &nbsp; ==&gt; مثلا یک <span style="color:#9b59b6">بازی سنگین انجام می دهیم</span>. فن درخواست می دهد که فن روشن شود. این<span style="color:#3498db"> یک درخواست </span>است.</p>
+
+<p dir="rtl">- <span style="color:#cc0066">API سیستم عاملی</span>&nbsp; &nbsp; ==&gt;<span style="color:#9b59b6"> یک برنامه در سیستم عامل برنامه دیگری را صدا بزند.</span></p>
+
+<p dir="rtl">- <span style="color:#cc0066">API زبان های برنامه نویسی&nbsp;</span> &nbsp;==&gt; استفاده از <span style="color:#2ecc71">توابع یک زبان برنامه نویسی برای ایجاد یک کتابخانه</span>.</p>
+
+<p dir="rtl">- <span style="color:#cc0066">کیت های توسعه نرم افزار (SDK)</span></p>
+
+<p dir="rtl">- <span style="color:#cc0066">API تحت وب یا وب سرویس</span>&nbsp; &nbsp; ==&gt;<span style="color:#f1c40f"> هدف ما در وبسایت ها</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">انواع&nbsp;&nbsp;API تحت وب یا وب سرویس</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">1.&nbsp; <span style="color:#cc0066">PRC</span>: مخفف<span style="color:#e67e22"> Programmable Remote Client</span> است که در دو نوع <span style="color:#e74c3c">JSON-PRC</span>&nbsp; و <span style="color:#e74c3c">XML-PRC&nbsp;</span> عرضه شده است.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">2. <span style="color:#ff0066">SOAP</span>: مخفف<span style="color:#d35400"> Simple Object Access Protocol</span> است که پروتکلی است که<span style="color:#e74c3c"> متود ارتباط، نحوه ارسال درخواست، دریافت پایخ و همچنین فرمت پاسخ ها را تعیین</span> می کند. به عبارت دیگر این شکل از API راهی است که ا<span style="color:#f1c40f">ز آن طریق سیستم ها از طریق فرمتی که قابل درک برای هر دو طرف کانکشن است</span> می توانند با یک دیگر ارتباط برقرار کنند.&nbsp;</p>
+
+<p dir="rtl">&nbsp;برخی<span style="color:#f39c12"> درگاه های بانکی </span>از SOAP استفاده می کنند. اما <span style="color:#d35400">محبوبیت آن بسیار کمتر شده است و همه به سمت استفاده از REST</span> رفته ااند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">3. <span style="color:#ff0066">REST</span>: مخفف <span style="color:#d35400">Representational State Transfer </span>است که برخلاف موارد قبلی <span style="color:#3498db">یک پروتکل به حساب نمی آید </span>و <span style="color:#e74c3c">نوعی معماری قدرتمند است که نسبت به بقیه کاربر آسان تری دارد</span> و به همین دلیل امروز <span style="color:#f1c40f">فراگیرتر </span>شده است. (<span style="color:#f39c12">محبوب تر و پرکاربرد تر</span>)</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">4. <span style="color:#ff0066">GraphQL</span>: استانداردی <span style="color:#f39c12">جدیدتر </span>نسبت به REST است که برای طراحی و <span style="color:#2ecc71">توسعه API به کار می رود</span> و به شکل <span style="color:#3498db">open source توسط فیسبوک </span>ارائه شده است. این معماری <span style="color:#e74c3c">در پاسخ به نقدها و برخی مشکلات REST ارائه شده</span> است تا بتواند راهکار جامع و اثربخش تری در توسعه <span style="color:#9b59b6">API </span>باشد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   REST   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">زمانی که ما از <span style="color:#f39c12">REST </span>استفاده می کنیم یعنی داریم <span style="color:#d35400">یک لایه خاص با کاربرهای ویژه را روی سرور خود برای ارتباط با API ها</span> قرار می دهیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f1c40f">متودهای </span>REST</p>
+
+<p dir="rtl"><span style="color:#ff0066">GET</span>:&nbsp; برای <span style="color:#d35400">بازیابی و خواندن اطلاعات&nbsp;</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">POST</span>: معمولا برای<span style="color:#d35400"> ایجاد دیتای جدید</span> استفاده می شود.</p>
+
+<p dir="rtl"><span style="color:#ff0066">PUT&nbsp; </span>&amp;&nbsp; &nbsp;<span style="color:#ff0066">PATCH</span>: برای <span style="color:#d35400">دستکاری و اپدیت منبع</span> مورد استفاده قرار می گیرد.</p>
+
+<p dir="rtl"><span style="color:#ff0066">DELETE</span>: برای<span style="color:#d35400"> حذف یک منبع</span> کاربر دارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f"><span style="font-size:22px">تفاوت PUT و PATCH</span></span></p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای مثال می خواهیم یک<span style="color:#9b59b6"> کامنت را اپدیت </span>کنیم. <span style="color:#e74c3c">PUT می اید بررسی می کند که آیا کامنت مورد نظر وجود دارد</span>. <span style="color:#d35400">اگر وجود داشت آن را اپدیت می کند اما اگر وجود نداشت، آن را ایجاد می کند و بعد اپدیتش می کند</span> اما <span style="color:#f39c12">PATCH </span><span style="color:#ff0066">تنها اپدیت می کند و کاری به بودن یا نبودن منبع مورد</span> نظر ندارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">این <span style="color:#e74c3c">متود ها استانداردهای REST</span> هستند و&nbsp; <span style="color:#f39c12">REST&nbsp; </span>را می سازند. <span style="color:#3498db">شما می توانید از متود POST برای حذف استفاده کنید اما قوانین و اصول REST را دارید به هم می زنید و کارتان استاندارد نیست</span> و <span style="color:#27ae60">برای برنامه نویسان بعدی که می خواهند کد را بخوانند مشکل ایجاد میکند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در مبحث <span style="color:#f39c12">API </span>به <span style="color:#d35400">url </span>هایی که <span style="color:#e74c3c">به آن درخواست ارسال</span> می کنیم<span style="color:#ff0066"> End point</span><span style="color:#ff0066"> </span>گفته می شود.</p>
+
+<div class="code">
+<p><span style="color:#f1c40f">GET&nbsp; &nbsp; &nbsp; &nbsp;</span>http://ex.com/api/posts&nbsp; &nbsp; <span style="color:#7f8c8d">// Get Posts</span></p>
+
+<p><span style="color:#f1c40f">GET&nbsp; &nbsp; &nbsp; &nbsp;</span>http://ex.com/api/posts/1&nbsp; &nbsp;<span style="color:#7f8c8d">// Get&nbsp; post&nbsp; with id 1</span></p>
+
+<p><span style="color:#2ecc71">POST&nbsp; &nbsp; </span>http://ex.com/api/posts&nbsp; &nbsp; <span style="color:#7f8c8d">// create Post&nbsp;</span></p>
+
+<p><span style="color:#9b59b6">PUT</span>&nbsp; or <span style="color:#9b59b6">PATCH&nbsp; &nbsp; &nbsp;</span>http://ex.com/api/posts/1&nbsp; &nbsp;<span style="color:#7f8c8d"> // update&nbsp; Post&nbsp;</span></p>
+
+<p><span style="color:#c0392b">DELETE&nbsp; &nbsp; &nbsp;</span>http://ex.com/api/posts/1&nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;// delete</span></p></div> 
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   init  in laravel   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در <span style="color:#d35400">rest &nbsp;</span>اکثر درخواست ها <span style="color:#e74c3c">json &nbsp;</span>است.</p>
+
+<p dir="rtl">در لاراول باید بهتر است به جای <span style="color:#e74c3c">return </span>کردن خالی <span style="color:#9b59b6">response </span>از متود<span style="color:#d35400"> response</span> استفاده کنیم.</p>
+
+<p dir="rtl">متود <span style="color:#d35400">json &nbsp;</span>خوش <span style="color:#e74c3c">کالکشن های لاراول</span> و <span style="color:#e74c3c">آرایه ها</span> یا هرچیزی که به آن بدهیم&nbsp;&nbsp;را به <span style="color:#ff0066">json &nbsp;</span>تبدیل می کند.</p>
+
+<p dir="rtl">به عنوان <span style="color:#d35400">پارامتر دوم</span> که <span style="color:#f1c40f">اختیاری </span>است می توانیم<span style="color:#3498db"> status code</span> که مدنظرمان است را پاس دهیم.</p>
+
+
+<div class="code">
+
+<p><br />
+<span style="color:#e74c3c">return </span>[<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#39;<span style="color:#f39c12">name</span>&#39; =&gt; &#39;<span style="color:#f39c12">ali api</span>&#39;<br />
+];</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// best</span><br />
+<span style="color:#e74c3c">return </span><span style="color:#d35400">response</span>()-&gt;<span style="color:#ff0066">json</span>([<br />
+&nbsp; &nbsp; &nbsp; &#39;<span style="color:#f39c12">name</span>&#39; =&gt; &#39;<span style="color:#f39c12">ali api</span>&#39;<br />
+]);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;<span style="color:#e74c3c">return </span><span style="color:#d35400">response</span>()-&gt;<span style="color:#ff0066">json</span>(<span style="color:#27ae60">Post</span>::<span style="color:#3498db">all</span>());</p>
+
+<p><br />
+&nbsp;<span style="color:#e74c3c">return </span><span style="color:#d35400">response</span>()-&gt;<span style="color:#ff0066">json</span>(<span style="color:#27ae60">Post</span>::<span style="color:#3498db">all</span>() , <span style="color:#9b59b6">200</span>);&nbsp; &nbsp;// with send status code</p>
+
+<p dir="rtl">&nbsp;</p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">کد زیر<span style="color:#e74c3c"> یکی از استانداردترین ساختارهایی است که می توانیم</span> در پاسخ برگردانیم.</p>
+
+<p dir="rtl">در قسمت <span style="color:#f1c40f">message </span>می توانیم دلیل<span style="color:#ff0066"> ارور یا جمله موفقیت</span> ذکر کنیم.</p>
+
+
+<div class="code">
+
+<p><span style="color:#e74c3c">return&nbsp;</span><span style="color:#d35400">response</span>()-&gt;<span style="color:#ff0066">json</span>([</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">status</span>&#39;&nbsp;=&gt;&nbsp;&quot;<span style="color:#f39c12">success</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">message</span>&quot;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">msg</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">data</span>&quot;&nbsp;=&gt;&nbsp;<span style="color:#27ae60">Post</span>::<span style="color:#3498db">all</span>(),</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">code</span>&quot;&nbsp;=&gt;&nbsp;<span style="color:#9b59b6">200</span></p>
+
+<p>]&nbsp;,&nbsp;<span style="color:#9b59b6">200</span>);</p></div>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">خوب زمانی که از<span style="color:#ff0066"> API استفاده می کنیم نیاز داریم</span> از این ساختار در جاهای زیادی استفاده کنیم به همین دلیل آن را<span style="color:#e74c3c"> داخل یک تابع قرار می دهیم تا هروقت نیاز به تغییر بود تنها یکجا را تغییر دهیم</span>. از سوی <span style="color:#f39c12">دیگر هر جا نیاز بود تنها تابع را صدا بزنیم</span> به جای این ساختار طولانی.</p>
+
+<p dir="rtl">برای این کار می توانیم یک <span style="color:#9b59b6">کنترلر </span>با نام&nbsp;<span style="color:#ff0066">ApiController </span>یا هر نامی که خواستیم بسازیم و<span style="color:#f39c12"> کدهای زیر را درآن قراد دهیم</span> و بعد هرجا که نیاز بود متود را صدا بزنیم.</p>
+<p>&nbsp;</p>
+<p dir="rtl">برای <span style="color:#e74c3c">راحتی </span>بیشتر ابتدا <span style="color:#f39c12">داخل پوشه app</span> یک <span style="color:#e67e22">پوشه </span>می سازیم و اسم آن را <span style="color:#e74c3c">Traits </span>می گذاریم. حالا داخل آن یک فایل<span style="color:#e74c3c"> برای مثال با نام&nbsp;ApiResponse.php</span>&nbsp; ایجاد می کنیم و کدها زیر را در آن قرار می دهیم. بعدا هرجا نیاز بود این <span style="color:#e74c3c">trait </span>را <span style="color:#ff0066">use</span> می کنیم.</p>
+
+<div class="code">
+
+<p><span style="color:#3498db">&lt;?php&nbsp;</span></p>
+
+<p><span style="color:#e74c3c">namespace</span><span style="color:#f39c12">&nbsp;App\Traits</span>;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">trait&nbsp;</span><span style="color:#27ae60">ApiResponse</span>{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">protected&nbsp;</span>function&nbsp;<span style="color:#d35400">APIResponse</span>($data,&nbsp;$code&nbsp;,$status,$message&nbsp;=&nbsp;<span style="color:#9b59b6">null</span>)</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span><span style="color:#d35400">response</span>()-&gt;<span style="color:#f1c40f">json</span>([</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">status</span>&#39;&nbsp;=&gt;&nbsp;$status,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">message</span>&quot;&nbsp;=&gt;&nbsp;$message,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">data</span>&quot;&nbsp;=&gt;&nbsp;$data,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">code</span>&quot;&nbsp;=&gt;&nbsp;$code</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;,&nbsp;$code);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>}</p>
+</div>
+<p>&nbsp;</p>
+
+
+
+<div class="code"><p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in&nbsp;ApiController</span></p>
+
+
+<div class="code"><p><span style="color:#e74c3c">use&nbsp; &nbsp;</span><span style="color:#f39c12">App\Traits\ApiResponse</span>;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">class&nbsp;</span><span style="color:#d35400">ApiController&nbsp;</span><span style="color:#e74c3c">extends&nbsp;</span><span style="color:#9b59b6">Controller</span><br />
+{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">use&nbsp;</span><span style="color:#d35400">ApiResponse</span>;</p>
+
+<p>{</p>
+
+<p>&nbsp;</p>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//usage</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#3498db">class&nbsp;</span><span style="color:#2ecc71">PostController&nbsp;</span><span style="color:#e74c3c">extends&nbsp; </span><span style="color:#ff0066"><u>ApiController </u></span>{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">public&nbsp;</span><span style="color:#3498db">function</span>&nbsp;index(){</p>
+
+<p>&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return</span>&nbsp;$this-&gt;<span style="color:#d35400">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">500</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&quot;<span style="color:#f39c12">Error</span>&quot;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(<span style="color:#27ae60">Post</span>::<span style="color:#3498db">all</span>(),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Created</span>&quot;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</p>
+
+<p>}</p>
+
+
+</div>
+
+<p>&nbsp;</p>
+<p dir="rtl">توجه زمانی که از <span style="color:#f39c12">Api </span>استفاده می کنیم و<span style="color:#f39c12"> روت ها </span>خود را در <span style="color:#e74c3c">api.php</span> می نویسیم<span style="color:#ff0099"> نیازی به ارسال csrf نداریم</span>.</p>
+<p>&nbsp;</p>
+<p dir="rtl">زمانی که از <span style="color:#f39c12">Api </span>استفاده می کنیم برای <span style="color:#e74c3c">validation&nbsp; </span>نمی توانیم از <span style="color:#d35400">متود validation مانند حالت عادی استفاده کنیم زیرا این متود اگر به ارور بخورد ما را ریدایرکت بک می کند</span> و ما این را نمی خواهیم و <span style="color:#f1c40f">می خواهیم ارورها را بگیریم و در پاسخ برگردانیم.</span></p>
+
+<p dir="rtl">برای این کار و <span style="color:#ff0099">اعتبارسنجی </span>باید از<span style="color:#e74c3c"> فساد Validator لاراول</span> استفاده کنیم.</p>
+
+<div class="code">
+
+<p>$validator&nbsp;=&nbsp;<span style="color:#27ae60">Validator</span>::<span style="color:#d35400">make</span>($request-&gt;<span style="color:#f1c40f">all</span>(),[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">title</span>&quot;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">required|string</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">body</span>&quot;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">required|string</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">image</span>&quot;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">required</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">user_id</span>&quot;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">required</span>&#39;</p>
+
+<p>]);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;<span style="color:#e74c3c">if</span>($validator-&gt;<span style="color:#e74c3c">fails</span>()){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#ff0099">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">422</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;$validator-&gt;<span style="color:#e74c3c">messages</span>());</p>
+
+<p>&nbsp;}</p>
+</div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">ارورهای بالا ارورهایی هستند که <span style="color:#f1c40f">به دنبال validation</span> ایجاد می شوند اما ما یکسری <span style="color:#f39c12">ارور دیگر هم داریم</span>. برای مثال زمانی که ایدی 41 درخواست می شود و ما پستی با ایدی 41 نداریم در این<span style="color:#e74c3c"> صورت ارور 404 رندر</span> می شود. برای<span style="color:#d35400"> کنترل این این ارورها در بحث API باید </span>به پوشه <span style="color:#e74c3c">app/Exceptions/Handler.php</span>&nbsp;&nbsp;برویم و <span style="color:#9b59b6">کدهای زیر</span> را درآن قرار دهیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">use&nbsp;</span><span style="color:#f39c12">App\Traits\ApiResponse</span>;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp; inside&nbsp; Handler class</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#d35400">render</span>($request,&nbsp;<span style="color:#2980b9">Throwable&nbsp;</span>$e)<br />
+{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">if</span>($e&nbsp;<span style="color:#9b59b6">instanceof&nbsp;</span><span style="color:#27ae60">ModelNotFoundException</span>){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;&nbsp;&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">404</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;$e-&gt;<span style="color:#3498db">getMessage</span>()&nbsp;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">if</span>($e&nbsp;<span style="color:#9b59b6">instanceof&nbsp;</span><span style="color:#27ae60">NotFoundHttpException</span>){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">404</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;$e-&gt;<span style="color:#3498db">getMessage</span>()&nbsp;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p><br />
+&nbsp; &nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp; &nbsp;/// =---------------------------------------------- p2</span></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">if</span>(<span style="color:#3498db">config</span>(&#39;<span style="color:#f39c12">app.debug</span>&#39;)){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span><span style="color:#27ae60">parent</span>::<span style="color:#d35400">render</span>($request,$e);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;&nbsp;&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">500</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;$e-&gt;<span style="color:#3498db">getMessage</span>()&nbsp;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p></div>
+
+
+<p>&nbsp;</p>
+
+<p dir="rtl">تمام ارورهای مربوط به <span style="color:#f1c40f">مشکلات سیستمی</span> مانند <span style="color:#e74c3c">404&nbsp; </span>و ... که <span style="color:#f39c12">لاراول آن ها را هندل </span>می کند را می توانیم داخل این متود قرار دهیم تا <span style="color:#d35400">در صورت بروز ارور چیزی که ما می خواهیم به عنوان</span> <span style="color:#3498db">response </span>ارسال شود.&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">قسمت P2</span>&nbsp; به ما کمک می کند تا در <span style="color:#f39c12">response </span>در <span style="color:#d35400">postman </span><span style="color:#e74c3c">اطلاعات کاملی از ارور کسب کنیم و اسم کلاس ارور آن </span>مثل اسم کلاس&nbsp;<span style="color:#27ae60">ModelNotFoundException </span>یا&nbsp;<span style="color:#27ae60">NotFoundHttpException&nbsp;</span>را برای هر اروری متوجه شویم و<span style="color:#f1c40f"> کد مورد نظر برای آن را داخل کلاس بالا</span> قرار دهیم.</p>
+
+<p dir="rtl">همچنین این کد در زمانی که <span style="color:#e74c3c">در حالت دیباگ هستیم </span>کار می کند و در غیر اینصورت<span style="color:#ff0066"> برای همه ارورهایی که در بالا آن ها را تعریف نکرده ایم </span>ارور <span style="color:#9b59b6">500 </span>برگشت داده میشود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در هنگام استفاده از <span style="color:#e67e22">postman </span>حتما <span style="color:#f1c40f">Accept </span>در بخش <span style="color:#9b59b6">Headers</span> اضافه کنیم و آن را برابر <span style="color:#ff0066">application/json</span> کنیم تا ارور ها به شکل <span style="color:#27ae60">json </span>نمایش داده شوند.</p>
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   Route Group API resources   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#f39c12">make:controller </span><span style="color:#9b59b6">UserController </span><span style="color:#e74c3c">--api</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in api.php</span></p>
+
+<p><span style="color:#27ae60">Route</span>::<span style="color:#d35400">apiResource</span>(&#39;<span style="color:#f39c12">users</span>&#39;&nbsp;,&nbsp;<span style="color:#27ae60">UserController</span>::<span style="color:#9b59b6">class</span>);</p></div> 
+
+<p dir="rtl">حالا می توانیم <span style="color:#3498db">روت هایی که این دستور ایجاد می کند را با دستور زیر در cmd ببنیم</span>.</p>
+
+<div class="code">
+
+<p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#e74c3c">route:list</span></p>
+
+<p><span style="color:#3498db">GET&nbsp; &nbsp; &nbsp;</span>api/users&nbsp; users.<span style="color:#f1c40f">index&nbsp;&nbsp;&nbsp;</span>@<span style="color:#e67e22">index&nbsp;</span></p>
+
+<p><span style="color:#3498db">GET&nbsp; &nbsp; &nbsp;</span>api/users/{user}&nbsp; users.<span style="color:#f1c40f">show&nbsp;&nbsp;&nbsp;</span>@<span style="color:#e67e22">show&nbsp;</span></p>
+
+<p><span style="color:#2ecc71">POST&nbsp; &nbsp; &nbsp;</span>api/users&nbsp; users.<span style="color:#f1c40f">store&nbsp;&nbsp;&nbsp;</span>@<span style="color:#f39c12">store</span></p>
+
+<p><span style="color:#f1c40f">PUT|PATCH</span>&nbsp; &nbsp; &nbsp;api/users/{user}&nbsp; users.<span style="color:#f1c40f">update&nbsp;&nbsp;&nbsp;</span>@<span style="color:#e67e22">update</span></p>
+
+<p><span style="color:#e74c3c">DELETE&nbsp; &nbsp; &nbsp;</span>api/users/{user}&nbsp; users.<span style="color:#f1c40f">destroy&nbsp;&nbsp;&nbsp;</span>@<span style="color:#e67e22">destroy</span></p>
+</div>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------    API Resources   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">یکی از ویژگی های این بخش از لاراول این است که ما اجازه می دهد <span style="color:#e74c3c">transform </span>انجام دهیم. یعنی<span style="color:#ff0099"> دیتاهایی که سمت کاربر ارسال می کنیم را تغییر دهیم</span>.&nbsp; همچنین به ما <span style="color:#f39c12">اجازه بررسی شرط ها و pagination را </span>هم می دهد.</p>
+
+<p dir="rtl">برای استفاده از این ویژگی لاراول باید <span style="color:#e74c3c">یک Resources ایجاد کنیم </span>تا به عنوان یک <span style="color:#f39c12">لایه بین مدل و جوابی که به کاربر ارسال می کنیم</span> باشد. برای ایجاد&nbsp;<span style="color:#f1c40f">Resources </span>از دستور زیر استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#e74c3c">make:resource </span><span style="color:#27ae60">PostResource</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا این دستور در داخل مسیر <span style="color:#f39c12">app/Http</span> یک پوشه&nbsp;<span style="color:#e74c3c">Resources </span>ایجاد می کند و یک<span style="color:#3498db"> فایل با نامی که زدیم در آن قرار می دهد</span>.</p>
+
+<div class="code"><p><span style="color:#27ae60">class&nbsp;</span><span style="color:#f39c12">PostResource&nbsp;</span><span style="color:#e74c3c">extends&nbsp;</span><span style="color:#d35400">JsonResource</span></p>
+
+<p>{</p>
+
+<p>&nbsp;&nbsp;<span style="color:#7f8c8d">&nbsp;&nbsp;/**</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Transform&nbsp;the&nbsp;resource&nbsp;into&nbsp;an&nbsp;array.</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;&nbsp;\Illuminate\Http\Request&nbsp;&nbsp;$request</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#d35400">toArray</span>($request)</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span><span style="color:#d35400">parent</span>::<span style="color:#27ae60">toArray</span>($request);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// usage</span></p>
+
+<p><span style="color:#7f8c8d">// in controller</span></p>
+
+<p>&nbsp;<span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#3498db">show</span>(<span style="color:#2980b9">Post&nbsp;</span>$post)</p>
+
+<p>{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span><span style="color:#c0392b">new&nbsp;</span><span style="color:#d35400">PostResource</span>($post);</p>
+<p>&nbsp;</p><p>&nbsp;</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // OR in self method
+<p>&nbsp;</p>
+<p style="white-space:nowrap;"><span style="color:#e74c3c">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(<span style="color:#c0392b">new&nbsp;</span><span style="color:#f39c12">PostResource</span>($post),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;found</span>&quot;);</p>
+<p>}</p>
+</div> 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p dir="rtl">حالا برای <span style="color:#e74c3c">transform </span>و<span style="color:#d35400"> تغییر اطلاعاتی</span> که ارسال می شود می توانیم به شکل زیر عمل کنیم.</p>
+
+
+<div class="code"><p>public&nbsp;function&nbsp;<span style="color:#f39c12">toArray</span>($request)</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#7f8c8d">&nbsp;//&nbsp;return&nbsp;parent::toArray($request);</span></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">id</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;id,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">title</span>&#39;&nbsp;=&gt;&nbsp;<span style="color:#3498db">strtoupper</span>($this-&gt;title),</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">body</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;body,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">created_at</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;created_at,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&quot;<span style="color:#f39c12">testResource</span>&quot;&nbsp;=&gt;&nbsp;&quot;<span style="color:#f39c12">handle&nbsp;amount</span>&quot;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;];</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// output</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&quot;status&quot;:&nbsp;&quot;success&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&quot;message&quot;:&nbsp;&quot;ok&nbsp;found&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&quot;data&quot;:&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;سرما&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;body&quot;:&nbsp;&quot;سرما&nbsp;بد&nbsp;است&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;&quot;2021-06-21&nbsp;00:19:00&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;testResource&quot;:&nbsp;&quot;handle&nbsp;amount&quot;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&quot;code&quot;:&nbsp;200</span></p>
+
+<p><span style="color:#7f8c8d">}</span></p></div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">توجه کنید که ه<span style="color:#e74c3c">رچیزی که در این ارایه اسم آن را ذکر نکرده ایم </span>در<span style="color:#d35400"> response هم نخواهد</span> بود. همچنین به راحتی می توانیم<span style="color:#e74c3c"> هر چیز دیگری را که می خواهیم جدا از فیدهای دیتابیس به این اضافه کنیم</span>. مثلا مورد زیر در مثال بالا</p>
+ 
+<div class="code"><p>&nbsp;&quot;<span style="color:#f39c12">testResource</span>&quot;&nbsp;=&gt;&nbsp;&quot;<span style="color:#f39c12">handle&nbsp;amount</span>&quot;</p></div> 
+<p dir="rtl">یا حتی <span style="color:#ff0066">می توانیم اسم فیلدها را آنطور که دوست داریم قرار دهیم مثلا اسم در دستابیس title است ما می توانیم title را دا key مثلا name به کاربر ارسال کنیم.</span></p>
+
+<div class="code"><p>&nbsp;&#39;<span style="color:#f39c12">name</span>&#39;&nbsp;=&gt;&nbsp;<span style="color:#3498db">strtoupper</span>($this-&gt;title),&nbsp; &nbsp;<span style="color:#7f8c8d"> &nbsp;//&quot;name&quot;:&nbsp;&quot;سرما&quot;,</span></p></div>
+
+<p dir="rtl"><span style="color:#e74c3c">تغییر فرمت زمان</span> یا استفاده از verta</p>
+
+<div class="code">
+
+<p>&#39;<span style="color:#f39c12">created_at</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;created_at-&gt;<span style="color:#3498db">format</span>(&quot;<span style="color:#f39c12">Y-m-d&nbsp;H:i:s</span>&quot;),&nbsp; &nbsp;<span style="color:#7f8c8d"> //&quot;created_at&quot;:&nbsp;&quot;2021-06-21&nbsp;00:19:00&quot;,</span></p></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p dir="rtl">استفاده ها از این روش برای <span style="color:#f39c12">کالکشن های لاراول</span> با <span style="color:#3498db">مشکل </span>رو به رو هستیم. همین دلیل لاراول <span style="color:#e67e22">یکسری توابع برای این منظور در اختیار م</span>ا قرار می دهد.</p>
+
+<p dir="rtl">برای حل این مشکل می توانیم از<span style="color:#f1c40f"> دو روش</span> زیر استفاده کنیم.</p>
+ 
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#9b59b6">APIResponse</span>(<span style="color:#27ae60">PostResource</span>::<span style="color:#e74c3c">collection</span>($post),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;found</span>&quot;);&nbsp; &nbsp;<span style="color:#7f8c8d"> // collection method</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در این روش ممکن است اگر مقدار <span style="color:#9b59b6">null </span>داشته باشیم به <span style="color:#e74c3c">ارور </span>بخوریم.</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#9b59b6">روش دوم </span>ساخت یک<span style="color:#e74c3c"> collection resource</span> است یعنی از<span style="color:#d35400"> همان ابتدا resource خود را از نوع کالکشن بسازیم</span>.</p>
+
+<div class="code"><p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#3498db">make:resource </span>Post <span style="color:#e74c3c">--collection</span></p>
+
+<p><span style="color:#7f8c8d">or&nbsp;</span></p>
+
+<p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#3498db">make:resource </span><span style="color:#e74c3c">PostCollection</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">اگر به <span style="color:#d35400">انتهای نام collection</span> اضافه کنیم، خود لاراول متوجه می شود و <span style="color:#e74c3c">resource از نوع کالکشن ایجاد </span>می کند.</p>
+
+<p dir="rtl">حالا زمانی که ایجاد شد همان<span style="color:#ff0066"> کدهایی که در resource اصلی قرار داده بودیم یعنی دیتاهایی که باید برگردانده شود و ... را نمی توانیم در این شکل قرار دهیم و حتما باید به شکل زیر باشد</span></p>
+
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;</span><span style="color:#27ae60">parent</span>::<span style="color:#d35400">toArray</span>($request);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//usage</span></p>
+
+<p><span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#3498db">APIResponse</span>(<span style="color:#c0392b">new&nbsp;</span><span style="color:#d35400">PostCollection</span>($posts),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;found</span>&quot;);</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">کل<span style="color:#e74c3c"> روش اول بهتر است و نیازی نیست بیخودی کالکشن مجزا ایجاد</span> کنیم.</p>
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#3498db">APIResponse</span>(<span style="color:#27ae60">PostResource</span>::<span style="color:#d35400">collection</span>($posts),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;found</span>&quot;);</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در حالت عادی لاراول <span style="color:#f39c12">response </span>ها را در<span style="color:#e74c3c"> wrapper با نام data قرار می دهد </span>که ما می توانیم<span style="color:#d35400"> نام این را به هرچیزی که می خواهیم تغییر دهیم</span>.</p>
+<div class="code"><p>&quot;<span style="color:#f39c12">data</span>&quot;:&nbsp;[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">id</span>&quot;:&nbsp;<span style="color:#9b59b6">1</span>,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">title</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">سرما</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">body</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">سرما&nbsp;بد&nbsp;است</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">created_at</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">2021-06-21&nbsp;00:19:00</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">testResource</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">handle&nbsp;amount</span>&quot;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>]</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">برای این منظور<span style="color:#e74c3c"> داخل کلاس resource</span> مورد نظرمان تکه کد زیر را قرار می دهیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">public&nbsp;</span><span style="color:#d35400">static&nbsp;</span>$wrap&nbsp;=&nbsp;&quot;<span style="color:#f39c12">response</span>&quot;;</p></div> 
+<p>&nbsp;</p>
+<p dir="rtl">اما در این صورت اگر بخواهیم برای <span style="color:#e74c3c">همه resource نام wrap را تغییر دهیم </span>باید در همه آن ها این کد را قرار دهیم که در این صورت اگر <span style="color:#f1c40f">بعدا خواستیم این نام را تغییر دهیم باید حتما در همه resource ها دوباره تغییر ایجاد کنیم</span>. برای جلوگیری از این کار لاراول به ما امکان می دهید تغییر <span style="color:#d35400">Wrapper را در serviceProvider انجام دهیم تا در همه resource ها اعمال شود</span>.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">//&nbsp; in&nbsp; &nbsp;AppServiceProvider</span></p>
+
+<p><span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#d35400">boot</span>()</p>
+
+<p>{</p>
+
+<p>&nbsp; &nbsp; <span style="color:#d35400">JsonResource</span>::<span style="color:#e74c3c">wrap</span>(&#39;<span style="color:#f39c12">test</span>&#39;);</p>
+
+<p>}</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">یا کلا می توانیم<span style="color:#ff0066"> این wrapper را برداریم</span>.</p>
+
+<div class="code"><p><span style="color:#27ae60">JsonResource</span>::<span style="color:#e74c3c">withoutWrapping</span>();</p></div> 
+<p>&nbsp;</p>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------    with Function   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">گاهی می خواهیم یکسری<span style="color:#d35400"> دیتا خارج از data در response</span> قرار دهیم و ارسال کنیم.</p>
+
+<div class="code">
+
+<p><span style="color:#7f8c8d">in resource</span></p>
+
+<p><span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#d35400">with</span>($request)</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">foo</span>&#39;&nbsp;=&gt;&nbsp;[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">key</span>&#39;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">value</span>&#39;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;];</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">حالا <span style="color:#d35400">همراه data در response این ارایه هم برگردانده می شود</span>. البته در صورتی که<span style="color:#e74c3c"> به روش زیر برگردانیم</span></p>
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;&nbsp;</span><span style="color:#c0392b">new&nbsp;</span><span style="color:#27ae60">PostResource</span>($post);</p>
+
+<p><span style="color:#7f8c8d">// output</span></p>
+
+<p>data:{</p>
+
+<p>&nbsp; &nbsp;id: 1<br />
+&nbsp; ..</p>
+
+<p>},</p>
+
+<p><span style="color:#e74c3c">foo:{....}</span></p></div> 
+ <p dir="rtl">&nbsp;</p>
+<p dir="rtl">ولی اگر<span style="color:#d35400"> قالب تعریف کردیم دیگر نیازی نیست که این فانکشن With را ایجاد کنیم و کافی است به همان قالب</span> اضافه کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>([</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">data</span>&quot;&nbsp;=&gt;<span style="color:#c0392b">new&nbsp;</span><span style="color:#27ae60">PostResource</span>($post),</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">foo</span>&quot;&nbsp;=&gt;[&#39;<span style="color:#f39c12">bar</span>&#39;],</p>
+
+<p>],<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;found</span>&quot;);</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// output</span></p>
+
+<p>&quot;<span style="color:#f39c12">data</span>&quot;:&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">data</span>&quot;:&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">id</span>&quot;:&nbsp;1,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">title</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">سرما</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">foo</span>&quot;:&nbsp;[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">bar</span>&quot;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;},</p></div>
+
+
+<p>&nbsp;</p>
+
+<p dir="rtl"><span style="color:#d35400">روش دومی</span> هم استفاده از متود <span style="color:#e74c3c">additional </span>است</p>
+ 
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;</span>(<span style="color:#c0392b">new&nbsp;</span><span style="color:#27ae60">PostResource</span>($post))-&gt;<span style="color:#d35400">additional</span>([</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">foo</span>&quot;&nbsp;=&gt;[&#39;<span style="color:#f39c12">bar</span>&#39;],</p>
+
+<p>]);</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// output</span></p>
+
+<p>&quot;<span style="color:#f39c12">data</span>&quot;:&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">id</span>&quot;:&nbsp;<span style="color:#9b59b6">1</span>,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">title</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">سرما</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;},</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">foo</span>&quot;:&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">key</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">value</span>&quot;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">0</span>&quot;:&nbsp;&quot;<span style="color:#f39c12">bar</span>&quot;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">در<span style="color:#ff0099"> کل روش دوم بهت</span>ر است.</p>
+<p>&nbsp;</p>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------    Relations   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای ایجاد <span style="color:#e74c3c">relation </span>ابتدا برای هر دو user و post بخش <span style="color:#d35400">resource </span>را ایجاد می کنیم.</p>
+
+<p dir="rtl">بعد در <span style="color:#f1c40f">مدل user</span> رابطه را می نویسیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#f39c12">posts</span>()</p>
+
+<p>{</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#3498db">hasMany</span>(<span style="color:#27ae60">Post</span>::<span style="color:#9b59b6">class</span>);</p>
+
+<p>}</p></div> 
+ <p dir="rtl">&nbsp;</p>
+<p dir="rtl">بعد در <span style="color:#e67e22">کنترلر </span>به شکل زیر صدا می زنیم</p>
+
+<div class="code"><p>$users&nbsp;=&nbsp;<span style="color:#27ae60">User</span>::<span style="color:#3498db">all</span>();</p>
+
+<p><span style="color:#e74c3c">return&nbsp;&nbsp;</span><span style="color:#27ae60">UserResource</span>::<span style="color:#e74c3c">collection</span>($users-&gt;<span style="color:#d35400">load</span>(&#39;<span style="color:#f39c12">posts</span>&#39;));</p></div>
+ <p dir="rtl">&nbsp;</p>
+<p dir="rtl">همچنین در<span style="color:#e74c3c"> user resource</span> هم به شکل زیر عمل می کنیم.</p> 
+<div class="code"><p><span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">id</span>&quot;=&gt;&nbsp;$this-&gt;id,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">name</span>&quot;=&gt;&nbsp;$this-&gt;name,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">email</span>&quot;=&gt;&nbsp;$this-&gt;email,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">created_at</span>&quot;=&gt;&nbsp;$this-&gt;created_at,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">posts</span>&quot;&nbsp;=&gt;&nbsp;$this-&gt;<span style="color:#d35400">whenLoaded</span>(&#39;<span style="color:#f39c12">posts</span>&#39;)</p>
+
+<p>];</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//output</span></p>
+
+<p><span style="color:#7f8c8d">{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&quot;data&quot;:&nbsp;[</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;:&nbsp;&quot;ali&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;:&nbsp;&quot;ali@gmail.com&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;null,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;posts&quot;:&nbsp;[</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;سرما&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;body&quot;:&nbsp;&quot;سرما&nbsp;بد&nbsp;است&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;image&quot;:&nbsp;&quot;j.png&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;user_id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;&quot;2021-06-21T00:19:00.000000Z&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;updated_at&quot;:&nbsp;&quot;2021-06-22T00:00:31.000000Z&quot;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;5,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;port&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;body&quot;:&nbsp;&quot;Ipsa&nbsp;dolore&nbsp;modi&nbsp;temporibus&nbsp;modi&nbsp;provident&nbsp;unde.&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;image&quot;:&nbsp;&quot;g.pom&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;user_id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;&quot;2021-10-10T12:03:09.000000Z&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;updated_at&quot;:&nbsp;&quot;2021-10-10T12:03:09.000000Z&quot;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;]</span></p>
+
+<p><span style="color:#7f8c8d">}</span></p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا می بینیم که <span style="color:#e74c3c">کل اطلاعات پست ها را آورده است اما ما می خواهیم در یک قالب هرچی را می خواهیم</span> برگردانیم.</p>
+
+<div class="code"><p>&nbsp;</p>
+
+<p>&nbsp;<span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">id</span>&quot;=&gt;&nbsp;$this-&gt;id,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">name</span>&quot;=&gt;&nbsp;$this-&gt;name,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">email</span>&quot;=&gt;&nbsp;$this-&gt;email,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">created_at</span>&quot;=&gt;&nbsp;$this-&gt;created_at,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">posts</span>&quot;&nbsp;=&gt;&nbsp;<span style="color:#27ae60">PostResource</span>::<span style="color:#e67e22">collection</span>($this-&gt;<span style="color:#d35400">whenLoaded</span>(&#39;<span style="color:#f39c12">posts</span>&#39;)),</p>
+
+<p>];</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">اگر <span style="color:#e74c3c">چند ارتباط</span> داشتیم باید به شکل زیر عمل کنیم</p>
+<div class="code"><p><span style="color:#7f8c8d">// in controller</span></p>
+
+<p>&nbsp;$users&nbsp;=&nbsp;<span style="color:#27ae60">User</span>::<span style="color:#3498db">all</span>();</p>
+
+<p><span style="color:#e74c3c">return&nbsp;&nbsp;</span><span style="color:#27ae60">UserResource</span>::<span style="color:#e67e22">collection</span>($users-&gt;<span style="color:#d35400">load</span>(&#39;<span style="color:#f39c12">posts</span>&#39;)-&gt;<span style="color:#d35400">load</span>(&#39;<span style="color:#f39c12">comments</span>&#39;));</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in resource</span></p>
+
+<p>&nbsp;<span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">id</span>&quot;=&gt;&nbsp;$this-&gt;id,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">name</span>&quot;=&gt;&nbsp;$this-&gt;name,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">email</span>&quot;=&gt;&nbsp;$this-&gt;email,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">created_at</span>&quot;=&gt;&nbsp;$this-&gt;created_at,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">posts</span>&quot;&nbsp;=&gt;&nbsp;<span style="color:#27ae60">PostResource</span>::<span style="color:#e67e22">collection</span>($this-&gt;<span style="color:#d35400">whenLoaded</span>(&#39;<span style="color:#f39c12">posts</span>&#39;)),</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">comments</span>&quot;&nbsp;=&gt;<span style="color:#27ae60">CommentResource</span>::<span style="color:#e67e22">collection</span>($this-&gt;<span style="color:#d35400">whenLoaded</span>(&#39;<span style="color:#f39c12">comments</span>&#39;))</p>
+
+<p>&nbsp;];</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//output</span></p>
+
+<p><span style="color:#7f8c8d">{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&quot;data&quot;:&nbsp;[</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;:&nbsp;&quot;ali&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;:&nbsp;&quot;ali@gmail.com&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;null,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;posts&quot;:&nbsp;[</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;سرما&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;body&quot;:&nbsp;&quot;سرما&nbsp;بد&nbsp;است&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;&quot;2021-06-21&nbsp;00:19:00&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;testResource&quot;:&nbsp;&quot;handle&nbsp;amount&quot;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;5,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;PORT&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;body&quot;:&nbsp;&quot;Ipsa&nbsp;dolore&nbsp;modi&nbsp;temporibus&nbsp;modi&nbsp;provident&nbsp;unde.&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;created_at&quot;:&nbsp;&quot;2021-10-10&nbsp;12:03:09&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;testResource&quot;:&nbsp;&quot;handle&nbsp;amount&quot;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;comments&quot;:&nbsp;[</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;:&nbsp;1,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;title&quot;:&nbsp;&quot;علت&quot;,</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;text&quot;:&nbsp;&quot;ملت&quot;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;&nbsp;&nbsp;&nbsp;]</span></p>
+
+<p><span style="color:#7f8c8d">}</span></p>
+</div> 
+<p>&nbsp;</p>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------    Paginate   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// in controller</span></p>
+
+<p>$posts&nbsp;=&nbsp;<span style="color:#27ae60">Post</span>::<span style="color:#d35400">paginate</span>(<span style="color:#9b59b6">2</span>);</p>
+
+<p>&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#9b59b6">APIResponse</span>([</p>
+
+<p>&nbsp; &nbsp; &nbsp; &#39;<span style="color:#f39c12">posts</span>&#39;&nbsp;=&gt;&nbsp;<span style="color:#27ae60">PostResource</span>::<span style="color:#3498db">collection</span>($posts),</p>
+
+<p>&nbsp; &nbsp; &nbsp; &#39;<span style="color:#f39c12">links</span>&#39;&nbsp;=&gt;&nbsp;&nbsp;<span style="color:#27ae60">PostResource</span>::<span style="color:#3498db">collection</span>($posts)-&gt;<span style="color:#d35400">response</span>()-&gt;<span style="color:#f1c40f">getData</span>()-&gt;<span style="color:#e74c3c">links</span>,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">meta</span>&#39;&nbsp;=&gt;&nbsp;&nbsp;<span style="color:#27ae60">PostResource</span>::<span style="color:#3498db">collection</span>($posts)-&gt;<span style="color:#d35400">response</span>()-&gt;<span style="color:#f1c40f">getData</span>()-&gt;<span style="color:#e74c3c">meta</span>,</p>
+
+<p>&nbsp;],<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Created</span>&quot;);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//output</span></p>
+
+<p><span style="color:#7f8c8d">{<br />
+&nbsp; &nbsp; &quot;status&quot;: &quot;success&quot;,<br />
+&nbsp; &nbsp; &quot;message&quot;: &quot;ok Created&quot;,<br />
+&nbsp; &nbsp; &quot;data&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;posts&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;id&quot;: 1,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;title&quot;: &quot;سرما&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;body&quot;: &quot;سرما بد است&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;created_at&quot;: &quot;2021-06-21 00:19:00&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;testResource&quot;: &quot;handle amount&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;id&quot;: 2,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;title&quot;: &quot;گرما&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;body&quot;: &quot;گرمابد است&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;created_at&quot;: &quot;2021-06-21 00:19:00&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;testResource&quot;: &quot;handle amount&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;links&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;first&quot;: &quot;http://localhost:8000/api/posts?page=1&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;last&quot;: &quot;http://localhost:8000/api/posts?page=3&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;prev&quot;: null,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;next&quot;: &quot;http://localhost:8000/api/posts?page=2&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;meta&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;current_page&quot;: 1,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;from&quot;: 1,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;last_page&quot;: 3,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;links&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;url&quot;: null,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;active&quot;: false<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;url&quot;: &quot;http://localhost:8000/api/posts?page=1&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;label&quot;: &quot;1&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;active&quot;: true<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;url&quot;: &quot;http://localhost:8000/api/posts?page=2&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;label&quot;: &quot;2&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;active&quot;: false<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;url&quot;: &quot;http://localhost:8000/api/posts?page=3&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;label&quot;: &quot;3&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;active&quot;: false<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;url&quot;: &quot;http://localhost:8000/api/posts?page=2&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;label&quot;: &quot;Next &amp;raquo;&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;active&quot;: false<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;path&quot;: &quot;http://localhost:8000/api/posts&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;per_page&quot;: 2,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;to&quot;: 2,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;total&quot;: 6<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &quot;code&quot;: 200<br />
+}</span></p>
+</div> 
+
+<p>&nbsp;</p>
+
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------    ورژن بندی    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">فرض کنید ما یک برنامه نوشتیم و <span style="color:#f39c12">API آن را تکمیل کرده و به برنامه نویس موبایل دادیم</span>. او هم <span style="color:#3498db">با توجه به response ها ما یک نسخه از یک برنامه را گسترش داده است</span>. مثلا م الان به یک api درخواست می فرستیم و می گوییم که محصولات را برگردان و<span style="color:#f39c12"> نام را در قالب title برگردان. برنامه نویس موبایل هم بر این اساس یک نسخه از برنامه را توسعه داده است اما بعد از مدتی به دلایلی می خواهیم title را به name تبدیل کنیم</span>. خوب در این صورت<span style="color:#e67e22"> برنامه نویس موبایل هم باید یک نسخه جدید منتشر کند و مشکل از اینجا شروع می شود که افرادی که از نسخه های قبلی استفاده می کنند، در ارتباط با سرور به مشکل خواهد خورد</span>. <span style="color:#ff0099">مطمئنا تمام افرادی که App دیجی کالا را از قبل داشته اند، بلافاصله بعد از اعمال تغییرات، قرار نیست App جدید را دانلود کنند.</span></p>
+
+<p dir="rtl">برای حل این مشکل باید <span style="color:#e74c3c">ورژن بندی </span>انجام دهیم.</p>
+
+<p dir="rtl">برای ورژن بندی کردن باید<span style="color:#e74c3c"> route ها را ورژن بندی کنیم </span>و همچنین باید برای<span style="color:#f39c12"> هر ورژن کنترلر و resource جدید</span> در نظر بگیریم. با اینکار اگر مثلا ما <span style="color:#e74c3c">ورژن 100 را منتشر کرده باشیم، ورژن 1 هنوز به درستی کار می کند و در دسترس است</span>.</p>
+
+<div class="code"><p>http://www.laravel.com/api/<span style="color:#e74c3c">v2.2.3</span>/posts</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// in route</span></p>
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+<p><span style="color:#7f8c8d">/******</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*&nbsp;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*&nbsp;@version</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*&nbsp;----&nbsp;&nbsp;v1</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*/</span></p>
+
+<p><span style="color:#27ae60">Route</span>::<span style="color:#d35400">prefix</span>(&#39;<span style="color:#f39c12">v1</span>&#39;)-&gt;<span style="color:#3498db">group</span>(function(){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#27ae60">Route</span>::<span style="color:#f39c12">get</span>(&#39;<span style="color:#f39c12">/gallery</span>&#39;&nbsp;,&nbsp;[<span style="color:#27ae60">V1GalleryController</span>::<span style="color:#9b59b6">class&nbsp;</span>,&nbsp;&#39;<span style="color:#f39c12">index</span>&#39;]);</p>
+
+<p>});</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">/******</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*&nbsp;</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*&nbsp;@version</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*&nbsp;----&nbsp;&nbsp;v2</span></p>
+
+<p><span style="color:#7f8c8d">&nbsp;*/</span></p>
+
+<p><span style="color:#27ae60">Route</span>::<span style="color:#d35400">prefix</span>(&#39;<span style="color:#f39c12">v2</span>&#39;)-&gt;<span style="color:#3498db">group</span>(function(){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#27ae60">Route</span>::<span style="color:#f39c12">get</span>(&#39;<span style="color:#f39c12">/gallery</span>&#39;&nbsp;,&nbsp;[<span style="color:#27ae60">V2GalleryController</span>::<span style="color:#9b59b6">class&nbsp;</span>,&nbsp;&#39;<span style="color:#f39c12">index</span>&#39;]);</p>
+
+<p>});</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p><span style="color:#7f8c8d">// in Resource V1</span></p>
+
+<p><span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp; &nbsp; &nbsp;&#39;<span style="color:#f39c12">title</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;title,</p>
+
+<p>&nbsp; &nbsp; &nbsp;&#39;<span style="color:#f39c12">type</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;type,</p>
+
+<p>&nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">image</span>&quot;&nbsp;=&gt;&nbsp;$this-&gt;image</p>
+
+<p>];</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in Resource V2</span></p>
+
+<p><span style="color:#e74c3c">return&nbsp;</span>[</p>
+
+<p>&nbsp; &nbsp; &nbsp;&#39;<span style="color:#f39c12">title</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;title,</p>
+
+<p>&nbsp; &nbsp; &nbsp;&#39;<span style="color:#f39c12">type</span>&#39;&nbsp;=&gt;&nbsp;$this-&gt;type,</p>
+
+<p>&nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">file</span>&quot;&nbsp;=&gt;&nbsp;$this-&gt;image</p>
+
+<p>];</p>
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp; in Controller v1</span></p>
+
+<p>$gallery&nbsp;=&nbsp;<span style="color:#27ae60">Gallery</span>::<span style="color:#3498db">all</span>();</p>
+
+<p>&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(<span style="color:#27ae60">GalleryResource</span>::<span style="color:#f1c40f">collection</span>($gallery),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Created</span>&quot;);&nbsp;&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp;&nbsp;GalleryResource&nbsp; ==&gt;&nbsp; &nbsp; use&nbsp;App\Http\Resources\V1\GalleryResource;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp; in Controller v2</span></p>
+
+<p>&nbsp;$gallery&nbsp;=&nbsp;<span style="color:#27ae60">Gallery</span>::<span style="color:#3498db">all</span>();</p>
+
+<p>&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#d35400">APIResponse</span>(<span style="color:#27ae60">GalleryResource</span>::<span style="color:#f1c40f">collection</span>($gallery),<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Created</span>&quot;);&nbsp;&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp;&nbsp;GalleryResource&nbsp; ==&gt;&nbsp; &nbsp; use&nbsp;App\Http\Resources\V2\GalleryResource;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// output&nbsp; v1</span></p>
+
+<p><span style="color:#7f8c8d">{<br />
+&nbsp; &nbsp; &quot;status&quot;: &quot;success&quot;,<br />
+&nbsp; &nbsp; &quot;message&quot;: &quot;ok Created&quot;,<br />
+&nbsp; &nbsp; &quot;data&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;title&quot;: &quot;nature&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;png&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;file&quot;: &quot;lop.png&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;title&quot;: &quot;fire&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;jpg&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;image&quot;: &quot;pcr2.jpg&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &quot;code&quot;: 200<br />
+}</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// output&nbsp; v2</span></p>
+
+<p><span style="color:#7f8c8d">{<br />
+&nbsp; &nbsp; &quot;status&quot;: &quot;success&quot;,<br />
+&nbsp; &nbsp; &quot;message&quot;: &quot;ok Created&quot;,<br />
+&nbsp; &nbsp; &quot;data&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;title&quot;: &quot;nature&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;png&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;file&quot;: &quot;lop.png&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;title&quot;: &quot;fire&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;type&quot;: &quot;jpg&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;file&quot;: &quot;pcr2.jpg&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &quot;code&quot;: 200<br />
+}</span></p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+
+
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------     authentication    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">لاراول برای سیستم <span style="color:#e74c3c">Auth </span>با Api دو پکیج <span style="color:#d35400">passport </span>و <span style="color:#d35400">sanctum </span>دارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در <span style="color:#f1c40f">حالت عادی</span> زمانی که در سایت لاگین می کنیم، سرور<span style="color:#9b59b6"> یک سشن در مرورگر ذخیره </span>می کند. به این روش <span style="color:#e74c3c">session base </span>می گویند که یه دنبال<span style="color:#27ae60"> همکاری سشن ها و کوکی ها برای سایت های عادی</span> استفاده می شود.</p>
+
+<p dir="rtl">اما در <span style="color:#f1c40f">Api </span>به این شکل <span style="color:#f39c12">نیست</span>، زیرا ممکن است<span style="color:#e74c3c"> درخواست از موبایل ارسال شود یا از App ها دسکتاپ یا سایت ها با دامنه های دیگر</span>.&nbsp;</p>
+
+<p dir="rtl">برای حل این مشکل در مبحث <span style="color:#f1c40f">Api </span>از روش <span style="color:#ff0066">token authentication</span> استفاده می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">token authentication</span> : در این روش کاربر <span style="color:#f1c40f">username </span>و <span style="color:#f1c40f">password </span>را به سرور ارسال می کند.<span style="color:#9b59b6"> سرور بررسی می کند</span>. <span style="color:#d35400">اگر همچی اوکی بود یک توکن یونیک generate می کند و در قالب یک response یا status 200 به کاربر برمی گرداند</span>. به این توکن ساخته شده <span style="color:#ff0066">JWT </span>یا <span style="color:#ff0066">Json Web Token</span> می گویند. <span style="color:#f39c12">حالا کلاینت باید این توکن را در یک فضا مثل database ذخیره کند</span>. <span style="color:#1abc9c">حالا توی مرحله بعدی که خواست درخواست ارسال کند باید این توکن را هم همراه درخواست ارسال کند. سرور بررسی می کند که این توکن درست باشد. اگر اوکی بود جواب به کاربر برمی گردد</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">laravel passport</span> مبنای سیستم <span style="color:#f1c40f">Auth </span>را <span style="color:#d35400">oAuth2 </span>در نظر می گیرد.</p>
+<p dir="rtl">&nbsp;</p>
+<div>
+<img src="../img/content/jwt.jpg" style="width:100%; border-radius:8px;"> 
+</div> 
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#e74c3c">oAuth</span>: مخفف <span style="color:#d35400">opent Authorization</span> است. یک <span style="color:#ff0066">پروتکل استاندارد</span> است که براساس آن<span style="color:#f39c12"> اطلاعات هر کاربر بدون دادن رمز عبور به صورت محدود در اختیار برنامه های کاربردی دیگر قرار می گیرد</span>.</p>
+
+<p dir="rtl">این پروتکل به برنامه های کاربردی این امکان را می دهد تا بدون آن که <span style="color:#f1c40f">کاربران را ملزم به افشای اطلاعات محرمانه خود مانند پسورد کنند، از طریق Api به منابع محافظت شده از یک سرویس وب دسترسی پیدا کنند</span>.</p>
+
+<p dir="rtl">این مکانیزم توسط<span style="color:#2ecc71"> آمازون، گوگل، مایکروسافت</span> و ... استفاده می شود تا به کاربران اجازه دهد اطلاعات<span style="color:#d35400"> مربوط به حساب های خود را با برنامه های شخصی ثالث</span> یا<span style="color:#ff0066"> third party</span> به اشتراک بگذارند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای مثال شما یک حساب کاربری روی <span style="color:#9b59b6">gmail </span>دارید و می خواهید در<span style="color:#3498db"> وب سایت x </span>هم عضو شوید. یک راه این است که<span style="color:#f39c12"> شما در صفحه عضویت اطلاعات خود را وارد کنید و عضو شوید و راه دیگر استفاده از oAuth</span> است. <span style="color:#e74c3c">در سیستم oAuth تنها اطلاعات محدودی از حساب شما به اشتراک گذاشته می شود</span>.</p>
+
+<p dir="rtl"><span style="color:#ff0066">لاراول passport</span> برای <span style="color:#e67e22">پروژه های بسیار بزرگ</span> است که می خواهند<span style="color:#e74c3c"> یک سیستم Auth کامل</span> داشته باشند اما وقتی تنها نیاز داریم که <span style="color:#ff0066">jwt </span>را <span style="color:#3498db">generate </span>کنیم و ب<span style="color:#e67e22">ه کمک آن کاربر را لاگین کرده و اجازه دسترسی به ان بدهیم واقعا نیازی نیست</span> که از <span style="color:#9b59b6">laravel passport</span> استفاده کنیم و <span style="color:#ff0066">لاراول sanctum به راحتی کار ما را راه می اندازد</span>.</p>
+
+<p dir="rtl">اما اگر می خواهیم<span style="color:#f39c12"> ثبت نام با گوگل</span> و ... را به کمک <span style="color:#d35400">Api </span>داشته باشیم باید از&nbsp;<span style="color:#ff0066">لاراول passport&nbsp;</span>استفاده کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------     laravel passport    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">composer </span><span style="color:#d35400">require </span><span style="color:#e74c3c">laravel/passport</span></p>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#e74c3c">migrate</span></p>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">php </span><span style="color:#d35400">artisan </span><span style="color:#e74c3c">passport:install</span></p>
+<p>&nbsp;</p>
+<p dir="rtl">با زدن <span style="color:#9b59b6">دستور آخری</span> موارد زیر generate می شوند.</p>
+<p>&nbsp;</p>
+<p><span style="color:#f1c40f">Client ID</span>: 1<br />
+<span style="color:#e67e22">Client secret</span>: X2HcwQ41u5VnqVUPlFLCt5WzuNGuStpcZrQzFFBy<br />
+<span style="color:#7f8c8d">Password grant client created successfully.</span><br />
+<span style="color:#f1c40f">Client ID</span>: 2<br />
+<span style="color:#e67e22">Client secret:</span> lNgxok4rHbOvWN4UTV57r1RMRZNtSlGwjFuUfTBk</p>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in user model</span></p>
+
+<p><span style="color:#e74c3c">use </span><span style="color:#27ae60">HasApiTokens</span>;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in&nbsp; &nbsp;AuthServiceProvider&nbsp; -- boot method</span></p>
+
+<p><span style="color:#e74c3c">if&nbsp;</span>(!&nbsp;$this-&gt;app-&gt;<span style="color:#d35400">routesAreCached</span>())&nbsp;{</p>
+
+<p>&nbsp; &nbsp; &nbsp; <span style="color:#27ae60">Passport</span>::<span style="color:#d35400">routes</span>();</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in&nbsp; config/auth</span></p>
+
+<p>&#39;<span style="color:#f39c12">guards</span>&#39;&nbsp;=&gt;&nbsp;[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">web</span>&#39;&nbsp;=&gt;&nbsp;[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">driver</span>&#39;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">session</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">provider</span>&#39;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">users</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">api</span>&#39;&nbsp;=&gt;&nbsp;[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">driver</span>&#39;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">passport</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;<span style="color:#f39c12">provider</span>&#39;&nbsp;=&gt;&nbsp;&#39;<span style="color:#f39c12">users</span>&#39;,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;],</p>
+</div> 
+<p>&nbsp;</p>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------     JWT    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">Json Web Token</span> یک <span style="color:#f1c40f">استاندارد </span>برای<span style="color:#f39c12"> انتقال امن اطلاعات بین مقاصد مختلف</span> را توسط <span style="color:#d35400">یک شی JSON</span> تعریف می کند و به صورت<span style="color:#ff0099"> Digital Sign یا امضای دیجیتال</span> است. این امضا ساختار زیر را دارد.</p>
+
+<div class="code"><p><span style="color:#d35400">Header</span>.<span style="color:#ff0099">Peyload</span>.<span style="color:#e74c3c">Signature</span></p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0099">Header</span>: حاوی اطلاعاتی در<span style="color:#e74c3c"> ارتباط با نوع توکن + الگوریتمی</span> است که در<span style="color:#f1c40f"> محاسبه JWT مورد استفاده قرار خواهد گرفت</span> که در آن جمله می توان به <span style="color:#9b59b6">SHA256 </span>اشاره کرد.</p>
+
+<div class="code"><p>{</p>
+
+<p>&nbsp; &nbsp;&quot;<span style="color:#f39c12">alg</span>&quot;:&quot;<span style="color:#f39c12">HS256</span>&quot;,<br />
+&nbsp; &nbsp;&quot;<span style="color:#f39c12">typ</span>&quot;:&quot;<span style="color:#f39c12">JWT</span>&quot;</p>
+
+<p>}</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0099">Peyload </span>:&nbsp; حاوی <span style="color:#e74c3c">یکسری داده ها است که داخل توکن ذخیره</span> خواهند شد که از جمله آن ها می تواند<span style="color:#d35400"> به سازنده توکن، تاریخ انقضا و ...</span> اشاره کرد.</p>
+
+<div class="code"><p>{</p>
+
+<p>&nbsp; &quot;<span style="color:#f39c12">sub</span>&quot;:&quot;<span style="color:#f39c12">1234567890</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">name</span>&quot;:&quot;<span style="color:#f39c12">john Doe</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">admin</span>&quot;:<span style="color:#9b59b6">true</span></p>
+
+<p>}</p></div>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#ff0099">Signature</span>: همان <span style="color:#e67e22">امضای دیجیتال</span> است که برای<span style="color:#d35400"> تولید این بخش های Header&nbsp; و payload به صورت </span><span style="color:#3498db">encode </span><span style="color:#d35400">شده داریم.</span> به علاوه به <span style="color:#e74c3c">Secret </span>یا به عبارتی <span style="color:#f39c12">کلید رمز</span> هم داریم. برای مثال چنانچه بحواهیم <span style="color:#9b59b6">از الگوریتم HMAC SHA256</span> استفاده کنیم، امضای دیجیتال زیر ساخته می شود.</p>
+ 
+<div class="code"><p><span style="color:#3498db">HMACSHA256</span>(<span style="color:#27ae60">base64UrlEncode</span>(<span style="color:#e67e22">header</span>) + &quot;<span style="color:#f39c12">.</span>&quot; + <span style="color:#27ae60">base64UrlEncode</span>(<span style="color:#e67e22">payload</span>) , <span style="color:#9b59b6">secret</span>)</p></div> <p dir="rtl">&nbsp;</p>
+<p dir="rtl"><span style="color:#ff0066">خروجی یک رشته طویل است</span> که لاراول <span style="color:#f1c40f">passport </span>آن را به راحتی ایجاد می کند.</p>
+
+<p dir="rtl">برای توضیحات بیشتر هم می توانیم به سایت خود <span style="color:#9b59b6">JWT </span>به ادرس <span style="color:#e74c3c">jwt.io</span> برویم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">توجه کنید که <span style="color:#f39c12">jwt </span>را باید در<span style="color:#e74c3c"> قالب Bearer token</span>&nbsp; ارسال کنیم.</p>
+
+<p>&nbsp;</p>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">------     laravel sanctum    ------</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">لاراول&nbsp;sanctum یک نسخه سبک Auth است برای SPA ها و موبایل وب اپلیکیشن ها&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای SPA ها بهتر است از این پکیج استفاده کنیم زیرا هم توانایی Auth token و هم session auth را دارد. یکی از ویژگی ها برتر این پکیج این است که ما را از حملات CSRF دور نگه می دارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><code>composer require laravel/sanctum</code><!--ح--></p>
+
+<p><code>php artisan vendor:publish --provider=&quot;Laravel\Sanctum\SanctumServiceProvider&quot;</code></p>
+
+<p><code>php artisan migrate</code></p></div> 
+<p dir="rtl"><span style="font-family:monospace">لاراول&nbsp;</span><code>Sanctum از jwt استفاده نمی کند و به جای آن از personal access token استفاده می کند.</code></p>
+
+<div class="code"><p><span style="color:#7f8c8d">in app/ Http/kernel.php</span></p>
+
+<pre>
+<code>&#39;<span style="color:#f39c12">api</span>&#39; =&gt; [
+    <span style="color:#27ae60">\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful</span>::<span style="color:#9b59b6">class</span>,
+    &#39;<span style="color:#f39c12">throttle:api</span>&#39;,
+    <span style="color:#27ae60">\Illuminate\Routing\Middleware\SubstituteBindings</span>::<span style="color:#9b59b6">class</span>,
+],</code></pre>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">in user model</span></p>
+
+<p><span style="color:#e74c3c">use </span><span style="color:#d35400">HasApiTokens</span>, HasFactory, Notifiable;</p>
+</div> 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">--     ایجاد register  در لاراول sanctum   --</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// api.php</span></p>
+
+<p><span style="color:#27ae60">Route</span>::<span style="color:#3498db">post</span>(&#39;<span style="color:#f39c12">/register</span>&#39; , [<span style="color:#27ae60">AuthController</span>::<span style="color:#9b59b6">class </span>, &#39;<span style="color:#f39c12">register</span>&#39;]);</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color:#7f8c8d">// in&nbsp;AuthController</span></p>
+
+<p><span style="color:#e74c3c">public </span>function <span style="color:#3498db">register</span>(<span style="color:#2980b9">Request </span>$request){</p>
+
+<p>&nbsp; &nbsp; $validator = <span style="color:#27ae60">Validator</span>::<span style="color:#e67e22">make</span>($request-&gt;<span style="color:#3498db">all</span>() , [</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">name</span>&quot; =&gt; &quot;<span style="color:#f39c12">required|string</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">email</span>&quot; =&gt; &quot;<span style="color:#f39c12">required|email|unique:users,email</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">password</span>&quot; =&gt; &quot;<span style="color:#f39c12">required</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">c_password</span>&quot; =&gt; &quot;<span style="color:#f39c12">required|same:password</span>&quot;,</p>
+
+<p>&nbsp; &nbsp; ]);</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; <span style="color:#e74c3c">if</span>($validator-&gt;<span style="color:#e74c3c">fails</span>()){</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">422</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;$validation-&gt;<span style="color:#f1c40f">messages</span>());</p>
+
+<p>&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp;$user&nbsp;=&nbsp;<span style="color:#27ae60">User</span>::<span style="color:#d35400">create</span>([</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">name</span>&quot;&nbsp;=&gt;&nbsp;$request-&gt;name,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">email</span>&quot;&nbsp;=&gt;&nbsp;$request-&gt;email,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">password</span>&quot;&nbsp;=&gt;&nbsp;<span style="color:#27ae60">Hash</span>::<span style="color:#d35400">make</span>($request-&gt;password),</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</p>
+
+<p>&nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp;$token&nbsp;=&nbsp;$user-&gt;<span style="color:#e74c3c">createToken</span>(&#39;<span style="color:#f39c12">myApp</span>&#39;)-&gt;<span style="color:#ff0099">planTextToken</span>;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>([</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">user</span>&quot;&nbsp;=&gt;&nbsp;$user,</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">token</span>&quot;&nbsp;=&gt;$token</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<span style="color:#9b59b6">201</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Created</span>&quot;);</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+
+</div>
+<p>&nbsp;</p>
+ <p dir="rtl">&nbsp;</p>
+<h2 class="y">--     Login with sanctum   --</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گذاشتن <span style="color:#e74c3c">middleware روی روت ها</span> برای Auth در لاراول <span style="color:#f1c40f">sanctum </span>به شکل زیر است.</p>
+
+<div class="code"><p>::<span style="color:#d35400">middleware</span>(&#39;<span style="color:#e74c3c">auth:sanctum</span>&#39;)</p>
+</div>
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#7f8c8d">//&nbsp; in api.php</span></p>
+
+<p><span style="color:#27ae60">Route</span>::<span style="color:#3498db">post</span>(&#39;<span style="color:#f39c12">/login</span>&#39;,&nbsp;[<span style="color:#27ae60">AuthController</span>::<span style="color:#9b59b6">class&nbsp;</span>,&nbsp;&#39;<span style="color:#f39c12">login</span>&#39;]);</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp;&nbsp;AuthController&nbsp;</span></p>
+
+<p><span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#e67e22">login</span>(<span style="color:#2980b9">Request&nbsp;</span>$request)&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$validation&nbsp;=&nbsp;<span style="color:#27ae60">Validator</span>::<span style="color:#d35400">make</span>($request-&gt;<span style="color:#3498db">all</span>(),[</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">email</span>&quot;&nbsp;=&gt;&nbsp;&quot;<span style="color:#f39c12">required|email</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&quot;<span style="color:#f39c12">password</span>&quot;&nbsp;=&gt;&nbsp;&quot;<span style="color:#f39c12">required</span>&quot;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; ]);</p>
+
+<p><br />
+&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">if</span>($validation-&gt;<span style="color:#e74c3c">fails</span>()){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">422</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;$validation-&gt;<span style="color:#ff0066">messages</span>());</p>
+
+<p>&nbsp; &nbsp; &nbsp;}</p>
+
+<p><br />
+&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;$user&nbsp;=&nbsp;<span style="color:#27ae60">User</span>::<span style="color:#d35400">where</span>(&#39;<span style="color:#f39c12">email</span>&#39;&nbsp;,&nbsp;$request-&gt;email)-&gt;<span style="color:#3498db">first</span>();</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">if</span>(<span style="color:#e74c3c">!</span>$user){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">401</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;&quot;<span style="color:#f39c12">user&nbsp;not&nbsp;found</span>&quot;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">if</span>(<span style="color:#e74c3c">!</span><span style="color:#27ae60">Hash</span>::<span style="color:#d35400">check</span>($request-&gt;password,&nbsp;$user-&gt;password)){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">401</span>,&quot;<span style="color:#f39c12">error</span>&quot;,&nbsp;&quot;<span style="color:#f39c12">pass&nbsp;wrong</span>&quot;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+
+<p>&nbsp;<span style="color:#7f8c8d">&nbsp;//&nbsp;Create&nbsp;Token&nbsp;by&nbsp;Laravel&nbsp;passpord</span></p>
+
+<p>&nbsp; $token&nbsp;=&nbsp;$user-&gt;<span style="color:#d35400">createToken</span>(&#39;<span style="color:#f39c12">myApp</span>&#39;)-&gt;<span style="color:#ff0066">planTextToken</span>;</p>
+
+<p><br />
+&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;<span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>([</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span style="color:#f39c12">user</span>&quot;&nbsp;=&gt;&nbsp;$user,</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">token</span>&quot;&nbsp;=&gt;$token</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;],<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Created</span>&quot;);</p>
+
+<p>}</p>
+
+</div> 
+
+<p>&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">--     logout with sanctum   --</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#7f8c8d">//&nbsp; api.php</span></p>
+
+<p><span style="color:#27ae60">Route</span>::<span style="color:#3498db">post</span>(&#39;<span style="color:#f39c12">/logout</span>&#39;,&nbsp;[<span style="color:#27ae60">AuthController</span>::<span style="color:#9b59b6">class&nbsp;</span>,&nbsp;&#39;<span style="color:#f39c12">logout</span>&#39;])-&gt;<span style="color:#d35400">middleware</span>(&#39;<span style="color:#f39c12">auth:api</span>&#39;);</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp;AuthController</span></p>
+
+<p><span style="color:#e74c3c">public&nbsp;</span>function&nbsp;<span style="color:#e67e22">logout</span>(){</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff0066">auth</span>()-&gt;user()-&gt;<span style="color:#d35400">tokens</span>()-&gt;<span style="color:#e74c3c">delete</span>();</p>
+
+<p>&nbsp; &nbsp; <span style="color:#e74c3c">return&nbsp;</span>$this-&gt;<span style="color:#e67e22">APIResponse</span>(&#39;&#39;,<span style="color:#9b59b6">200</span>,&quot;<span style="color:#f39c12">success</span>&quot;,&quot;<span style="color:#f39c12">ok&nbsp;Logouted</span>&quot;);</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+</div> 
+<p>&nbsp;</p>
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">--     CORS   --</h2> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e67e22">Cross-origin Resource Sharing</span> یعنی <span style="color:#e74c3c">اشتراک گذاری منابع از چند source مختلف</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">Same Origin Policy</span>: <span style="color:#f39c12">مرورگرها </span>و دنیای وب به طوری طراحی شده اند که قانونی این نام را اجرا می کنند. این<span style="color:#d35400"> قانون می گوید مقصد درخواست های ما باید با منبعی که به آن درخواست میفرستیم یکی باشد</span>.</p>
+
+<p dir="rtl">زمانی <span style="color:#9b59b6">مقصد درخواست و منبع یکی نیست</span> که:</p>
+
+<p dir="rtl">- به <span style="color:#e74c3c">یک دامنه یا زیر دامنه دیگر</span> متصل شویم.</p>
+
+<p dir="rtl">- به یک<span style="color:#e74c3c"> پروتکل دیگر</span> متصل شویم.</p>
+
+<p dir="rtl">- به یک<span style="color:#e74c3c"> پورت دیگر</span> متصل شویم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="font-size:20px"><span style="color:#f1c40f">CORS در سمت کلاینت:</span></span></p>
+
+<p dir="rtl">در دنیای مرورگرها قانون<span style="color:#9b59b6">&nbsp;Same Origin Policy </span>وجود دارد و به صورت <span style="color:#f1c40f">پیش فرض </span>ما فقط می توانیم <span style="color:#e67e22">به منابعی دسترسی داشته باشیم که&nbsp;Same Origin&nbsp; از سایتی که در آن هستیم</span>، باشد.&nbsp;<br />
+اما مشکل اینجاست که ما نیاز داریم به برقرای ارتباط با origin های <span style="color:#9b59b6">دیگر </span>از وب سایت های دیگر.&nbsp;<br />
+کلاینت می تواند از <span style="color:#e74c3c">مکانیسم خاصی به نام CORS استفاده کند تا نوع خاصی از درخواست های cross-origin را ارسال کند</span>. این <span style="color:#d35400">عملیات یا استفاده از header های خاصی در درخواست HTTP انجام می شود</span>.</p>
+
+<p dir="rtl">زمانی که می خواهیم<span style="color:#f39c12"> یک درخواست&nbsp;cross-origin به منبعی دیگر ارسال کنیم</span>، <span style="color:#e74c3c">مرورگر شما یک header خاص به نام Origin را به درخواست HTTP اضافه می کند</span>. مقدار این <span style="color:#ff0066">هدر برابر با منبعی است که درخواست از آن ارسال شده است. سرور این درخواست را دریافت می کند و header هایش را بررسی می کند تا بداند هر درخواست از کجا آمده است</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="font-size:20px"><span style="color:#f1c40f">CORS در سمت سرور:</span></span></p>
+
+<p dir="rtl">در سرور باید header های <span style="color:#e74c3c">مجموعه&nbsp; Access-Control</span> را به<span style="color:#e67e22"> پاسخ های سرور خود</span> اضافه کنیم. مرورگر ها براساس مقدار<span style="color:#9b59b6"> این دسته از هدرها می توانند مشخص کنند که چه نوع درخواست هایی cross-origin مجاز هستند</span>. در <span style="color:#e74c3c">صورتی که&nbsp; Access-Control در هدر شما نباشد، تمام درخواست های&nbsp;cross-origin بلوکه خواهند شد</span>.</p>
+
+<p dir="rtl">تعداد&nbsp;header های مربوط به<span style="color:#f1c40f">&nbsp;Access-Control </span>بسیار <span style="color:#1abc9c">زیاد </span>هستند اما مرورگر<span style="color:#f39c12"> فقط یک&nbsp;header خاص را برای مجاز دانستن درخواست های&nbsp;&nbsp;cross-origin می خواهد و آن هم فرمان</span> <span style="color:#e74c3c">Access-Control-Allow-Origin</span> می باشد. مقداری که در این&nbsp;header قرار می دهید، مشخص می کند که <span style="color:#d35400">چه مقصدهایی می توانند به این سرور درخواست ارسال</span> کنند.</p>
+
+<p dir="rtl"><span style="color:#9b59b6">Access-Control-Allow-Origin </span>را باید <span style="color:#d35400">در response به مرورگر</span> اضافه کنیم.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">ارور CORS زمانی اتفاق می افتد که از جاوااسکریپت درخواست ارسال می کنیم.</span> برای<span style="color:#9b59b6"> تست cors</span> می توانید از <span style="color:#2980b9">سایت test-cors </span>استفاده کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">لاراول به شکل <span style="color:#e67e22">خودکار </span>تنها <span style="color:#e74c3c">ارور CORS</span> را زمانی ایجاد می کند که به<span style="color:#d35400"> route ها عادی </span>درخواست های Api ارسال کنیم. <span style="color:#ff0066">اگر درخواست های Api را به روت های مربوط به /api ارسال کنیم، اروری ایجاد نمی شود</span>. البته در این حالت <span style="color:#f39c12">هر دامنه ای که درخواست ارسال کند، پاسخ را بدون ارور دریافت می کند</span>. به همین منظور <span style="color:#e74c3c">باید کاری کنیم که فقط دامنه ای که مدنظر ما است بتواند درخواست ارسال کند</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">لاراول به کمک فایل<span style="color:#e74c3c"> config/cors.php</span> ارورهای مربوط به <span style="color:#d35400">CORS و خود CORS</span> را هندل می کند.</p>
+
+<div class="code">
+<p>&#39;<span style="color:#f39c12">paths</span>&#39; =&gt; [&#39;<span style="color:#f39c12">api/*</span>&#39;, &#39;<span style="color:#f39c12">sanctum/csrf-cookie</span>&#39;],</p></div> 
+<p dir="rtl">به کمک این کد مشخص می کنیم که <span style="color:#d35400">کدام مسیرها باید قانون CORS</span> را داشته باشند.</p>
+
+<div class="code"><p>&#39;<span style="color:#f39c12">allowed_methods</span>&#39; =&gt; [&#39;<span style="color:#f39c12">*</span>&#39;],</p>
+</div> 
+<p dir="rtl">این کد <span style="color:#f39c12">متودهایی </span>(<span style="color:#f1c40f">post - get - put - patch - delete</span>) که م<span style="color:#e67e22">ی توانند درخواست ارسال کنند را مشخص می کند</span>. <span style="color:#e74c3c">*</span> یعنی <span style="color:#ff0066">همه متودها</span></p>
+<div class="code"><p>&#39;<span style="color:#f39c12">allowed_origins</span>&#39; =&gt; [&#39;<span style="color:#f39c12">*</span>&#39;],</p>
+</div> 
+<p dir="rtl">همان&nbsp;<span style="color:#e74c3c">Access-Control-Allow-Origin</span> است و <span style="color:#f1c40f">مقاصدی که می توانند یه سرور درخواست کنند را مشخص می کند</span>.</p>
+
+<p dir="rtl">اگر <span style="color:#9b59b6">خواستیم دستوراتی که ارسال می کنیم از هر دامنه دیگر باشد</span> به شکل زیر عمل کنیم.</p>
+<div class="code"><p>&#39;<span style="color:#f39c12">allowed_origins</span>&#39; =&gt; [<span style="color:#f39c12">&#39;http://www.google.com</span>&#39;,&#39;<span style="color:#f39c12">http://www.facebook.com</span>&#39;],</p></div>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">الان این <span style="color:#1abc9c">دو مورد اجازه ارسال درخواست یه سرور ما </span>را دارند.</p>
+
+<p dir="rtl">توجه داشت باشید که که <span style="color:#f1c40f">هر روتی</span> که در&nbsp;<span style="color:#e74c3c">&#39;paths&#39;</span> مشخص می کنید <span style="color:#d35400">دستورات CORS بر روی آن اعمال می شود</span>. یعنی<span style="color:#ff0066"> تمام دستورات&nbsp;config/cors.php تنها روی روت های مشخص شده در&nbsp;paths اعمال می شوند</span>. پس اگر <span style="color:#f1c40f">خواستی به روت خاصی درخواست ارسال کنیم باید آن را هم اضافه کنیم به این ارایه.</span></p>
+
+<p dir="rtl">لازم به ذکر است که&nbsp;<span style="color:#e74c3c">allowed_origins </span><span style="color:#e67e22">نقش اجازه دسترسی را دارد</span> و زمانی که آن را تعیین می کنیم یعنی مشخص می کنیم که<span style="color:#27ae60"> کدام فرستنده های درخواست مجاز هستند</span>.</p>
+
+<p dir="rtl">در <span style="color:#e74c3c">paths </span>ما <span style="color:#d35400">گیرنده های مجاز سایتمان </span>را مشخص می کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+
+ 
+
+<!--           
+
+ 
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

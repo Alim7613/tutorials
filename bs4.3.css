@@ -1,0 +1,554 @@
+/*********************************************
+			Typography
+**********************************************/
+.h1{}
+.h2{}
+.h3{}
+.h4{}
+.h5{}
+.h6{}
+/**for decrease font size h1
+<h1 class="display-1">Display 1</h1>
+**/
+.display-1{}
+.display-2{}
+.display-3{}
+.display-4{}
+
+.lead{}
+.blockquote{}
+/***List**/
+.list-style{}
+.list-inline {} /**for ul**/
+.list-inline-item {} /**for ul**/
+/***wrap**/
+.text-monospace{}/**default font**/
+.text-wrap {}
+.text-nowrap {}
+.text-truncate {}
+/**align***/
+.text-left {}
+.text-right {}
+.text-center {}
+.text-justify{}
+/**italic***/
+.font-italic {}
+/***weight**/
+.font-weight-light {}
+.font-weight-lighter {}
+.font-weight-normal {}
+.font-weight-bold {}
+.font-weight-bolder {}
+/**color***/
+.text-white {}
+.text-primary {}
+.text-secondary{}
+.text-success{}
+.text-info{}
+.text-warning{}
+.text-danger{}
+.text-light{}
+.text-dark{}
+.text-body{}
+.text-muted{}
+.text-black-50{}
+.text-white-50{}
+.text-hide{}
+/**a***/
+.text-decoration-none{}
+.text-break{}
+
+
+/**capitalize***/
+.text-lowercase {}
+.text-uppercase {}
+.text-capitalize {}
+
+/*********************************************
+			Image
+**********************************************/
+.img-fluid{}
+.img-thumbnail{}
+
+/*********************************************
+			Table
+**********************************************/
+.table {}
+.table-striped{}
+/***
+<th scope="row">1</th>
+<th scope="col">First</th>
+***/
+.table-dark{}
+.table-bordered{}
+.table-hover{}
+.table-borderless{}
+/**size**/
+.table-sm{}
+/***color***/
+.table-active{}
+.table-primary{}
+.table-secondary{}
+.table-success{}
+.table-danger{}
+.table-warning{}
+.table-info{}
+.table-dark{}
+.table-light{}
+/**responsive**/
+.table-responsive{}
+.table-responsive-sm{}
+.table-responsive-md{}
+.table-responsive-lg{}
+.table-responsive-xl{}
+
+/*********************************************
+			Figure
+**********************************************/
+.figure{}
+.figure-img{}
+.figure-caption{}
+
+/*********************************************
+			alert
+**********************************************/
+.alert {}
+
+.alert-primary{}
+.alert-secondary{}
+.alert-success{}
+.alert-danger{}
+.alert-warning{}
+.alert-info{}
+.alert-light{}
+.alert-dark{}
+/***with X button***/
+.alert-dismissible{}
+/*********************************************
+			badge 
+**********************************************/
+.badge {}
+
+.badge-pill{}/*radius 300px*/
+.badge-primary{}
+
+/*********************************************
+			breadcrumb 
+**********************************************/
+.breadcrumb{}
+.breadcrumb-item{} 
+.active{}
+
+/*********************************************
+			button  
+**********************************************/
+.btn {}
+.btn-primary{}
+
+.btn-block{}
+.btn-link{}
+
+.btn-outline-primary{}
+
+.btn-lg{} 
+.btn-sm {}
+
+.active{}
+
+.btn-group{}
+
+.btn-group-sm{}
+.btn-group-lg{}
+
+/*********************************************
+			card  
+**********************************************/
+.card{}
+.card-group{}
+.card-deck{}
+
+.card-img-top{}
+.card-img-bottom{}
+.card-img-overlay{}
+
+
+.card-body{}
+.card-title{}
+.card-text{}
+
+.card-subtitle{}
+
+.card-header{}
+.card-footer{}
+
+/*********************************************
+			carousel  
+**********************************************/
+/*copy from site**/
+
+/*********************************************
+			Collapse  
+**********************************************/
+.collapse{}
+
+.accordion{}
+
+/*********************************************
+			dropdown  
+**********************************************/
+/*copy from site**/
+
+/*********************************************
+			form  
+**********************************************/
+/*copy from site**/
+
+
+
+/*********************************************
+			List group  
+**********************************************/
+/*copy from site**/
+
+
+/*********************************************
+			Modal  
+**********************************************/
+/*copy from site**/
+
+/*********************************************
+			Navs  
+**********************************************/
+/*copy from site**/
+
+/*********************************************
+			Navbar  
+**********************************************/
+/*copy from site**/
+
+/*********************************************
+			Pagination  
+**********************************************/
+/*copy from site**/
+
+
+
+/*********************************************
+			Popovers  
+**********************************************/
+/*copy from site**/
+[data-toggle="popover"]
+/****BEST FOR introduce Element  With Tooltip************************************/
+
+
+/*********************************************
+			Progress  
+**********************************************/
+/*copy from site**/
+
+
+
+
+
+/***Scrollspy  for Scrolling ***/
+
+
+
+/*********************************************
+			border  
+**********************************************/
+.border{}
+.border-top{}
+.border-bottom-0{}
+.border-primary{}
+
+.rounded{}
+.rounded-top{}
+.rounded-right{}
+.rounded-bottom{}
+.rounded-left{}
+
+.rounded-circle{}
+.rounded-pill{}
+.rounded-0{}
+
+/*********************************************
+			bg  
+**********************************************/
+.bg-primary{}
+.bg-secondary{}
+.bg-success{}
+.bg-danger{}
+.bg-warning{}
+.bg-info{}
+.bg-light{}
+.bg-dark{}
+.bg-white{}
+
+.bg-gradient-primary
+.bg-gradient-secondary{}
+.bg-gradient-success{}
+.bg-gradient-danger{}
+.bg-gradient-warning{}
+.bg-gradient-info{}
+.bg-gradient-ligh{}
+.bg-gradient-dark{}
+
+
+/*********************************************
+			display  
+**********************************************/
+.d-none{}
+.d-inline{}
+.d-inline-block{}
+.d-block{}
+.d-table{}
+.d-table-cell{}
+.d-table-row{}
+.d-flex{}
+.d-inline-flex{}
+
+/*.d-{sm,md,lg,xl}-none */
+
+/*Change the display value of elements when printing with our print display**/
+.d-print-none{}
+.d-print-inline{}
+.d-print-inline-block{}
+.d-print-block{}
+.d-print-table{}
+.d-print-table-row{}
+.d-print-table-cell{}
+.d-print-flex{}
+.d-print-inline-flex{}
+
+
+/*********************************************
+			embed  
+**********************************************/
+.embed-responsive{} 
+.embed-responsive-16by9{}
+
+/*****
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+</div>
+
+*/
+
+
+/*********************************************
+			order  
+**********************************************/
+.order-0{}
+.order-1{}
+.order-2{}
+.order-3{}
+.order-4{}
+.order-5{}
+.order-6{}
+.order-7{}
+.order-8{}
+.order-9{}
+.order-10{}
+.order-11{}
+.order-12{}
+.order-sm-0{}
+.order-sm-1{}
+.order-sm-2{}
+.order-sm-3{}
+.order-sm-4{}
+.order-sm-5{}
+.order-sm-6{}
+.order-sm-7{}
+.order-sm-8{}
+.order-sm-9{}
+.order-sm-10{}
+.order-sm-11{}
+.order-sm-12{}
+.order-md-0{}
+.order-md-1{}
+.order-md-2{}
+.order-md-3{}
+.order-md-4{}
+.order-md-5{}
+.order-md-6{}
+.order-md-7{}
+.order-md-8{}
+.order-md-9{}
+.order-md-10{}
+.order-md-11{}
+.order-md-12{}
+.order-lg-0{}
+.order-lg-1{}{}
+.order-lg-2{}
+.order-lg-3{}
+.order-lg-4{}
+.order-lg-5{}
+.order-lg-6{}
+.order-lg-7{}
+.order-lg-8{}
+.order-lg-9{}
+.order-lg-10{}
+.order-lg-11{}
+.order-lg-12{}
+.order-xl-0{}
+.order-xl-1{}
+.order-xl-2{}
+.order-xl-3{}
+.order-xl-4{}
+.order-xl-5{}
+.order-xl-6{}
+.order-xl-7{}
+.order-xl-8{}
+.order-xl-9{}
+.order-xl-10{}
+.order-xl-11{}
+.order-xl-12{}
+
+
+/*********************************************
+			float  
+**********************************************/
+.float-left{}
+.float-right{}
+.float-none{}
+.float-sm-left{}
+.float-sm-right{}
+.float-sm-none{}
+.float-md-left{}
+.float-md-right{}
+.float-md-none{}
+.float-lg-left{}
+.float-lg-right{}
+.float-lg-none{}
+.float-xl-left{}
+.float-xl-right{}
+.float-xl-none{}
+
+/*********************************************
+			Position  
+**********************************************/
+.position-relative{}
+.position-absolute{}
+.position-fixed{}
+.position-sticky{}
+.fixed-top{}
+.fixed-bottom{}
+
+/*********************************************
+			Screenreaders  
+**********************************************/
+.sr-only {}
+.sr-only-focusable{}
+
+/*********************************************
+			Width   Height  
+**********************************************/
+
+.w-25 {}
+.w-50 {}
+.w-75 {}
+.w-100 {}
+.w-auto {}
+.h-25 {}
+.h-50 {}
+.h-75 {}
+.h-100 {}
+.h-auto {}
+.mw-100 {}
+.mh-100 {}
+.min-vw-100 {}
+.min-vh-100 {}
+.vw-100 {}
+.vh-100 {}
+
+
+/*********************************************
+			padding   margin  
+**********************************************/
+.m-0{}
+.mt-0{}
+.mb-0{}
+.mr-0{}
+.ml-0{}
+.mx-0{}
+.my-0{}
+.p-0{}
+.pt-0{}
+.pb-0{}
+.pr-0{}
+.pl-0{}
+.px-0{}
+.py-0{}
+.mt-n3{}/**negative*/
+.m-auto{}
+.mx-auto{}/**margin:0 auto;**/
+.my-auto{}
+
+
+/*********************************************
+			vertical-align
+**********************************************/
+.align-middle{}/*vertical-align**/
+.align-baseline
+.align-top
+.align-bottom
+.align-text-bottom
+.align-text-top
+
+/*********************************************
+			Visibility
+**********************************************/
+.visible{}
+.invisible{}
+
+
+/*********************************************
+			offset
+**********************************************/
+.offset-1 {}
+.offset-2 {}
+.offset-3 {}
+.offset-4 {}
+.offset-5 {}
+.offset-6 {}
+.offset-7 {}
+.offset-8 {}
+.offset-9 {}
+.offset-10 {}
+.offset-11 {}
+
+/*******************************/
+
+
+.fade{}
+
+
+.toast{}
+
+
+.shadow-sm {}
+.shadow {}
+.shadow-lg {}
+.shadow-none {}
+
+
+.jumbotron{}
+.jumbotron-fluid{}
+
+
+.justify-content-center{}
+.align-items-center{}/*align-item*/
+
+
+.overflow-auto{}
+.overflow-hidden{}
+
+
+.clearfix{}
+
+
+.close{} /**close btn***/
+
+
+.media{} /**for comment part*/

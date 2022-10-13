@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>npm</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						NPM		 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/npm.png" width="150" height="150"></p>
+
+<i class="ti or"> -- &nbsp; &nbsp; &nbsp; &nbsp;  npm  &nbsp; &nbsp; &nbsp; &nbsp; --</i>
+
+
+<h2 class="y">------   package manager   ------</h2> 
+
+
+<p style="direction:rtl">ما به پکیج <span style="color:#d35400">dependency </span>یا وابستگی هم می گوییم و به این معنی است که پروژه ما به فلان پکیج <span style="color:#e74c3c">وابسته</span> است.</p>
+
+<p style="direction:rtl">قبلا باید کتابخانه ها را دانلود و همچنین وابستگی های آن ها را هم دانلود می کردیم که این کار ما را درهنگام بروزرسانی و ... با مشکل رو به رو می کرد.</p>
+
+<p style="direction:rtl">&nbsp;</p>
+
+
+<p>سایت رسمی npm</p>
+
+<p><span style="color:#27ae60"><span style="font-size:25px">npmjs.com</span></span></p>
+
+<p>&nbsp;</p>
+<p dir="rtl">npm&nbsp; یک پکیج منیجر برای js است&nbsp;</p>
+<p>&nbsp;</p>
+<div class="code">
+
+<p><span style="color:#8e44ad">npm&nbsp; =&gt; js&nbsp; &nbsp;</span><span style="color:#d35400"> (Node Package Manager)</span></p>
+
+<p><span style="color:#8e44ad">composer =&gt; php</span></p>
+
+<p><span style="color:#8e44ad">pip&nbsp; =&gt; python</span></p>
+
+
+</div> 
+<p dir="rtl"><span style="color:#d35400">Node&nbsp; &nbsp;</span>=&gt;&nbsp; <span style="color:#ff0099">محیطی برای اجرای کدهای جاوااسکریپت در سمت سرور&nbsp;</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p style="direction:rtl">برای نصب <span style="color:#e67e22">npm </span>شما باید <span style="color:#e74c3c">Node.js</span> را روی سیستم خود نصب کنید.</p>
+
+<p style="direction:rtl">&nbsp;</p>
+
+<p style="direction:rtl"><em><span style="color:#27ae60">nodejs.org</span></em></p>
+
+<p style="direction:rtl">&nbsp;</p>
+
+<p style="direction:rtl"><span style="color:#e74c3c"><strong>TLS&nbsp; &nbsp; </strong></span>===&gt;<span style="color:#9b59b6"> Long Time Support</span>&nbsp; &nbsp;==&gt;&nbsp;<span style="color:#d35400"> نسخه پایدار</span>&nbsp; ==&gt; <span style="color:#f39c12">Best</span></p>
+
+<p style="direction:rtl"><span style="color:#e74c3c">Current </span>===&gt; نسخه <span style="color:#9b59b6">فعلی</span> اما ناپایدار که نیاز است باگ های آن برطرف شود.</p>
+
+<p style="direction:rtl">npm&nbsp;ّبه صورت <span style="color:#d35400">Global </span>نصب می شود و ما <span style="color:#e74c3c">در هرجای سیستم </span>به آن دسترسی داریم.</p>
+
+<p style="direction:rtl">&nbsp;</p>
+
+<p style="direction:rtl">*** برای اطمینان از نصب&nbsp;&nbsp;</p>
+
+
+<div class="code"><p style="direction:rtl">in Cmd&nbsp; ===&gt;&nbsp; &nbsp; <span style="color:#d35400">&nbsp;node -v&nbsp;</span> &nbsp; or&nbsp; &nbsp; <span style="color:#d35400">npm -v</span></p></div>  
+
+
+
+
+<p style="direction:rtl">&nbsp;</p>
+
+<p style="direction:rtl">ما <span style="color:#27ae60">دونوع </span>رابط کاربری یا <span style="color:#f39c12">User interface</span> در سیستم های مختلف داریم.&nbsp;</p>
+
+<p style="direction:rtl">1<span style="color:#e74c3c">. رابط گرافیکی&nbsp; GUI</span></p>
+
+<p style="direction:rtl">2.<span style="color:#e74c3c"> رابط کامند لاین&nbsp; &nbsp;CLI</span></p>
+
+<p style="direction:rtl">رابط خط فرمان برای ویندوز <span style="color:#9b59b6">cmd </span>و برای مک و لینوکس <span style="color:#9b59b6">terminal</span></p>
+
+<p style="direction:rtl">&nbsp;</p>
+
+
+<h2 class="y">------   Add npm to Project   ------</h2> 
+
+<p dir="rtl"><span style="color:#d35400">npm</span> به این صورت عمل می کند که یک فایل به نام <span style="color:#c0392b">package.json</span> به <span style="color:#27ae60">روت اصلی پروژه</span> ما اضافه می کند.</p>
+
+<p dir="rtl">برای شروع روند به شکل زیر عمل می کنیم&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#9b59b6"> ننوشتن کامل مسیرها</span> در cmd <span style="color:#d35400">ابتدا کلمه مورد نظر را بنویسید و Tab را بزنید</span> نا خودش کامل کند</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">*** ابتدا <span style="color:#f1c40f">به پوشه و روت</span> مورد نظر می رویم.</p>
+
+<div class="code"><p dir="rtl">&nbsp;in cmd&nbsp; ===&gt;&nbsp; &nbsp;<span style="color:#d35400">npm&nbsp; init</span></p></div> 
+
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا npm برای ساخت <span style="color:#e74c3c">package.json</span> شروع به پرسیدن سوالاتی می کند</p>
+
+<p dir="rtl">اولی:&nbsp;<span style="color:#d35400"> نام پروژه&nbsp;</span> &nbsp;==&gt; که می توانیم نام جدید برای آن وارد کنیم و یا اگر <span style="color:#27ae60">Enter را بزنیم به صورت default اسم خود پوشه ای که در آن هستیم</span> را برای پروژه در نظر می گیرد.</p>
+
+<p dir="rtl">دومی :&nbsp;<span style="color:#d35400"> ورژن پروژه</span>&nbsp; ==&gt;&nbsp; &nbsp;می توانیم ورژن تعریف کنیم و یا Enter بزنیم تا <span style="color:#27ae60">خودش ورژن 1</span> را درنظر بگیرد.</p>
+
+<p dir="rtl">سومی : <span style="color:#d35400">description&nbsp; </span>==&gt;&nbsp; &nbsp;در مورد پروژه که می توانیم خالی بگذارید و Enter بزنید.</p>
+
+<p dir="rtl">چهارمی: <span style="color:#d35400">entry Point</span>&nbsp; &nbsp;==&gt;&nbsp; &nbsp;می خواهد بداند که<span style="color:#c0392b"> نقطه شروع پروژه شما کدام است</span> و پروژه شما باید از <span style="color:#e74c3c">چه فایلی شروع به کار کند</span> که به طور پیشفرض index.js است.</p>
+
+<p dir="rtl">پنجمی: <span style="color:#d35400">test command </span>===&gt; که می توانیم دستورات کامند برای آن تعریف کنیم.</p>
+
+<p dir="rtl">ششمی: <span style="color:#d35400">git repository</span>&nbsp; &nbsp;===&gt;&nbsp; &nbsp;که می توانیم <span style="color:#9b59b6">ریپازیتوری گیت هاب یا کنترل ورژن </span>را در آن قرار دهیم.</p>
+
+<p dir="rtl">هفتمی: <span style="color:#d35400">key word</span>&nbsp; &nbsp;===&gt;&nbsp; &nbsp;ممکن است بخواهیم پروژه را بعدا در سایت npm یا جای دیگری منتشر کنیم که می توانیم کلمات کلیدی را در اینجا قرار دهیم تا اگر این کلمات سرچ شد پروژه ما به کاربر نمایش داده شود.</p>
+
+<p dir="rtl">هشتمی: <span style="color:#d35400">Author&nbsp; &nbsp;&nbsp;</span>===&gt;&nbsp; &nbsp;اسم نویسنده که معمولا<span style="color:#9b59b6"> اسم خودمان</span> را می نویسیم.</p>
+
+<p dir="rtl">نهمی: <span style="color:#d35400">لایسنیس&nbsp; &nbsp;</span>==&gt;&nbsp; &nbsp;به صورت دیفالت <span style="color:#f1c40f">ISC </span>است که شما می توانید آن را با توجه به لایسنس هایی که می دانید تغییر دهیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا با زدن Enter می پرسد که فایل با این محتوا را ایجاد کنم یا نه&nbsp; &nbsp;==&gt;<span style="color:#8e44ad"> اگر Enter بزنیم ایجاد می کند و اگر No بزنیم رد می کند.</span></p>
+
+<p dir="rtl">الان باید در پوشه فایل package.json ایجاد شده باشد.</p>
+
+<p dir="rtl">اگر فایل را باز کنیم می بینیم که <span style="color:#d35400">فرمت جیسو</span>ن است و شامل<span style="color:#e74c3c"> key </span>و<span style="color:#e74c3c"> value</span>&nbsp; ها است.</p>
+
+
+<div class="code"><p>{</p>
+
+<p>&nbsp; &quot;<span style="color:#f39c12">name</span>&quot; : &quot;<span style="color:#f39c12">npm project</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">version</span>&quot; : &quot;<span style="color:#f39c12">1.0.0</span>&quot;</p>
+
+<p>}</p>
+
+<p>&nbsp;</p>
+
+<p>{<br />
+&nbsp; &quot;<span style="color:#f39c12">name</span>&quot;: &quot;<span style="color:#f39c12">npm</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">version</span>&quot;: &quot;<span style="color:#f39c12">1.0.0</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">description</span>&quot;: &quot;<span style="color:#f39c12">ali tutorial</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">main</span>&quot;: &quot;<span style="color:#f39c12">index.js</span>&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">test</span>&quot;: &quot;<span style="color:#f39c12">echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1</span>&quot;<br />
+&nbsp; },<br />
+&nbsp; &quot;<span style="color:#f39c12">author</span>&quot;: &quot;&quot;,<br />
+&nbsp; &quot;<span style="color:#f39c12">license</span>&quot;: &quot;<span style="color:#f39c12">ISC</span>&quot;<br />
+}<br />
+&nbsp;</p></div> 
+
+<p>این موارد <span style="color:#e74c3c">باید حتما در هر پکیج جیسونی</span> باشد.</p>
+
+<br />
+<h2 class="y">------   Find Package in Npm   ------</h2> 
+
+<p dir="rtl">npm ===&gt;&nbsp; یک مخزن یا <span style="color:#d35400">repository </span>برای نگه داری پروژه های جاوااسکریپتی است.&nbsp; شامل<span style="color:#8e44ad"> پکیج های بیشمار</span> است.&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">yarn</span>&nbsp; هم از repository موجود در npm استفاده می کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای پیدا کردن یک پکیج به <span style="color:#8e44ad">سایت npm&nbsp;</span> می رویم و در بخش سرچ نام مورد نظر را وارد می کنیم.</p>
+
+<p dir="rtl">زمانیکه پروژخ را می اورد شامل <span style="color:#3498db">اطلاعاتی </span>است.</p>
+
+<p dir="rtl">1. <span style="color:#e74c3c">زمان انتشار</span></p>
+
+<p dir="rtl">2. <span style="color:#e74c3c">ورژن</span></p>
+
+<p dir="rtl">3. <span style="color:#e74c3c">public&nbsp; &nbsp;or private</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">تب اول&nbsp;</span> ==&gt;&nbsp; &nbsp;<span style="color:#f39c12">اطلاعات در مورد پروژه&nbsp; (Readme)</span></p>
+
+
+<p dir="rtl"><span style="color:#2980b9">تب دوم</span><span style="color:#3498db"> </span>: <span style="color:#d35400">Explore&nbsp; </span>=&gt;&nbsp; برای پکیج های <span style="color:#f1c40f">پولی</span> است.</p>
+
+<p dir="rtl"><span style="color:#2980b9">تب سوم</span>: <span style="color:#d35400">Dependencies&nbsp; &nbsp;</span>=&gt;<span style="color:#27ae60"> وابستگی های این کتابخانه</span> را به ما می گوید.</p>
+
+<p dir="rtl"><span style="color:#2980b9">تب چهارم</span>:&nbsp; <span style="color:#d35400">Dependents&nbsp; </span>=&gt; تعداد و کتابخانه هایی که از این کتابخانه که سرچش کرده ایم، استفاده می کنند را مشخص می کند.</p>
+
+<p dir="rtl"><span style="color:#2980b9">تب پنجم</span>: <span style="color:#d35400">Versions&nbsp; </span>=&gt;<span style="color:#9b59b6"> تعداد ورژن ها و اطلاعات </span>و خود فایل های مربوط به هر ورژن را به ما نشان می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در <span style="color:#e74c3c">سایدبار </span>هم یکسری اطلاعات مانند&nbsp; <span style="color:#ff0099">نحوه نصب، تعداد دانلودها، نوع لایسنس، آخرین ورژن، زمانی که پکیج باز شود چقدر حجم دارد، تعداد فایل ها، تعداد مشکلات یا issues ، تعداد درخواست ها برای همکاری با کتابخانه مورد نظر، آدرس رسمی سایت، ریپازیتوری گیت هاب،&nbsp; آخرین انتشار و ...</span> را در اختیار ما قرار می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">moment&nbsp; &nbsp;</span>=&gt;&nbsp; &nbsp;کتابخانه ای برای <span style="color:#d35400">کار با تاریخ که نوع جلالی</span> هم دارد.</p>
+
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+<h2 class="y">------   sementic Version   ------</h2> 
+
+<p dir="rtl"><span style="color:#d35400">sementic Version</span>&nbsp; یا <span style="color:#27ae60">نسخه بندی معنایی&nbsp;</span>&nbsp;</p>
+
+<p dir="rtl">این اصل به ما می گوید که <span style="color:#e67e22">چگونه ورژن بندی </span>کنیم تا ورژن ها <span style="color:#f39c12">استانداردتر </span>باشد که سایت رسمی هم دارد به آدرس&nbsp; <strong><span style="color:#8e44ad">semver.org</span></strong></p>
+
+<p dir="rtl">خوشبخانه این سایت<span style="color:#9b59b6"> زبان فارسی</span> هم دارد که می توانید از آن استفاده کنید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">این سبک از ورژن بندی <span style="color:#9b59b6">به دیگران کمک می کند</span> که متوجه شوند که روند <span style="color:#d35400">پیشرفت پروژه شما به چه شکل در حال انجام است.</span></p>
+
+<p dir="rtl">این سبک از <span style="color:#9b59b6">3 عد</span>د تشکیل شده است. 1.2.3</p>
+
+<p dir="rtl">***&nbsp; <span style="color:#e74c3c">عدد اول سمت چپ</span>&nbsp; &nbsp;==&gt;&nbsp; &nbsp;<span style="color:#d35400">Major version&nbsp;</span> ==&gt;&nbsp; &nbsp; زمانی که ما یک <span style="color:#d35400">تغییر اساسی در پروژه خود</span> ایجاد کنیم که این تغییر به <span style="color:#e74c3c">احتمال زیاد با ورژن های قبلی سازگار نیست</span>، یک عدد به این Major version اضافه می کنیم.</p>
+
+<p dir="rtl">*** <span style="color:#e74c3c">عدد وسطی</span>&nbsp; &nbsp;===&gt;&nbsp;<span style="color:#d35400"> Minor version&nbsp;</span> ===&gt; زمانی تغییر می کند که&nbsp; ما <span style="color:#e74c3c">یکسری پکیج به پروژه خود اضافه کردیم که با نسخه های قبلی هم سازگار</span> است.</p>
+
+<p dir="rtl">*** <span style="color:#e74c3c">عدد آخری</span>&nbsp; ===&gt;&nbsp; <span style="color:#d35400">Patch version</span>&nbsp; ===&gt;&nbsp; زمانی که <span style="color:#e74c3c">یکسری باگ ها در پرژوه برطرف می شود</span> این عدد تغییر می کند. اگر باگ های <span style="color:#f1c40f">زیادی در یک نسخه</span> برطرف شود این عدد می تواند <span style="color:#2ecc71">خیلی بزرگ</span> شود.</p>
+
+<p dir="rtl"><span style="color:#2ecc71">1.2.3</span>&nbsp; ====&gt;&nbsp; &nbsp; patch&nbsp; <span style="color:#9b59b6">*10</span>&nbsp;====&gt;&nbsp; &nbsp;می شود&nbsp;<span style="color:#2ecc71"> 1.2.13</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e67e22"><strong>npm install&nbsp; moment@&gt;=1.3.4&nbsp; &nbsp; &nbsp;&nbsp;</strong></span></p>
+
+<p dir="rtl">این دستور میگه moment که ورژن آن<span style="color:#d35400"> بزرگتر و مساوی&nbsp; 1.3.4</span>&nbsp; و همچنین&nbsp; <span style="color:#e74c3c">stable </span>است را نصب کن.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#8e44ad"><strong>علائم مورد استفاده در هنگام نصب پروژه ها</strong></span></p>
+
+<p dir="rtl">***&nbsp; <span style="color:#3498db">&lt;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ==&gt;&nbsp; &nbsp;بزرگ تر از فلان ورژن&nbsp; &nbsp; &nbsp; &nbsp; 1.2.3&lt;</p>
+
+<p dir="rtl">***&nbsp; <span style="color:#3498db">&gt;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ==&gt;&nbsp; کوچک تر از فلان ورژن&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.2.3&gt;</p>
+
+<p dir="rtl">***&nbsp; <span style="color:#3498db">=&lt;&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ==&gt;&nbsp; &nbsp;بزرگ تر و مساوی</p>
+
+<p dir="rtl">***&nbsp; <span style="color:#3498db">=&gt;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;==&gt;&nbsp; &nbsp;کوچک تر و مساوی&nbsp;&nbsp;</p>
+
+<p dir="rtl">***&nbsp; <span style="color:#3498db">Exact version</span>&nbsp; &nbsp; ==&gt;&nbsp; یکی من <span style="color:#e74c3c">دقیقا همین ورژن</span> را می خواهم&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;@4.2.3</p>
+
+<p dir="rtl">***&nbsp; <span style="color:#3498db">wildcard version</span>&nbsp; &nbsp; ==&gt;&nbsp; یعنی <span style="color:#f39c12">پکیج بین رنج</span> را می خواهم&nbsp; &nbsp; &nbsp; &nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">*</span>.2.2&nbsp; &nbsp;=&gt;&nbsp; هر چیزی بین&nbsp; 2.2&nbsp; و 2.3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">&nbsp; 2.2.0=&lt;X&lt; 2.3.0&nbsp; &nbsp; &nbsp; &amp;&nbsp; &nbsp;X</span></p>
+
+<p dir="rtl">این مورد تنها و تنها ورژن <span style="color:#f39c12">patch&nbsp; </span>را اپدیت می کند.</p>
+
+<p dir="rtl">این مورد <span style="color:#f39c12">minor </span>را هم اپدیت می کند&nbsp; &nbsp;1.*&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">&nbsp;1.0.0=&lt;X&lt; 2.0.0&nbsp; &nbsp; &nbsp;&amp;&nbsp; &nbsp; &nbsp; X</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">*** <span style="color:#3498db">Tilde or&nbsp; Tilda</span>&nbsp; &nbsp; &nbsp;==&gt; <span style="color:#3498db">~</span>&nbsp; ===&gt;&nbsp; &nbsp;این مورد به شکل زیر عمل می کند</p>
+
+<p dir="rtl">&nbsp;==&gt;&nbsp; &nbsp;1.3~&nbsp; &nbsp; ====&gt;&nbsp; &nbsp; &nbsp; &nbsp;<span style="color:#e74c3c"> 1.3.0=&lt;X &lt; 1.4.0&nbsp; &nbsp;&amp;&nbsp; &nbsp; X</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">*** <span style="color:#3498db">Caret Version</span>&nbsp; &nbsp;===&gt;&nbsp; <span style="color:#3498db">^</span>&nbsp; ==&gt;&nbsp; این دستور از عددی که زدیم<span style="color:#e67e22"> تا major بعدی</span> را نصب می کند&nbsp;</p>
+
+<p dir="rtl">1.3.2^&nbsp; &nbsp; &nbsp; ===&gt;&nbsp; &nbsp; &nbsp;<span style="color:#e74c3c"> &nbsp;1.3.2=&lt;X&lt;2.0.0&nbsp; &nbsp;&amp;&nbsp; &nbsp;X&nbsp;</span> &nbsp;===&gt; <span style="color:#27ae60">خود ماجور را اپدیت نمی کند</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#8e44ad"><strong>&nbsp;بعد از ورژن هم از کلماتی استفاده می شود که به شکل زیر هستند.</strong></span></p>
+
+<p dir="rtl">***&nbsp; <span style="color:#e74c3c">alpha-&nbsp;</span> &nbsp; &nbsp;===&gt;&nbsp; یعنی تنها <span style="color:#d35400">یک سری عیب ها در پروژه برطرف شده است و هنوز باگ های حیاتی برطرف نشده است</span>. توصیه <span style="color:#f1c40f">نمی شود</span> که از نسخه آلفا استفاده کنید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p>2.2.2-alpha&nbsp; &nbsp;or 2.2.2-alpha.1</p></div>  
+
+<p dir="rtl">***&nbsp; <span style="color:#e74c3c">beta-</span><span style="color:#d35400">&nbsp; </span>&nbsp; ===&gt;<span style="color:#e74c3c"> </span><span style="color:#d35400">این نشان می دهد که باگ های حیاتی برطرف شده اند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p>2.2.2-beta&nbsp; &nbsp; &nbsp;or 2.2.2-beta.1</p></div> 
+
+
+
+<p dir="rtl">*** <span style="color:#e74c3c">rc-&nbsp;</span> &nbsp; ===&gt;&nbsp; به معنی&nbsp; <span style="color:#9b59b6">release condidte</span>&nbsp; ==&gt; به این معنی است که <span style="color:#d35400">نویسنده پیشنهاد می دهد که این نسخه را استفاده کنید.</span></p>
+
+<div class="code"><p>alpha&nbsp; &lt; beta&nbsp; &lt; rc</p></div> 
+
+
+<p dir="rtl">*** <span style="color:#e74c3c">dev-</span>&nbsp; &nbsp;===&gt;&nbsp; می گوید که این نسخه برای <span style="color:#d35400">حالت دولوپمنت</span> است.</p>
+
+<p dir="rtl">***&nbsp;<span style="color:#e74c3c"> exprrimental -&nbsp;</span> یعنی تجربی&nbsp;&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#27ae60"> بررسی راحت ورژن های یک پکیج</span> و اطلاعات مربوط به هرکدام می توانیم از سایت زیر کمک بگیریم&nbsp; (به صورت <span style="color:#2ecc71">سبز</span> ورژن های یک پکیج را نشان می دهد.)</p>
+
+<p dir="rtl"><span style="color:#e74c3c"><em><strong>npm semver calculata</strong></em></span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   install package   ------</h2> 
+
+<p dir="rtl">برای <span style="color:#8e44ad">نصب یک پکیج </span>به روش زیر عمل می کنیم&nbsp;</p>
+
+<div class="code"><p><span style="color:#27ae60">npm </span><span style="color:#9b59b6">install </span><span style="color:#d35400">packageName</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">npm&nbsp; &nbsp;</span><span style="color:#9b59b6">i&nbsp;</span> &nbsp;<span style="color:#d35400">packageName</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">npm</span> <span style="color:#9b59b6">install </span><span style="color:#d35400">packageName</span><span style="color:#e74c3c">@</span><span style="color:#f1c40f">2.3.3&nbsp;</span> &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// version select</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">npm </span><span style="color:#9b59b6">install </span><span style="color:#d35400">packageName&nbsp; </span><span style="color:#e74c3c">--save&nbsp;</span> &nbsp; <span style="color:#7f8c8d">// install package and add name&#39;s into package.json</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">npm </span><span style="color:#9b59b6">install </span><span style="color:#d35400">packageName&nbsp; </span><span style="color:#e74c3c">--save -dev</span>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// install package and add name&#39;s into package.json in dev dependencies part</span></p>
+
+<p>&nbsp;</p>
+
+<p>npm install packageName&nbsp; <span style="color:#d35400">--save -dev&nbsp;</span> &nbsp; &nbsp; &nbsp;<span style="color:#c0392b">==&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;npm install packageName&nbsp; <span style="color:#d35400">-D</span></p>
+
+<p>&nbsp;</p></div>  
+
+
+
+<p dir="rtl">حالا با یکی از این دستورات می توانیم پکیج مورد نظر خود را نصب کنیم.</p>
+
+<p dir="rtl">زمانی که دستور نصب را زدیم علاوه بر <span style="color:#9b59b6">package.json</span> پوشه&nbsp;<span style="color:#d35400">node_modules</span> و&nbsp;<span style="color:#d35400">package-lock.json</span> هم ایجاد می شود.</p>
+
+<p dir="rtl">داخل پوشه&nbsp;<span style="color:#2ecc71">node_modules</span> <span style="color:#d35400">سورس کدهای پکیجی که نصب کرده ایم</span> قرار می گیرد.</p>
+
+<p dir="rtl">داخل حود فایل&nbsp;<span style="color:#9b59b6"> package.json</span>&nbsp; هم یک مقدار جدید اضافه می شود به نام&nbsp;<span style="color:#d35400">dependencies</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code">
+<p>&quot;<span style="color:#f39c12">dependencies</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">moment</span>&quot;: &quot;<span style="color:#f39c12">^2.29.1</span>&quot;<br />
+&nbsp; }</p>
+
+<p>&nbsp;</p></div>  
+
+<p dir="rtl">در حالت عادی دستورات&nbsp;<span style="color:#ff3399">npm&nbsp; &nbsp;i&nbsp; &nbsp;packageName&nbsp;</span> &nbsp;و&nbsp;&nbsp;<span style="color:#ff3399">npm install packageName&nbsp; --save&nbsp;</span> یک کار <span style="color:#e74c3c">مشابه </span>را انجام می دهد و به یک صورت فایل&nbsp;package.json را تغییر می دهند با نصب پکیج.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">حذف </span>یک پکیج هم به روش زیر عمل می کنیم</p>
+
+<div class="code">
+<p><span style="color:#27ae60">npm </span><span style="color:#e74c3c">uninstall&nbsp;</span><span style="color:#d35400">packageName</span></p>
+
+<p dir="rtl">&nbsp;</p></div> 
+
+<p dir="rtl">اگر دستور&nbsp;<span style="color:#9b59b6">npm install packageName&nbsp; --save -dev</span>&nbsp; یا&nbsp;&nbsp;<span style="color:#9b59b6">npm install packageName&nbsp; -D</span>&nbsp; را بزنیم نام پروژه به جای&nbsp;<span style="color:#f1c40f">dependencies </span>در&nbsp;package.json&nbsp; در داخل <span style="color:#e74c3c">devDdependencies </span>ذخیره می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">با دستور&nbsp;&nbsp;npm install packageName&nbsp; --save -dev&nbsp; می گوییم که <span style="color:#d35400">ما به فلان پکیج تنها و تنها در حالت development نیاز داریم </span>و در <span style="color:#ff3399">حالت production به آن نیازی نداریم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">زمانی که یک پکیج به پکیج های دیگری به عنوان وابستگی نیاز دارد، <span style="color:#3498db">خود npm در هنگام نصب پکیج مورد نظر آن ها را هم نصب می کند</span> و دیگری نیازی نیست شما خودتان را درگیر وابستگی ها کنید.&nbsp; <span style="color:#e67e22">اما توجه داشته باشید که به صورت خودکار پکیج هایی که مربوط به حالت دولوپمنت پکیج مورد نظر هستند را نصب نمی کند.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">به این شیوه از نصب پکیج که آن را توضیح دادیم حالت <span style="color:#e74c3c">local install</span> می گویند که <span style="color:#27ae60">تنها در همان پروژه به آن دسترسی داریم</span> اما می توانیم پکیج ها را به صورت <span style="color:#e74c3c">global&nbsp; </span>هم نصب کنیم تا <span style="color:#1abc9c">در هرجایی</span> به آن ها نیاز بود و داخل هر پروژه دیگری از آن ها استفاده کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   Global install   ------</h2>
+
+<p dir="rtl">منظور از نصب <span style="color:#e74c3c">global </span>این است که <span style="color:#9b59b6">به جای نصب پکیج در پروژه</span>، آن را در <span style="color:#d35400">داخل سیستم خودمان</span> نصب می کنیم و هرجا که نیاز بود از آن استفاده می کنیم.</p>
+
+<p dir="rtl">فایل هایی که به صورت <span style="color:#f1c40f">global&nbsp; </span>نصب می کنیم به روش زیر می توانیم <span style="color:#e74c3c">محل نصب آن ها را بیابیم</span></p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p>im my compute&nbsp; &nbsp;-&gt;&nbsp; &nbsp;right click&nbsp; &nbsp;-&gt;&nbsp; &nbsp;propertices&nbsp; &nbsp; -&gt;&nbsp; &nbsp;advanced system setting&nbsp; &nbsp;-&gt; Enviroment Variables&nbsp; &nbsp;-&gt;&nbsp; dbl click on path&nbsp; --&gt; find npm&nbsp; &nbsp;--&gt; copy&nbsp; path (e.g.&nbsp; ==&gt;&nbsp; C:\Users\HomaRayaneh\AppData\Roaming\npm )&nbsp; ---&gt; paste in addresbar my computer&nbsp; --&gt; enter&nbsp;&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p></div> 
+
+<p dir="rtl">این دستور ما را به پوشه ای که پکیج های <span style="color:#2ecc71">global </span>نصب شده اند می برد.</p>
+
+<p dir="rtl"><strong><span style="color:#3498db">روش نصب گلوبال</span></strong></p>
+
+<div class="code"><p><span style="color:#27ae60">npm&nbsp; &nbsp; </span><span style="color:#9b59b6">i</span>&nbsp; &nbsp;<span style="color:#d35400">packageName&nbsp; &nbsp; </span><span style="color:#e74c3c">-g</span></p></div>  
+
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><strong><span style="color:#3498db">حذف پکیج های گلوبال&nbsp;</span></strong></p>
+
+<div class="code">
+<p><span style="color:#27ae60">npm&nbsp; &nbsp; </span><span style="color:#e74c3c">uninstall&nbsp; &nbsp;</span><span style="color:#d35400">packageName&nbsp; &nbsp; </span><span style="color:#9b59b6">-g</span></p>
+
+<p dir="rtl">&nbsp;</p></div>
+
+<p dir="rtl">برای استفاده از یک پکیج بعد نصب باید حتما <span style="color:#9b59b6">documention </span>را بخوانید تا متوجه روش <span style="color:#e74c3c">import </span>کردن آن شوید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#3498db">const </span>moment = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f39c12">moment</span>&#39;);</p>
+
+<p>&nbsp;</p></div>  
+
+<p dir="rtl"><span style="color:#e67e22">require </span>فایل مورد نظر را از پوشه&nbsp;<span style="color:#9b59b6">node_modules </span>برای ما <span style="color:#e74c3c">import&nbsp; </span>می کند. البته می توانید از <span style="color:#ff0099">import&nbsp; </span>و <span style="color:#ff0099">export&nbsp; </span>موجود در دستورات<span style="color:#9b59b6"> ES6&nbsp;</span> هم استفاده کنید<span style="color:#e74c3c"> اما&nbsp; Node به طور کامل ES6 را پشتیبانی نمی کند </span>و امکان دارد با مشکلی مواجه شوید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f39c12"><strong>تفاوت&nbsp;require&nbsp; و import و&nbsp; export</strong></span></p>
+
+
+<div class="code"><p>//----&nbsp; &nbsp;<span style="color:#9b59b6">ES6&nbsp; &nbsp;</span>==&gt;<span style="color:#e74c3c"> ES modules</span></p>
+
+<p><span style="color:#95a5a6">// foo.js</span></p>
+
+<p><span style="color:#e74c3c">export&nbsp; </span><span style="color:#3498db">function </span><span style="color:#27ae60">foo</span>(){</p>
+
+<p>&nbsp; &nbsp;<span style="color:#e74c3c">return </span>&#39;<span style="color:#f39c12">Hello Foo</span>&#39;;</p>
+
+<p>}</p>
+
+<p><span style="color:#7f8c8d">// index.js</span></p>
+
+<p><span style="color:#e74c3c">import&nbsp; </span>{ <span style="color:#9b59b6">foo </span>} <span style="color:#e74c3c">from </span>&#39;<span style="color:#f39c12">./foo.js</span>&#39;;</p>
+
+<p><span style="color:#3498db">console.log</span>( <span style="color:#2ecc71">foo</span>() );&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;//&nbsp; Hello Foo</span></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//----&nbsp; &nbsp;old&nbsp;</span> ==&gt; <span style="color:#e74c3c">CommonJs&nbsp; modules</span></p>
+
+<p><span style="color:#7f8c8d">// foo.js</span></p>
+
+<p><span style="color:#d35400">module</span>.<span style="color:#e74c3c">exports </span>= <span style="color:#3498db">function</span>(){<br />
+&nbsp; &nbsp;<span style="color:#e74c3c">return </span>&#39;<span style="color:#f39c12">Hello foo</span>&#39;;<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// index.js</span></p>
+
+<p><span style="color:#3498db">var </span>foo = <span style="color:#27ae60">require</span>(&#39;<span style="color:#f1c40f">./foo</span>&#39;);</p>
+
+<p><span style="color:#3498db">console.log</span>( <span style="color:#2ecc71">foo</span>() );&nbsp; &nbsp;<span style="color:#7f8c8d">//&nbsp; Hello Foo</span></p>
+
+<p>&nbsp;</p></div> 
+
+<p dir="rtl">گاهی در&nbsp;</p>
+
+<div class="code"><p><span style="color:#3498db">const </span>moment = <span style="color:#3498db">require</span>(&#39;<span style="color:#f39c12">moment</span>&#39;);</p></div>  
+
+<p dir="rtl">آدرس را <span style="color:#e74c3c">دقیق </span>به صورت&nbsp; <span style="color:#9b59b6">./ffoo.js</span> وارد <span style="color:#e74c3c">نمی کنیم</span>. این به این دلیل است که <span style="color:#d35400">بدون مسیر دقیق ما به&nbsp;package.json موجود در پوشه خود پکیج اشاره می کنیم</span> و در این فایل در بخش <span style="color:#2980b9">main&nbsp; </span>گفته که <span style="color:#f1c40f">کدام فایل باید فراخوانی کند</span> یا با&nbsp; main&nbsp; خود نویسنده گفته است که کدام <span style="color:#f1c40f">فایل شروع کننده</span> است</p>
+
+<div class="code"><p>&quot;<span style="color:#f39c12">main</span>&quot;: &quot;<span style="color:#f39c12">./moment.js</span>&quot;,</p></div> 
+
+<p dir="rtl">برای <span style="color:#9b59b6">اجرا دستورات</span> و گرفتن خروجی از داخل <span style="color:#2ecc71">cmd </span>به روش زیر عمل می کنیم</p>
+
+<div class="code"><p><span style="color:#3498db">const </span>moment = <span style="color:#2ecc71">require</span>(&#39;<span style="color:#f39c12">moment</span>&#39;);</p>
+
+<p><span style="color:#3498db">console.log</span>(moment);</p>
+
+<p>&nbsp;</p>
+
+<p>in cmd&nbsp; &nbsp; ===&gt;&nbsp; in root project&nbsp; ==&gt;&nbsp; <span style="color:#e74c3c">node </span><span style="color:#d35400">addressFile</span></p>
+
+<p><span style="color:#d35400">node&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color:#f39c12">index.js</span></p>
+</div>  
+<p>&nbsp;</p>
+<h2 class="y">------   package-lock.json   ------</h2> 
+
+<p dir="rtl">در فایل <span style="color:#e67e22">package.json&nbsp;</span> ورژن هر پکیجی که نصب می کنیم به صورت رنج با <span style="color:#e74c3c">karet&nbsp; (^) </span>نمایش داده می شود&nbsp;</p>
+
+<div class="code"><p>&quot;<span style="color:#f39c12">moment</span>&quot;: &quot;<span style="color:#f39c12">^2.29.1</span>&quot;</p></div>  
+
+<p dir="rtl">اگر اگر چیزی اپدیت شود باید زمانی که پروژه را به فرد دیگری می دهیم بداند که <span style="color:#9b59b6">دقیقا باید از چه ورژنی استفاده کند</span> که این اطلاعات در&nbsp;<span style="color:#27ae60">package-lock.json</span> وجود دارند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p>&quot;<span style="color:#f39c12">dependencies</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">moment</span>&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">version</span>&quot;: &quot;<span style="color:#f39c12">2.29.1</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">resolved</span>&quot;: &quot;<span style="color:#f39c12">https://registry.npmjs.org/moment/-/moment-2.29.1.tgz</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">integrity</span>&quot;: &quot;<span style="color:#f39c12">sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp; &quot;<span style="color:#f39c12">requires</span>&quot; : {}<br />
+&nbsp; &nbsp; }<br />
+&nbsp; }</p>
+
+<p>&nbsp;</p></div>  
+
+<p dir="rtl"><span style="color:#8e44ad">version&nbsp; </span>==&gt; ورژن <span style="color:#e74c3c">دقیق </span>پکیج</p>
+
+<p dir="rtl"><span style="color:#8e44ad">resolved </span>==&gt; ادرس این پکیج در <span style="color:#27ae60">ریپازیتوری&nbsp; npm</span></p>
+
+<p dir="rtl"><span style="color:#8e44ad">integrity&nbsp; </span>==&gt; برخی اطلاعات هش شده</p>
+
+<p dir="rtl"><span style="color:#8e44ad">requires </span>==&gt; وابستگی های پکیج را مشخص می کند. زمانی که npm بعدا می خواهد این پکیج را نصب کند <span style="color:#e67e22">متوجه می شود که این وابستگی ها هم باید باشد</span>. پس آن ها را هم دانلود و نصب می کند. <span style="color:#e74c3c">حالا اگر هریک از این وابستگی ها اگر وابستگی دیگری هم داشته باشند، آن ها را هم دانلود و نصب می کند.</span></p>
+
+<p dir="rtl"><span style="color:#9b59b6">dev&nbsp; </span>==&gt; اگر پکیجی به صورت <span style="color:#e67e22">devDependency </span>نصب شود. این گزینه را هم دارد که <span style="color:#e74c3c">true </span>است.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#d35400">package.json&nbsp;</span> و&nbsp;&nbsp;<span style="color:#d35400">package-lock.json</span>&nbsp; <span style="color:#e74c3c">خیلی مهم</span> هستند و باید حتما در پروژه ما باشند. اگر این دو را داشته باشیم می توانیم با دستور زیر پوشه&nbsp;<span style="color:#27ae60">node_modules </span>را ایجاد و تمام پکیج های مورد نیاز را هم که در&nbsp;node_modules بوده اند نصب کنیم.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">install&nbsp; &nbsp; &nbsp;</span>OR&nbsp; &nbsp; &nbsp; <span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">i</span></p></div> 
+
+<p dir="rtl">اگر پروژه را خواستیم جایی<span style="color:#e74c3c"> اپلود</span> کنیم <span style="color:#e74c3c">یا در اختیار دیگران قرار دهیم</span> <span style="color:#27ae60">نیازی نیست&nbsp;node_modules را هم اپلود کنیم.</span> ما بقیه فایل های پروژه به غیر از این پروژه را در اختیار دیگران قرار می دهیم و آن ها با زدن دستور بالا خودشان می توانند<span style="color:#f1c40f"> پوشه&nbsp;node_modules و فایل های داخل آن را ایجا</span>د کنند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   npm Command   ------</h2> 
+
+<p dir="rtl"><strong>آشنایی با برخی از دستورات کاربری npm</strong></p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">update</span></p></div>
+
+
+
+<p dir="rtl">این دستور <span style="color:#d35400">تمام پکیج های داخل npm را اپدیت</span> می کند.</p>
+
+<p dir="rtl">اما اگر خواستیم <span style="color:#d35400">تنها یک پکیج را اپدیت کنیم</span> از دستور زیر استفاده می کنیم</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">update&nbsp; </span><span style="color:#f1c40f">packageName</span></p>
+
+<p>&nbsp;</p></div>
+
+<p dir="rtl">برای <span style="color:#27ae60">شروع یک پروژه </span>از دستور زیر استفاده می کنیم</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">init</span></p></div>
+<p dir="rtl">گاهی با زدن دستور init <span style="color:#f1c40f">نمی خواهیم که به سوالات پاسخ دهیم</span> و می خواهیم خودش به <span style="color:#3498db">صورت دیفالت آن ها را پر کند</span> که در این صورت از دستور زیر استفاده می کنیم.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">init&nbsp; </span><span style="color:#f1c40f">&nbsp;-y</span></p></div>
+<p>&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">اپدیت خود npm</span> هم می توانیم از دستور زیر استفاده کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#27ae60">install&nbsp; </span><span style="color:#8e44ad">-g</span>&nbsp; <span style="color:#e74c3c">npm@latest</span></p></div>
+<p>&nbsp;</p>
+
+<p dir="rtl">از دستور&nbsp;<span style="color:#d35400">@latest</span> می توانیم برای <span style="color:#3498db">بقیه پکیج ها </span>هم استفاده کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم <span style="color:#d35400">اطلاعاتی در مورد یک پکیج ببنیم</span> که از دستور زیر کمک می گیریم</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">view&nbsp; &nbsp;</span><span style="color:#f1c40f">packageName</span></p></div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">می توانیم <span style="color:#e67e22">ورژن های یک پکیج </span>را هم با دستور زیر ببینیم&nbsp;&nbsp;</p>
+
+<div class="code">
+<p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">view&nbsp; &nbsp;</span><span style="color:#9b59b6">packageName&nbsp; </span><span style="color:#f1c40f">versions</span></p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#9b59b6">دیدن لیست پکیج هایی که نصب است</span> از دستور زیر استفاده می کنیم</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#e74c3c">list&nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color:#7f8c8d">// local&nbsp;&nbsp;package list</span></p>
+
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#e74c3c">list&nbsp;</span><span style="color:#f1c40f"> -g</span>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">// global package&nbsp; list</span></p>
+
+<p><span style="color:#e67e22">npm&nbsp; </span><span style="color:#e74c3c">list&nbsp; </span>&nbsp; &nbsp; &nbsp; <span style="color:#e74c3c">&nbsp;==&nbsp;</span>&nbsp; &nbsp; &nbsp; <span style="color:#d35400">npm&nbsp;</span><span style="color:#e74c3c"> ls</span></p>
+
+<p>&nbsp;</p></div> 
+
+<p dir="rtl">برای <span style="color:#9b59b6">حذف یک پکیج&nbsp;</span></p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">uninstall&nbsp; </span><span style="color:#f1c40f">packageName&nbsp;&nbsp;</span></p>
+
+<p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">un&nbsp; </span><span style="color:#f1c40f">packageName&nbsp;&nbsp;</span></p>
+
+<p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">uninstall&nbsp; </span><span style="color:#f1c40f">packageName&nbsp; &nbsp;</span><span style="color:#27ae60">-g</span>&nbsp; &nbsp; &nbsp; <span style="color:#7f8c8d">&nbsp;// delete global package</span></p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی نیاز داریم که <span style="color:#f39c12">پکیج هایی که استفاده ای ندارند و بلااستفاده هستن</span>د را <span style="color:#e74c3c">پاک کنیم</span> که دستور زیر این کار را برای ما انجام می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp; </span><span style="color:#e74c3c">prune</span></p></div>
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی هم نیاز داریم که<span style="color:#e74c3c"> پکیج های تکراری را حذف کنیم</span> که از دستور زیر کمک می گیریم</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">dedupe</span></p></div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم بدانیم که <span style="color:#27ae60">کدام پکیج ها منسوخ شده اند</span> که دستور زیر&nbsp; اسم آن ها را به ما می گوید</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp; &nbsp;</span><span style="color:#e74c3c">outdated</span></p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">اسم سایر دستور کاربردی در<span style="color:#f1c40f"><strong>&nbsp; بخش cli سایت npm&nbsp;</strong></span> وجود دارد که می توانید آن ها را مطالعه کنید.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر پکیجی که با npm نصب میکنیم وابستگی از<span style="color:#f1c40f"> گیت هاب</span> داشته باشد <span style="color:#e74c3c">خودش با دستور git </span>ان را نصب و فعال می کند.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm &nbsp;</span><span style="color:#e74c3c">help</span></p></div> 
+
+
+<p dir="rtl">لیستی از<span style="color:#27ae60"> کل کامندهای در دسترس در اختیار ما</span> قرار می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">search</span></p></div> 
+
+
+<p dir="rtl"><br />
+نشان می دهد<span style="color:#f1c40f"> به ما انچه که به صورت عمومی در دسترس</span> است. همچنین برای جستجوی یک پکیج هم می توانیم از آن استفاده کنیم.</p>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+ 
+<div class="code">
+<p><span style="color:#9b59b6">npm &nbsp;</span><span style="color:#e74c3c">public</span></p></div> 
+
+
+<p dir="rtl">با این دستور میتوانید<span style="color:#e67e22"> پکیج خود را برای ثبت در سایت npm اپلود کنید</span> البته قبلا باید در سایت لاگین کرده باشید</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+ 
+<div class="code"><p><br />
+<span style="color:#9b59b6">npm &nbsp;</span><span style="color:#e74c3c">access</span></p></div>  
+
+<p dir="rtl"><br />
+می توانید<span style="color:#27ae60"> سطح دسترسی به پروژه را برای دیگران یا تیم خود تغییر دهید</span></p>
+
+
+<div class="code"><p><br />
+<span style="color:#9b59b6">npm &nbsp;</span><span style="color:#e74c3c">bin</span><br />
+<span style="color:#9b59b6">npm &nbsp;</span><span style="color:#e74c3c">bin &nbsp;</span><span style="color:#f1c40f">-g</span></p></div>
+<p dir="rtl"><br />
+نمایش <span style="color:#2980b9">پوشه bin</span> &nbsp;و محتویات آن</p>
+
+<div class="code">
+<p><br />
+<span style="color:#9b59b6">npm &nbsp;</span><span style="color:#e74c3c">cache </span><span style="color:#e67e22">add&nbsp;</span></p></div>
+
+<p dir="rtl"><br />
+<span style="color:#2ecc71">اضافه کردن چیزی برای کش</span></p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">cache&nbsp; &nbsp;</span><span style="color:#d35400">clean</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">cache&nbsp; &nbsp;</span><span style="color:#d35400">clear</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#e74c3c">cache&nbsp; &nbsp;</span><span style="color:#d35400">rm</span></p></div>
+
+<p dir="rtl">هر 3 دستور<span style="color:#3498db"> تمام محتویات پوشه کش را خالی</span> میکنند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">اگر دستور&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#d35400">help</span></p></div>
+
+<p dir="rtl">را بزنیم لیست <span style="color:#f1c40f">دستوراتی که می توانیم برای npm&nbsp; استفاده کنیم را می آورد</span></p>
+
+<p dir="rtl">می توانیم برای استفاده از دستورات هم از help استفاده کنیم&nbsp;</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">command&nbsp; </span><span style="color:#f1c40f">-h</span></p><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">update&nbsp; &nbsp;</span><span style="color:#f1c40f">-h</span></p></div>
+
+<p dir="rtl">برای <span style="color:#d35400">پاک&nbsp;کردن cmd</span> هم می توانید از دستور <strong><span style="color:#27ae60">cls&nbsp; </span></strong>استفاده کنید</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">اگر نیاز بود <span style="color:#e74c3c">ورژن فعلی پکیجی</span> را ببینیم از دستور زیر استفاده می کنیم</p>
+
+<div class="code"><p><span style="color:#8e44ad">npm&nbsp; </span><span style="color:#e74c3c">view&nbsp; </span><span style="color:#f39c12">packageName&nbsp; </span><span style="color:#3498db">version</span></p></div>  
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   npm Script   ------</h2> 
+
+<p dir="rtl"><span style="color:#d35400">npm script</span> =&gt;&nbsp; یک قابلیت است که <span style="color:#e74c3c">به ما امکان می دهد تا دستورات را بتوانیم از طریق npm اجرا </span>کنیم.</p>
+
+<div class="code"><p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">test</span>&quot;: &quot;<span style="color:#f39c12">echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1</span>&quot;<br />
+},</p></div>
+<p dir="rtl">الان این اسکریپت شامل <span style="color:#27ae60">دو دستور</span> است که با <span style="color:#e74c3c">&amp;&amp;</span> از هم جدا شده اند&nbsp;</p>
+<p dir="rtl">برای <span style="color:#3498db">اجرا </span>اسکریپت هم به روش زیر عمل می کنیم</p>
+
+  
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">scriptName</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#d35400">test</span></p>
+
+<p>&nbsp;</p></div>  
+
+<p dir="rtl">برای مثال برای<span style="color:#27ae60"> اجرای یک فایل می توانیم</span> به این روش عمل کنیم</p>
+
+
+<div class="code"><p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">test</span>&quot;: &quot;<span style="color:#f39c12">node&nbsp; index.js</span>&quot;<br />
+},</p>
+
+<p><span style="color:#8e44ad">npm&nbsp; </span><span style="color:#3498db">test</span></p>
+
+<p>&nbsp;</p></div>  
+<p dir="rtl">برای <span style="color:#27ae60">رنگ بندی کردن کنسول</span> یا cmd در npm از این پکیج استفاده می کنیم.</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#2ecc71">i</span> <span style="color:#d35400">colors </span><span style="color:#e74c3c">-D</span></p></div> 
+<p dir="rtl">سپس در فایلی که می خواهیم <span style="color:#27ae60">دستورات npm از آن اجرا شود </span>به روش زیر عمل می کنیم</p>
+
+<p dir="rtl">&nbsp;</p>
+ 
+<div class="code"><p><span style="color:#3498db">var </span>colors&nbsp; = <span style="color:#3498db">require</span>(&#39;<span style="color:#f39c12">colors</span>&#39;);</p>
+
+<p><span style="color:#2980b9">console.log</span>(&#39;<span style="color:#f39c12">Hello npm</span>&#39;<span style="color:#d35400">.green</span>);</p>
+
+<p>&nbsp;</p></div>  
+
+<p dir="rtl">اسکریپت ها در npm&nbsp;<span style="color:#8e44ad"> دو نوع</span> هستند&nbsp; <span style="color:#e74c3c">دیفالت&nbsp; </span>و <span style="color:#e74c3c">سفارشی&nbsp;</span></p>
+
+<p dir="rtl"><span style="color:#f39c12">دیفالت مانند test</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   اسکریپت های دیفالت   ------</h2> 
+
+
+<div class="code">
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">test</span></p>
+
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">pretest</span></p>
+</div>  
+<p dir="rtl">این دستور <span style="color:#27ae60">قبل از</span> test اجرا می شود</p>
+
+
+<div class="code">
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">posttest</span></p></div>  
+
+<p dir="rtl">این دستور <span style="color:#27ae60">بعد از</span> test اجرا می شود</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">stop</span></p></div> 
+
+<p dir="rtl">این دستور هم <span style="color:#c0392b">prestop&nbsp; </span>و <span style="color:#c0392b">poststop </span>را دارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">start</span></p></div> 
+<p dir="rtl">این دستور به طور پیشفرض <span style="color:#e74c3c">فایل server.js</span> را فراخوانی می کند و اگر شما این فایل را نداشته باشید، به شما ارور می دهد. حالا می توانیم فایلی که فراخوانی می کند را<span style="color:#8e44ad"> تغییر دهیم.</span></p>
+
+<div class="code"><p>in package.json</p>
+
+<p>&nbsp;</p>
+
+<p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">test</span>&quot;: &quot;<span style="color:#f39c12">node index.js</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">start</span>&quot; : &quot;<span style="color:#f39c12">node ./src/ali.js</span>&quot;<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">test</span>&quot;: &quot;<span style="color:#f39c12">node index.js</span>&quot;,<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">prestart</span>&quot;: &quot;<span style="color:#f39c12">node ./src/prestart.js</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">start</span>&quot; : &quot;<span style="color:#f39c12">node ./src/ali.js</span>&quot;<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">prestart</span></p>
+
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#d35400">poststart</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#d35400">restart</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#d35400">prerestart</span></p>
+
+<p><span style="color:#9b59b6">npm </span><span style="color:#d35400">postrestart</span></p></div> 
+
+<p dir="rtl">دستور <span style="color:#e74c3c">restart </span>می آید دستورات <span style="color:#f1c40f">stop </span>و<span style="color:#f1c40f"> start</span> را هم <span style="color:#27ae60">در کنار خودش</span> اجرا می کند.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">------   اسکریپت های سفارشی   ------</h2> 
+
+<p dir="rtl">برای دستوراتی که خودمان به <span style="color:#ff0099">صورت سفارشی</span> تعریف می کنیم باید به شکل زیر صدا زده شوند.</p>
+
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">run-script</span>&nbsp; <span style="color:#27ae60">name</span></p>
+
+<p><span style="color:#7f8c8d">//&nbsp; OR</span></p>
+
+<p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">run&nbsp; </span><span style="color:#27ae60">name</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">run-script</span>&nbsp; <span style="color:#27ae60">ali</span></p>
+
+<p>&nbsp;</p>
+
+<p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">test</span>&quot;: &quot;<span style="color:#f39c12">node index.js</span>&quot;,<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">prestart</span>&quot;: &quot;<span style="color:#f39c12">node ./src/prestart.js</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">start</span>&quot; : &quot;<span style="color:#f39c12">node ./src/ali.js</span>&quot;,<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">ali</span>&quot; : &quot;<span style="color:#f39c12">echo \&quot;this is custom script for ali\&quot; </span>&quot;<br />
+},</p>
+
+<p>&nbsp;</p></div>  
+
+<p dir="rtl">گاهی نیاز داریم که <span style="color:#3498db">چند دستور سفارشی npm </span>را باهم اجرا کنیم که در این صورت به پکیج <span style="color:#e74c3c">npm run all </span>نیاز داریم.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; &nbsp;</span><span style="color:#e74c3c">i</span>&nbsp;<span style="color:#f1c40f"> npm-run-all</span></p>
+
+<p>&nbsp;</p>
+
+<p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">xxx</span>&quot;: &quot;<span style="color:#f39c12">echo \&quot;this is custom script for xxx\&quot; </span>&quot;,<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">ali</span>&quot;: &quot;<span style="color:#f39c12">echo \&quot;this is custom script for ali\&quot;</span> &quot;,<br />
+&nbsp;&nbsp; &nbsp;&quot;<span style="color:#f39c12">all</span>&quot; : &quot;<span style="color:#f39c12">npm-run-all ali xxx</span>&quot;<br />
+&nbsp;},</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#e74c3c">run&nbsp; </span><span style="color:#f1c40f">all</span></p>
+</div> 
+
+<h2 class="y">------   <p dir="rtl" style="display:inline-block;">پوشه &nbsp;.bin&nbsp;</p>  ------</h2> 
+
+<p dir="rtl">همزمان با نصب پکیج <span style="color:#9b59b6">npm run all</span>&nbsp; پوشه <span style="color:#e74c3c">.bin</span> هم در پوشه node_modules ایجاد می شود.&nbsp; محتویات پوشه <span style="color:#d35400">.bin با توجه به نوع سیستم عامل شما</span> (windows,Mac,Linux) ایجاد میشود. محتویات این پوشه در <span style="color:#3498db">لینوکس و مک</span> تقریبا مشابه است اما در ویندوز کمی متفاوت است. در ویندوز<span style="color:#f39c12"> به ازای هر فایل 3 تا ایجاد می شود</span> که ما کار .cmd ها داریم اما در مک و لینوکس تنها یک فایل به ازای هر فایل ایجاد می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p>@ECHO off<br />
+SETLOCAL<br />
+CALL :find_dp0</p>
+
+<p>IF EXIST &quot;%dp0%\node.exe&quot; (<br />
+&nbsp; SET &quot;_prog=%dp0%\node.exe&quot;<br />
+) ELSE (<br />
+&nbsp; SET &quot;_prog=node&quot;<br />
+&nbsp; SET PATHEXT=%PATHEXT:;.JS;=;%<br />
+)</p>
+
+<p>&quot;%_prog%&quot; &nbsp;&quot;%dp0%\..\npm-run-all\bin\npm-run-all\index.js&quot; %*<br />
+ENDLOCAL<br />
+EXIT /b %errorlevel%<br />
+:find_dp0<br />
+SET dp0=%~dp0<br />
+EXIT /b</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>in&nbsp; index.js</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">#!/usr/bin/env node</span><br />
+<span style="color:#7f8c8d">/**<br />
+&nbsp;* @author Toru Nagashima<br />
+&nbsp;* @copyright 2015 Toru Nagashima. All rights reserved.<br />
+&nbsp;* See LICENSE file in root directory for full license.<br />
+&nbsp;*/</span><br />
+&quot;<span style="color:#f39c12">use strict</span>&quot;</p>
+
+<p><span style="color:#7f8c8d">//------------------------------------------------------------------------------<br />
+// Main<br />
+//------------------------------------------------------------------------------</span></p>
+
+<p><span style="color:#3498db">require</span>(&quot;../common/bootstrap&quot;)(&quot;npm-run-all&quot;)<br />
+&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&quot;<span style="color:#f39c12">bin</span>&quot;: {<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">run-p</span>&quot;: &quot;<span style="color:#f39c12">bin/run-p/index.js</span>&quot;,<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">run-s</span>&quot;: &quot;<span style="color:#f39c12">bin/run-s/index.js</span>&quot;,<br />
+&nbsp; &nbsp; &quot;<span style="color:#f39c12">npm-run-all</span>&quot;: &quot;<span style="color:#f39c12">bin/npm-run-all/index.js</span>&quot;<br />
+},</p></div> 
+
+
+
+<p dir="rtl">به این شکل از تعریف اسکریپت ها که کدهای در پوشه .bin ذخیره می شوند و ما به این شکل به آن ها دسترسی داریم<span style="color:#d35400"> executable script</span> می گویند.</p>
+<p>&nbsp;</p><p>&nbsp;</p>
+
+<h2 class="y">------   npx   ------</h2> 
+
+<p dir="rtl"><span style="color:#d35400">npx&nbsp; </span>یک&nbsp;<span style="color:#e74c3c"> package runner</span>&nbsp; است و <span style="color:#9b59b6">پکیج های باینری </span>یا <span style="color:#9b59b6">executable </span>پکیج ها را بدون دانلود برای ما اجرا می کند. زمانی که برای مثال از دستور زیر استفاده می کنیم&nbsp;</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm&nbsp; </span><span style="color:#27ae60">nuxt&nbsp; </span><span style="color:#f1c40f">create-app</span></p></div> 
+
+<p dir="rtl">ابتدا می اید<span style="color:#e74c3c"> پکیج باینری nuxt را دانلود می کند</span> و آن را به صورت <span style="color:#e67e22">گلوبال </span>روی سیستم ما نصب می کند. حالا ما هر زمان که خواستیم می توانیم با<span style="color:#9b59b6"> زدن دستور create </span>یک پروژه nuxt ایجاد کنیم اما این روش یکسری معایب دارد. برای مثال <span style="color:#3498db">اگر ورژن جدیدتری از nuxt بیاید ما مجبور به دانلود و اپدیت آن هستیم</span>. اما <span style="color:#e74c3c">npx </span>می گوید تو دستور را بزن من<span style="color:#e74c3c"> بدون آن که پکیج باینری را دانلود کنم</span>، یک پروژه nuxt&nbsp; برای تو ایجاد می کند. در حقیقت با زدن دستور npx از <span style="color:#d35400">روی جدیدترین نسخه nuxt یک پروژه nuxt برای ما ایجاد می شود</span> بدون آن که پکیج باینری آن به صورت گلوبال نصب شود</p>
+
+<div class="code"><p><span style="color:#d35400">npx&nbsp; </span><span style="color:#2ecc71">nuxt&nbsp; </span><span style="color:#f1c40f">create-app</span></p></div>
+
+
+<h2 class="y">------   yarn   ------</h2> 
+
+<p dir="rtl"><span style="color:#d35400">yarn&nbsp; </span>مانند npm یک <span style="color:#f1c40f">package manager</span> است.&nbsp;</p>
+
+<p dir="rtl"><span style="color:#3498db">yarnpkg.com</span></p>
+
+<p dir="rtl">yarn&nbsp; عملکردی دقیقا <span style="color:#9b59b6">مشابه npm </span>دارد و توسط <span style="color:#2ecc71">facebook </span>ایجاد شده است. yarn&nbsp; از <span style="color:#e74c3c">لحاظ تکنیکی و قدرت اصلا رقیب npm نیست</span> زیرا خودش پکیج های <span style="color:#f39c12">مورد نیاز را از سایت و repository موجود در npm برمی دارد.</span> فیس بوک yarn رو ایجاد کرد که کاستی های npm را برطرف کند اما npm از ورژن 5 جهش های قدرت مندی مانند npx و&nbsp; package-lock.json رو داشت که yarn را پس زد. همچی در یارن و npm مشابه است از نظر package.json و دستورات و همچنین node_modules و تنها<span style="color:#2980b9"> تفاوت</span> این است که npm&nbsp; فایل&nbsp;<span style="color:#e74c3c">package-lock.json</span>&nbsp; دارد اما yarn&nbsp; به جای آن فایل<span style="color:#e74c3c"> yarn-lock.json</span> دارد.</p>
+
+
+
+
+
+<!--           
+
+ 
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

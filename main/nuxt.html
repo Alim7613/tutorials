@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nuxt</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						Nuxt  	     			 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/vnuxt.png" width="150" height="150"></p>
+
+<i class="ti or"> Nuxt </i>
+<br />
+<br />
+
+<h2 class="y">------   Intro   ------</h2> 
+<br />
+
+<p dir="rtl">مشکل اصلی که <span style="color:#27ae60">nuxt </span>آن را هندل می کند <span style="color:#e74c3c">SSR </span>و <span style="color:#e74c3c">SSG </span>است.</p>
+
+<p dir="rtl"><span style="color:#27ae60">nuxt </span>یک چارچوبی دارد که <span style="color:#f39c12">بهتر است از آن خارج نشویم چراکه با برخی از مشکلات رو به رو می شویم</span>.</p>
+
+<p dir="rtl">در حالت عادی <span style="color:#2ecc71">vue </span>کدهای html را <span style="color:#9b59b6">هم در یک فایل js قرار می دهد</span> که با لود کردن آن ما تنها به این کدها در <span style="color:#f39c12">inspect </span>دسترسی داریم اما <span style="color:#e74c3c">به کمک SSR ما از یک سرور استفاده می کنیم تا کدها را به نحوی رندر کنیم که در سورس و view page source هم به آن ها دسترسی داشته باشیم.</span></p>
+
+<p dir="rtl">در <span style="color:#e74c3c">SSG</span> فایل های مورد نیاز <span style="color:#d35400">به شکل فایل های static در می آیند و در اختیار ما قرار می گیرند</span>.</p>
+
+<p dir="rtl">نوشتن <span style="color:#e74c3c">SSR </span>توسط خودمان <span style="color:#f39c12">سخت و پیچیده</span> است به همین دلیل در ا<span style="color:#d35400">کثر موارد nuxt کار ما را راه می اندازد.</span></p>
+
+<p dir="rtl">برای سایت هایی مثل<span style="color:#e67e22"> سایت های فروشگاهی</span> که محتوا <span style="color:#e74c3c">دائم تغییر</span> می کند به راحتی می توانیم از <span style="color:#d35400">SSR </span>استفاده کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<p dir="rtl">اپلیکشن هایی که خود <span style="color:#27ae60">vue </span>ایجاد می کند <span style="color:#d35400">در تگ html هیچ تگی نیست </span>در قسمت <span style="color:#f39c12">source </span>اما برای <span style="color:#e74c3c">سئو </span>به <span style="color:#e67e22">تگ های html در بخش source نیاز داریم. این به این دلیل است که App های vue تنها و تنها </span><span style="color:#9b59b6">client side</span><span style="color:#e67e22"> هستند. </span></p>
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">SSR</p>
+<img src="../img/nuxt-concept.jpg" style="width:100%" height="150">
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">SSG </span>مخفف <span style="color:#d35400">Static site Generation</span> است و برای<span style="color:#f39c12"> سایت هایی خوب</span> است که <span style="color:#e74c3c">تغییر محتوایی کمی دارند </span>مثل <span style="color:#d35400">وبلاگ های شخصی یا رزومه مناسب</span> است.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">SSR و SSG </span>در کل بیشتر برای <span style="color:#d35400">مواقعی کاربر دارد که ما نیاز به تگ ها برای SEO داریم</span> تا<span style="color:#ff0066"> تگ ها ایندکس شوند</span> و سایت در <span style="color:#f39c12">موتورهای جستجو بالا بیاید</span> اما<span style="color:#2ecc71"> برای App ها معمولی که سئو در آن ها اهمیتی ندارد مثل پنل های مدیریت&nbsp;خود vue کار ما را راه می اندازد.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<h2 class="y">------   Installation   ------</h2> 
+<br />
+
+<div class="code"><p><span style="color:#9b59b6">npx </span><span style="color:#d35400">create-nuxt-app</span> &lt;<span style="color:#f1c40f">project-name</span>&gt;</p></div> 
+
+<p dir="rtl">برای استفاده از nuxt می توانیم از yarn-npm-npx استفاده کنیم.</p>
+
+<br />
+<p dir="rtl">برای نصب <span style="color:#27ae60">nuxt </span>باید به یکسری سوالات در <span style="color:#3498db">cmd </span>پاسخ دهیم.</p>
+
+<p dir="rtl"><span style="color:#f1c40f">اسم پروژه&nbsp;</span> -&nbsp; <span style="color:#f1c40f">زبان برنامه نویسی</span> که می تواند <span style="color:#d35400">js یا ts</span> باید&nbsp; -&nbsp; <span style="color:#d35400">package manager</span>&nbsp; &nbsp;-&nbsp;<span style="color:#d35400"> ui framework</span> -&nbsp; <span style="color:#d35400">linter(eslint)</span> - <span style="color:#d35400">رندر مد</span> که آن را روی <span style="color:#e74c3c">universal </span>می گذاریم - <span style="color:#e74c3c">سرور </span>که <span style="color:#f39c12">node </span>می گذاریم&nbsp; - و انتخاب می کنیم که فایل<span style="color:#d35400"> jsconfig.json</span> را به ما بدهد - بقیه سوالات مربوط به <span style="color:#e67e22">git </span>است.</p>
+
+
+<br />
+<p dir="rtl">بعد از نصب <span style="color:#f1c40f">وارد دایرکتوری پروژه می شویم</span> و دستور زیر را می زنیم.</p>
+<div class="code"><p><span style="color:#9b59b6">npm </span><span style="color:#d35400">run </span><span style="color:#e74c3c">dev</span></p>
+</div>
+<br />
+
+<p dir="rtl"><span style="color:#27ae60">nuxt</span> یک فریم ورک <span style="color:#e74c3c">intuitive</span> است و بسیاری از <span style="color:#d35400">کارها را در چارچوب خودش در پشت پرده</span> انجام می دهد. به همین دلیل <span style="color:#d35400">به برخی از دایرکتوری ها نیاز</span> دارد.</p>
+
+<p dir="rtl">در داخل دایرکتوری <span style="color:#e74c3c">پروژه موارد زیر حتم</span>ا باید باشند. <span style="color:#d35400">nuxt.config.js&nbsp; -&nbsp; static folder&nbsp; - components - assets&nbsp;</span></p>
+
+<p dir="rtl"><span style="color:#9b59b6">هسته</span> اصلی <span style="color:#27ae60">ناکست</span> در پوشه <span style="color:#d35400">.nuxt </span>قرار دارد که به اکثر آن ها می توانیم در فایل&nbsp;<span style="color:#e74c3c">nuxt.config.js </span>دسترسی داشته باشیم و <span style="color:#d35400">نیازی نیست تغییری در&nbsp;پوشه .nuxt اعمال کنیم.</span></p>
+<br />
+<p dir="rtl">فایل هایی که بعد از <span style="color:#e74c3c">کامپایل نباید اسم آنها تغییر کند</span> و یا <span style="color:#e74c3c">فایلهایی که نباید کامپایل </span>شوند را در <span style="color:#d35400">پوشه static</span> قرار می دهیم</p>
+
+<br />
+<h2 class="y">------   Routing   ------</h2> 
+<br />
+<p dir="rtl">برای ایجاد <span style="color:#e74c3c">روت ها</span> در <span style="color:#27ae60">nuxt </span>تنها کافی است در <span style="color:#d35400">پوشه pages</span> یک <span style="color:#f1c40f">پوشه </span>برای مثال با نام users و&nbsp;<span style="color:#f39c12">یک فایل جدید vue بسازیم</span> برای مثال <span style="color:#e67e22">index.vue</span> و بعد محتوای صفحه مورد نظر را در آن قرار دهیم و بعد در مرورگر به ادرس <span style="color:#e74c3c">domain/users</span> برویم.</p>
+
+<p dir="rtl">گاهی نیاز است که به <span style="color:#f39c12">روت ها</span> <span style="color:#e74c3c">پارامتر </span>ارسال کنیم که در این صورت در <span style="color:#e67e22">پوشه users </span>یک فایل با نام <span style="color:#e74c3c">_id.vue</span> می سازیم و بعد به <span style="color:#27ae60">روت users/2 </span>می رویم.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">تمام روت هایی که ما به این شکل با ساختن فایل تعریف می کنیم خود ناکست به طور خودکار در مسیر زیر آن ها را ایجاد می کند.</span></p>
+<div class="code"><p><em><span style="color:#f1c40f">.nuxt/routes.json</span></em></p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">تعریف لینک</span> برای رفتن به صفحات دیگر از <span style="color:#d35400">NuxtLink&nbsp; </span>به جای <span style="color:#f39c12">router-link</span> استفاده می کنیم.</p>
+
+<div class="code"><p>&lt;<span style="color:#e74c3c">NuxtLink </span><span style="color:#27ae60">to</span>=&quot;<span style="color:#f39c12">/posts</span>&quot;&gt;Post&lt;/<span style="color:#e74c3c">NuxtLink</span>&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">NuxtLink </span>:<span style="color:#27ae60">to</span>=&quot;{name:&#39;<span style="color:#f39c12">posts</span>&#39;}&quot;&gt;Post&lt;/<span style="color:#e74c3c">NuxtLink</span>&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">NuxtLink </span>:<span style="color:#27ae60">to</span>=&quot;{name:&#39;<span style="color:#f39c12">posts-id</span>&#39;, params:{id:<span style="color:#9b59b6">20</span>}}&quot;&gt;Post 2&lt;/<span style="color:#e74c3c">NuxtLink</span>&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">NuxtLink </span>:<span style="color:#27ae60">to</span>=&quot;`<span style="color:#f39c12">/posts/${</span><span style="color:#9b59b6">20</span><span style="color:#f39c12">}</span>`&quot;&gt;Post 2&lt;/<span style="color:#e74c3c">NuxtLink</span>&gt;</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای اینکه بتوانیم برای مثال در <span style="color:#e74c3c">head </span>هر صفحه <span style="color:#f39c12">تایتل </span>مربوطه را قرار دهیم <span style="color:#27ae60">nuxt </span><span style="color:#d35400">یک سری توابع در اختیار ما</span> قرار می دهد.</p>
+
+<div class="code"><p><span style="color:#2ecc71">head </span>() {<br />
+&nbsp; &nbsp;<span style="color:#e74c3c">return </span>{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color:#9b59b6">title</span>: &#39;<span style="color:#f39c12">کاربران &nbsp;سئو</span>&#39;<br />
+&nbsp; &nbsp;}<br />
+}</p></div>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#d35400"> گرفتن پارامترها</span> هم به شکل زیر عمل می کنیم.</p>
+<div class="code"><p>{{ <span style="color:#e74c3c">$route</span>.<span style="color:#d35400">params</span>.<span style="color:#27ae60">id </span>}}</p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">باید داخل پوشه <span style="color:#e67e22">pages </span>در <span style="color:#2ecc71">ناکست </span>حتما <span style="color:#e74c3c">index.vue </span>داشته باشیم تا <span style="color:#d35400">صفحه home با ران کردن پروژه نمایش</span> داده شود.</p>
+
+<p dir="rtl"><br />
+<span style="color:#27ae60">ناکست </span>به طور <span style="color:#8e44ad">خودکار </span>با توجه به فایل های داخل پوشه <span style="color:#e67e22">pages </span><span style="color:#e74c3c">روت ها</span> را ایجاد می کند و<span style="color:#e74c3c"> code spliting</span> را برای<span style="color:#f39c12"> lazy loading</span> انجام می دهد یعنی <span style="color:#ff0066">کدهای مربوط به هر پیج زمانی فراخوانی می شود که ان صفحه صدا زده شود.</span></p>
+<br />
+
+<p dir="rtl">گاهی می خواهیم <span style="color:#f39c12">روت </span>ما به شکل زیر باشد</p>
+
+<div class="code">
+<p>localhost:3000/posts/3/edit</p>
+</div>
+
+<p dir="rtl">برای این کار در پوشه <span style="color:#f39c12">posts</span> یک پوشه با نام <span style="color:#c0392b">_</span>id یا ...<span style="color:#e74c3c">_ </span>ایجاد می کنیم و داخل آن یک <span style="color:#f1c40f">index.vue</span> برای زمانی که لینک بدون <span style="color:#e67e22">edit </span>صدا زده شد و <span style="color:#3498db">یک edit.vue برای زمانی که لینک بالا فراخوانی</span> میشود.</p>
+
+
+<p dir="rtl">&nbsp;</p>
+<h2 class="y">------   Layout   ------</h2> 
+<br />
+
+<p dir="rtl">گاهی می خواهیم یک <span style="color:#d35400">master </span>ایجاد کنیم که<span style="color:#3498db"> کدهای بدون تغییر</span> را در آن قرار دهیم و بعد مثل لاراول کدها را که با <span style="color:#f39c12">تغییر صفحات پست ها تغییر</span> می کند در آن <span style="color:#e74c3c">yield </span>کنیم. برای این منظور یک <span style="color:#ff0066">فایل vue هم نام با پوشه مثلا posts ایجاد می کنیم</span> و آن را<span style="color:#f39c12"> در کنار پوشه</span> قرار می دهیم. حالا کدهای ثابت را در این فایل قرار می دهیم و <span style="color:#e74c3c">به جای قسمتی که باید تغییر داشته باشد تگ زیر را قرار می دهیم.</span></p>
+<div class="code"><p>&lt;<span style="color:#e74c3c">h1</span>&gt;this is static code layout&lt;/<span style="color:#e74c3c">h1</span>&gt;</p>
+
+<p>&lt;<span style="color:#c0392b">NuxtChild </span>/&gt;</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">روش بالا روش <span style="color:#e74c3c">nested route</span> برای <span style="color:#d35400">layout </span>است اما ناکست یک <span style="color:#9b59b6">روش دیگر هم در اختیار ما</span> قرار می دهد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر بخواهیم <span style="color:#d35400">layout بندی</span> را به کمک <span style="color:#9b59b6">خود سیستم</span> <span style="color:#27ae60">nuxt</span> انجام دهیم باید ابتدا در<span style="color:#f1c40f"> پوشه layouts </span>در <span style="color:#3498db">روت اصلی پروژه یک فایل vue</span> ایجاد کنیم و به شکل زیر<span style="color:#e74c3c"> کدهای ثابت و کدهای متغییر را (تگ Nuxt)</span> قرار دهیم.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// e.g.&nbsp; &nbsp;layouts/blog.vue</span></p>
+
+<p>&lt;<span style="color:#e74c3c">div</span>&gt;<br />
+&nbsp;&nbsp;&lt;<span style="color:#e74c3c">p</span>&gt; here layouts for nuxt JS&lt;/<span style="color:#e74c3c">p</span>&gt;<br />
+&nbsp;&nbsp;&lt;<span style="color:#c0392b">Nuxt</span> /&gt;&nbsp; &nbsp;<span style="color:#7f8c8d"> // place for variable code part</span><br />
+&nbsp; &lt;<span style="color:#e74c3c">p</span>&gt; here layouts for nuxt JS&lt;/<span style="color:#e74c3c">p</span>&gt;<br />
+&lt;/<span style="color:#e74c3c">div</span>&gt;</p></div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">بعد در <span style="color:#f39c12">کامپونتی</span> که می خواهیم <span style="color:#d35400">اکستند</span> شود در<span style="color:#27ae60"> پوشه فایل ها</span> کد زیر را اضافه کنیم.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// pages/post/index.vue</span></p>
+
+<p><span style="color:#e74c3c">export default</span> {<br />
+&nbsp; name: &#39;<span style="color:#f39c12">IndexPostPage</span>&#39;,<br />
+&nbsp; <span style="color:#e74c3c">layout</span>: &#39;<span style="color:#f39c12">blog</span>&#39;<br />
+<br />
+<span style="color:#7f8c8d">// OR</span><br />
+<p><span style="color:#d35400">&nbsp;layout</span>(<span style="color:#e74c3c">ctx</span>){<br />
+&nbsp; &nbsp;&nbsp;<span style="color:#9b59b6">return </span>&#39;<span style="color:#f39c12">blog</span>&#39;<br />
+&nbsp;}</p>
+
+}</p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">یکی از <span style="color:#9b59b6">ویژگی </span>های که <span style="color:#27ae60">ناکست </span>استفاده از آن را آسان کرده این است که می توانیم<span style="color:#e74c3c"> layout های متمایزی </span>برای <span style="color:#f39c12">desktop </span>و <span style="color:#f39c12">mobile </span>داشته باشیم</p>
+
+<p dir="rtl"><br />
+اگر در<span style="color:#d35400"> پوشه layouts</span> یک فایل <span style="color:#e74c3c">default.vue</span> ایجاد کنیم و <span style="color:#9b59b6">کدهای ثابت خود</span> را در آن قرار دهیم. این فایل<span style="color:#ff0066"> برای همه page ها به عنوان master layout لحاظ می شود</span> مگر اینکه برای <span style="color:#f1c40f">آن صفحه</span><span style="color:#e67e22"> layout اختصاصی</span> تعیین کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">فایل در داخل <span style="color:#f39c12">layout </span>ها به جای قسمتی &nbsp;که می خواهیم <span style="color:#e67e22">کدهای page به جای آن قرار بگیرد</span> حتما باید &lt;/ <span style="color:#e74c3c">Nuxt</span>&gt; را قرار دهیم.<br />
+اگر این <span style="color:#f39c12">کامپوننت </span>در layout نباشد آن <span style="color:#e74c3c">layout کارایی ندارد.</span></p>
+
+
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   Error page layout   ------</h2> 
+<br />
+
+<p dir="rtl">برای ایجاد <span style="color:#e74c3c">صفحه ارور</span> باید در داخل پوشه <span style="color:#d35400">layout </span>یک فایل با نام<span style="color:#e74c3c"> error.vue</span> بسازیم.<span style="color:#ff0066"> اسم حتما باید ارور باشد</span>. حالا این میشود <span style="color:#9b59b6">صفحه ارورهای ما و هر اروری که داشته باشیم به این صفحه هدایت می شویم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم در<span style="color:#f1c40f"> صفحه ارور مشخص کنیم که ارور ما برای چه بوده است</span> برای مثال می خواهیم به کاربر بگوییم که<span style="color:#d35400"> ارور از نوع 404 است برای این کار باید در error.vue به شکل زیر عمل کنیم.</span></p>
+
+<div class="code">
+
+<p>&lt;<span style="color:#e74c3c">div</span>&gt;</p>
+
+<p>&nbsp; &nbsp;&lt;<span style="color:#e74c3c">p</span>&gt; Error page {{error.<span style="color:#ff0099">statusCode</span>}} &nbsp;&lt;<span style="color:#e74c3c">br</span>&gt; {{error.<span style="color:#ff0099">message</span>}} &lt;<span style="color:#e74c3c">br</span>&gt; {{error.<span style="color:#ff0099">path</span>}}&lt;/<span style="color:#e74c3c">p</span>&gt;</p>
+
+<p>&nbsp; &nbsp;&lt;<span style="color:#e74c3c">p </span><span style="color:#2ecc71">v-if</span>=&quot;<span style="color:#d35400">error.statusCode</span> <span style="color:#e67e22">===</span> <span style="color:#9b59b6">404</span>&quot;&gt;صفحه یافت نشد &lt;/<span style="color:#e74c3c">p</span>&gt;</p>
+
+<p>&nbsp; &nbsp;&lt;<span style="color:#e74c3c">p </span><span style="color:#2ecc71">v-else</span>&gt;Other Error&lt;/<span style="color:#e74c3c">p</span>&gt;</p>
+
+<p>&lt;/<span style="color:#e74c3c">div</span>&gt;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#e74c3c">props</span>: [&#39;<span style="color:#f39c12">error</span>&#39;]</p>
+</div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگرچه <span style="color:#f39c12">layouts/</span><span style="color:#3498db">error</span><span style="color:#f39c12">.vue</span> در <span style="color:#e74c3c">layout </span>ایجاد می شود اما <span style="color:#ff0066">مثل یک page با آن رفتار می شود.</span> به همین دلیل نیازی به قرار دادن &lt;<span style="color:#e74c3c">Nuxt </span>/&gt; در آن <span style="color:#d35400">نیست</span></p>
+
+<p dir="rtl">می توانیم همان طور که برای <span style="color:#e67e22">pages </span>ها<span style="color:#ff0066"> custom layout</span> تعریف می کردیم برای <span style="color:#9b59b6">error page</span> هم به همان شکل <span style="color:#ff0066">custom layout </span>تعریف کنیم.</p>
+
+<div class="code"><p><br />
+&lt;<span style="color:#c0392b">template</span>&gt;<br />
+&nbsp; &nbsp;&nbsp;&lt;<span style="color:#c0392b">div</span>&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;<span style="color:#c0392b">h1 </span><span style="color:#27ae60">v-if</span>=&quot;error.<span style="color:#d35400">statusCode </span>=== <span style="color:#9b59b6">404</span>&quot;&gt;Page not found&lt;/<span style="color:#c0392b">h1</span>&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;<span style="color:#c0392b">h1 </span><span style="color:#27ae60">v-else</span>&gt;An error occurred&lt;/<span style="color:#c0392b">h1</span>&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&lt;<span style="color:#c0392b">NuxtLink </span><span style="color:#2ecc71">to</span>=&quot;<span style="color:#f39c12">/</span>&quot;&gt;Home page&lt;/<span style="color:#c0392b">NuxtLink</span>&gt;<br />
+&nbsp; &nbsp;&nbsp;&lt;/<span style="color:#c0392b">div</span>&gt;<br />
+&lt;/<span style="color:#c0392b">template</span>&gt;<br />
+<br />
+&lt;<span style="color:#c0392b">script</span>&gt;<br />
+<span style="color:#e74c3c">export default</span> {<br />
+&nbsp; &nbsp; <span style="color:#d35400">props</span>: [&#39;<span style="color:#f39c12">error</span>&#39;],<br />
+&nbsp; &nbsp;&nbsp;<span style="color:#d35400">layout</span>: &#39;<span style="color:#f39c12">error</span>&#39;&nbsp; &nbsp;<span style="color:#7f8c8d">// you can set a custom layout for the error page</span><br />
+&nbsp;}<br />
+&lt;/<span style="color:#c0392b">script</span>&gt;</p></div> 
+
+
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   SEO in Nuxt   ------</h2> 
+<br />
+
+<p dir="rtl">اگر می خواهیم یک<span style="color:#e74c3c"> title کلوبال </span>تعریف کنیم که در<span style="color:#d35400"> بیشتر صفحات آن نمایش داده شود مگر صفحاتی که می خواهیم تایتل دیگری داشته باشد</span>، باید به <span style="color:#ff0099">فایل config ناکست </span>برویم و <span style="color:#f1c40f">title </span>آن جا را تغییر دهیم. این <span style="color:#f39c12">title پیش فرض</span> است و برای <span style="color:#27ae60">همه صفحات ما لحاظ می شود</span> مگر صفحاتی که در آن ها بخش <span style="color:#d35400">head </span>و <span style="color:#d35400">title </span>را تعریف کرده ایم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">حالا <span style="color:#e74c3c">برای سئو </span>هم همین شکل است اگر خواستیم تگی که در <span style="color:#e74c3c">head </span>سایت قرار می گیرد <span style="color:#ff0099">گلوبال باشد باید آن را در&nbsp;فایل config ناکست تعریف کنیم</span> و <span style="color:#9b59b6">اگر خواستیم هر صفحه متفاوت باشد</span> باید در<span style="color:#e67e22"> همان صفحه </span>در داخل <span style="color:#e74c3c">head</span>() یا <span style="color:#e74c3c">ابجکت head </span>آن را تعریف کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code">
+<p><span style="color:#7f8c8d">// in nuxt.config.js</span></p>
+<p dir="rtl">&nbsp;</p><p dir="rtl">&nbsp;</p>
+<p><span style="color:#e74c3c">export default</span> {<br />
+&nbsp;<span style="color:#7f8c8d"> // Global page headers: https://go.nuxtjs.dev/config-head</span><br />
+&nbsp; <span style="color:#d35400">head</span>: {<br />
+&nbsp; &nbsp; <span style="color:#9b59b6">title</span>: &#39;<span style="color:#f39c12">nuxt-learn</span>&#39;,<br />
+&nbsp; &nbsp; <span style="color:#9b59b6">htmlAttrs</span>: {<br />
+&nbsp; &nbsp; &nbsp; lang: &#39;<span style="color:#f39c12">en</span>&#39;<br />
+&nbsp; &nbsp; },<br />
+&nbsp; &nbsp; <span style="color:#9b59b6">meta</span>: [<br />
+&nbsp; &nbsp; &nbsp; { charset: &#39;<span style="color:#f39c12">utf-8</span>&#39; },<br />
+&nbsp; &nbsp; &nbsp; { name: &#39;<span style="color:#f39c12">viewport</span>&#39;, content: &#39;<span style="color:#f39c12">width=device-width, initial-scale=1</span>&#39; },<br />
+&nbsp; &nbsp; &nbsp; { <span style="color:#e74c3c">hid</span>: &#39;<span style="color:#f39c12">description</span>&#39;, name: &#39;<span style="color:#f39c12">description</span>&#39;, content: &#39;<span style="color:#f39c12">seo description</span>&#39; },<br />
+&nbsp; &nbsp; &nbsp; { name: &#39;<span style="color:#f39c12">format-detection</span>&#39;, content: &#39;<span style="color:#f39c12">telephone=no</span>&#39; }<br />
+&nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; <span style="color:#9b59b6">link</span>: [<br />
+&nbsp; &nbsp; &nbsp; { rel: &#39;<span style="color:#f39c12">icon</span>&#39;, type: &#39;<span style="color:#f39c12">image/x-icon</span>&#39;, href: &#39;<span style="color:#f39c12">/favicon.ico</span>&#39; }<br />
+&nbsp; &nbsp; ]<br />
+&nbsp; },</p>
+
+<p><span style="color:#7f8c8d">&nbsp; // Global CSS: https://go.nuxtjs.dev/config-css</span><br />
+&nbsp; css: [<br />
+&nbsp; ],</p>
+
+<p>&nbsp;<span style="color:#7f8c8d"> // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins</span><br />
+&nbsp; plugins: [<br />
+&nbsp; ],</p>
+
+<p><span style="color:#f39c12">&nbsp; // Auto import components: https://go.nuxtjs.dev/config-components</span><br />
+&nbsp; components: <span style="color:#9b59b6">true</span>,</p>
+
+<p><span style="color:#7f8c8d">&nbsp; // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules</span><br />
+&nbsp; buildModules: [<br />
+&nbsp; <span style="color:#7f8c8d">&nbsp; // https://go.nuxtjs.dev/eslint</span><br />
+&nbsp; &nbsp; &#39;<span style="color:#f39c12">@nuxtjs/eslint-module</span>&#39;<br />
+&nbsp; ],</p>
+
+<p><span style="color:#7f8c8d">&nbsp; // Modules: https://go.nuxtjs.dev/config-modules</span><br />
+&nbsp; modules: [<br />
+&nbsp; <span style="color:#7f8c8d">&nbsp; // https://go.nuxtjs.dev/axios</span><br />
+&nbsp; &nbsp; &#39;<span style="color:#f39c12">@nuxtjs/axios</span>&#39;<br />
+&nbsp; ],</p>
+
+<p><span style="color:#7f8c8d">&nbsp; // Axios module configuration: https://go.nuxtjs.dev/config-axios</span><br />
+&nbsp; axios: {<br />
+&nbsp; <span style="color:#7f8c8d">&nbsp; // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308</span><br />
+&nbsp; &nbsp; baseURL: &#39;<span style="color:#f39c12">/</span>&#39;<br />
+&nbsp; },</p>
+
+<p><span style="color:#7f8c8d">&nbsp; // Build Configuration: https://go.nuxtjs.dev/config-build</span><br />
+&nbsp; build: {<br />
+&nbsp; }<br />
+}</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">تابع head</span> داخل هر صفحه را می توانیم به شکل <span style="color:#d35400">object </span>هم بنویسیم</p>
+
+<div class="code"><p><span style="color:#d35400">head</span>: {<br />
+&nbsp; &nbsp; <span style="color:#9b59b6">title</span>: &#39;<span style="color:#f39c12">nuxt-learn</span>&#39;,<br />
+},</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//OR</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#27ae60">head</span>() {<br />
+&nbsp; <span style="color:#e74c3c">return</span>{<br />
+&nbsp; &nbsp; &nbsp;&nbsp; <span style="color:#9b59b6">title</span>: &#39;<span style="color:#f39c12">nuxt-learn</span>&#39;,<br />
+&nbsp; }<br />
+},</p></div>  
+
+<p>&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#e74c3c">description </span>باید&nbsp;<span style="color:#d35400">hid</span> را هم قرار دهیم تا اگر<span style="color:#d35400"> در یک صفحه&nbsp;description جدید نوشتیم </span>روی&nbsp;<span style="color:#9b59b6">description </span><span style="color:#e67e22">گلوبال </span><span style="color:#e74c3c">overwrite </span>شود و<span style="color:#ff0066"> ما دوتا&nbsp;description نداشته باشیم در تگ head</span></p>
+
+<p>&nbsp;</p>
+<div class="code">
+<p><span style="color:#7f8c8d">// in post page</span></p>
+
+<p><span style="color:#27ae60">head</span> () {<br />
+&nbsp;&nbsp;<span style="color:#e74c3c">return</span> {<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#9b59b6">title</span>: &#39;<span style="color:#f39c12">seo Nuxt</span>&#39;,<br />
+&nbsp; &nbsp; &nbsp;<span style="color:#9b59b6">meta</span>: [{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:#ff0066">hid</span>: &#39;<span style="color:#f39c12">description</span>&#39;,&nbsp; &nbsp;<span style="color:#7f8c8d">// for overwrite on global meta tag</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name: &#39;<span style="color:#f39c12">description</span>&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;content: &#39;<span style="color:#f39c12">seo description page unique</span>&#39;<br />
+&nbsp; &nbsp; &nbsp;}]<br />
+&nbsp; &nbsp;}<br />
+}</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم در <span style="color:#d35400">تگ head</span> فایل <span style="color:#f1c40f">js </span>اضافه کنیم. این فایل که به این شکل اضافه می کنیم به<span style="color:#d35400"> احتمال زیاد یک فایل static است</span> یا اینکه ادرس یک <span style="color:#d35400">CDN </span>است. برای این منظور <span style="color:#9b59b6">باید فایل را داخل پوشه static قرار دهیم </span>و بعد داخل فایل مورد نظر کد زیر را قرار دهیم.</p>
+
+<div class="code"><p><span style="color:#e67e22">head</span>:{<br />
+&nbsp; <span style="color:#e74c3c">script</span>:[<br />
+&nbsp; &nbsp; &nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;src: &quot;<span style="color:#f39c12">./main.js</span>&quot;<br />
+&nbsp; &nbsp; &nbsp;}<br />
+&nbsp; ],</p>
+
+<p><span style="color:#7f8c8d">&nbsp; //Css</span><br />
+&nbsp; <span style="color:#e74c3c">link</span>:[<br />
+&nbsp; &nbsp;&nbsp;&nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; rel: &quot;<span style="color:#f39c12">stylesheet</span>&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;href: &quot;<span style="color:#f39c12">./main.css</span>&quot;<br />
+&nbsp; &nbsp; &nbsp;}<br />
+&nbsp;&nbsp;]<br />
+}</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">توجه داشته باشید که <span style="color:#e74c3c">قرار دادن فایل در پوشه استاتیک و فراخوانی آن تقریبا کار درستی نیست</span> زیرا <span style="color:#ff0066">فایل هایی که به این شکل اضافه می شوند دیگر کامپایل و minify نمی شوند.</span> <span style="color:#d35400">تنها فایل هایی که نباید کامپایل و minify شوند را به این شکل اضافه می کنیم به head</span> وگرنه <span style="color:#e74c3c">فایل های css یا js را داخل پوشه assets قرار می دهیم</span> و<span style="color:#f1c40f"> با روش عادی vue آن ها را import می کنیم</span> تا<span style="color:#3498db"> آن ها هم کامپایل و minify شوند.</span></p>
+
+<p>&nbsp;</p>
+<p dir="rtl">برای اضافه کردن <span style="color:#e74c3c">فایل css به صورت گلوبال</span> به فایل <span style="color:#d35400">nuxt.config.js</span> می رویم و به شکل زیر عمل می کنیم.</p>
+
+<div class="code"><p><span style="color:#27ae60">css</span>: [<br />
+&nbsp; &quot;<span style="color:#f39c12">bulma/css/bulma.css</span>&quot;,&nbsp; &nbsp;<span style="color:#7f8c8d"> // read from node_modules</span><br />
+&nbsp; &quot;<span style="color:#f39c12">~/assets/css/main.css</span>&quot;&nbsp;<span style="color:#7f8c8d"> //~ =&gt; indicate to root project</span><br />
+]</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#e74c3c"> اضافه کردن تصاویر</span> هم می توانیم به 3 شکل عمل کنیم.</p>
+
+<div class="code"><p>&lt;<span style="color:#e74c3c">img&nbsp; </span><span style="color:#2ecc71">src</span>=&quot;<span style="color:#f39c12">../../assets/logo.png</span>&quot; /&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">img&nbsp; </span><span style="color:#2ecc71">src</span>=&quot;<span style="color:#f39c12">~/assets/logo.png</span>&quot; /&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">img&nbsp; </span>:<span style="color:#2ecc71">src</span>=&quot;<span style="color:#3498db">require</span>(&#39;<span style="color:#f39c12">~/assets/logo.png</span>&#39;)&quot; /&gt;</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#d35400">اضافه کردن اتریبیوت</span> به تگ <span style="color:#8e44ad">body </span>می توانیم به شکل زیر عمل کنیم.</p>
+
+<p dir="rtl">ابتدا به فایل <span style="color:#e74c3c">nuxt/views/app.template.</span> برویم می بینیم که این <span style="color:#f1c40f">template پایه</span> است که <span style="color:#27ae60">ناکست </span>از آن استفاده می کند. در داخل<span style="color:#f39c12"> تگ های اصلی این قالب</span> عبارت هایی قرار داده شده است مانند&nbsp;<span style="color:#e74c3c">HTML_ATTRS </span>که ما به این موارد در<span style="color:#d35400"> nuxt config</span> دسترسی داریم و می توانیم <span style="color:#ff0066">اتریبویت هاییی که می خواهیم را به این تگ ها اضافه کنیم.&nbsp;</span></p>
+
+<div class="code"><p>&lt;!DOCTYPE html&gt;<br />
+&lt;html {{ <span style="color:#ff0066">HTML_ATTRS </span>}}&gt;<br />
+&nbsp; &lt;head {{ <span style="color:#ff0066">HEAD_ATTRS </span>}}&gt;&nbsp; <span style="color:#7f8c8d">// with Attrs</span><br />
+&nbsp; &nbsp; {{ <span style="color:#d35400">HEAD</span> }}&nbsp; <span style="color:#7f8c8d">&nbsp;// in head function</span><br />
+&nbsp; &lt;/head&gt;<br />
+&nbsp; &lt;body {{ <span style="color:#ff0066">BODY_ATTRS </span>}}&gt;<br />
+&nbsp; &nbsp; {{ <span style="color:#d35400">APP </span>}}<br />
+&nbsp; &lt;/body&gt;<br />
+&lt;/html&gt;</p></div>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای مثال برای <span style="color:#9b59b6">اضافه کردن کلاس</span> به تگ <span style="color:#f1c40f">body </span>به این شکل در فایل <span style="color:#e67e22">nuxt config</span> عمل می کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">htmlAttrs</span>: {<br />
+&nbsp; &nbsp;&nbsp;lang: &#39;<span style="color:#f39c12">fa</span>&#39;,<br />
+&nbsp;&nbsp; &nbsp;dir:&#39;<span style="color:#f39c12">rtl</span>&#39;<br />
+},<br />
+&nbsp;<span style="color:#d35400">bodyAttrs</span>:{<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#ff0066">class</span>:&#39;<span style="color:#f39c12">bg-gray-100 &nbsp; w-100</span>&#39;<br />
+},</p></div>
+
+<p dir="rtl"><br />
+<span style="color:#27ae60">قالب پایه html</span> که <span style="color:#2980b9">ناکست </span>از آن استفاده می کند در<span style="color:#f39c12"> پوشه nuxt. </span>و فایل<span style="color:#d35400"> app.html</span> است. عموما در اکثر موارد این فایل را می توان با<span style="color:#e74c3c"> nuxt.config</span> <span style="color:#d35400">کنترل کرد</span> و مواردی که نیاز است را به آن اضافه کرد اما اگر نیاز به <span style="color:#8e44ad">تغییر زیادی</span> بود می توانیم آن را <span style="color:#f39c12">کپی </span>کنیم و در<span style="color:#e74c3c"> root پروژه paste </span>کنیم و <span style="color:#2ecc71">تغییرات لازم را روی آن اعمال کنیم.</span></p>
+
+<p dir="rtl">یکی از دلایلی که ممکن است بخواهیم این<span style="color:#d35400"> فایل را شخصی سازی کنیم متناسب سازی آن برای </span><span style="color:#ff0066">IE </span>است.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">&lt;!--[if IE 9]&gt;<br />
+&nbsp; &nbsp;&nbsp;&lt;html class=&quot;lt-ie9 ie9&quot; {{ HTML_ATTRS }}&gt;<br />
+&lt;![endif]--&gt;<br />
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt;<br />
+&nbsp; &nbsp;&nbsp;&lt;html {{ HTML_ATTRS }}&gt;<br />
+&lt;!--&lt;![endif]--&gt;</span></p></div>
+
+
+<p>&nbsp;</p>
+
+<p dir="rtl">برای اضافه کردن فایل<span style="color:#e74c3c"> js و css</span> به <span style="color:#f39c12">app.html</span> حتما به کمک فایل<span style="color:#e74c3c"> nuxt config</span> این کار را انجام دهید و<span style="color:#ff0066"> دستی فایلی js یا css به app.html اضافه نکنید.</span></p>
+
+
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   Components   ------</h2> 
+<br />
+
+<p dir="rtl">یکی از <span style="color:#9b59b6">ویژگی </span>های خوب <span style="color:#27ae60">nuxt </span>این است که کار ما را در <span style="color:#e67e22">import کردن کامپوننت ها </span>بسیار آسان می کند. در <span style="color:#2ecc71">vue </span>ما <span style="color:#f1c40f">خودمان باید دستی کامپوننت ها را import کنیم</span> اما در<span style="color:#d35400"> nuxt تنها کافی است که در پوشه components کی فایل vue بسازیم</span> برای مثال Logo.vue و <span style="color:#e67e22">بعد در محلی که می خواهیم کامپوننت را import کنیم </span>تنها کافی است که به شکل زیر عمل کنیم.</p>
+
+<div class="code"><p>&lt;<span style="color:#e74c3c">Logo&nbsp; </span>/&gt;</p>
+
+<p>&lt;<span style="color:#e74c3c">Gallery </span>/&gt;&nbsp;</p>
+
+<p>.<br />
+.<br />
+.</p></div> 
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">این ویژگی <span style="color:#27ae60">nuxt </span>با نام<span style="color:#f39c12"> Auto components import</span> شناخته می شود که می توانیم آن را در <span style="color:#d35400">فایل nuxt.config.js</span> ببینیم و حتی آن را <span style="color:#e74c3c">غیرفعال </span>کنیم.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// Auto import components: https://go.nuxtjs.dev/config-components</span><br />
+<span style="color:#d35400">components</span>: <span style="color:#9b59b6">true</span>,</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">یک<span style="color:#f39c12"> ویژگی خاص </span>دیگر این است که شاید بخواهیم <span style="color:#e74c3c">علاوه بر پوشه&nbsp;components پوشه های دیگر هم داشته باشیم و کامپوننت ها را در آن قرار دهی</span>م برای این کار به شکل زیر عمل می کنیم در فایل&nbsp;<span style="color:#e67e22">nuxt.config.js</span></p>
+
+<div class="code"><p><span style="color:#7f8c8d">// Auto import components: https://go.nuxtjs.dev/config-components</span><br />
+<span style="color:#d35400">components</span>: <span style="color:#9b59b6">true</span>,</p>
+
+<p><span style="color:#d35400">components</span>:[<br />
+&nbsp; &nbsp;&#39;<span style="color:#f39c12">~/components</span>&#39;,<br />
+&nbsp; &nbsp;&#39;<span style="color:#f39c12">~/custom-component</span>&#39;<br />
+]</p></div> 
+<p>&nbsp;</p>
+<p dir="rtl">زمانی که می خواهیم پوشه <span style="color:#d35400">components </span>رو<span style="color:#e74c3c"> پوشه بندی کنیم</span> و<span style="color:#9b59b6"> فایل های مربوط به هر بخش از پروژه را در دایرکتوری خاصی قرار دهید</span> ابتدا در<span style="color:#9b59b6"> پوشه کامپوننت پوشه مورد نظر را ایجاد می کنیم و بعد فایل مورد نظر را در آن قرار می دهیم</span> اما برای صدا زدن کامپوننت<span style="color:#ff0066"> باید ابتدا نام پوشه و بعد نام فایل را بنویسیم.</span></p>
+
+<div class="code"><p>&lt;<span style="color:#e74c3c">PostsInput&nbsp; </span>/&gt;&nbsp; &nbsp;<span style="color:#7f8c8d"> // components/posts/Input.vue</span></p></div> 
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی <span style="color:#f1c40f">حجم یک کامپوننت زیاد است</span> و می خواهیم زمانی که به آن <span style="color:#ff0066">نیاز بود لود شود و به عبارت دیگر آن را به شکل lazy loading در کدهای خود import کنیم</span>. برای این منظور به شکل زیر کامپوننت را فراخوانی می کنیم.</p>
+
+<div class="code"><p>&nbsp;&nbsp;&lt;<span style="color:#ff0066">lazy</span><span style="color:#f1c40f">PostsPicture</span>&nbsp; /&gt;&nbsp; <span style="color:#7f8c8d">&nbsp;//start with lazy</span></p></div> 
+
+
+<p>&nbsp;</p>
+
+<h2 class="y">------   Plugins - modules  ------</h2> 
+<br />
+<p dir="rtl">برای <span style="color:#e74c3c">axios </span>در ناکست ما <span style="color:#f1c40f">یک ماژول مخصوص داریم </span>که <span style="color:#ff0066">بهتر است از آن استفاده کنیم تا بخواهیم از axios خام استفاده کنیم</span>.</p>
+
+<p dir="rtl">برای مشاهده بسیاری از<span style="color:#d35400"> پلاگین های خوب یا ماژول های خوب</span> برای ناکست عبارت <span style="color:#e74c3c">awesome nuxt</span> را در <span style="color:#f39c12">گوگل سرچ کنید و وارد گیت هاب شوید</span>.</p>
+
+<p dir="rtl">وقتی وارد <span style="color:#3498db">گیت هاب</span> شدیم می توانیم <span style="color:#f1c40f">ماژول های خوبی</span> را برای <span style="color:#9b59b6">pwa-axios-seo </span>و خیلی موارد دیگر پیدا کنیم.</p>
+
+<div class="code"><p>https://github.com/nuxt-community/awesome-nuxt</p></div> 
+
+
+
+<p style="text-align:center"><span style="color:#f1c40f"><span style="font-size:26px">axios</span></span></p>
+<p>&nbsp;</p>
+<div class="code"><p>axios.nuxtjs.org</p></div> 
+<p dir="rtl">در صقحه اول این سایت <span style="color:#e67e22">ویژگی های اصلی تنظیم شده </span>برای <span style="color:#f39c12">SSR </span>و ... را نوشته و آنها را تنظیم کرده است به <span style="color:#2ecc71">همین دلیل بهتر است از این ماژول به جای Axios خام استفاده کنیم.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<div class="code"><p>npm i nuxtjs/axios</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in nuxt.config.js</span></p>
+
+<p><span style="color:#d35400">modules</span>: [<br />
+&nbsp; <span style="color:#7f8c8d">&nbsp; // https://go.nuxtjs.dev/axios</span><br />
+&nbsp; &nbsp; &#39;<span style="color:#f39c12">@nuxtjs/axios</span>&#39;<br />
+],</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//usage</span></p>
+
+<p>&nbsp;<span style="color:#e74c3c">async </span><span style="color:#27ae60">created</span>(){<br />
+&nbsp; &nbsp;&nbsp; &nbsp;console.log(<span style="color:#e74c3c">await </span>this.<span style="color:#e67e22">$axios</span>.<span style="color:#f1c40f">get</span>(&#39;<span style="color:#f39c12">https://jsonplaceholder.typicode.com/posts</span>&#39;))<br />
+&nbsp; }</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">در استفاده با <span style="color:#e74c3c">روش بالا تمام اطلاعات مانند configو&nbsp; data و status-code و ... در ریسپانس هستند</span> اما اگر به روش زیر و <span style="color:#d35400">get$</span> اگر عمل کنیم <span style="color:#3498db">تنها و تنها data برگشت</span> داده می شود.</p>
+
+<div class="code"><p>&nbsp;<span style="color:#e74c3c">async </span><span style="color:#27ae60">created</span>(){<br />
+&nbsp; &nbsp;&nbsp; &nbsp;console.log(<span style="color:#e74c3c">await </span>this.<span style="color:#3498db">$axios</span>.<span style="color:#d35400">$get</span>(&#39;<span style="color:#f39c12">https://jsonplaceholder.typicode.com/posts</span>&#39;))<br />
+&nbsp;}</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">در فایل <span style="color:#d35400">config </span><span style="color:#27ae60">ناکست </span>می توانیم به شکل زیر <span style="color:#e74c3c">تنظیمات مربوط به axios</span> را اضافه کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">axios</span>: {<br />
+&nbsp; <span style="color:#7f8c8d">&nbsp; // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308</span><br />
+&nbsp; &nbsp; <span style="color:#d35400">baseURL</span>: &#39;<span style="color:#f39c12">/</span>&#39;<br />
+},</p></div>  
+
+<p>&nbsp;</p>
+
+
+<p style="text-align:center"><span style="color:#f1c40f"><span style="font-size:26px">Plugins</span></span></p>
+<p>&nbsp;</p>
+
+<p dir="rtl">برای دیدن بسیاری از <span style="color:#e67e22">ماژول </span>های <span style="color:#27ae60">کاربردی nuxt</span> و استفاده از آن ها می توانیم علاوه برای <span style="color:#3498db">گیت هاب</span> به سایت زیر هم مراجعه کنیم.</p>
+
+<div class="code"><p>modules.nuxtjs.org</p></div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی <span style="color:#e74c3c">پلاگینی </span>از <span style="color:#27ae60">Vue </span>یا <span style="color:#f1c40f">js </span>وجود دارد که ما <span style="color:#9b59b6">ماژولی برای آن در گیت هاب یا سایت بالا پیدا نکردیم</span>. پس باید <span style="color:#ff0066">ابتدا پلاگین را نصب کنیم و بعد آن را به عنوان یک پلاگین به ناکست معرفی</span> کنیم.</p>
+
+<p dir="rtl">برای مثال یک پلاگین را <span style="color:#e67e22">نصب </span>و آن را <span style="color:#9b59b6">ران </span>می کنیم.</p>
+
+<div class="code"><p><span style="color:#9b59b6">npm </span>i <span style="color:#e67e22">vue-easy-toast</span> <span style="color:#2ecc71">--save</span></p></div> 
+
+<p>&nbsp;</p>
+<p dir="rtl">بعد از آنکه پلاگین <span style="color:#9b59b6">نصب شد</span> باید به <span style="color:#e74c3c">پوشه plugins برویم </span>و یک فایل <span style="color:#f1c40f">js </span>ایجاد کنیم و <span style="color:#e74c3c">تنظیمات پلاگین را در آن قرار دهیم</span>.</p>
+
+<p>&nbsp;</p>
+
+<div class="code"><p><span style="color:#7f8c8d">//in plugins/vue-easy-toast.js</span></p>
+
+<p><span style="color:#e74c3c">import </span>Vue <span style="color:#e74c3c">from </span>&#39;<span style="color:#f39c12">vue</span>&#39;;<br />
+<span style="color:#e74c3c">import</span> Toast <span style="color:#e74c3c">from </span>&#39;<span style="color:#f39c12">vue-easy-toast</span>&#39;;</p>
+
+<p>Vue.<span style="color:#e74c3c">use</span>(Toast);</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in nuxt.config.js</span></p>
+
+<p>&nbsp;<span style="color:#d35400">plugins</span>: [<br />
+&nbsp;&nbsp; &nbsp;&#39;<span style="color:#f39c12">~/plugins/vue-easy-toast.js</span>&#39;<br />
+],</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&lt;<span style="color:#c0392b">button </span>@<span style="color:#2ecc71">click</span>=&quot;<span style="color:#9b59b6">$toast</span>(&#39;<span style="color:#f39c12">plugin running</span>&#39;)&quot;&gt;alert&lt;/<span style="color:#c0392b">button</span>&gt;</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">زمانیکه مانند روش بالا از<span style="color:#e74c3c"> پلاگین های غیرمرتبط با ناکست</span> استفاده می کنیم معمولا <span style="color:#d35400">صفحات ارور عجیبی</span> مثل <span style="color:#e74c3c">document in not defined</span>&nbsp;دریافت می کنیم. این به این دلیل است که<span style="color:#f39c12"> وقتی پلاگینی را لود می کنیم به روش بالا</span> آن پلاگین<span style="color:#d35400"> هم برای client side و هم برای server side ناکست لود می شود</span> و در پردازش <span style="color:#f1c40f">backend </span>که توسط <span style="color:#27ae60">node </span>انجام می شود به <span style="color:#9b59b6">مشکل می خوریم</span> چون پلاگین هایی مانند پلاگین بالا <span style="color:#3498db">تنها برای client side</span> هستند.&nbsp;</p>
+
+<p dir="rtl">برای حل این مشکل بالا در فایل&nbsp;<span style="color:#e74c3c">nuxt.config.js</span> به شکل زیر عمل کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">plugins</span>: [<br />
+&nbsp;&nbsp; &nbsp;{<span style="color:#e74c3c">src</span>:&#39;<span style="color:#f39c12">~/plugins/vue-easy-toast.js</span>&#39;, <span style="color:#e74c3c">mode</span>:&#39;<span style="color:#f39c12">client</span>&#39;}<br />
+],</p></div>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای حل مشکل بالا <span style="color:#f39c12">روش دیگری</span> هم وجود دارد و آن این است که در<span style="color:#e67e22"> پوشه plugin که تنظیمات را اضافه می کنیم </span>فایل را با یک <span style="color:#e74c3c">پسوند client </span>ذخیره کنیم.</p>
+
+<div class="code"><p>vue-easy-toast.<span style="color:#e74c3c">client</span>.js</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in nuxt.config.js</span></p>
+
+<p>&nbsp;plugins: [<br />
+&nbsp;&nbsp; &nbsp;&#39;<span style="color:#f39c12">~/plugins/vue-easy-toast.</span><span style="color:#d35400">client</span><span style="color:#f39c12">.js</span>&#39;<br />
+],</p></div>  
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر پلاگینی برای <span style="color:#e74c3c">سرور </span>بود در دو روش بالا به جای <span style="color:#9b59b6">client </span>کلمه <span style="color:#d35400">server </span>را قرار می دهیم.</p>
+
+<p dir="rtl">اگر پلاگینی <span style="color:#e74c3c">هم برای سرور بود و هم برای کلایت</span> <span style="color:#ff0066">هیچ mode یا پسوندی در نظر نمی گیریم</span>، چرا که <span style="color:#d35400">در حالت دیفالت هم برای Client و هم برای server </span>در نظر گرفته می شود.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">با توجه به این که در <span style="color:#f1c40f">فایل تنظیمات پلاگین </span>ما از <span style="color:#3498db">import </span>و <span style="color:#3498db">export </span>استفاده می کنیم و ممکن است <span style="color:#f1c40f">برخی از پلاگین ها و یا خود ناکست با این موضوع مشکل داشته باشد </span>چون از پلاگینی استفاده کرده ایم که از <span style="color:#ff0066">چارچوب آن خارج است بهتر است </span>که کد زیر را هم به فایل&nbsp;<span style="color:#ff0066">nuxt.config.js </span>اضافه کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">transpile</span>: [<br />
+&nbsp;&nbsp; &nbsp;&#39;<span style="color:#f39c12">~/plugins/vue-easy-toast.js</span>&#39;,<br />
+]</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">خود <span style="color:#d35400">context ناکست</span> شامل اطلاعات زیادی است اما زمانی که <span style="color:#f1c40f">یک پلاگین را اضافه می کنیم </span>و یا <span style="color:#e74c3c">یک پلاگین را به روش زیر می سازیم </span>می توانیم آن را به <span style="color:#f39c12">context ناکست</span> <span style="color:#e74c3c">اضافه </span>کنیم تا به آن در بخش های <span style="color:#9b59b6">مختلف دسترسی داشته باشیم</span>.</p>
+
+<p dir="rtl">ابتدا در بخش <span style="color:#9b59b6">پلاگین ها</span> یک فایل می سازیم و کدهای زیر را در آن قرار می دهیم.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// in plugins/name.js</span></p>
+
+<p><span style="color:#e74c3c">export default</span> function (<span style="color:#d35400">context</span>, <span style="color:#d35400">inject</span>) {<br />
+&nbsp; <span style="color:#27ae60">inject</span>(&#39;<span style="color:#f39c12">message</span>&#39;, <span style="color:#2ecc71">message </span>=&gt;<span style="color:#3498db"> console.log</span>({ message }))<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// in nuxt.config</span></p>
+
+<p>plugins: [<br />
+&nbsp;&nbsp; &nbsp;&#39;<span style="color:#f39c12">~/plugins/createPlug.js</span>&#39;<br />
+],</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//usage</span></p>
+
+<p><span style="color:#d35400">asyncData </span>(<span style="color:#f1c40f">context</span>) {<br />
+&nbsp; context.$message(&#39;<span style="color:#f39c12">data-bin</span>&#39;)<br />
+
+
+}</p>
+<p>&nbsp;</p><p>&nbsp;</p>
+<p>{{<span style="color:#d35400">$message</span>(&#39;<span style="color:#f39c12">data-bin-x</span>&#39;)}}</p>
+
+<p>&nbsp;</p>
+</div> 
+<p dir="rtl">&nbsp;</p>
+
+
+
+<h2 class="y">-- Get Data --</h2> 
+<br />
+
+<p dir="rtl">زمانی که ما <span style="color:#f39c12">لیستی از پست ها را از سرور</span> دریافت می کنیم، نیاز داریم که <span style="color:#27ae60">nuxt </span>آنها را هم <span style="color:#d35400">SSR </span>کند و ما آن ها را در <span style="color:#e74c3c">سورس صفحه داشته باشیم تا موتورهای جستجو بتوانند پست ها را هم رندر کنند</span>. برای این منظور ما <span style="color:#9b59b6">2 </span>تا روش پیش رو داریم.</p>
+
+<p dir="rtl">در حالت <span style="color:#3498db">عادی </span>ما در <span style="color:#1abc9c">created </span>یا&nbsp; <span style="color:#1abc9c">mounted </span>درخواست <span style="color:#e74c3c">axios </span>خود را ارسال می کردیم اما برای این که <span style="color:#f39c12">SSR </span>انجام شود و<span style="color:#d35400"> پست ها در سورس هم باشند کافی است</span> که درخواست را در <span style="color:#e74c3c">fetch </span>ارسال کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">async </span><span style="color:#27ae60">created </span>() {<br />
+&nbsp; &nbsp; <span style="color:#e67e22">this</span>.posts = <span style="color:#e74c3c">await </span>this.$axios.$get(&#39;<span style="color:#f39c12">https://jsonplaceholder.typicode.com/posts</span>&#39;)<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//&nbsp; nuxt&nbsp; ssr</span></p>
+
+<p><span style="color:#e74c3c">async</span> <span style="color:#ff0066">fetch</span>() {<br />
+&nbsp; &nbsp; this.posts = <span style="color:#e74c3c">await </span>this.$axios.$get(&#39;<span style="color:#f39c12">https://jsonplaceholder.typicode.com/posts</span>&#39;)<br />
+}</p></div>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">یکی از مزیت های روش <span style="color:#ff0066">fetch </span>این است که می توانیم در <span style="color:#e74c3c">هر کامپوننتی که خواستیم از آن استفاده کنیم</span>. <span style="color:#f39c12">fetch </span><span style="color:#9b59b6">هم سمت سرور و هم سمت کلاینت اجرا می شود</span> پست اطلاعات در سمت سرور به <span style="color:#3498db">سرعت </span>دریافت می شوند اما ممکن است<span style="color:#9b59b6"> کمی طول بکشد تا رندر شوند و در کلاینت نمایش داده شوند (تاخیر چند صدم ثانیه ای).</span> این به این دلیل است که اطلاعات دریافت شده است اما<span style="color:#e67e22"> هنوز کامپوننت در سمت کلاینت ساخته نشده</span> است که اطلاعات را نمایش دهد.</p>
+
+<p dir="rtl">برای این منظور می توانیم به شکل زیر <span style="color:#e74c3c">loading </span>تعریف کنیم.</p>
+
+
+<div class="code"><p>&lt;<span style="color:#e74c3c">p</span> <span style="color:#27ae60">v-if</span>=&quot;$<span style="color:#d35400">fetchState</span>.<span style="color:#f1c40f">pending</span>&quot;&gt;loading&lt;/<span style="color:#e74c3c">p</span>&gt;&nbsp;<span style="color:#7f8c8d"> // for loading</span></p>
+
+<p>&lt;<span style="color:#e74c3c">p</span> <span style="color:#27ae60">v-if</span>=&quot;$<span style="color:#d35400">fetchState</span>.<span style="color:#f1c40f">error</span>&quot;&gt;Find Error&lt;/<span style="color:#e74c3c">p</span>&gt;&nbsp; &nbsp;<span style="color:#7f8c8d">// اگر به ارور خورد درخواست این نمایش داده میشود</span></p>
+
+<p>&lt;<span style="color:#e74c3c">p</span> <span style="color:#27ae60">v-for</span>=&quot;post <span style="color:#e67e22">in</span> posts&quot; :<span style="color:#2ecc71">key</span>=&quot;post.id&quot;&gt; {{ post.title }} &lt;/<span style="color:#c0392b">p</span>&gt;</p></div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">گاهی می خواهیم کاری کنیم که <span style="color:#3498db">اطلاعات با رویداد ها مثلا کلیک دریافت شوند</span> که برای این منظور به شکل زیر عمل می کنیم.</p>
+
+<div class="code">
+<p>&lt;<span style="color:#e74c3c">button </span>@<span style="color:#27ae60">click</span>=&quot;$<span style="color:#d35400">fetch</span>&quot;&gt;re Get&lt;/<span style="color:#e74c3c">button </span>&gt;</p></div> 
+
+
+<p>&nbsp;</p>
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f"><span style="font-size:24px">روش دوم</span></span></p>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">خوبی <span style="color:#d35400">fetch </span>و دلیل<span style="color:#f1c40f"> استفاده بیشتر از آن</span> این است که<span style="color:#e74c3c"> در هر کامپوننتی می توانیم از آن استفاده کنیم</span> اما روش دوم <span style="color:#d35400">asyncData </span>هست که <span style="color:#ff0066">تنها و تنها می توانیم از آن در کامپوننت هایی که در پوشه pages قرار دارند استفاده کنیم</span>. مشکل دیگر&nbsp;<span style="color:#e67e22">asyncData </span>این است که ما در<span style="color:#d35400"> بلاک {} فانکشن</span> آن به <span style="color:#f1c40f">this </span>دسترسی نداریم.</p>
+
+<p dir="rtl"><span style="color:#e74c3c">asyncData </span>در حقیقت <span style="color:#9b59b6">همان data</span> ها است که به صورت ساده تعریف می کنیم و <span style="color:#e67e22">تنها تفاوتی که دارد داده ها را به صورت async دریافت می کند.</span> برای استفاده از&nbsp;<span style="color:#2ecc71">asyncData </span>باید به شکل زیر عمل کنیم.</p>
+
+<div class="code"><p>&nbsp;<span style="color:#e74c3c">async </span><span style="color:#d35400">asyncData </span>(<span style="color:#ff0066">context</span>) {&nbsp;<br />
+&nbsp; &nbsp;&nbsp;<span style="color:#3498db">const </span>users = <span style="color:#e74c3c">await </span><span style="color:#f1c40f">context</span>.$axios.$get(&#39;<span style="color:#f39c12">https://jsonplaceholder.typicode.com/users</span>&#39;);<br />
+<br />
+&nbsp; &nbsp;&nbsp;<span style="color:#e74c3c">return </span>{ users }<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p>&lt;<span style="color:#c0392b">p</span> <span style="color:#27ae60">v-for</span>=&quot;user <span style="color:#c0392b">in </span>users&quot; :<span style="color:#27ae60">key</span>=&quot;user.id&quot;&gt; {{ user.name }} &lt;/<span style="color:#c0392b">p</span>&gt;</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#e74c3c">asyncData </span><span style="color:#d35400">برخلاف </span><span style="color:#f1c40f">fetch </span><span style="color:#ff0066">تا زمانی که داده ها را دریافت نکند وارد&nbsp; route نمی شود.&nbsp;</span>(<span style="color:#e74c3c">خیلی مهم !!!</span>)</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><span style="color:#f39c12">fetch </span>در نسخه های <span style="color:#e74c3c">جدید ورژن 2</span> <span style="color:#27ae60">ناکست </span>تغییراتی داشته است و به که اسم آن <span style="color:#e74c3c">fetch hook </span>می گویند. <span style="color:#9b59b6">قبلا </span>در داخل <span style="color:#f39c12">fetch </span>به <span style="color:#d35400">this </span><span style="color:#ff0066">دسترسی نداشتیم</span> و باید <span style="color:#e74c3c">context </span>را دریافت می کردیم مانند&nbsp;<span style="color:#f39c12">asyncData </span>و <span style="color:#f1c40f">از آن استفاده می کردیم</span> اما در <span style="color:#8e44ad">ورژن های جدیدتر به this دسترسی</span> <span style="color:#e74c3c">داریم</span>.</p>
+
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">حتما زمانی که از <span style="color:#e74c3c">Async - await</span> استفاده می کنیم و یا حالا <span style="color:#d35400">درخواست ajax </span>ارسال می کنیم حتما <span style="color:#f1c40f">try catch</span> را قرار دهیم تا اگه به <span style="color:#e67e22">ارور خوردیم مشکلی ایجاد نشود</span>.</p>
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+
+<h2 class="y">-- Vuex in Nuxt --</h2> 
+<br />
+<p dir="rtl">برای استفاده از <span style="color:#27ae60">vuex </span>باید فایل های مربوط به آن در<span style="color:#e74c3c"> پوشه store</span> <span style="color:#27ae60">ناکست </span>قرار بدهیم. یکی از <span style="color:#f1c40f">ویژگی های خاص ناکست</span> این است که زمانی که <span style="color:#d35400">فایلی با پسوند js </span>برای <span style="color:#9b59b6">Vuex </span>در<span style="color:#e67e22"> پوشه Store</span> ایجاد می کنیم <span style="color:#3498db">خود </span>ناکست <span style="color:#27ae60">vuex </span>را <span style="color:#e74c3c">ایمپورت </span>می کند و<span style="color:#ff0066"> تنظیمات لازمه را انجام می دهد.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">داخل <span style="color:#f1c40f">فایل js </span>که در <span style="color:#27ae60">store </span>ایجاد کرده ایم <span style="color:#e74c3c">نیازی نیست کاری خاصی انجام دهیم</span> و تنها باید <span style="color:#f39c12">state-mutation</span> و ... که در <span style="color:#27ae60">Vuex </span>استفاده می کنیم را در آن قرار دهیم.</p>
+
+<div class="code"><p><span style="color:#7f8c8d">// in store/index.js</span></p>
+
+<p><span style="color:#e74c3c">export </span><span style="color:#3498db">const </span><span style="color:#d35400">state </span>= () =&gt; ({<br />
+&nbsp; counter:<span style="color:#9b59b6"> 0</span><br />
+})</p>
+
+<p><span style="color:#e74c3c">export </span><span style="color:#3498db">const </span><span style="color:#d35400">mutations </span>= {<br />
+&nbsp; <span style="color:#27ae60">incr </span>(state, payload) {<br />
+&nbsp; &nbsp; state.counter<span style="color:#e74c3c">++</span><br />
+&nbsp; },<br />
+&nbsp; <span style="color:#27ae60">decs </span>(state, payload) {<br />
+&nbsp; &nbsp; state.counter<span style="color:#e74c3c">--</span><br />
+&nbsp; }<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// usage</span></p>
+
+<p>&lt;<span style="color:#c0392b">p</span>&gt;{{$<span style="color:#d35400">store</span>.state.counter}}&lt;/<span style="color:#c0392b">p</span>&gt;</p>
+
+<p>&lt;<span style="color:#c0392b">button </span>class=&quot;<span style="color:#f39c12">button</span>&quot; @<span style="color:#2ecc71">click</span>=&quot;$<span style="color:#d35400">store</span>.commit(&#39;<span style="color:#f39c12">incr</span>&#39;)&quot;&gt;increas&lt;/<span style="color:#c0392b">button</span>&gt;</p>
+
+<p>&lt;<span style="color:#c0392b">button </span>class=&quot;<span style="color:#f39c12">btn</span>&quot; @<span style="color:#2ecc71">click</span>=&quot;$<span style="color:#d35400">store</span>.commit(&#39;<span style="color:#f39c12">decs</span>&#39;)&quot;&gt;- dec&lt;/<span style="color:#c0392b">button</span>&gt;</p>
+</div> 
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><span style="color:#f1c40f"><span style="font-size:24px">Module in vuex</span></span></p>
+<p>&nbsp;</p>
+
+<p dir="rtl">برای ایجاد <span style="color:#d35400">ماژول های vuex</span> هم نیازی به<span style="color:#f1c40f"> تنظیمات خاصی نداریم</span>. به طور پیشفرض <span style="color:#9b59b6">namespaced </span><span style="color:#e74c3c">فعال </span>است و ما <span style="color:#3498db">تنها کاری که باید انجام دهیم</span> این است که <span style="color:#ff0066">فایل js در داخل store بسازیم</span> و کدهای مربوط به هر <span style="color:#9b59b6">ماژول </span>را در هر فایلی که خواستیم قرار دهیم.&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#f1c40f">فراخوانی کردن</span> هم تنها کافی است به شکل زیر صدا بزنیم. برای مثال یک فایل با نام<span style="color:#e74c3c"> store/counter.js</span>&nbsp;ساختیم به عنوان ماژول و state&nbsp; با نام count در آن قرار دادیم با مقدار 3</p>
+
+<div class="code"><p>{{ $<span style="color:#e67e22">store</span>.state.<span style="color:#e74c3c">counter</span>.count&nbsp;}}&nbsp; &nbsp;<span style="color:#7f8c8d">//3</span></p>
+
+<p>@<span style="color:#2ecc71">click</span>=&quot;$store.<span style="color:#2980b9">commit</span>(&#39;<span style="color:#f39c12">counter/incr</span>&#39;)&quot;</p></div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">می توانیم <span style="color:#e74c3c">state </span>ها و <span style="color:#e74c3c">mutations </span>ها و... را هم <span style="color:#f1c40f">از هم جدا کنیم</span> و تنها کافی است که یک folder با <span style="color:#e74c3c">همان نام فایل js که ماژول است</span> مثلا counter بسازیم و فایل ها <span style="color:#3498db">state.js</span> و <span style="color:#3498db">mutations.js</span> و... را در آن قرار دهیم و کدها را به <span style="color:#e74c3c">export default</span> کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">export default</span> () =&gt; ({<br />
+&nbsp; counter: <span style="color:#9b59b6">0</span><br />
+})</p>
+</div> 
+
+<p>&nbsp;</p>
+
+<p dir="rtl">تمام کارهایی که در <span style="color:#27ae60">vuex </span>انجام می دادیم کاملا مشابه <span style="color:#27ae60">vuex ناکست</span> است اما <span style="color:#e74c3c">ناکست یک قابلیت جدید خودش به vuex اضافه کرده است</span> که ما <span style="color:#d35400">تنها و تنها در store/index.js</span> به آن دسترسی داریم و آن<span style="color:#ff0066"> nuxt server init</span> هست.</p>
+
+<div class="code"><p><span style="color:#e74c3c">export </span><span style="color:#3498db">const </span>actions = {<br />
+&nbsp; <span style="color:#d35400">nuxtServerInit</span>(contextVuex, contextNuxt){<br />
+&nbsp;&nbsp; &nbsp;<span style="color:#3498db">console.log</span>(contextVuex, contextNuxt)<br />
+&nbsp; }<br />
+}</p></div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">در این بخش می توانیم از<span style="color:#f1c40f"> سمت سرور</span> درخواست <span style="color:#e74c3c">axios </span>ارسال کنیم یا کار دیگری انجام دهیم و <span style="color:#f39c12">اطلاعات را دریافت</span> کنیم. مزیت درخواست <span style="color:#f39c12">Axios </span>که در این قسمت انجام می دهیم این است که <span style="color:#ff0066">اطلاعات آن در network مرورگر نمایش داده نمی شود.</span></p>
+
+<p dir="rtl">برای مثال در این بخش می توانیم <span style="color:#f1c40f">اطلاعاتی از سرور دریافت کنیم که ایا این کاربر لاگین کرده است یا نه</span>. این بخش <span style="color:#3498db">تنها یکبار اجرا می شود</span> و اطلاعات را در داخل <span style="color:#9b59b6">Context nuxt</span> قرار می دهد. با <span style="color:#e74c3c">axios </span>می توانیم درخواست<span style="color:#d35400"> ارسال کنیم و بررسی کنیم که ایا کاربر لاگین کرده است با خیر</span> و بعد اطلاعات را به <span style="color:#2ecc71">context ناکست اضافه کنیم تا در همه بخش ها به آن دسترسی داشته باشیم.</span></p>
+
+<p>&nbsp;</p>
+
+
+<h2 class="y">-- middleware --</h2> 
+<br />
+
+<p dir="rtl"><span style="color:#d35400">middleware </span>ها برای زمانی کاربرد دارند که می خواهیم <span style="color:#e74c3c">وارد یک روت یا page </span>شویم. زمانی که خواستیم برای مثال <span style="color:#f39c12">وارد صفحه درباره ما</span> شویم میدل ویری که برای آن تعریف کرده ایم اجرا می شود. برای مثال اگر <span style="color:#ff0066">کاربر خواست وارد پنل کاربری شود اما لاگین نبود آن را به صفحه لاگین redirect می کنیم.</span></p>
+
+<p dir="rtl">برای تعریف میدل <span style="color:#e67e22">middleware </span>باید فایلی که می خواهیم کدها را در آن قرار دهیم با <span style="color:#8e44ad">پسوند js</span> در پوشه <span style="color:#e67e22">middleware </span>ایجاد کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">export default</span> (context) =&gt; {<br />
+<span style="color:#2980b9">&nbsp; console.log</span>(context.store)<br />
+}</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p dir="rtl">برای مثال فایل <span style="color:#e67e22">middleware/auth.js</span> را ایجاد کردیم و<span style="color:#f1c40f"> کد بالا</span> را در آن ثبت کردیم اما حالا باید آن را ثبت کنیم و به <span style="color:#ff0066">ناکست بشناسانیم.</span> برای این منظور یکی از راه هایی که داریم این است که ثبت را در فایل<span style="color:#d35400"> nuxt.config</span> انجام دهیم. کد زیر را <span style="color:#e74c3c">باید خودمان اضافه کنیم.</span></p>
+
+<div class="code"><p><span style="color:#7f8c8d">// in nuxt config</span></p>
+
+<p><span style="color:#d35400">router</span>: {<br />
+&nbsp; &nbsp;<span style="color:#ff0066">middleware</span>: [&#39;<span style="color:#f39c12">auth</span>&#39;]<br />
+}</p></div> 
+
+<p>&nbsp;</p>
+<p dir="rtl">روش دیگر هم این است که می توانیم در <span style="color:#d35400">pages </span>یا <span style="color:#d35400">layouts </span>هم می توانیم از یه شکل زیر از <span style="color:#e74c3c">middleware</span> استفاده کنیم.&nbsp;</p>
+
+<div class="code"><p><span style="color:#ff0066">middleware</span>: [&#39;<span style="color:#f39c12">auth</span>&#39;]</p>
+</div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر <span style="color:#f1c40f">میدل ویر</span> را در <span style="color:#d35400">nuxt config</span> قرار دهیم<span style="color:#e74c3c"> روی همه روت ها اعمال می شود</span> اما اگر در <span style="color:#d35400">هر کامپوننت page</span> قرار دهیم <span style="color:#ff0066">تنها روی همان page این میدل ویر لحاظ می شود.</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای <span style="color:#f39c12">redirect </span>هم می توانیم به شکل زیر عمل کنیم.</p>
+
+<div class="code"><p><span style="color:#e74c3c">export default</span> (context) =&gt; {<br />
+&nbsp;<span style="color:#7f8c8d"> /* console.log(context.store.state.name) */</span><br />
+&nbsp; <span style="color:#c0392b">if </span>(context.store.state.name === &#39;<span style="color:#f39c12">ali</span>&#39;) {<br />
+&nbsp; &nbsp; <span style="color:#e74c3c">return </span><span style="color:#d35400">context</span>.<span style="color:#d35400">redirect</span>(&#39;<span style="color:#f39c12">/</span>&#39;)<br />
+&nbsp; }<br />
+}</p>
+</div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<h2 class="y">-- deployment --</h2> 
+<br />
+
+<p dir="rtl">زمانی که می خواهیم <span style="color:#d35400">یک پروژه ناکست را اپلود کنیم</span> بهتر است ابتدا یکسری به قسمت <span style="color:#f39c12">deploy </span>خود سایت nuxt بزنیم و <span style="color:#9b59b6">آشناییت نسبی با server هایی که خودش </span>معرفی کرده است داشته باشیم.</p>
+
+<p dir="rtl">برخی از مواردی که معرفی کرده است برای <span style="color:#e67e22">static </span>یا <span style="color:#e67e22">SSG </span>هستند و آن هایی که با <span style="color:#e67e22">server </span>مشحص شده اند برای <span style="color:#e67e22">SSR </span>هستند.</p>
+
+<p dir="rtl">برای <span style="color:#d35400">SSG </span>گزینه&nbsp; <span style="color:#e74c3c">netify </span>از همه معروف تر است. برای <span style="color:#d35400">SSR</span> گزینه <span style="color:#e74c3c">Heroku </span>از همه معروف تر است.</p>
+
+<p dir="rtl">اگر <span style="color:#f1c40f">هم&nbsp;SSG و هم SSR</span> می خواهیم <span style="color:#27ae60">NGINX </span>مناسب است اما اگر <span style="color:#f39c12">VPS </span>داشتیم می توانیم از <span style="color:#8e44ad">PM2 </span>استفاده کنیم.</p>
+
+<p dir="rtl">برای سایت هایی مثل رزومه و .. که <span style="color:#e67e22">زیاد اهمیتی ندارد</span> می توانیم از&nbsp;<span style="color:#9b59b6">Heroku </span>استفاده کنیم اما برای<span style="color:#d35400"> سایت های واقعی و با اهمیت</span> می توانیم از <span style="color:#e74c3c">سرویس liara.ir</span> استفاده کنیم.</p>
+
+<p dir="rtl">برای تست ما از <span style="color:#9b59b6">heroku </span>استفاده می کنیم.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+<p dir="rtl"><span style="color:#27ae60">Nuxt </span>با مجموعه ای از دستورات مفید، <span style="color:#3498db">هم برای توسعه</span> و هم برای <span style="color:#3498db">production&nbsp;</span>ارائه می شود.</p>
+
+<div class="code"><p dir="rtl">&nbsp;</p>
+
+<p>&quot;<span style="color:#f39c12">scripts</span>&quot;: {</p>
+
+<p>&nbsp; &nbsp; &nbsp;&quot;<span style="color:#f39c12">dev</span>&quot;: &quot;<span style="color:#e67e22">nuxt</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp;&quot;<span style="color:#e67e22">build</span>&quot;: &quot;<span style="color:#e67e22">nuxt build</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp;&quot;<span style="color:#e67e22">start</span>&quot;: &quot;<span style="color:#e67e22">nuxt start</span>&quot;,<br />
+&nbsp; &nbsp; &nbsp;&quot;<span style="color:#e67e22">generate</span>&quot;: &quot;<span style="color:#e67e22">nuxt generate</span>&quot;<br />
+}</p></div>
+
+<p dir="rtl"><br />
+برای <span style="color:#d35400">راه اندازی یا launch </span>ناکست در حالت <span style="color:#9b59b6">development </span>ما از دستور <span style="color:#e74c3c">dev </span>استفاده می کنیم.<br />
+بعد اجرای دستور dev <span style="color:#27ae60">ناکست </span>روی پورت <span style="color:#e74c3c">3000 </span>در دسترس است.</p>
+
+<p dir="rtl"><span style="color:#f39c12">دستورات command</span> ناکست <span style="color:#9b59b6">دو دسته</span> هستند دستورات <span style="color:#d35400">server </span>برای اهداف <span style="color:#e74c3c">SSR </span>و دستورات <span style="color:#d35400">static </span>برای اهداف <span style="color:#e74c3c">SSG</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f"><span style="font-size:26px">دستورات server</span></span></p>
+
+<p dir="rtl"><span style="color:#ff0066">dev</span></p>
+
+<p dir="rtl">برای <span style="color:#d35400">راه اندازی</span> پروژه در حالت <span style="color:#9b59b6">development&nbsp;</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">build</span></p>
+
+<p dir="rtl"><span style="color:#d35400">ساخت نهایی و بهینه سازی</span> برنامه با <span style="color:#3498db">webpack </span>برای <span style="color:#9b59b6">production</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">start</span></p>
+
+<p dir="rtl">این دستور <span style="color:#e74c3c">بعد از دستور build</span> زده می شود و کار آن <span style="color:#f39c12">start </span>کردن <span style="color:#d35400">production server </span>مربوط به <span style="color:#27ae60">nodejs </span>مانند <span style="color:#9b59b6">Heroku</span>, <span style="color:#9b59b6">Digital Ocean</span> است.</p>
+
+<p dir="rtl"><br />
+برای زمانی که می خواهیم از <span style="color:#27ae60">پروژه ناکست</span> به صورت <span style="color:#e74c3c">SSR</span> استفاده کنیم باید هاست <span style="color:#d35400">nodejs </span>داشته باشیم</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl" style="text-align:center"><span style="color:#f1c40f"><span style="font-size:26px">دستورات static</span></span></p>
+
+<p dir="rtl"><span style="color:#ff0066">dev</span></p>
+
+<p dir="rtl">برای <span style="color:#d35400">راه اندازی</span> پروژه در حالت <span style="color:#9b59b6">development&nbsp;</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">generate</span></p>
+
+<p dir="rtl">برای<span style="color:#e74c3c"> تمام route ها فایل html می سازد</span> و انها را به<span style="color:#d35400"> طور استاتیک</span> در اختیار ما قرار می دهد. <span style="color:#f39c12">خروجی نهایی را در پوشه dist </span>می ریزد.</p>
+
+<p dir="rtl"><span style="color:#ff0066">start</span></p>
+
+<p dir="rtl"><span style="color:#f1c40f">ران کردن و استارت پروژه های ناکست static</span> . حتما باید دستور <span style="color:#e67e22">generate </span><span style="color:#9b59b6">اول </span>زده شده باشد چراکه این دستور به <span style="color:#d35400">پوشه dist </span>نیاز دارد.</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">آموزش کامل آپلود روی <span style="color:#8e44ad">heroku </span>در قسمت <span style="color:#2ecc71">208 </span>وب آموز</p>
+
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">اگر خواستیم پروژه ای را به شکل <span style="color:#e74c3c">SSG </span>به پیش ببریم باید در داخل <span style="color:#d35400">nuxt.config</span> گزینه زیر را در<span style="color:#f39c12"> ابتدای فایل</span> اضافه کنیم.</p>
+
+<div class="code"><p><span style="color:#d35400">target</span>: &#39;<span style="color:#f39c12">static</span>&#39;</p>
+</div> 
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl">برای<span style="color:#f39c12"> اپلود سایتی</span> که به صورت <span style="color:#e74c3c">SSG</span> ساختیم تنها کافی است که بعد از <span style="color:#3498db">اتمام کار </span>طبق زیر عمل کنیم.</p>
+
+<p dir="rtl"><span style="color:#ff0066">1. </span>دستور <span style="color:#e67e22">npm run generate</span></p>
+
+<p dir="rtl"><span style="color:#ff0066">2.</span> <span style="color:#f39c12">زیپ</span> کردن پوشه <span style="color:#e74c3c">dist </span>تولید شده.</p>
+
+<p dir="rtl"><span style="color:#ff0066">3.</span> <span style="color:#3498db">آپلود </span>روی هاست</p>
+
+<p dir="rtl"><span style="color:#ff0066">4.</span> تنظیم فایل <span style="color:#d35400">htaccess </span>با دستوراتی که در<span style="color:#f39c12"> سایت vue</span> است</p>
+
+<p dir="rtl"><span style="color:#ff0066">5.</span> رفتن به tab نام <span style="color:#e74c3c">lighthouse </span>در <span style="color:#9b59b6">inspect </span>و بررسی برخی از<span style="color:#27ae60"> ویژگی های سایت مانند</span> <span style="color:#f39c12">SEO </span>و&nbsp; <span style="color:#f39c12">performance&nbsp;</span></p>
+
+<p dir="rtl">&nbsp;</p>
+
+
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

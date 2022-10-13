@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>composer</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						composer		 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/composer.png" width="150" height="150"></p>
+
+<i class="ti or"> -- &nbsp; &nbsp;   composer   &nbsp; &nbsp; --</i>
+
+<h2 class="y">------   install on Win7   ------</h2> 
+<p dir="rtl">&nbsp;</p>
+<p dir="rtl">برای نصب لاراول نیاز به کامپوزر و <span style="color:#e74c3c">پی اچ پی 7.4</span> است. برای ویندوز 7 امکان استفاده از ومپ با این پی اچ پی وجود ندارد. برای همین باید به سرچ کنیم دانلود پی اچ پی و <span style="color:#9b59b6">وارد سایت خود پی اچ</span> پی شویم &nbsp;و نسخه <span style="color:#d35400">باینری </span>را دانلود کنیم.<br />
+<br />
+بررسی کنید که ختما داخل پوشه پوشه های زیر باشند<br />
+<span style="color:#e74c3c">sasl2<br />
+ext<br />
+dev</span></p>
+
+<p dir="rtl">&nbsp;و پوشه&nbsp;<span style="color:#d35400">zend&nbsp;&nbsp;</span>نباشد.</p>
+
+
+
+<p dir="rtl"><br />
+&nbsp;</p>
+
+<p dir="rtl">حالا هرچی داخل زیپ است را استخراج کرده و داخل پوشه با <span style="color:#2ecc71">نام ورژن پی اچ پی </span>دانلودی می ریزیم مثلا php7.4.19&nbsp;</p>
+
+<p dir="rtl">سپس وارد پوشه شده و فایل&nbsp; <span style="color:#e74c3c">wampserver.conf&nbsp;&nbsp;</span>را از سایر پوشه کپی کرده و داخل این پوشه پیست می دهیم. سپس فایل&nbsp; <span style="color:#d35400">php.ini-development&nbsp;</span>را به اسم این&nbsp; <span style="color:#e74c3c">phpForApache&nbsp;</span>تغییر می دهیم.<br />
+<br />
+فایل&nbsp; <span style="color:#d35400">php.ini </span>را از <span style="color:#8e44ad">آخرین ورژن پی اچ پی </span>خود ومپ کپی کرده و داخل این پوشه پیس می دهیم. حالا وارد فایل شده و&nbsp;</p>
+
+<p dir="rtl">&nbsp;</p>
+
+<div class="code"><p>extension_dir =&quot;<span style="color:#f39c12">D:/dw/wamp/bin/php/php7.3.5/ext/</span>&quot;</p></div>  
+<p dir="rtl">را به نام پوشه و<span style="color:#e67e22"> فایل فعلی تغییر می دهیم </span>مثلا</p>
+<div class="code"><p>extension_dir =&quot;<span style="color:#f39c12">D:/dw/wamp/bin/php/php7.4.19/ext/</span>&quot;&nbsp;</p></div>  
+
+<p dir="rtl">&nbsp;</p>
+
+<p dir="rtl"><br />
+برای کامپوزر هم برای<span style="color:#e74c3c"> نصب به اینترنت نیاز</span> دارد اگر نصب شده و با نوشتن دستور <span style="color:#9b59b6">composer </span>در&nbsp; cmd اجرا نشده باید به <span style="color:#2ecc71">طورکل آن را پاک کرده </span>و به درایو <span style="color:#e67e22">c</span>&nbsp; بروید و سرچ کنید<span style="color:#e74c3c">&nbsp; composer.phar&nbsp;</span>اگر آن را پیدا کرد به<span style="color:#d35400"> محل آن بروید و هرچه فایل مربوط به کامپوزر وجود دارد را پاک کرده </span>و <span style="color:#e74c3c">دوباره کامپوزر را نصب کنید</span>. ایندفعه مشکل حل شده است.&nbsp;<br />
+&nbsp;</p>
+
+<p dir="rtl"><br />
+اگر فایل <span style="color:#3498db">کامپوز را تغییر دادید</span> باید حتما دستور زیر را اجرا کنید.</p>
+
+<div class="code"><p><br />
+<span style="color:#e74c3c">composer </span><span style="color:#d35400">dump-autoload&nbsp;</span></p></div>
+
+
+
+<!--           
+
+ 
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

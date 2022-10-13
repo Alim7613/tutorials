@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Useful Sites</title>
+</head>
+<body>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px none #ffffff;
+  border-radius: 0px;
+  background: #525252;
+}
+
+
+@font-face {
+  font-family: 'wb';
+  src: 
+    url('../font/WebYekan.woff') format('woff');
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: block;
+}
+.pre{
+	text-align:center; 
+	font-size:1.2rem; 
+	font-weight:bold; 
+	padding:8px; 
+	background:#18171c;
+	color:#fff;
+	font-family: 'wb';
+}
+
+.or{
+	color:#d14703;
+}
+.b{
+	color:#038cc7;
+}
+.g{
+	color:#01cd3d;
+}
+.red{
+	color:#dc3545;
+}
+.ti{
+	font-size:2.3rem;
+}
+
+.code{
+	background:#262626;
+	color:rgb(133,197,199);
+	padding:12px;
+	border-radius:4px;
+	text-align:left;
+	font-family: monospace;
+	font-size:1.4rem;
+	overflow:auto;
+	font-style:italic;
+}
+.y{
+	color:yellow;
+}
+
+</style>
+
+
+
+<!-- 
+	|================================================|
+	|						Useful Sites			 |
+	|================================================|
+<span class=""></span>
+ -->
+ 
+<div class="pre">
+<p style="text-align:center"><img src="../img/sites.png" width="150" height="150"></p>
+
+<i class="ti or"> www. &nbsp; &nbsp;   Useful  &nbsp; Sites  &nbsp; &nbsp; .com</i>
+<br />
+<br />
+
+
+
+<h2 class="y">------   Converter   ------</h2> 
+<br />
+
+<div class="code">https://jsonformatter.org/scss-to-css</div>  
+
+<br />
+
+<h2 class="y">------   Emoji   ------</h2> 
+<br />
+
+<div class="code">https://emojipedia.org</div>  
+
+<br />
+
+
+
+
+<h2 class="y">------   National  Code Validation   ------</h2> 
+<br />
+
+<div class="code">https://gist.github.com/ebraminio/5292017</div>  
+
+<p dir="rtl">در اینجا<span style="color:#f39c12"> اعتبار سنجی کدملی ایران</span> برای<span style="color:#e74c3c"> تمام زبان های برنامه نویسی</span> آمده است.</p>
+<div class="code">
+
+<p><span style="color:#7f8c8d">// PHP</span></p>
+
+<p><br />
+function isValidIranianNationalCode($input) {<br />
+&nbsp; &nbsp; if (!preg_match(&quot;/^\d{10}$/&quot;, $input)) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return false;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; $check = (int) $input[9];<br />
+&nbsp; &nbsp; $sum = array_sum(array_map(function ($x) use ($input) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return ((int) $input[$x]) * (10 - $x);<br />
+&nbsp; &nbsp; }, range(0, 8))) % 11;</p>
+
+<p>&nbsp; &nbsp; return $sum &lt; 2 ? $check == $sum : $check + $sum == 11;<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">// JavaScript</span></p>
+
+<p><br />
+function isValidIranianNationalCode(input) {<br />
+&nbsp; &nbsp; if (!/^\d{10}$/.test(input)) return false;<br />
+&nbsp; &nbsp; const check = +input[9];<br />
+&nbsp; &nbsp; const sum = input.split(&#39;&#39;).slice(0, 9).reduce((acc, x, i) =&gt; acc + +x * (10 - i), 0) % 11;<br />
+&nbsp; &nbsp; return sum &lt; 2 ? check === sum : check + sum === 11;<br />
+}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#7f8c8d">//python&nbsp;</span></p>
+
+<p>import re<br />
+def is_valid_iran_code(input):<br />
+&nbsp; &nbsp; if not re.search(r&#39;^\d{10}$&#39;, input): return False<br />
+&nbsp; &nbsp; check = int(input[9])<br />
+&nbsp; &nbsp; s = sum(int(input[x]) * (10 - x) for x in range(9)) % 11<br />
+&nbsp; &nbsp; return check == s if s &lt; 2 else check + s == 11</p>
+</div>  
+
+<br />
+
+
+
+
+
+
+
+
+
+<!--           
+
+<div class="code"></div>  
+
+<h2 class="y">------   Title   ------</h2> 
+           
+-->
+
+</div>  <!-- main -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
